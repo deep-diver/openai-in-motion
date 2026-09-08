@@ -64,6 +64,8 @@ export default function Home() {
   const axis = AXES[chapter.axis];
   const activeBeat = frame.chapterId === chapter.id ? frame.beat : 0;
   const progress = frame.chapterId === chapter.id ? frame.progress : 0;
+  const finished = step === chapters.length - 1 && progress >= 0.999 && !playing;
+  const remaining = Math.ceil((chapters.length - step - progress) * STORY_TIMING.duration / speed);
   const copyRef = useRef<HTMLElement>(null);
   const stateRef = useRef({
     step,
@@ -92,6 +94,7 @@ export default function Home() {
     const state = stateRef.current;
     if (state.reducedMotion) return;
     if (state.progress >= 0.999 && !state.playing) {
+      if (state.step === chapters.length - 1) setStep(0);
       setReplayKey((k) => k + 1);
       setSeek(null);
       setPlaying(true);
@@ -348,7 +351,7 @@ export default function Home() {
             <button
               className="play-button"
               onClick={togglePlay}
-              aria-label={playing ? '일시정지' : '이야기 재생'}
+              aria-label={finished ? '전체 이야기 처음부터 재생' : playing ? '일시정지' : '이야기 재생'}
               disabled={reducedMotion}
             >
               {playing ? <Pause size={17} /> : <Play size={17} />}
@@ -363,19 +366,25 @@ export default function Home() {
             <span className="playback-label">
               {reducedMotion
                 ? '동작 줄이기 적용'
+                : finished
+                  ? '여정 완료'
                 : playing
                   ? '이야기 재생 중'
                   : '이야기 일시정지'}
             </span>
             <button
               className="speed-button mono"
-              aria-label="재생 속도 변경"
+              aria-label={`현재 ${speed}배속, 눌러서 재생 속도 변경`}
               onClick={() =>
-                setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 2 : 1))
+                setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 2 : s === 2 ? 3 : 1))
               }
             >
               {speed}×
             </button>
+          </div>
+          <div className="journey-progress">
+            <progress value={step + progress} max={chapters.length} aria-label="전체 이야기 진행률" />
+            <span className="mono">{step + 1} / {chapters.length} · {finished ? '완료' : `${Math.floor(remaining / 60)}:${String(remaining % 60).padStart(2, '0')} 남음`}</span>
           </div>
           <div className="playback-right">
             <label className="autoplay-label" htmlFor="auto-advance">

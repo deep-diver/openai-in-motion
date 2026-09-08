@@ -1729,3 +1729,43 @@ figure.scene-canvas {
     flex-wrap: wrap;
   }
 }
+.journey-progress {
+  flex: 1;
+  min-width: 130px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.journey-progress progress {
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  border: 0;
+  border-radius: 2px;
+  background: #3c4733;
+  color: var(--accent);
+}
+.journey-progress progress::-webkit-progress-bar { background: #3c4733; }
+.journey-progress progress::-webkit-progress-value { background: var(--accent); }
+.journey-progress progress::-moz-progress-bar { background: var(--accent); }
+.journey-progress span { font-size: 0.75rem; color: #a4b694; }
+.continuous-slider { width: 100%; }
+.narration-slider-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+}
+.narration-slider-control [data-slot='slider-track'] { width: 100%; position: relative; overflow: hidden; }
+.narration-slider-control [data-slot='slider-range'] { height: 100%; }
+.narration-slider-control [data-slot='slider-thumb'] { border-radius: 50%; }
+.narration-slider-control [data-slot='slider-thumb']::after { content: ''; position: absolute; inset: -12px; }
+.narration-slider-control [data-slot='slider-thumb']:focus-within { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 1000px) {
+  .playback-bar { flex-wrap: wrap; }
+  .journey-progress { flex-basis: 100%; max-width: none; order: 3; }
+}

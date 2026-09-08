@@ -1,5 +1,5 @@
 'use client';
-import { Slider } from '@/components/ui/slider';
+import { Slider } from '@base-ui/react/slider';
 import type { Chapter } from '@/data/types';
 import {
   captionWeights,
@@ -46,21 +46,35 @@ export function StoryNarration({
         ))}
       </div>
       <div className="story-scrubber">
-        <Slider
+        <Slider.Root
           className="continuous-slider"
+          data-slot="slider"
           min={0}
-          max={1}
-          step={0.001}
-          value={[progress]}
+          max={STORY_TIMING.duration}
+          step={0.1}
+          largeStep={1}
+          value={[time]}
+          thumbAlignment="edge"
           aria-label="현재 장면의 재생 위치"
           onValueChange={(value) => {
             onScrub();
             onSeek({
               serial: Date.now(),
-              progress: Array.isArray(value) ? value[0] : value,
+              progress: (Array.isArray(value) ? value[0] : value) / STORY_TIMING.duration,
             });
           }}
-        />
+        >
+          <Slider.Control className="narration-slider-control">
+            <Slider.Track data-slot="slider-track">
+              <Slider.Indicator data-slot="slider-range" />
+            </Slider.Track>
+            <Slider.Thumb
+              data-slot="slider-thumb"
+              getAriaLabel={() => `${chapter.title}, 재생 위치`}
+              getAriaValueText={(_, seconds) => `${seconds.toFixed(1)}초 / ${STORY_TIMING.duration}초`}
+            />
+          </Slider.Control>
+        </Slider.Root>
         <div className="story-cue-points">
           {chapter.beats.map((beat, i) => (
             <button
