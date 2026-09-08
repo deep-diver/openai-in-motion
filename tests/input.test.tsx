@@ -92,4 +92,35 @@ void test('overflowing layouts keep native page scrolling outside the stage', as
   assert.equal(step, 0);
   await act(async () => root.unmount());
 });
+void test('vertical stage gestures scroll; horizontal swipes navigate and cancelled touches do not', async () => {
+  let step = 0;
+  const setStep: Dispatch<SetStateAction<number>> = (next) => {
+    step = typeof next === 'function' ? next(step) : next;
+  };
+  function Probe() { useTimelineInput(setStep, false, 44); return null; }
+  const root = createRoot(document.createElement('div'));
+  await act(async () => root.render(<Probe />));
+  const stage = document.createElement('div');
+  stage.className = 'scene-view';
+  document.body.appendChild(stage);
+  const touch = (type: string, x: number, y: number) => {
+    const event = new dom.window.Event(type, { bubbles: true });
+    Object.defineProperties(event, {
+      touches: { value: [{ clientX: x, clientY: y }] },
+      changedTouches: { value: [{ clientX: x, clientY: y }] },
+    });
+    stage.dispatchEvent(event);
+  };
+  touch('touchstart', 200, 300); touch('touchend', 190, 100);
+  assert.equal(step, 0, 'vertical scroll must not change the scene');
+  touch('touchstart', 200, 300); touch('touchcancel', 200, 300); touch('touchend', 50, 300);
+  assert.equal(step, 0, 'cancelled gesture must not navigate');
+  touch('touchstart', 200, 300); touch('touchend', 50, 290);
+  assert.equal(step, 1, 'the first deliberate horizontal swipe works immediately');
+  const wheel = new dom.window.WheelEvent('wheel', { deltaY: 120, bubbles: true, cancelable: true });
+  stage.dispatchEvent(wheel);
+  assert.equal(wheel.defaultPrevented, false, 'the stage does not trap wheel scrolling on an overflowing page');
+  stage.remove();
+  await act(async () => root.unmount());
+});
 after(() => dom.window.close());

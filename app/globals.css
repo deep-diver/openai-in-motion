@@ -662,7 +662,7 @@ button {
   z-index: 2;
 }
 .scene-view {
-  touch-action: pan-x;
+  touch-action: pan-y pinch-zoom;
 }
 .source-list {
   display: grid;

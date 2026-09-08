@@ -125,6 +125,11 @@ export default function Home() {
     const key = (event: KeyboardEvent) => {
       if (
         event.code !== 'Space' ||
+        event.repeat ||
+        event.isComposing ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
         infoOpen ||
         (event.target instanceof Element &&
           event.target.closest(
@@ -191,7 +196,8 @@ export default function Home() {
               <p>
                 재생하면 장면들이 순서대로 이어집니다. 스크롤과 방향키는 장면을
                 이동하고, 스페이스바는 재생을 조절합니다. 하단의 점이나 연도를
-                눌러 원하는 시점으로 바로 이동할 수 있습니다.
+                눌러 원하는 시점으로 바로 이동할 수 있습니다. 터치 화면에서는
+                무대를 좌우로 밀어 장면을 바꾸고, 위아래로 밀어 페이지를 읽습니다.
               </p>
               <p>
                 인물과 공간은 사실을 설명하기 위한 상징적인 미니어처입니다. 실제

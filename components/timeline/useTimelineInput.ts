@@ -11,7 +11,7 @@ export function useTimelineInput(
     if (paused) return;
     let sum = 0,
       lastWheel = 0,
-      lastNavigation = 0,
+      lastNavigation = -Infinity,
       touchY: number | null = null,
       touchX = 0;
     const isInteractive = (target: EventTarget | null) =>
@@ -40,14 +40,8 @@ export function useTimelineInput(
         Math.abs(event.deltaX) > Math.abs(event.deltaY)
       )
         return;
-      // Let a small-screen document scroll normally outside its 3D stage.
-      if (
-        (window.innerWidth <= 700 || pageOverflows()) &&
-        !(
-          event.target instanceof Element && event.target.closest('.scene-view')
-        )
-      )
-        return;
+      // A scrollable document must remain scrollable even over the large stage.
+      if (window.innerWidth <= 700 || pageOverflows()) return;
       event.preventDefault();
       const now = performance.now();
       const gap = now - lastWheel;
@@ -68,6 +62,7 @@ export function useTimelineInput(
     const keyboard = (event: KeyboardEvent) => {
       if (
         isEditing(event.target) ||
+        event.isComposing ||
         event.altKey ||
         event.ctrlKey ||
         event.metaKey
@@ -106,6 +101,7 @@ export function useTimelineInput(
       }
     };
     const touchStart = (event: TouchEvent) => {
+      touchY = null;
       if (
         event.touches.length !== 1 ||
         isInteractive(event.target) ||
@@ -117,25 +113,29 @@ export function useTimelineInput(
       touchX = event.touches[0].clientX;
     };
     const touchEnd = (event: TouchEvent) => {
-      if (touchY === null) return;
+      if (touchY === null || !event.changedTouches.length) return;
       const dy = touchY - event.changedTouches[0].clientY;
       const dx = touchX - event.changedTouches[0].clientX;
       touchY = null;
       if (
-        Math.max(Math.abs(dy), Math.abs(dx)) > 50 &&
+        Math.abs(dx) > 50 &&
+        Math.abs(dx) > Math.abs(dy) * 1.4 &&
         performance.now() - lastNavigation > 750
       )
-        move(Math.sign(Math.abs(dx) > Math.abs(dy) ? dx : dy));
+        move(Math.sign(dx));
     };
+    const touchCancel = () => { touchY = null; };
     window.addEventListener('wheel', wheel, { passive: false });
     window.addEventListener('keydown', keyboard);
     window.addEventListener('touchstart', touchStart, { passive: true });
     window.addEventListener('touchend', touchEnd, { passive: true });
+    window.addEventListener('touchcancel', touchCancel, { passive: true });
     return () => {
       window.removeEventListener('wheel', wheel);
       window.removeEventListener('keydown', keyboard);
       window.removeEventListener('touchstart', touchStart);
       window.removeEventListener('touchend', touchEnd);
+      window.removeEventListener('touchcancel', touchCancel);
     };
   }, [setStep, paused, total]);
 }
