@@ -34,7 +34,10 @@ components/timeline/
   Stage.tsx                    고정 OrthographicCamera·영구 단상·조명
   StoryScene.tsx               두 장면 버퍼·재생/정지·속도·다시 보기·탐색
   storyDirector.ts             장면 전환과 3단계 스토리를 실행하는 GSAP 감독
-  StoryActors.tsx              18가지 세트 구성·인물·움직이는 소품
+  StoryActors.tsx              등장인물과 시작·미래 세트
+  HistoricalSets.tsx           42개 역사 장면의 대표 데모와 사건별 세트
+  historicalMotion.ts          상자 열기·보행·배선·도구 선택 등 사건별 동작
+  SceneActor.tsx               전환 group과 서사 group의 분리
   objects.tsx                  연구실·서버·로봇·스마트폰 등 공용 3D 오브젝트
   primitives.tsx               기본 지오메트리·CanvasTexture 텍스트
   TimelineTracks.tsx           모델 / 이정표 / 사건의 독립된 시간 축
@@ -49,13 +52,13 @@ tests/
 
 `Platform`과 작은 빛의 큐브는 절대 장면마다 교체되지 않습니다. 고정된 무대 위에서 이전 장면의 오브젝트가 퇴장하는 동안 다음 장면의 오브젝트가 나타납니다. 빛의 큐브가 그 사이를 이동하며 다음 이야기의 색으로 변합니다.
 
-각 장면은 약 **12.1초**입니다.
+각 장면은 약 **14.2초**입니다.
 
 ```ts
 export const STORY_TIMING = {
   entry: 1.25,
   beatLength: 3.35,
-  duration: 12.1,
+  duration: 14.2,
   stagger: 0.05,
 };
 ```
@@ -63,7 +66,9 @@ export const STORY_TIMING = {
 - 퇴장: `back.in(1.7)`, 바닥 아래로 이동하며 `scale → 0`
 - 등장: **0.05초 stagger**, `elastic.out(1, 0.5)` / `back.out(1.7)`
 - 세 단계: `beat-0`, `beat-1`, `beat-2` GSAP 라벨로 탐색
-- 마지막 단계 이후 다음 장면 자동 재생, 또는 현재 장면에서 정지
+- 세 번째 단계에서 이미 등장한 물체를 축소하지 않음
+- 약 11.3초부터 완성된 결과를 유지하고, 14.2초에 다음 장면으로 전환하거나 정지
+- 축소 퇴장은 다음 장면을 선택하거나 자동 전환할 때만 실행
 
 `StoryScene`은 현재 장면과 직전 장면의 **두 버퍼만 유지**합니다. 44개 세트를 동시에 생성하지 않습니다. 빠르게 되돌아갈 때 아직 보이는 오브젝트는 현재 위치에서 전환을 이어갑니다. GSAP timeline은 교체·해제 시 정리합니다.
 
@@ -104,7 +109,9 @@ export const STORY_TIMING = {
 
 지원 액션: `reveal`, `pulse`, `grow`, `rise`, `write`, `walk`, `leave`, `arrive`, `scatter`, `connect`, `open`, `orbit`, `tilt`, `stamp`.
 
-게임 말의 자기 대전, 음성 파형, Sora 화면의 움직임도 같은 GSAP 시계 안에서 실행되므로 재생·일시정지·속도·탐색에 함께 반응합니다.
+`historicalMotion.ts`는 부품의 실제 동작을 담당합니다. GPT-2의 뚜껑은 회전하고, Sora의 인물은 도쿄 거리를 걷고, GPT-4의 VGA 플러그는 휴대폰 쪽으로 이동합니다. 텍스트는 줄 단위로 나타나고 모니터 크기는 유지됩니다. 모든 동작은 같은 GSAP 시계 안에서 실행되므로 재생·일시정지·속도·탐색에 함께 반응합니다.
+
+대표 세트는 Gym의 CartPole, Dendi와의 Dota 대결, Dactyl의 글자 블록, DALL·E의 아보카도 의자, DALL·E 2의 말을 탄 우주비행사, 초기 ChatGPT 대화창, CEO 명패와 이사회 의자, GPT-4o의 수학 도움, Stargate 설계도와 크레인입니다. 최근 장면에는 인력 배치표, 레이싱 게임, 메일과 달력, 곡면의 교선, KiCad 회로 설계를 담았습니다. 공개 데모의 대상을 미니어처로 해석했으며 실제 인터페이스의 복제는 아닙니다.
 
 ## 세 축과 인물
 
@@ -143,6 +150,6 @@ npx tsc --noEmit
 npm run build
 ```
 
-테스트는 44개 장면의 모든 액션 대상·인물·날짜 순서, 전체 재생 종료 상태, 전환 도중 되돌아가기, 재생 정지와 단계 탐색, 동작 줄이기, 입력 포커스와 페이지 스크롤을 검사합니다.
+테스트는 44개 장면의 액션 대상·인물·날짜 순서, 역사 세트 연결, 마지막 단계의 크기 유지와 결과 홀드, GPT-2 최종 상자와 GPT-5 경로 선택, 전환 도중 되돌아가기, 재생 정지와 탐색, 동작 줄이기, 입력 포커스와 페이지 스크롤을 검사합니다.
 
 브라우저의 시각·GPU 렌더링 검사는 수행하지 않았습니다. 전체 `npm run lint`에는 초기 생성된 공용 UI 템플릿의 기존 오류가 남아 있으며, 앱 소스는 `lint:app`으로 별도 검사합니다.

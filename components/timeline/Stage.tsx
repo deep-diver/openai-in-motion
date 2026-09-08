@@ -4,15 +4,18 @@
 import { Canvas, useThree } from '@react-three/fiber';
 import {
   Component,
+  memo,
   useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
 } from 'react';
-import { Group, OrthographicCamera } from 'three';
+import { Group, OrthographicCamera, PCFShadowMap } from 'three';
 import gsap from 'gsap';
 import { Box, Cylinder, Label } from './primitives';
 import { StoryScene, type StoryProps } from './StoryScene';
+
+const SHADOW_SETTINGS = { type: PCFShadowMap };
 
 function FixedCamera() {
   const { camera, size } = useThree();
@@ -150,14 +153,14 @@ class CanvasBoundary extends Component<
     );
   }
 }
-export default function Stage(props: StoryProps) {
+function Stage(props: StoryProps) {
   const [attempt, setAttempt] = useState(0);
   return (
     <CanvasBoundary key={attempt} onRetry={() => setAttempt((n) => n + 1)}>
       <Canvas
         orthographic
         camera={{ position: [10, 10.65, 10], zoom: 65, near: 0.1, far: 100 }}
-        shadows
+        shadows={SHADOW_SETTINGS}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true }}
         fallback={
@@ -172,3 +175,5 @@ export default function Stage(props: StoryProps) {
     </CanvasBoundary>
   );
 }
+
+export default memo(Stage);

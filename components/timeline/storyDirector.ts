@@ -1,11 +1,12 @@
 import gsap from 'gsap';
 import { Color, Group, Mesh, MeshStandardMaterial, type Object3D } from 'three';
 import { AXES, type Action, type Chapter } from '@/data/types';
+import { addHistoricalMotion } from './historicalMotion';
 
 export const STORY_TIMING = {
   entry: 1.25,
   beatLength: 3.35,
-  duration: 12.1,
+  duration: 14.2,
   stagger: 0.05,
 } as const;
 export type StoryFrame = {
@@ -75,19 +76,26 @@ function action(
         );
       break;
     case 'pulse':
-      tl.to(
-        target.scale,
-        {
-          x: p.sx * 1.14,
-          y: p.sy * 1.14,
-          z: p.sz * 1.14,
-          duration: 0.35,
-          yoyo: true,
-          repeat: 3,
-          ease: 'sine.inOut',
-        },
-        at,
-      );
+      target.traverse((part) => {
+        if (
+          part instanceof Mesh &&
+          part.material instanceof MeshStandardMaterial &&
+          part.material.emissive.getHex() !== 0
+        ) {
+          const intensity = part.material.emissiveIntensity;
+          tl.to(
+            part.material,
+            {
+              emissiveIntensity: intensity + 0.5,
+              duration: 0.4,
+              yoyo: true,
+              repeat: 1,
+              ease: 'sine.inOut',
+            },
+            at,
+          );
+        }
+      });
       break;
     case 'grow':
       tl.to(
@@ -110,17 +118,22 @@ function action(
         at,
       );
       break;
-    case 'write':
-      target.children.forEach((part, i) => {
-        pose(part);
+    case 'write': {
+      const lines: Object3D[] = [];
+      target.traverse((part) => {
+        if (part.name.startsWith('screen:line:')) lines.push(part);
+      });
+      lines.forEach((line, i) => {
+        const h = pose(line);
         tl.fromTo(
-          part.scale,
+          line.scale,
           { x: 0 },
-          { x: 1, duration: 0.32, ease: 'power2.out' },
-          at + i * 0.055,
+          { x: h.sx, duration: 0.45, ease: 'power2.out' },
+          at + i * 0.22,
         );
       });
       break;
+    }
     case 'walk':
       tl.to(
         target.position,
@@ -139,11 +152,7 @@ function action(
         { x: p.x + 2, y: p.y - 0.2, duration: 1.25, ease: 'power2.in' },
         at,
       );
-      tl.to(
-        target.scale,
-        { x: 0, y: 0, z: 0, duration: 0.45, ease: 'back.in(1.7)' },
-        at + 0.85,
-      );
+      // Leaving is a spatial exit; people never miniaturize mid-story.
       break;
     case 'scatter':
       target.children.forEach((part, i) => {
@@ -158,30 +167,21 @@ function action(
           },
           at + i * 0.035,
         );
-        tl.to(
-          part.scale,
-          { x: 0, y: 0, z: 0, duration: 0.65 },
-          at + 0.15 + i * 0.035,
-        );
       });
       break;
     case 'connect':
-      tl.to(
-        target.position,
-        {
-          x: p.x - (target.parent?.position.x ?? 0),
-          y: p.y + 0.95,
-          z: p.z - 0.4 - (target.parent?.position.z ?? 0),
-          duration: 1.15,
-          ease: 'power2.inOut',
-        },
-        at,
-      );
-      tl.to(
-        target.scale,
-        { x: 0.35, y: 0.35, z: 0.35, duration: 0.65 },
-        at + 0.55,
-      );
+      if (target.name === 'story:data')
+        tl.to(
+          target.position,
+          {
+            x: p.x - (target.parent?.position.x ?? 0) * 0.65,
+            y: p.y + 0.4,
+            z: p.z - 0.5,
+            duration: 1.3,
+            ease: 'power2.inOut',
+          },
+          at,
+        );
       break;
     case 'open': {
       const door = target.getObjectByName('gate:door');
@@ -445,6 +445,7 @@ export function createStoryTimeline({
       { x: 1, y: 1, z: 1, duration: 0.7, ease: 'back.out(1.7)' },
       STORY_TIMING.entry + 2 * STORY_TIMING.beatLength,
     );
+  addHistoricalMotion(tl, incoming, chapter);
   const hold = { value: 0 };
   tl.to(hold, { value: 1, duration: 0.2 }, STORY_TIMING.duration - 0.2);
   if (reducedMotion) {

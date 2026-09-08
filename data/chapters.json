@@ -8,10 +8,7 @@
     "description": "OpenAI가 인류 전체에 도움이 되는 AI를 목표로 비영리 연구기관의 출범을 발표했습니다. 연구를 공유하고 여러 기관과 협력하겠다는 방향도 함께 제시했습니다.",
     "detail": "2015년 12월 11일은 OpenAI가 비영리 연구기관의 출범을 공개한 날입니다. Sam Altman은 공동 의장, Ilya Sutskever는 연구 책임자로 소개됐습니다. 발표는 연구 성과의 공유와 기관 간 협력을 통해 인류 전체에 이로운 결과를 추구한다는 방향을 제시했습니다.",
     "set": "lab",
-    "people": [
-      "sam",
-      "ilya"
-    ],
+    "people": ["sam", "ilya"],
     "sources": [
       {
         "title": "Introducing OpenAI",
@@ -20,8 +17,8 @@
     ],
     "beats": [
       {
-        "title": "하나의 질문",
-        "caption": "비어 있던 연구 책상 위에 모두에게 이로운 AI라는 질문이 놓입니다.",
+        "title": "모두에게 이로운 AI",
+        "caption": "화이트보드와 연구 책상이 놓이고, 비영리 연구소의 첫 질문이 등장합니다.",
         "actions": [
           {
             "target": "work",
@@ -38,8 +35,8 @@
         ]
       },
       {
-        "title": "연구팀이 모이다",
-        "caption": "연구 책임자와 자료가 모이며 비영리 연구소의 모습이 갖춰집니다.",
+        "title": "연구팀의 출발",
+        "caption": "Sam Altman과 Ilya Sutskever가 연구 자료가 모인 작업대에 자리합니다.",
         "actions": [
           {
             "target": "person-1",
@@ -56,17 +53,9 @@
         ]
       },
       {
-        "title": "열린 연구의 출발",
-        "caption": "연구소의 문이 열리고 다른 기관으로 지식의 연결선이 이어집니다.",
+        "title": "연구를 나누겠다는 약속",
+        "caption": "연구 성과를 공유하겠다는 출범의 방향을 완성된 연구실 풍경으로 남깁니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "output",
             "action": "reveal"
@@ -88,9 +77,7 @@
     "description": "OpenAI Gym의 공개 베타가 출시됐습니다. 로봇 시뮬레이션과 Atari 게임 등 여러 환경에서 강화학습 알고리즘을 개발하고 결과를 비교·재현할 수 있도록 만든 도구였습니다.",
     "detail": "Gym은 지능을 완성한 모델이 아니라 연구용 환경과 인터페이스입니다. 발표 저자는 Greg Brockman이며, 환경 버전을 유지해 서로 다른 실험의 조건을 비교할 수 있도록 설계했습니다.",
     "set": "gym",
-    "people": [
-      "greg"
-    ],
+    "people": ["greg"],
     "sources": [
       {
         "title": "OpenAI Gym Beta",
@@ -99,8 +86,8 @@
     ],
     "beats": [
       {
-        "title": "서로 다른 실험",
-        "caption": "아케이드 화면과 로봇 실험대가 따로 놓이고 연구자가 들어옵니다.",
+        "title": "막대가 넘어지기 전에",
+        "caption": "Gym의 대표 환경 CartPole에서 수레가 움직이며 막대의 균형을 잡기 시작합니다.",
         "actions": [
           {
             "target": "hero",
@@ -117,38 +104,22 @@
         ]
       },
       {
-        "title": "공통 인터페이스",
-        "caption": "각 실험 환경이 하나의 Gym 연결 장치에 꽂힙니다.",
+        "title": "관찰하고 행동하다",
+        "caption": "수레의 움직임에 맞춰 기울어진 막대가 똑바로 섭니다. 관찰과 행동의 반복입니다.",
         "actions": [
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       },
       {
-        "title": "비교하고 재현하다",
-        "caption": "환경 버전과 결과 카드가 함께 기록되어 다음 연구에 전달됩니다.",
+        "title": "같은 과제로 비교하다",
+        "caption": "균형을 잡은 막대와 벤치마크 표식이 남습니다. 연구자들은 같은 환경에서 결과를 비교합니다.",
         "actions": [
           {
-            "target": "data",
-            "action": "stamp"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "open"
+            "action": "reveal"
           }
         ]
       }
@@ -166,10 +137,7 @@
     "description": "OpenAI가 게임·웹사이트·응용 프로그램에서 AI를 훈련하고 평가하는 Universe를 공개했습니다. 에이전트는 화면 픽셀을 보고 가상의 키보드와 마우스를 조작하는 방식으로 환경과 상호작용했습니다.",
     "detail": "플랫폼은 일반 프로그램을 Gym 환경으로 연결하려는 시도였습니다. Greg Brockman은 핵심·분산 인프라, Dario Amodei는 초기 에이전트 결과와 강화학습 기준 구현의 기여자로 명시됐습니다.",
     "set": "gym",
-    "people": [
-      "greg",
-      "dario"
-    ],
+    "people": ["greg", "dario"],
     "sources": [
       {
         "title": "Universe",
@@ -178,13 +146,9 @@
     ],
     "beats": [
       {
-        "title": "화면을 관찰하다",
-        "caption": "게임과 브라우저 창이 켜지고 관측 픽셀이 에이전트 쪽으로 모입니다.",
+        "title": "게임에서 웹까지",
+        "caption": "Universe 창에 게임·웹사이트·앱이라는 실험 환경이 차례로 표시됩니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "rise"
@@ -196,38 +160,26 @@
         ]
       },
       {
-        "title": "키보드와 마우스",
-        "caption": "가상 입력 장치가 화면에 연결되어 에이전트의 행동을 전달합니다.",
+        "title": "화면을 보고 조작하다",
+        "caption": "픽셀을 관찰하고 키보드·마우스로 행동하는 공통 인터페이스가 드러납니다.",
         "actions": [
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "person-0",
             "action": "arrive"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       },
       {
-        "title": "여러 환경으로",
-        "caption": "에이전트 실험이 다른 프로그램 창으로 확장되고 결과가 남습니다.",
+        "title": "하나의 연구 인터페이스",
+        "caption": "환경 연결 표식이 나타나고, 여러 컴퓨터 작업을 다룬다는 개념이 화면에 남습니다.",
         "actions": [
           {
             "target": "person-1",
             "action": "arrive"
           },
           {
-            "target": "work",
-            "action": "grow"
-          },
-          {
             "target": "output",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -246,10 +198,7 @@
     "description": "OpenAI와 DeepMind의 연구진은 사람이 두 행동 중 더 나은 쪽을 고르는 피드백으로 목표를 학습하는 알고리즘을 소개했습니다. 적은 양의 인간 피드백으로 복잡한 강화학습 환경의 행동을 개선하는 가능성을 보여줬습니다.",
     "detail": "논문은 사람이 직접 보상함수를 작성하는 부담을 줄이는 접근을 다뤘습니다. Dario Amodei와 Paul Christiano는 공식 발표 공동저자입니다. 이 사건은 2022년 InstructGPT와 별개의 초기 인간 선호 학습 연구입니다.",
     "set": "alignment",
-    "people": [
-      "dario",
-      "paul"
-    ],
+    "people": ["dario", "paul"],
     "sources": [
       {
         "title": "Learning from human preferences",
@@ -258,16 +207,12 @@
     ],
     "beats": [
       {
-        "title": "두 가지 행동",
-        "caption": "작은 시뮬레이션 화면 두 개에서 서로 다른 행동이 나타납니다.",
+        "title": "두 행동을 비교하다",
+        "caption": "사람 앞에 A와 B 두 행동의 비교 패널이 놓입니다.",
         "actions": [
           {
             "target": "work",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "tilt"
           },
           {
             "target": "data",
@@ -276,8 +221,8 @@
         ]
       },
       {
-        "title": "사람이 고르다",
-        "caption": "평가자가 선호하는 행동 카드에 선택 도장을 찍습니다.",
+        "title": "사람이 더 나은 쪽을 고르다",
+        "caption": "선택 표식이 올라갑니다. 사람의 선호가 학습 신호가 됩니다.",
         "actions": [
           {
             "target": "person-0",
@@ -294,20 +239,12 @@
         ]
       },
       {
-        "title": "선호가 학습으로",
-        "caption": "선택이 보상 신호로 연결되고 에이전트가 더 나은 행동을 시도합니다.",
+        "title": "백플립을 배운 에이전트",
+        "caption": "사람의 비교 피드백으로 백플립을 학습한 실험의 결과가 표시됩니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "hero",
-            "action": "rise"
-          },
-          {
             "target": "output",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -326,10 +263,7 @@
     "description": "OpenAI의 Dota 2 봇이 The International 현장에서 프로 선수 Dendi와의 1대1 대결을 2대0으로 이겼습니다. 자기 대전을 중심으로 학습한 시스템이 제한된 경기 형식에서 강한 성과를 보인 사건입니다.",
     "detail": "2017년 8월 16일 공식 후속 글은 Dendi와의 경기일을 8월 11일로 기록합니다. 성과는 전체 5대5 경기와 다른 1대1 형식에서 나왔습니다. 공식 글은 Greg Brockman의 개인 GPU 컴퓨터가 초기 실행 문제 해결과 현장 시연에 쓰였다고 설명합니다.",
     "set": "game",
-    "people": [
-      "dendi",
-      "greg"
-    ],
+    "people": ["dendi", "greg"],
     "sources": [
       {
         "title": "More on Dota 2",
@@ -338,8 +272,8 @@
     ],
     "beats": [
       {
-        "title": "자기 자신과 연습",
-        "caption": "게임 화면 속 봇이 복제된 상대와 반복 대전을 시작합니다.",
+        "title": "Dendi와 한 레인에서",
+        "caption": "Dota 2의 타워와 미드 레인 위에 봇과 Dendi를 상징하는 말이 마주 섭니다.",
         "actions": [
           {
             "target": "hero",
@@ -356,8 +290,8 @@
         ]
       },
       {
-        "title": "프로와의 1대1",
-        "caption": "Dendi와 시연 컴퓨터가 단일 경기 레인 양쪽에 자리합니다.",
+        "title": "자기 대전에서 실제 대결로",
+        "caption": "두 말이 레인을 오갑니다. 자기 대전으로 배운 정책을 인간 선수와 겨룹니다.",
         "actions": [
           {
             "target": "person-0",
@@ -366,28 +300,16 @@
           {
             "target": "person-1",
             "action": "arrive"
-          },
-          {
-            "target": "work",
-            "action": "open"
           }
         ]
       },
       {
-        "title": "결과는 2대0",
-        "caption": "전광판에 1대1 경기의 결과가 기록되고 학습 경로가 빛납니다.",
+        "title": "BOT 2–0 DENDI",
+        "caption": "2대0 결과판과 미드 레인이 남습니다. Dendi와의 2017년 1대1 데모입니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "data",
-            "action": "connect"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -407,9 +329,7 @@
     "description": "OpenAI는 Elon Musk가 이사회를 떠난다고 발표했습니다. 당시 발표는 Tesla의 AI 연구가 확대되면서 생길 수 있는 이해충돌을 줄이기 위한 조치라고 설명했습니다.",
     "detail": "2018년 2월 20일 공개된 발표는 Musk의 이사회 퇴임 계획과 새로운 후원자·자문 인사를 함께 알렸습니다. OpenAI는 당시 Tesla의 AI 집중이 커지면서 생길 수 있는 잠재적 이해충돌을 줄이는 조치라고 설명했습니다.",
     "set": "board",
-    "people": [
-      "elon"
-    ],
+    "people": ["elon"],
     "sources": [
       {
         "title": "OpenAI supporters",
@@ -418,8 +338,8 @@
     ],
     "beats": [
       {
-        "title": "이사회 탁자",
-        "caption": "이사회 좌석과 이름표들이 하나의 탁자에 모여 있습니다.",
+        "title": "이사회 자리",
+        "caption": "이사회 테이블 위에 ELON MUSK 명패가 놓여 있습니다.",
         "actions": [
           {
             "target": "hero",
@@ -436,8 +356,8 @@
         ]
       },
       {
-        "title": "퇴임을 발표하다",
-        "caption": "공식 발표 문서가 펼쳐지고 Musk의 이름표가 탁자에서 이동합니다.",
+        "title": "명패가 자리를 떠나다",
+        "caption": "명패와 인물이 테이블 옆으로 이동하며 이사회 퇴임을 표현합니다.",
         "actions": [
           {
             "target": "data",
@@ -446,28 +366,16 @@
           {
             "target": "person-0",
             "action": "leave"
-          },
-          {
-            "target": "support",
-            "action": "tilt"
           }
         ]
       },
       {
-        "title": "연구는 이어지다",
-        "caption": "남은 이사회와 연구소를 잇는 연결이 유지되며 다음 운영 구성이 기록됩니다.",
+        "title": "남겨진 의자",
+        "caption": "빈 이사회 자리와 공식 발표 기록이 남습니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
-          },
-          {
             "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -485,10 +393,7 @@
     "description": "대량의 텍스트로 먼저 학습한 Transformer를 여러 언어 과제에 맞게 조정하는 연구가 공개됐습니다. 오늘날 GPT-1로 불리는 이 연구는 생성형 사전학습이 다양한 언어 이해 문제에 활용될 수 있음을 보여줬습니다.",
     "detail": "당시 연구 제목은 Improving language understanding with unsupervised learning입니다. 공통 언어 모델을 사전학습한 뒤 각 과제에 맞게 미세조정하는 두 단계 접근을 사용했습니다. Alec Radford는 발표 저자이며 Ilya Sutskever는 논문 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "ilya"
-    ],
+    "people": ["alec", "ilya"],
     "sources": [
       {
         "title": "Improving language understanding with unsupervised learning",
@@ -501,16 +406,12 @@
     ],
     "beats": [
       {
-        "title": "먼저 읽다",
-        "caption": "많은 책과 텍스트 카드가 학습 장치로 들어갑니다.",
+        "title": "사전 학습의 층을 쌓다",
+        "caption": "텍스트로 사전 학습하는 Transformer의 층이 순서대로 자리를 잡습니다.",
         "actions": [
           {
             "target": "data",
             "action": "rise"
-          },
-          {
-            "target": "work",
-            "action": "open"
           },
           {
             "target": "person-0",
@@ -519,13 +420,9 @@
         ]
       },
       {
-        "title": "하나의 기반 모델",
-        "caption": "생성형 사전학습으로 공통 언어 모델 블록이 조립됩니다.",
+        "title": "과제에 맞춰 미세 조정하다",
+        "caption": "책과 텍스트 카드가 정렬되고, 사전 학습과 미세 조정의 두 단계가 표시됩니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
           {
             "target": "data",
             "action": "connect"
@@ -537,20 +434,12 @@
         ]
       },
       {
-        "title": "여러 과제에 맞추다",
-        "caption": "기반 모델이 독해·분류·질문응답 작업대에 연결됩니다.",
+        "title": "하나의 기반, 여러 언어 과제",
+        "caption": "분류와 질문응답으로 연결되는 공통 기반이 완성된 탑 옆에 나타납니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -570,10 +459,7 @@
     "description": "다섯 신경망으로 구성된 OpenAI Five가 제한된 규칙의 Dota 2에서 아마추어 팀을 이기기 시작했다고 발표됐습니다. 대규모 자기 대전과 강화학습으로 팀 전략과 장기적인 판단을 학습하는 접근이 공개됐습니다.",
     "detail": "발표는 2018년 6월 6일의 시스템 상태를 설명하며, 영웅 선택과 게임 기능에 제한이 있었습니다. 각 영웅의 신경망 사이에 명시적 통신 채널을 두지 않고 개인 보상과 팀 보상의 비중을 조절하며 협동을 학습했습니다. Greg Brockman과 Jakub Pachocki는 발표 공동저자입니다.",
     "set": "game",
-    "people": [
-      "greg",
-      "jakub"
-    ],
+    "people": ["greg", "jakub"],
     "sources": [
       {
         "title": "OpenAI Five",
@@ -582,13 +468,9 @@
     ],
     "beats": [
       {
-        "title": "하나에서 다섯으로",
-        "caption": "단일 봇 옆에 네 개의 에이전트 표식이 차례로 합류합니다.",
+        "title": "한 명에서 다섯으로",
+        "caption": "Dota 2 보드 양쪽에 다섯 개씩의 말이 자리합니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
           {
             "target": "support",
             "action": "reveal"
@@ -600,16 +482,12 @@
         ]
       },
       {
-        "title": "함께 얻는 보상",
-        "caption": "반복 대전 데이터와 팀 보상 표식이 다섯 에이전트 주위를 순환합니다.",
+        "title": "팀으로 움직이다",
+        "caption": "여러 에이전트가 레인을 오가며 자기 대전과 협동 학습을 표현합니다.",
         "actions": [
           {
             "target": "data",
             "action": "orbit"
-          },
-          {
-            "target": "work",
-            "action": "connect"
           },
           {
             "target": "person-1",
@@ -618,20 +496,12 @@
         ]
       },
       {
-        "title": "팀 전략이 나타나다",
-        "caption": "다섯 표식이 같은 목표로 움직이고 제한된 경기의 성과가 기록됩니다.",
+        "title": "OpenAI Five의 팀워크",
+        "caption": "5대5 보드와 팀워크 표식이 남습니다. 2018년 공개 당시의 연구 장면입니다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "walk"
-          },
-          {
-            "target": "support",
-            "action": "walk"
-          },
-          {
             "target": "output",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -651,10 +521,7 @@
     "description": "OpenAI는 시뮬레이션에서 학습한 로봇 손 Dactyl이 실제 물체의 방향을 바꾸는 연구를 공개했습니다. 다양한 물리·시각 조건을 무작위로 바꿔 학습함으로써 가상 환경의 경험을 현실에 옮기는 접근을 보여줬습니다.",
     "detail": "Dactyl은 실제 로봇 손의 손바닥 위에서 블록이나 프리즘의 방향을 바꾸는 과제를 수행했습니다. 시뮬레이션에서 마찰·크기·시각 조건 등을 바꿔 학습한 정책이 실제 환경에서도 작동하는지를 검증했습니다. Wojciech Zaremba와 Jakub Pachocki는 발표 공동저자입니다.",
     "set": "robotics",
-    "people": [
-      "wojciech",
-      "jakub"
-    ],
+    "people": ["wojciech", "jakub"],
     "sources": [
       {
         "title": "Learning dexterity",
@@ -663,13 +530,9 @@
     ],
     "beats": [
       {
-        "title": "가상의 손",
-        "caption": "시뮬레이션 화면에서 손과 블록이 나타나 여러 조건으로 반복됩니다.",
+        "title": "다섯 손가락이 닫히다",
+        "caption": "Dactyl의 다섯 손가락 로봇 손이 글자 블록을 잡습니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "scatter"
@@ -681,16 +544,12 @@
         ]
       },
       {
-        "title": "현실로 옮기다",
-        "caption": "학습된 제어가 카메라와 실제 로봇 손으로 연결됩니다.",
+        "title": "블록의 방향을 바꾸다",
+        "caption": "잡은 블록이 회전합니다. 시뮬레이션에서 배운 조작을 실제 손에 옮긴 실험입니다.",
         "actions": [
           {
             "target": "hero",
             "action": "reveal"
-          },
-          {
-            "target": "support",
-            "action": "connect"
           },
           {
             "target": "person-1",
@@ -699,20 +558,12 @@
         ]
       },
       {
-        "title": "블록의 방향을 바꾸다",
-        "caption": "손바닥 위 블록이 기울어져 새 면을 드러내고 결과가 기록됩니다.",
+        "title": "다른 면을 향하게 하다",
+        "caption": "블록이 한 번 더 방향을 바꾼 뒤 손 안에 머뭅니다. 2018년의 블록 조작 데모입니다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "tilt"
-          },
-          {
             "target": "output",
-            "action": "rise"
-          },
-          {
-            "target": "data",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -732,10 +583,7 @@
     "description": "GPT-2는 과제별 추가 학습 없이 문장을 이어 쓰고 여러 언어 작업을 수행하는 가능성을 보여줬습니다. OpenAI는 오용 우려를 이유로 작은 모델부터 공개하며 단계적 배포를 시작했습니다.",
     "detail": "최초 발표에서는 작은 모델을 공개하고 큰 모델의 공개를 유보했습니다. OpenAI는 연구자들과 능력·오용 가능성·공개 영향을 검토하는 단계적 접근을 택했습니다. Alec Radford와 Jeffrey Wu는 연구 및 발표 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "jeffrey"
-    ],
+    "people": ["alec", "jeffrey"],
     "sources": [
       {
         "title": "Better language models and their implications",
@@ -744,16 +592,12 @@
     ],
     "beats": [
       {
-        "title": "문장이 이어지다",
-        "caption": "짧은 프롬프트에서 긴 문단이 출력됩니다.",
+        "title": "네 크기의 모델 상자",
+        "caption": "124M·355M·774M·1.5B 상자가 놓이고 가장 작은 상자의 잠금이 풀립니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "grow"
           },
           {
             "target": "output",
@@ -762,16 +606,12 @@
         ]
       },
       {
-        "title": "공개를 검토하다",
-        "caption": "크기가 다른 모델 상자와 평가 자료가 연구자 앞에 모입니다.",
+        "title": "공개 범위를 검토하다",
+        "caption": "큰 세 상자는 닫힌 채 평가 기록과 나란히 놓입니다.",
         "actions": [
           {
             "target": "support",
             "action": "reveal"
-          },
-          {
-            "target": "work",
-            "action": "open"
           },
           {
             "target": "person-0",
@@ -784,22 +624,9 @@
         ]
       },
       {
-        "title": "작은 모델부터",
-        "caption": "작은 공개 상자가 열리고 더 큰 모델은 평가 작업대에 남습니다.",
-        "actions": [
-          {
-            "target": "support",
-            "action": "open"
-          },
-          {
-            "target": "data",
-            "action": "stamp"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
-          }
-        ]
+        "title": "작은 모델부터 공개하다",
+        "caption": "작은 상자만 열린 상태를 유지합니다. 단계적 공개라는 선택이 한눈에 남습니다.",
+        "actions": []
       }
     ],
     "model": "GPT-2",
@@ -817,10 +644,7 @@
     "description": "OpenAI는 투자 수익에 상한을 두는 OpenAI LP를 발표했습니다. 비영리 조직의 통제 아래에서 더 큰 연구 인프라와 인재에 필요한 자금을 조달하려는 구조였습니다.",
     "detail": "새 구조에서도 비영리 조직이 통제권을 유지했습니다. 투자자와 직원의 수익에 상한을 두어 자금을 조달하고 연구 인재를 확보하려는 구상이었습니다. 당시 발표는 Sam Altman을 CEO, Greg Brockman을 의장·CTO로 소개합니다.",
     "set": "organization",
-    "people": [
-      "sam",
-      "greg"
-    ],
+    "people": ["sam", "greg"],
     "sources": [
       {
         "title": "OpenAI LP",
@@ -829,13 +653,9 @@
     ],
     "beats": [
       {
-        "title": "새로운 구조",
-        "caption": "비영리 연구소 아래에 LP라는 운영 층이 올라옵니다.",
+        "title": "비영리의 사명",
+        "caption": "NONPROFIT 표식과 연구 사명이 구조의 위쪽에 놓입니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
           {
             "target": "work",
             "action": "reveal"
@@ -847,8 +667,8 @@
         ]
       },
       {
-        "title": "자본을 모으다",
-        "caption": "수익 상한 표시가 있는 통로로 투자 표식이 들어옵니다.",
+        "title": "LP 운영 구조가 자리 잡다",
+        "caption": "보라색 OPENAI LP 층이 비영리 아래로 들어옵니다.",
         "actions": [
           {
             "target": "data",
@@ -865,20 +685,12 @@
         ]
       },
       {
-        "title": "사명의 통제 아래",
-        "caption": "비영리 통제선이 유지된 채 자금이 연구 자원으로 이어집니다.",
+        "title": "통제와 수익 상한",
+        "caption": "위아래의 통제선과 CAPPED RETURNS 표식이 함께 남습니다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "grow"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -897,10 +709,7 @@
     "description": "Microsoft가 OpenAI에 10억 달러를 투자하는 파트너십이 발표됐습니다. 두 회사는 Azure에서 새로운 AI 슈퍼컴퓨팅 기술과 대규모 연구 기반을 함께 구축하기로 했습니다.",
     "detail": "Sam Altman과 Satya Nadella는 당시 각각 OpenAI와 Microsoft의 CEO로 공동 발표에 참여했습니다. 이는 2019년 최초 파트너십이며 이후 투자 확대와 구분됩니다.",
     "set": "investment",
-    "people": [
-      "sam",
-      "satya"
-    ],
+    "people": ["sam", "satya"],
     "sources": [
       {
         "title": "Microsoft invests in and partners with OpenAI",
@@ -913,8 +722,8 @@
     ],
     "beats": [
       {
-        "title": "두 조직이 만나다",
-        "caption": "연구소와 Azure 서버 구역 사이에 두 회사의 대표가 자리합니다.",
+        "title": "OpenAI와 Azure",
+        "caption": "OpenAI 연구소와 Microsoft의 네 색 로고가 있는 Azure 구역이 마주 섭니다.",
         "actions": [
           {
             "target": "hero",
@@ -935,16 +744,12 @@
         ]
       },
       {
-        "title": "파트너십 발표",
-        "caption": "10억 달러 투자 표식과 협약 문서가 놓이고 연결 다리가 열립니다.",
+        "title": "10억 달러 파트너십",
+        "caption": "두 구역 사이에 다리 조각이 내려와 연결됩니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "support",
-            "action": "open"
           },
           {
             "target": "data",
@@ -953,20 +758,12 @@
         ]
       },
       {
-        "title": "연산 기반을 넓히다",
-        "caption": "Azure 연결을 따라 서버 랙이 커지고 연구 출력이 켜집니다.",
+        "title": "연산 기반을 함께 만들다",
+        "caption": "완성된 다리와 $1 BILLION 표식이 남아 2019년 협력 발표를 보여줍니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "work",
-            "action": "grow"
-          },
-          {
             "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -985,10 +782,7 @@
     "description": "단계적 공개의 마지막 단계로 15억 개 매개변수의 GPT-2가 공개됐습니다. OpenAI는 모델 공개와 함께 생성 텍스트 탐지 및 공개 과정에서 얻은 연구 결과를 공유했습니다.",
     "detail": "2월부터 이어진 단계적 공개가 최대 크기의 모델 공개에 도달했습니다. 생성 텍스트 탐지 연구와 공개 과정에서 관찰한 결과를 함께 공유하며 책임 있는 연구 공개 방식에 대한 논의를 이어갔습니다. Alec Radford와 Jeffrey Wu는 GPT-2 연구 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "jeffrey"
-    ],
+    "people": ["alec", "jeffrey"],
     "sources": [
       {
         "title": "GPT-2: 1.5B release",
@@ -1001,8 +795,8 @@
     ],
     "beats": [
       {
-        "title": "남아 있던 큰 모델",
-        "caption": "이전 공개에서 닫혀 있던 가장 큰 모델 상자와 평가 기록이 돌아옵니다.",
+        "title": "마지막으로 남은 상자",
+        "caption": "앞서 공개된 세 상자는 이미 열려 있고, 1.5B 상자만 잠겨 있습니다.",
         "actions": [
           {
             "target": "hero",
@@ -1011,21 +805,13 @@
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "work",
-            "action": "open"
           }
         ]
       },
       {
-        "title": "최종 가중치 공개",
-        "caption": "큰 상자가 열리고 연구자가 모델 자료를 받을 수 있게 됩니다.",
+        "title": "1.5B의 잠금을 풀다",
+        "caption": "마지막 잠금이 옆으로 이동하고 1.5B 상자의 뚜껑이 열립니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "open"
-          },
           {
             "target": "person-0",
             "action": "arrive"
@@ -1033,28 +819,16 @@
           {
             "target": "person-1",
             "action": "arrive"
-          },
-          {
-            "target": "support",
-            "action": "connect"
           }
         ]
       },
       {
-        "title": "탐지와 보고서",
-        "caption": "생성 텍스트 탐지 도구와 단계적 공개의 관찰 결과가 함께 놓입니다.",
+        "title": "최종 가중치 공개",
+        "caption": "네 상자가 모두 열린 상태와 공개 보고서가 남습니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "pulse"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "data",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -1074,10 +848,7 @@
     "description": "1,750억 개 매개변수를 가진 GPT-3 연구가 발표됐습니다. 별도 미세조정 없이 텍스트로 제시한 소수의 예시를 바탕으로 번역·질문응답 등 여러 과제를 수행하는 능력을 평가했습니다.",
     "detail": "Tom Brown과 Ilya Sutskever는 공식 논문 공동저자입니다. 날짜는 연구 발표일이며 API 비공개 베타 공개일인 6월 11일과 구분됩니다.",
     "set": "language",
-    "people": [
-      "tom",
-      "ilya"
-    ],
+    "people": ["tom", "ilya"],
     "sources": [
       {
         "title": "Language models are few-shot learners",
@@ -1086,13 +857,9 @@
     ],
     "beats": [
       {
-        "title": "모델의 규모가 커지다",
-        "caption": "학습 자료 주변에서 GPT-3 큐브가 크게 조립됩니다.",
+        "title": "1,750억 파라미터",
+        "caption": "175B 표식 위로 모델의 층이 차례로 쌓입니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
           {
             "target": "data",
             "action": "rise"
@@ -1104,13 +871,9 @@
         ]
       },
       {
-        "title": "예시 몇 장",
-        "caption": "작업별 예시 카드가 입력 작업대에 놓입니다.",
+        "title": "번역 예시 몇 장",
+        "caption": "sea → mer, sky → ciel 같은 예시 뒤에 tree → ? 카드가 놓입니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "connect"
@@ -1122,20 +885,12 @@
         ]
       },
       {
-        "title": "다양한 결과",
-        "caption": "같은 모델에서 번역·질문응답·문장 완성 결과가 분기됩니다.",
+        "title": "문맥에서 답을 찾다",
+        "caption": "tree → arbre라는 출력이 나타납니다. 몇 개의 예시로 과제를 전달하는 few-shot을 표현합니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -1155,10 +910,7 @@
     "description": "OpenAI가 GPT-3 계열 모델을 사용할 수 있는 API를 비공개 베타로 공개했습니다. 개발자는 텍스트를 입력하고 결과를 받아 제품과 응용 프로그램에 언어 모델을 연결할 수 있게 됐습니다.",
     "detail": "초기 제공 형태는 사용자가 접근을 신청하는 비공개 베타였습니다. 범용적인 텍스트 입력·출력 인터페이스를 통해 다양한 응용을 실험할 수 있도록 했습니다. Greg Brockman과 Mira Murati는 공식 발표 공동저자입니다.",
     "set": "code",
-    "people": [
-      "greg",
-      "mira"
-    ],
+    "people": ["greg", "mira"],
     "sources": [
       {
         "title": "OpenAI API",
@@ -1167,8 +919,8 @@
     ],
     "beats": [
       {
-        "title": "연구실의 모델",
-        "caption": "모델 장치와 개발자 작업대가 벽의 양쪽에 보입니다.",
+        "title": "개발자의 요청",
+        "caption": "터미널에 API 요청과 프롬프트가 차례로 표시됩니다.",
         "actions": [
           {
             "target": "hero",
@@ -1185,16 +937,12 @@
         ]
       },
       {
-        "title": "API 포트가 열리다",
-        "caption": "접근 신청 자료가 놓이고 연결 포트가 열립니다.",
+        "title": "모델이 응답하다",
+        "caption": "응답 줄이 나타나며 모델과 개발자의 코드가 연결됩니다.",
         "actions": [
           {
             "target": "data",
             "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "open"
           },
           {
             "target": "person-1",
@@ -1203,20 +951,12 @@
         ]
       },
       {
-        "title": "앱으로 연결하다",
-        "caption": "작업대가 API에 연결되고 각 응용 프로그램으로 텍스트가 나옵니다.",
+        "title": "연구에서 응용 프로그램으로",
+        "caption": "API 연결 결과가 남습니다. 2020년 6월의 비공개 베타입니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -1235,10 +975,7 @@
     "description": "CLIP은 인터넷의 이미지와 텍스트 쌍으로 시각 개념을 학습하는 모델로 소개됐습니다. 인식할 범주의 이름을 자연어로 제시하면 별도의 과제별 학습 없이 이미지 분류를 수행하는 방식을 보여줬습니다.",
     "detail": "CLIP은 이미지와 자연어의 대응을 학습해 새로운 범주 이름에도 적용하는 방식을 제시했습니다. 이미지와 후보 문장을 비교하는 접근은 같은 날 공개된 이미지 생성 모델 DALL·E와 다른 역할을 맡았습니다. Alec Radford와 Jong Wook Kim은 공식 발표 공동저자입니다.",
     "set": "image",
-    "people": [
-      "alec",
-      "jongwook"
-    ],
+    "people": ["alec", "jongwook"],
     "sources": [
       {
         "title": "CLIP: Connecting text and images",
@@ -1247,16 +984,12 @@
     ],
     "beats": [
       {
-        "title": "두 종류의 카드",
-        "caption": "이미지 카드와 문장 카드가 서로 다른 레일로 들어옵니다.",
+        "title": "그림과 자연어 이름표",
+        "caption": "강아지 모형 앞에 고양이와 강아지를 설명하는 두 문장 후보가 놓입니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "work",
-            "action": "open"
           },
           {
             "target": "person-0",
@@ -1265,17 +998,9 @@
         ]
       },
       {
-        "title": "의미를 맞추다",
-        "caption": "의미가 맞는 이미지와 문장을 CLIP 장치가 연결합니다.",
+        "title": "맞는 의미를 비교하다",
+        "caption": "강아지 모형이 돌아서고 이미지와 텍스트 카드가 정렬됩니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "connect"
-          },
-          {
-            "target": "support",
-            "action": "pulse"
-          },
           {
             "target": "person-1",
             "action": "arrive"
@@ -1283,20 +1008,12 @@
         ]
       },
       {
-        "title": "새 이미지를 분류하다",
-        "caption": "새로운 그림이 자연어 이름표 아래로 정렬됩니다.",
+        "title": "강아지라는 문장과 연결",
+        "caption": "a photo of a dog라는 선택 결과가 나타나 이미지와 문장의 연결을 보여줍니다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "pulse"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -1316,10 +1033,7 @@
     "description": "DALL·E는 텍스트 설명에서 이미지를 생성하는 모델로 공개됐습니다. 서로 다른 개념을 조합해 자연어로 요청한 새로운 시각적 표현을 만들어내는 가능성을 보여줬습니다.",
     "detail": "Aditya Ramesh와 Gabriel Goh는 공식 발표의 주요 저자입니다. 아보카도 모양 의자는 당시 공식 소개의 대표 예시에서 가져온 연출입니다.",
     "set": "image",
-    "people": [
-      "aditya",
-      "gabriel"
-    ],
+    "people": ["aditya", "gabriel"],
     "sources": [
       {
         "title": "DALL·E: Creating images from text",
@@ -1328,8 +1042,8 @@
     ],
     "beats": [
       {
-        "title": "문장으로 주문하다",
-        "caption": "아보카도 모양 의자라는 요청 카드가 이젤 앞에 놓입니다.",
+        "title": "아보카도 모양의 의자",
+        "caption": "아보카도와 안락의자를 결합하라는 프롬프트가 놓입니다.",
         "actions": [
           {
             "target": "data",
@@ -1346,17 +1060,9 @@
         ]
       },
       {
-        "title": "개념을 조합하다",
-        "caption": "아보카도와 의자 표식이 생성 장치에 함께 연결됩니다.",
+        "title": "문장이 낯선 사물을 만들다",
+        "caption": "초록 과육과 갈색 씨를 가진 아보카도 의자가 위에서 내려와 자리를 잡습니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "person-1",
             "action": "arrive"
@@ -1364,20 +1070,12 @@
         ]
       },
       {
-        "title": "가능성의 갤러리",
-        "caption": "서로 다른 아보카도 의자 이미지가 출력 갤러리에 차례로 나타납니다.",
+        "title": "그때의 아보카도 의자",
+        "caption": "생성 결과의 작은 변형이 갤러리에 나타납니다. 두 의자는 완성된 크기로 남습니다.",
         "actions": [
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "output",
-            "action": "grow"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       }
@@ -1397,10 +1095,7 @@
     "description": "자연어를 코드로 바꾸는 Codex의 개선된 버전이 API 비공개 베타로 공개됐습니다. GPT-3의 후속 계열인 Codex는 공개 소스 코드를 학습했고 GitHub Copilot의 기반 모델로도 사용됐습니다.",
     "detail": "2021년 Codex는 자연어와 공개 소스 코드로 학습한 코드 생성 모델이었습니다. Python에 특히 강하며 여러 프로그래밍 언어의 코드 생성·설명·변환을 수행하는 가능성을 보여줬습니다. Wojciech Zaremba와 Greg Brockman은 공식 발표 공동저자입니다.",
     "set": "code",
-    "people": [
-      "wojciech",
-      "greg"
-    ],
+    "people": ["wojciech", "greg"],
     "sources": [
       {
         "title": "OpenAI Codex",
@@ -1409,13 +1104,9 @@
     ],
     "beats": [
       {
-        "title": "원하는 일을 말하다",
-        "caption": "개발자의 자연어 요청이 터미널 입력 카드에 기록됩니다.",
+        "title": "말로 함수를 요청하다",
+        "caption": "자연어 요청이 코드 창의 첫 줄로 들어옵니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "write"
@@ -1427,17 +1118,9 @@
         ]
       },
       {
-        "title": "코드를 조립하다",
-        "caption": "학습한 코드 패턴을 바탕으로 프로그램 블록이 줄 단위로 쌓입니다.",
+        "title": "함수가 줄 단위로 나타나다",
+        "caption": "함수 선언과 반환 코드가 차례로 표시됩니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "person-1",
             "action": "arrive"
@@ -1445,20 +1128,12 @@
         ]
       },
       {
-        "title": "프로그램을 실행하다",
-        "caption": "생성된 코드가 작은 실행 화면으로 연결됩니다.",
+        "title": "Hello, world!",
+        "caption": "실행 결과가 나타나고 생성된 코드와 함께 남습니다.",
         "actions": [
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
-          },
-          {
-            "target": "hero",
-            "action": "connect"
           }
         ]
       }
@@ -1478,10 +1153,7 @@
     "description": "사람의 시범과 응답 순위를 활용해 지시를 더 잘 따르도록 만든 InstructGPT가 발표됐습니다. OpenAI는 사람의 피드백을 이용한 강화학습을 적용한 이 모델들을 API의 기본 언어 모델로 제공한다고 밝혔습니다.",
     "detail": "Ryan Lowe와 Jan Leike는 공식 발표 공동저자입니다. 선호 학습으로 행동을 개선했지만 오류나 유해한 응답이 사라졌다는 의미는 아닙니다.",
     "set": "alignment",
-    "people": [
-      "ryan",
-      "jan"
-    ],
+    "people": ["ryan", "jan"],
     "sources": [
       {
         "title": "Aligning language models to follow instructions",
@@ -1490,8 +1162,8 @@
     ],
     "beats": [
       {
-        "title": "좋은 답변의 시범",
-        "caption": "평가자가 원하는 답변의 예시 카드를 작성합니다.",
+        "title": "답변 A와 답변 B",
+        "caption": "같은 요청에 대한 두 답변이 비교 작업대에 놓입니다.",
         "actions": [
           {
             "target": "person-0",
@@ -1508,8 +1180,8 @@
         ]
       },
       {
-        "title": "응답에 순위를 매기다",
-        "caption": "여러 답변 카드가 비교 작업대에서 순서대로 정렬됩니다.",
+        "title": "선호하는 답변에 투표하다",
+        "caption": "사람이 고른 답변의 선택 표식이 올라갑니다.",
         "actions": [
           {
             "target": "person-1",
@@ -1526,20 +1198,12 @@
         ]
       },
       {
-        "title": "피드백이 돌아가다",
-        "caption": "평가 신호가 모델로 돌아가고 새 요청에 더 적합한 결과가 출력됩니다.",
+        "title": "지시를 따르는 응답",
+        "caption": "피드백을 학습에 반영한 결과가 나타나며 비교 패널은 그대로 남습니다.",
         "actions": [
           {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
-          },
-          {
             "target": "output",
-            "action": "write"
+            "action": "reveal"
           }
         ]
       }
@@ -1559,10 +1223,7 @@
     "description": "OpenAI는 DALL·E 2를 제한된 사용자에게 연구 프리뷰로 제공하기 시작했습니다. 새로운 시스템은 첫 DALL·E보다 더 사실적이고 정확한 이미지를 더 높은 해상도로 만드는 방향을 보여줬습니다.",
     "detail": "공식 후속 발표는 제한된 사용자 대상 연구 프리뷰가 2022년 4월 시작됐다고 설명합니다. 이미지 생성뿐 아니라 변형과 편집을 탐색하고 사용자 피드백으로 기능과 안전 장치를 개선했습니다. Aditya Ramesh와 Mark Chen은 공식 페이지의 연구 기여자입니다.",
     "set": "image",
-    "people": [
-      "aditya",
-      "mark"
-    ],
+    "people": ["aditya", "mark"],
     "sources": [
       {
         "title": "DALL·E 2",
@@ -1575,8 +1236,8 @@
     ],
     "beats": [
       {
-        "title": "텍스트에서 이미지로",
-        "caption": "텍스트 카드가 이미지 생성 프레임 앞에 놓입니다.",
+        "title": "말을 타는 우주비행사",
+        "caption": "프롬프트에 우주비행사와 말이라는 두 개념이 놓입니다.",
         "actions": [
           {
             "target": "data",
@@ -1593,17 +1254,9 @@
         ]
       },
       {
-        "title": "더 풍부한 세부 표현",
-        "caption": "프레임이 커지며 모델과 연결된 이미지가 더 정교해집니다.",
+        "title": "유명한 이미지가 나타나다",
+        "caption": "우주복을 입은 기수가 탄 말의 모형이 내려와 생성 이미지를 완성합니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "person-1",
             "action": "arrive"
@@ -1611,20 +1264,12 @@
         ]
       },
       {
-        "title": "변형과 편집을 탐색하다",
-        "caption": "연구 프리뷰 작업대에 변형·편집 결과와 피드백 카드가 모입니다.",
+        "title": "이미지 생성과 편집의 프리뷰",
+        "caption": "완성된 모형과 연구 프리뷰 표식이 남습니다. 변형과 편집으로 이어진 가능성을 보여줍니다.",
         "actions": [
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "output",
-            "action": "grow"
-          },
-          {
-            "target": "data",
-            "action": "stamp"
           }
         ]
       }
@@ -1645,10 +1290,7 @@
     "description": "68만 시간의 다국어·다중 과제 음성 데이터로 학습한 Whisper가 공개됐습니다. 여러 언어의 음성을 받아쓰고 영어로 번역할 수 있는 모델과 추론 코드가 오픈소스로 제공됐습니다.",
     "detail": "Alec Radford와 Jong Wook Kim은 공식 논문에 공동 제1저자로 표기돼 있습니다. 당시 번역 기능은 여러 언어의 음성을 영어로 옮기는 것으로, 모든 언어 사이의 자유로운 상호 번역을 뜻하지 않습니다.",
     "set": "voice",
-    "people": [
-      "alec",
-      "jongwook"
-    ],
+    "people": ["alec", "jongwook"],
     "sources": [
       {
         "title": "Introducing Whisper",
@@ -1662,12 +1304,8 @@
     "beats": [
       {
         "title": "여러 언어의 소리",
-        "caption": "서로 다른 음성 파형이 마이크로 모여듭니다.",
+        "caption": "마이크 옆 음성 파형이 움직이고, 화면에 여러 언어의 인사가 차례로 나타납니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "pulse"
-          },
           {
             "target": "data",
             "action": "rise"
@@ -1679,17 +1317,9 @@
         ]
       },
       {
-        "title": "소리를 읽는 모델",
-        "caption": "파형이 스펙트로그램 타일로 바뀌어 모델에 전달됩니다.",
+        "title": "소리를 글과 번역으로",
+        "caption": "각 인사 옆에 영어 번역이 이어집니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
           {
             "target": "person-1",
             "action": "arrive"
@@ -1697,20 +1327,12 @@
         ]
       },
       {
-        "title": "자막과 영어 번역",
-        "caption": "원어 자막과 영어 번역문이 출력되고 공개 코드 자료가 놓입니다.",
+        "title": "자막·번역·공개 모델",
+        "caption": "원어 전사와 영어 번역 결과, 모델과 코드 공개 표식이 함께 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "data",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -1730,10 +1352,7 @@
     "description": "ChatGPT가 무료 연구 프리뷰로 공개됐습니다. GPT-3.5 계열을 대화에 맞게 조정한 모델은 후속 질문에 응답하고 사용자의 피드백을 받는 인터페이스로 제공됐습니다.",
     "detail": "GPT-3.5 계열을 대화에 맞게 조정하고 인간의 시범과 응답 평가를 학습에 활용했습니다. 공개된 대화 인터페이스는 사용자 피드백을 수집하는 연구 프리뷰였으며 당시에도 사실 오류와 편향 등 한계가 남아 있었습니다. John Schulman과 Barret Zoph는 공식 발표의 기여자 명단에 포함됩니다.",
     "set": "chat",
-    "people": [
-      "john",
-      "barret"
-    ],
+    "people": ["john", "barret"],
     "sources": [
       {
         "title": "Introducing ChatGPT",
@@ -1742,13 +1361,9 @@
     ],
     "beats": [
       {
-        "title": "첫 질문",
-        "caption": "빈 채팅 창이 열리고 사용자의 질문이 입력됩니다.",
+        "title": "그 채팅창의 첫 인사",
+        "caption": "짙은 왼쪽 메뉴가 있는 초기 ChatGPT 창에 Hello!가 입력됩니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "write"
@@ -1760,8 +1375,8 @@
         ]
       },
       {
-        "title": "대화가 이어지다",
-        "caption": "첫 답변 뒤로 후속 질문과 응답 말풍선이 쌓입니다.",
+        "title": "한 번 더 물어볼 수 있다",
+        "caption": "답변 다음에 더 쉽게 설명해 달라는 후속 질문과 새로운 응답이 쌓입니다.",
         "actions": [
           {
             "target": "hero",
@@ -1778,22 +1393,9 @@
         ]
       },
       {
-        "title": "피드백의 순환",
-        "caption": "사용자 피드백이 연구로 돌아가고 대화 창들이 주변으로 확장됩니다.",
-        "actions": [
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "data",
-            "action": "stamp"
-          },
-          {
-            "target": "output",
-            "action": "grow"
-          }
-        ]
+        "title": "대화와 사용자 피드백",
+        "caption": "완성된 대화와 도움이 됐는지 묻는 피드백 표식이 남습니다.",
+        "actions": []
       }
     ],
     "model": "ChatGPT · GPT-3.5",
@@ -1811,10 +1413,7 @@
     "description": "OpenAI와 Microsoft가 다년간 수십억 달러 규모의 투자와 협력 확대를 발표했다. Azure 기반 슈퍼컴퓨팅과 AI 제품 개발이 협력의 중심이었다.",
     "detail": "공식 발표는 다년간·수십억 달러 규모라고 표현한다. 특정 투자액을 추정하지 않으며, Azure 독점 공급 관계는 발표 당시의 설명이다.",
     "set": "investment",
-    "people": [
-      "sam",
-      "satya"
-    ],
+    "people": ["sam", "satya"],
     "sources": [
       {
         "title": "OpenAI와 Microsoft의 협력 확대",
@@ -1849,16 +1448,8 @@
         "caption": "공동 슈퍼컴퓨팅과 Azure 기반 인프라가 연구를 받친다.",
         "actions": [
           {
-            "target": "support",
-            "action": "grow"
-          },
-          {
             "target": "data",
             "action": "connect"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
           }
         ]
       },
@@ -1869,10 +1460,6 @@
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "connect"
           }
         ]
       }
@@ -1892,10 +1479,7 @@
     "detail": "이미지 입력과 텍스트 출력을 지원하는 모델 발표다. 모든 기능이 발표 당일 모든 사용자에게 제공됐다는 뜻은 아니다.",
     "set": "language",
     "model": "GPT-4",
-    "people": [
-      "jakub",
-      "greg"
-    ],
+    "people": ["jakub", "greg"],
     "sources": [
       {
         "title": "GPT-4 연구 발표",
@@ -1908,8 +1492,8 @@
     ],
     "beats": [
       {
-        "title": "두 가지 입력",
-        "caption": "문서와 이미지가 같은 모델을 향해 들어온다.",
+        "title": "이 사진의 이상한 점은?",
+        "caption": "휴대폰과 파란 VGA 커넥터가 놓입니다. GPT-4 공개 당시의 이미지 이해 예시입니다.",
         "actions": [
           {
             "target": "data",
@@ -1926,17 +1510,9 @@
         ]
       },
       {
-        "title": "더 큰 학습 체계",
-        "caption": "연구와 인프라가 멀티모달 모델을 받친다.",
+        "title": "어울리지 않는 연결",
+        "caption": "VGA 플러그가 휴대폰 쪽으로 움직여 사진 속 부조화를 강조합니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
-          },
           {
             "target": "person-0",
             "action": "arrive"
@@ -1944,16 +1520,12 @@
         ]
       },
       {
-        "title": "텍스트로 설명하다",
-        "caption": "모델이 함께 읽은 정보를 텍스트 답변으로 풀어낸다.",
+        "title": "사진을 보고 설명하다",
+        "caption": "VGA는 휴대폰 충전기가 아니라는 설명이 나타납니다. 그림과 답변이 함께 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -2000,10 +1572,6 @@
         "caption": "긴 컨텍스트와 Assistants API, 멀티모달 기능이 더해진다.",
         "actions": [
           {
-            "target": "support",
-            "action": "open"
-          },
-          {
             "target": "data",
             "action": "grow"
           },
@@ -2016,20 +1584,7 @@
       {
         "title": "새 앱으로 연결하다",
         "caption": "개발자들은 도구를 조합해 각자의 앱을 만들 수 있다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
-          }
-        ]
+        "actions": []
       }
     ],
     "personRoles": {}
@@ -2043,10 +1598,7 @@
     "description": "OpenAI 이사회가 Sam Altman의 CEO 및 이사회 퇴임을 발표했다. CTO Mira Murati를 즉시 임시 CEO로 선임했다.",
     "detail": "이사회의 발표 내용과 인사 조치만 기록한다. 해임 사유에 관한 이사회의 설명을 별도로 입증된 사실로 단정하지 않는다.",
     "set": "board",
-    "people": [
-      "sam",
-      "mira"
-    ],
+    "people": ["sam", "mira"],
     "sources": [
       {
         "title": "OpenAI 리더십 전환 발표",
@@ -2075,10 +1627,6 @@
           {
             "target": "person-0",
             "action": "leave"
-          },
-          {
-            "target": "hero",
-            "action": "tilt"
           }
         ]
       },
@@ -2091,12 +1639,8 @@
             "action": "arrive"
           },
           {
-            "target": "support",
-            "action": "reveal"
-          },
-          {
             "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -2115,10 +1659,7 @@
     "description": "OpenAI가 Sam Altman의 CEO 복귀와 새로운 초기 이사회 구성을 공식 공지했다. Mira Murati는 CTO로, Greg Brockman은 President로 복귀했다.",
     "detail": "11월 29일은 이 공식 복귀 공지의 날짜다. 앞서 나온 복귀 합의 소식의 날짜와 구별하며, Bret Taylor·Larry Summers·Adam D’Angelo로 구성된 초기 이사회를 설명한다.",
     "set": "board",
-    "people": [
-      "sam",
-      "bret"
-    ],
+    "people": ["sam", "bret"],
     "sources": [
       {
         "title": "CEO 복귀와 새 초기 이사회 공식 공지",
@@ -2163,12 +1704,8 @@
         "caption": "복귀한 경영진과 새 이사회가 다음 단계의 운영을 맡는다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -2188,20 +1725,21 @@
     "detail": "이 날짜는 연구 공개일이다. 일반 사용자를 위한 Sora 서비스의 정식 출시일로 취급하지 않는다.",
     "set": "film",
     "model": "Sora",
-    "people": [
-      "timBrooks",
-      "billPeebles"
-    ],
+    "people": ["timBrooks", "billPeebles"],
     "sources": [
       {
         "title": "Sora 기술 보고서와 공동 저자",
         "url": "https://openai.com/index/video-generation-models-as-world-simulators/"
+      },
+      {
+        "title": "Sora 초기 예시 보존 페이지",
+        "url": "https://openai.com/index/sora/"
       }
     ],
     "beats": [
       {
-        "title": "문장으로 장면을 그리다",
-        "caption": "텍스트 설명이 생성할 영상의 출발점이 된다.",
+        "title": "도쿄 거리를 걷는 여성",
+        "caption": "네온 간판과 검은 재킷·빨간 치마의 인물이 등장합니다. 초기 Sora의 대표 영상입니다.",
         "actions": [
           {
             "target": "data",
@@ -2214,34 +1752,17 @@
         ]
       },
       {
-        "title": "시간과 공간의 조각",
-        "caption": "이미지와 비디오를 패치 단위로 표현하는 연구를 보여준다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "scatter"
-          },
-          {
-            "target": "support",
-            "action": "orbit"
-          },
-          {
-            "target": "work",
-            "action": "connect"
-          }
-        ]
+        "title": "정지한 그림이 움직이다",
+        "caption": "인물이 간판 앞 거리를 가로질러 걸어갑니다.",
+        "actions": []
       },
       {
-        "title": "조각이 영상으로",
-        "caption": "연결된 패치가 움직이는 미니어처 장면이 된다.",
+        "title": "문장에서 움직이는 세계로",
+        "caption": "걸어온 인물과 도쿄 거리, TEXT → VIDEO 표식이 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "open"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -2261,10 +1782,7 @@
     "detail": "모델의 전체 가능 기능과 발표 당일 제품에서 실제 제공한 기능은 구별해야 한다. 인물은 공식 멀티모달 기여 역할로 연결한다.",
     "set": "voice",
     "model": "GPT-4o",
-    "people": [
-      "prafulla",
-      "alexanderKirillov"
-    ],
+    "people": ["prafulla", "alexanderKirillov"],
     "sources": [
       {
         "title": "Hello GPT-4o",
@@ -2277,16 +1795,12 @@
     ],
     "beats": [
       {
-        "title": "세 감각의 신호",
-        "caption": "마이크·카메라·문자 입력이 각기 다른 신호를 보낸다.",
+        "title": "카메라 앞의 수학 문제",
+        "caption": "마이크와 카메라 옆 칠판에 3x + 1 = 10이 놓입니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
           },
           {
             "target": "support",
@@ -2295,34 +1809,22 @@
         ]
       },
       {
-        "title": "같은 모델로 모이다",
-        "caption": "여러 입력 신호가 GPT-4o로 모인다.",
+        "title": "보고 듣고 함께 풀다",
+        "caption": "시각·음성 입력 카드가 연결되며 실시간 수학 도움 데모를 표현합니다.",
         "actions": [
           {
             "target": "data",
             "action": "connect"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "hero",
-            "action": "grow"
           }
         ]
       },
       {
-        "title": "자연스러운 상호작용",
-        "caption": "텍스트와 소리, 이미지가 대화의 출력으로 이어진다.",
+        "title": "x = 3",
+        "caption": "답이 칠판에 나타납니다. 카메라와 마이크, 풀이 결과가 함께 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -2341,10 +1843,7 @@
     "description": "OpenAI가 Ilya Sutskever의 퇴사를 발표하고 Jakub Pachocki를 새로운 수석 과학자로 소개했다. Pachocki는 이전에 연구 책임자로 GPT-4와 OpenAI Five 개발을 이끌었다.",
     "detail": "공식 인사 발표의 날짜와 역할을 기록한다. 바통 전달은 인사 교체를 설명하는 상징적 연출이며 실제 현장의 재현이 아니다.",
     "set": "organization",
-    "people": [
-      "ilya",
-      "jakub"
-    ],
+    "people": ["ilya", "jakub"],
     "sources": [
       {
         "title": "Ilya 퇴사와 Jakub 수석 과학자 선임",
@@ -2375,10 +1874,6 @@
         "caption": "새 수석 과학자 선임을 바통 전달로 표현한다.",
         "actions": [
           {
-            "target": "work",
-            "action": "connect"
-          },
-          {
             "target": "hero",
             "action": "rise"
           }
@@ -2393,12 +1888,8 @@
             "action": "arrive"
           },
           {
-            "target": "support",
-            "action": "reveal"
-          },
-          {
             "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -2418,10 +1909,7 @@
     "detail": "정식 o1의 후속 출시는 별도 사건이다. 이 장면은 9월 12일의 초기 o1-preview 공개에 맞춘다.",
     "set": "reasoning",
     "model": "o1-preview",
-    "people": [
-      "jerry",
-      "noam"
-    ],
+    "people": ["jerry", "noam"],
     "sources": [
       {
         "title": "Learning to reason with LLMs",
@@ -2434,48 +1922,27 @@
     ],
     "beats": [
       {
-        "title": "어려운 질문 앞에서",
-        "caption": "단번에 풀기 어려운 문제가 모델 앞에 놓인다.",
+        "title": "답하기 전에 생각하다",
+        "caption": "질문 앞에 THINK·CHECK·ANSWER 세 풀이 단계가 놓입니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       },
       {
-        "title": "추론의 경로",
-        "caption": "모델이 문제 해결에 더 많은 추론을 사용한다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "orbit"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "work",
-            "action": "grow"
-          }
-        ]
+        "title": "검토 단계로 이동하다",
+        "caption": "빛나는 표식이 THINK에서 CHECK로 이동합니다.",
+        "actions": []
       },
       {
-        "title": "검토 후 답하다",
-        "caption": "추론을 거친 답안이 출력된다.",
+        "title": "검토를 거친 답",
+        "caption": "표식이 ANSWER에 도착하고 답안이 나타난 채 유지됩니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -2494,9 +1961,7 @@
     "description": "Stargate는 향후 4년간 미국의 OpenAI용 AI 인프라에 5,000억 달러를 투자할 계획으로 발표됐다. SoftBank가 재무, OpenAI가 운영을 책임지는 주요 파트너로 소개됐다.",
     "detail": "5,000억 달러는 발표된 투자 계획이며 이미 집행된 금액이 아니다. 공식 발표는 초기 출자자로 SoftBank·OpenAI·Oracle·MGX를, Masayoshi Son을 의장으로 제시했다.",
     "set": "infrastructure",
-    "people": [
-      "masayoshi"
-    ],
+    "people": ["masayoshi"],
     "sources": [
       {
         "title": "Stargate 프로젝트 발표",
@@ -2505,8 +1970,8 @@
     ],
     "beats": [
       {
-        "title": "미국 인프라의 설계도",
-        "caption": "대규모 AI 인프라 투자 계획이 지도 위에 펼쳐진다.",
+        "title": "텍사스 위의 설계도",
+        "caption": "TEXAS라고 적힌 설계도 위에 크레인과 인프라 계획이 펼쳐집니다.",
         "actions": [
           {
             "target": "data",
@@ -2523,13 +1988,9 @@
         ]
       },
       {
-        "title": "전력과 건설",
-        "caption": "텍사스에서 시작하는 구축과 필요한 전력·부지를 보여준다.",
+        "title": "연산 시설을 계획하다",
+        "caption": "세 서버 구역이 차례로 올라오며 인프라 구축 구상을 표현합니다.",
         "actions": [
-          {
-            "target": "support",
-            "action": "grow"
-          },
           {
             "target": "hero",
             "action": "rise"
@@ -2541,20 +2002,12 @@
         ]
       },
       {
-        "title": "확장을 향한 계획",
-        "caption": "여러 캠퍼스를 검토하는 장기 계획이 연결된다.",
+        "title": "4년간 5,000억 달러 계획",
+        "caption": "PLANNED 표식과 계획 금액이 남습니다. 발표 당시의 투자 계획을 보여주는 모형입니다.",
         "actions": [
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
           }
         ]
       }
@@ -2573,10 +2026,7 @@
     "detail": "이 날짜는 API 출시일이다. 공식 발표에서 연구 책임자로 명시된 Michelle Pokrass와 Ananya Kumar를 연결한다.",
     "set": "code",
     "model": "GPT-4.1",
-    "people": [
-      "michelle",
-      "ananya"
-    ],
+    "people": ["michelle", "ananya"],
     "sources": [
       {
         "title": "GPT-4.1 발표와 연구 책임자 목록",
@@ -2585,22 +2035,18 @@
     ],
     "beats": [
       {
-        "title": "길어진 코드와 문서",
-        "caption": "긴 입력 문맥을 처리하는 개발 작업이 펼쳐진다.",
+        "title": "긴 코드와 문서",
+        "caption": "100만 토큰 문맥 표식 옆에 코드와 문서 카드가 정렬됩니다.",
         "actions": [
           {
             "target": "data",
             "action": "grow"
-          },
-          {
-            "target": "work",
-            "action": "open"
           }
         ]
       },
       {
-        "title": "세 모델의 선택",
-        "caption": "GPT-4.1과 mini, nano가 API에 등장한다.",
+        "title": "GPT-4.1·mini·nano",
+        "caption": "세 모델 상자와 코드 편집 창이 함께 등장합니다.",
         "actions": [
           {
             "target": "hero",
@@ -2617,22 +2063,9 @@
         ]
       },
       {
-        "title": "지시를 코드로",
-        "caption": "모델이 개발자의 지시를 코드 작업에 적용한다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "write"
-          },
-          {
-            "target": "data",
-            "action": "connect"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
-          }
-        ]
+        "title": "코드 변경 결과",
+        "caption": "수정 전후의 코드가 남아 긴 문맥을 활용한 개발 작업을 보여줍니다.",
+        "actions": []
       }
     ],
     "personRoles": {
@@ -2650,10 +2083,7 @@
     "detail": "이 날짜는 o3의 최초 예고일이 아니라 o3·o4-mini 출시일이다. 연결된 두 인물은 이 발표의 공식 기여자 목록에 포함돼 있다.",
     "set": "reasoning",
     "model": "o3 · o4-mini",
-    "people": [
-      "jerry",
-      "noam"
-    ],
+    "people": ["jerry", "noam"],
     "sources": [
       {
         "title": "o3·o4-mini 출시와 공식 기여자",
@@ -2662,31 +2092,19 @@
     ],
     "beats": [
       {
-        "title": "한 가지 도구로는 부족한 질문",
-        "caption": "검색과 계산, 시각 정보가 필요한 문제가 도착한다.",
+        "title": "검색·계산·시각 정보",
+        "caption": "질문 앞에 SEARCH·PYTHON·VISION 도구 작업대가 놓입니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       },
       {
-        "title": "도구를 고르고 조합하다",
-        "caption": "모델이 필요한 도구를 오가며 문제를 풀어간다.",
+        "title": "도구를 오가며 추론하다",
+        "caption": "빛나는 표식이 도구 사이를 이동하며 필요한 정보를 모읍니다.",
         "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "orbit"
-          },
           {
             "target": "data",
             "action": "connect"
@@ -2695,19 +2113,11 @@
       },
       {
         "title": "근거를 모은 답안",
-        "caption": "도구 결과와 추론을 함께 사용해 답안을 만든다.",
+        "caption": "도구들을 거친 표식과 답안이 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -2727,10 +2137,7 @@
     "detail": "발표 당시 GPT-5는 여러 구성요소를 결합한 시스템이었다. 연결한 Jakub Pachocki와 Mark Chen은 공식 기여자이며 단독 창시자로 표현하지 않는다.",
     "set": "reasoning",
     "model": "GPT-5",
-    "people": [
-      "jakub",
-      "mark"
-    ],
+    "people": ["jakub", "mark"],
     "sources": [
       {
         "title": "GPT-5 발표와 공식 기여자",
@@ -2743,8 +2150,8 @@
     ],
     "beats": [
       {
-        "title": "질문이 게이트에 도착하다",
-        "caption": "라우터가 질문의 복잡성과 의도를 살핀다.",
+        "title": "서로 다른 두 질문",
+        "caption": "단순한 질문과 복잡한 질문을 상징하는 두 입력이 라우터에 도착합니다.",
         "actions": [
           {
             "target": "data",
@@ -2757,38 +2164,17 @@
         ]
       },
       {
-        "title": "속도와 깊이의 두 경로",
-        "caption": "빠른 응답과 더 깊은 추론이 서로 다른 경로를 만든다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "grow"
-          },
-          {
-            "target": "hero",
-            "action": "connect"
-          }
-        ]
+        "title": "질문에 맞는 경로를 고르다",
+        "caption": "한 입력은 FAST를 거쳐 먼저 답하고, 다른 입력은 DEEPER로 들어갑니다.",
+        "actions": []
       },
       {
-        "title": "하나의 대화로 합류하다",
-        "caption": "선택된 경로의 결과가 대화창에 도착한다.",
+        "title": "각 경로에서 답으로",
+        "caption": "깊은 추론을 거친 입력도 대화 출력에 도착하고, 두 경로가 열린 채 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "work",
-            "action": "connect"
-          },
-          {
-            "target": "support",
-            "action": "connect"
+            "action": "reveal"
           }
         ]
       }
@@ -2807,9 +2193,7 @@
     "description": "OpenAI는 자본 재편을 완료했다고 발표했다. 비영리 OpenAI Foundation이 영리 OpenAI Group PBC를 계속 통제하는 구조로 설명했다.",
     "detail": "2025년 5월 5일의 구조 변경 계획과 10월 28일의 완료 발표를 구별한다. Foundation의 지분과 특별 의결·지배구조 권한은 영리 조직에 대한 통제를 뒷받침한다.",
     "set": "organization",
-    "people": [
-      "bret"
-    ],
+    "people": ["bret"],
     "sources": [
       {
         "title": "자본 재편 완료 발표",
@@ -2854,16 +2238,8 @@
         "caption": "비영리 Foundation이 영리 Group을 계속 통제한다.",
         "actions": [
           {
-            "target": "hero",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "stamp"
-          },
-          {
-            "target": "data",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -2891,48 +2267,27 @@
     ],
     "beats": [
       {
-        "title": "대화의 기대를 듣다",
-        "caption": "사용자들은 지능과 함께 이해하기 쉬운 대화를 원한다.",
+        "title": "나에게 맞는 대화",
+        "caption": "ChatGPT 창에 쉽게 설명해 달라는 요청과 말투 선택 항목이 놓입니다.",
         "actions": [
           {
             "target": "data",
             "action": "write"
-          },
-          {
-            "target": "hero",
-            "action": "pulse"
           }
         ]
       },
       {
-        "title": "추론의 깊이를 조절하다",
-        "caption": "Instant와 Thinking이 질문에 맞춰 처리 방식을 조절한다.",
-        "actions": [
-          {
-            "target": "work",
-            "action": "tilt"
-          },
-          {
-            "target": "support",
-            "action": "grow"
-          },
-          {
-            "target": "hero",
-            "action": "connect"
-          }
-        ]
+        "title": "친근한 말투를 선택하다",
+        "caption": "선택 표식이 FRIENDLY 쪽으로 이동하고 답변이 차례로 나타납니다.",
+        "actions": []
       },
       {
-        "title": "원하는 말투로 답하다",
-        "caption": "지시와 대화 스타일을 반영한 답변이 나타난다.",
+        "title": "원하는 스타일로 답하다",
+        "caption": "완성된 답변과 선택한 말투, Instant·Thinking의 특성이 함께 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -2958,8 +2313,8 @@
     ],
     "beats": [
       {
-        "title": "흩어진 자료를 모으다",
-        "caption": "문서와 표, 여러 요구사항이 하나의 작업으로 들어온다.",
+        "title": "누가 언제 일할까",
+        "caption": "공식 데모의 인력 배치표가 등장하고 인원·날짜·조건 카드가 놓입니다.",
         "actions": [
           {
             "target": "data",
@@ -2972,34 +2327,22 @@
         ]
       },
       {
-        "title": "긴 작업을 이어가다",
-        "caption": "문맥과 도구 사용을 연결해 여러 단계를 진행한다.",
+        "title": "배치표를 채우다",
+        "caption": "팀별 일정 막대가 각 행의 자리에 들어갑니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
           {
             "target": "work",
             "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "connect"
           }
         ]
       },
       {
-        "title": "업무 결과물로 정리하다",
-        "caption": "분석한 내용을 보고서와 슬라이드 같은 결과물로 구성한다.",
+        "title": "인력 배치 결과",
+        "caption": "채워진 표와 WORKFORCE PLAN 결과가 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "open"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -3025,52 +2368,32 @@
     ],
     "beats": [
       {
-        "title": "코드 작업을 맡기다",
-        "caption": "개발 요청이 코드와 도구가 놓인 작업대에 도착한다.",
+        "title": "레이싱 게임을 만들어 줘",
+        "caption": "코드 작업대와 작은 트랙, 자동차가 나타납니다. 공개된 게임 제작 데모를 상징합니다.",
         "actions": [
           {
             "target": "data",
             "action": "arrive"
-          },
-          {
-            "target": "work",
-            "action": "open"
           }
         ]
       },
       {
-        "title": "작업 중 방향을 수정하다",
-        "caption": "진행 중인 작업에 새 지시를 더하며 모델과 협업한다.",
+        "title": "실행하며 개선하다",
+        "caption": "자동차가 트랙을 한 바퀴 돌며 만들어진 게임을 실행합니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "walk"
-          },
           {
             "target": "data",
             "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "connect"
           }
         ]
       },
       {
-        "title": "확인한 결과를 건네다",
-        "caption": "코드 작성과 실행·검토를 연결해 결과를 정리한다.",
+        "title": "플레이할 수 있는 결과",
+        "caption": "자동차가 출발점에 돌아오고 게임 결과가 남습니다.",
         "actions": [
           {
-            "target": "work",
-            "action": "pulse"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -3096,48 +2419,32 @@
     ],
     "beats": [
       {
-        "title": "여러 형식의 업무 파일",
-        "caption": "문서와 표, 발표 자료가 하나의 과제로 모인다.",
+        "title": "메일에 도착한 회의 요청",
+        "caption": "메일과 달력이 나란히 열리고 회의 요청을 보여줍니다.",
         "actions": [
           {
             "target": "data",
             "action": "reveal"
-          },
-          {
-            "target": "support",
-            "action": "open"
           }
         ]
       },
       {
-        "title": "도구를 오가는 작업",
-        "caption": "모델이 추론과 코딩, 업무 도구를 함께 사용한다.",
+        "title": "커서가 달력으로 이동하다",
+        "caption": "커서가 메일에서 달력의 일정 위치로 움직입니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "walk"
-          },
           {
             "target": "work",
             "action": "write"
-          },
-          {
-            "target": "support",
-            "action": "connect"
           }
         ]
       },
       {
-        "title": "요청한 형식으로 완성하다",
-        "caption": "여러 단계의 결과가 하나의 업무 산출물로 정리된다.",
+        "title": "일정을 등록하다",
+        "caption": "달력에 MEETING 블록이 나타나고 작업 결과가 유지됩니다.",
         "actions": [
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
           }
         ]
       }
@@ -3163,8 +2470,8 @@
     ],
     "beats": [
       {
-        "title": "복잡한 요청을 받아들이다",
-        "caption": "여러 요구사항을 담은 메모가 작업의 출발점이 된다.",
+        "title": "두 곡면의 교선을 구하다",
+        "caption": "서로 마주 보는 두 이차 곡면을 수학 작업대에 펼칩니다.",
         "actions": [
           {
             "target": "data",
@@ -3177,34 +2484,17 @@
         ]
       },
       {
-        "title": "계획·실행·검토를 잇다",
-        "caption": "자료와 도구 사이를 이동하며 작업을 진행하고 확인한다.",
-        "actions": [
-          {
-            "target": "hero",
-            "action": "walk"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
-          },
-          {
-            "target": "support",
-            "action": "connect"
-          }
-        ]
+        "title": "수식과 시각화를 연결하다",
+        "caption": "곡면과 방정식 자료를 함께 놓아 교차하는 위치를 살펴봅니다.",
+        "actions": []
       },
       {
-        "title": "완성할 때까지 이어가다",
-        "caption": "여러 단계의 작업이 제출할 결과물로 모인다.",
+        "title": "빨간 교선이 드러나다",
+        "caption": "두 곡면이 만나는 빨간 원이 나타나고 완성된 시각화가 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "arrive"
-          },
-          {
-            "target": "output",
-            "action": "stamp"
+            "action": "reveal"
           }
         ]
       }
@@ -3234,13 +2524,9 @@
     ],
     "beats": [
       {
-        "title": "프리뷰에서 일반 제공으로",
-        "caption": "제한적 프리뷰 이후 모델 계열의 제공 범위가 넓어진다.",
+        "title": "세 모델이 있는 계열",
+        "caption": "태양·지구·달을 상징하는 Sol·Terra·Luna 장치가 나란히 놓입니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "open"
-          },
           {
             "target": "data",
             "action": "arrive"
@@ -3248,8 +2534,8 @@
         ]
       },
       {
-        "title": "세 모델의 선택",
-        "caption": "Sol·Terra·Luna가 서로 다른 작업과 비용 요구를 받는다.",
+        "title": "각 모델을 살펴보다",
+        "caption": "세 장치가 순서대로 회전하며 각 선택지를 보여줍니다.",
         "actions": [
           {
             "target": "hero",
@@ -3266,20 +2552,12 @@
         ]
       },
       {
-        "title": "작업에 맞게 배분하다",
-        "caption": "요청의 성격에 맞는 모델을 선택하는 흐름을 보여준다.",
+        "title": "작업에 맞는 모델 선택",
+        "caption": "모델 선택 표식과 세 장치가 함께 남습니다.",
         "actions": [
           {
-            "target": "data",
-            "action": "connect"
-          },
-          {
             "target": "output",
-            "action": "write"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -3309,8 +2587,8 @@
     ],
     "beats": [
       {
-        "title": "새 모델의 공개",
-        "caption": "코딩과 연구, 컴퓨터 사용을 강조한 Astra가 발표된다.",
+        "title": "KiCad 안의 회로 설계",
+        "caption": "녹색 PCB 작업판 위에 전자 부품이 차례로 놓입니다.",
         "actions": [
           {
             "target": "hero",
@@ -3323,38 +2601,17 @@
         ]
       },
       {
-        "title": "연결된 전문 작업",
-        "caption": "여러 소프트웨어와 자료를 오가는 작업 범위를 보여준다.",
-        "actions": [
-          {
-            "target": "hero",
-            "action": "walk"
-          },
-          {
-            "target": "work",
-            "action": "connect"
-          },
-          {
-            "target": "support",
-            "action": "pulse"
-          }
-        ]
+        "title": "부품 사이를 배선하다",
+        "caption": "구리색 배선이 그려지며 부품을 연결합니다. 소프트웨어 설계 데모입니다.",
+        "actions": []
       },
       {
-        "title": "차례로 열리는 접근",
-        "caption": "소수 조직부터 시작하는 단계적 배포를 게이트로 표현한다.",
+        "title": "완성된 레이아웃",
+        "caption": "부품과 배선이 완성된 기판 설계, 단계적 접근 표식이 남습니다.",
         "actions": [
           {
             "target": "output",
-            "action": "open"
-          },
-          {
-            "target": "support",
-            "action": "arrive"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
+            "action": "reveal"
           }
         ]
       }
@@ -3391,10 +2648,6 @@
           {
             "target": "output",
             "action": "reveal"
-          },
-          {
-            "target": "support",
-            "action": "grow"
           }
         ]
       },
@@ -3402,14 +2655,6 @@
         "title": "연결을 상상하다",
         "caption": "하나의 지구본 주위에서 사람을 돕는 기술들의 연결을 상상합니다.",
         "actions": [
-          {
-            "target": "hero",
-            "action": "orbit"
-          },
-          {
-            "target": "work",
-            "action": "pulse"
-          },
           {
             "target": "data",
             "action": "pulse"
@@ -3419,16 +2664,7 @@
       {
         "title": "다시, 처음의 질문",
         "caption": "인공지능은 어떻게 모두에게 이로울 수 있을까요? 다음 장은 아직 쓰는 중입니다.",
-        "actions": [
-          {
-            "target": "hero",
-            "action": "grow"
-          },
-          {
-            "target": "output",
-            "action": "pulse"
-          }
-        ]
+        "actions": []
       }
     ]
   }

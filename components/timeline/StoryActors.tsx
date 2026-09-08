@@ -6,7 +6,6 @@ import {
   Label,
   Ring,
   Plant,
-  type Vec3,
 } from './primitives';
 import {
   Arcade,
@@ -27,23 +26,10 @@ import {
   VideoFrame,
   Whiteboard,
 } from './objects';
+import { Actor } from './SceneActor';
+import { getHistoricalSet } from './HistoricalSets';
 import { AXES, PEOPLE, type Chapter, type PersonId } from '@/data/types';
 
-function Actor({
-  id,
-  p = [0, 0, 0],
-  children,
-}: {
-  id: string;
-  p?: Vec3;
-  children: React.ReactNode;
-}) {
-  return (
-    <group name={`actor:${id}`} position={p}>
-      <group name={`story:${id}`}>{children}</group>
-    </group>
-  );
-}
 export function Person({ id }: { id: PersonId }) {
   const p = PEOPLE[id];
   return (
@@ -779,7 +765,7 @@ export function StoryActors({ chapter }: { chapter: Chapter }) {
   }
   return (
     <>
-      {set}
+      {getHistoricalSet(chapter) ?? set}
       {people.map((person, i) => (
         <Actor
           key={person}

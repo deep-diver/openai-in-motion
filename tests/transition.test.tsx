@@ -4,6 +4,7 @@ import { BoxGeometry, Group, Mesh, MeshStandardMaterial } from 'three';
 import gsap from 'gsap';
 import { chapters } from '../data/chapters';
 import { PEOPLE } from '../data/types';
+import { getHistoricalSet } from '../components/timeline/HistoricalSets';
 import {
   createStoryTimeline,
   configurePlayback,
@@ -205,5 +206,116 @@ void test('selecting a new chapter while paused shows its new set and keeps play
   assert.equal(incoming.visible, true);
   assert.ok(incoming.children.every((a) => a.scale.x > 0.9));
   tl.kill();
+});
+void test('every historical episode beyond the opening has an event-specific set', () => {
+  for (const chapter of chapters.filter(
+    (c) => !['openai-founding', 'future-agi-hub'].includes(c.id),
+  )) {
+    assert.ok(
+      getHistoricalSet(chapter),
+      `missing historical set: ${chapter.id}`,
+    );
+  }
+});
+
+void test('beat three keeps the established set at full size and holds its completed result', () => {
+  for (const chapter of chapters) {
+    const incoming = actors(chapter);
+    const wrapper = new Group();
+    wrapper.scale.setScalar(0.75);
+    const line = new Group();
+    line.name = 'screen:line:0';
+    line.scale.set(0.8, 0.3, 1);
+    wrapper.add(line);
+    incoming.getObjectByName('story:output')!.add(wrapper);
+    const tl = createStoryTimeline({
+      incoming,
+      outgoing: null,
+      bridge: null,
+      chapter,
+      reducedMotion: false,
+      onFrame: () => {},
+      onComplete: () => {},
+    }).pause();
+    for (let t = 8; t <= 14.2; t += 0.1) {
+      tl.time(t, true);
+      for (const id of ['hero', 'work', 'support', 'data']) {
+        const scale = incoming.getObjectByName(`story:${id}`)!.scale;
+        assert.ok(
+          Math.min(scale.x, scale.y, scale.z) >= 0.999,
+          `${chapter.id}: ${id} shrank at ${t}`,
+        );
+      }
+      assert.equal(
+        wrapper.scale.x,
+        0.75,
+        `${chapter.id}: text writing resized the wrapper`,
+      );
+    }
+    tl.time(11.3, true);
+    const result = incoming.getObjectByName('story:output')!;
+    const completedScale = result.scale.clone();
+    assert.ok(completedScale.x >= 0.999, `${chapter.id}: result not finished`);
+    tl.time(STORY_TIMING.duration, true);
+    assert.deepEqual(
+      result.scale.toArray(),
+      completedScale.toArray(),
+      `${chapter.id}: result changed during hold`,
+    );
+    tl.kill();
+  }
+});
+
+void test('the final GPT-2 release opens only 1.5B; GPT-5 selects two independent routes', () => {
+  const run = (id: string, names: string[]) => {
+    const chapter = chapters.find((c) => c.id === id)!;
+    const incoming = actors(chapter);
+    for (const name of names) {
+      const part = new Group();
+      part.name = name;
+      if (name.startsWith('crate:lid:') && !name.endsWith(':3'))
+        part.rotation.x = -1.45;
+      incoming.getObjectByName('story:hero')!.add(part);
+    }
+    const tl = createStoryTimeline({
+      incoming,
+      outgoing: null,
+      bridge: null,
+      chapter,
+      reducedMotion: false,
+      onFrame: () => {},
+      onComplete: () => {},
+    }).pause();
+    return { incoming, tl };
+  };
+  const boxes = run(
+    'gpt-2-full',
+    [0, 1, 2, 3].map((i) => `crate:lid:${i}`),
+  );
+  boxes.tl.time(3, true);
+  assert.equal(
+    boxes.incoming.getObjectByName('crate:lid:0')!.rotation.x,
+    -1.45,
+  );
+  assert.equal(boxes.incoming.getObjectByName('crate:lid:3')!.rotation.x, 0);
+  boxes.tl.time(10, true);
+  assert.equal(
+    boxes.incoming.getObjectByName('crate:lid:3')!.rotation.x,
+    -1.45,
+  );
+  boxes.tl.kill();
+  const routes = run('gpt-5-2025', ['router:packet', 'router:complex']);
+  routes.tl.time(3, true);
+  assert.equal(
+    routes.incoming.getObjectByName('router:packet')!.position.x,
+    -0.7,
+  );
+  routes.tl.time(6.5, true);
+  assert.equal(routes.incoming.getObjectByName('router:packet')!.position.x, 0);
+  assert.equal(
+    routes.incoming.getObjectByName('router:complex')!.position.x,
+    0.7,
+  );
+  routes.tl.kill();
 });
 after(() => gsap.ticker.sleep());
