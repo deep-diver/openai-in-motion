@@ -1604,6 +1604,27 @@ function Quadrics() {
     </>
   );
 }
+function LongContextDesk() {
+  return (
+    <>
+      <Box p={[0, 0.09, 0]} s={[2.65, 0.18, 1.25]} c="#80978c" />
+      {[3, 2, 1, 0].map(i => (
+        <Box key={i} p={[-0.22 + i * 0.075, 1.12 + i * 0.03, -i * 0.055]} s={[2.1, 1.9, 0.04]} c={i === 0 ? '#e8eadb' : '#aab9a6'} />
+      ))}
+      <Label text="1M TOKEN CONTEXT" p={[-0.22, 1.89, 0.035]} w={1.92} h={0.25} color="#476953" size={52} />
+      {Array.from({ length: 12 }, (_, i) => (
+        <Box key={i} p={[-0.26 - (i % 3) * 0.08, 1.65 - i * 0.098, 0.037]} s={[1.66 - (i % 3) * 0.16, 0.029, 0.012]} c={i === 10 ? '#528662' : '#94a78f'} />
+      ))}
+      <group name="context:scan" position={[-0.22, 1.68, 0.06]}>
+        <Box s={[1.91, 0.13, 0.018]} c="#b5dd8e" opacity={0.6} glow />
+      </group>
+      <group name="context:excerpt" position={[-0.22, 0.67, 0.09]}>
+        <Box s={[1.48, 0.3, 0.04]} c="#c8e4ab" />
+        <Label text="MATCHED CONTEXT" p={[0, 0, 0.026]} w={1.34} h={0.2} color="#3a6148" size={45} />
+      </group>
+    </>
+  );
+}
 function ThreeEngines() {
   return (
     <>
@@ -1923,13 +1944,7 @@ function getRecentSet(c: Chapter): ReactNode | null {
     case 'gpt-4-1-2025':
       return (
         <Set
-          hero={
-            <ModelCrates
-              openAll
-              labels={['GPT-4.1', 'MINI', 'NANO']}
-              locks={false}
-            />
-          }
+          hero={<LongContextDesk />}
           work={<Card title="1M TOKEN CONTEXT" lines={['LONG DOCUMENTS']} />}
           support={<Card title="GPT-4.1" lines={['MINI + NANO', 'API']} />}
           data={<DataCards labels={['CODE', 'LONG CONTEXT']} />}

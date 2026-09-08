@@ -77,4 +77,18 @@ void test('the generated racing car follows a continuous loop and turns with the
   assert.equal(car.rotation.y, end);
   race.tl.kill();
 });
+void test('GPT-4.1 scans the document before transferring a matched excerpt to the editor', () => {
+  const context = reel('gpt-4-1-2025', ['context:scan', 'context:excerpt']);
+  context.tl.time(3, true);
+  assert.equal(context.find('context:excerpt').visible, false);
+  context.tl.time(5.7, true);
+  assert.equal(context.find('context:excerpt').visible, true);
+  assert.equal(context.find('context:scan').position.y, 0.67);
+  context.tl.time(9, true);
+  const final = context.find('context:excerpt').position.toArray();
+  assert.deepEqual(final, [1.8, 1.45, 1.28]);
+  context.tl.time(2, true); context.tl.time(9, true);
+  assert.deepEqual(context.find('context:excerpt').position.toArray(), final);
+  context.tl.kill();
+});
 after(() => gsap.ticker.sleep());

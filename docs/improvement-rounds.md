@@ -18,3 +18,5 @@ The fixed isometric camera, single stage, full history and two-panel annotation 
 7. **Sora's street demonstration walks.** The character now faces the travel direction, alternates arms and legs, and moves with a small walking bounce before settling naturally. The opposing-limb and final-pose regression passed.
 
 8. **A racing game with actual steering.** Replaced sideways right-angle translation with a sampled closed curve and continuous heading changes. Headlights make its direction visible. The regression checks the full lap for position/heading jumps, track bounds, completion and backward seeking.
+
+9. **GPT-4.1 gets a distinct long-context scene.** Replaced the repeated model-crate prop with a layered document, scanning highlight and matching excerpt that travels into the code editor. Updated only staging captions/callout text and retained the existing historical claims and sources. Transfer ordering and deterministic-seek regressions passed.

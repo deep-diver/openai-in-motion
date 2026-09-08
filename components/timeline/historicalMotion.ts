@@ -276,6 +276,18 @@ export function addHistoricalMotion(
   const answer = find('omni:answer');
   if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
+  const scan = find('context:scan');
+  if (scan) tl.to(scan.position, { y: 0.67, duration: 3.25, ease: 'power1.inOut' }, A);
+  const excerpt = find('context:excerpt');
+  if (excerpt) {
+    fadeIn(excerpt, B + 0.9, 0.65);
+    tl.to(excerpt.position, { x: 1.8, y: 1.45, z: 1.28, duration: 1.6, ease: 'power2.inOut' }, C - 0.9);
+    excerpt.traverse(part => {
+      if (!(part instanceof Mesh)) return;
+      const materials = Array.isArray(part.material) ? part.material : [part.material];
+      for (const material of materials) tl.to(material, { opacity: 0, duration: 0.7 }, C + 0.9);
+    });
+  }
   for (let i = 0; i < 3; i++) {
     const at = [A, B + 0.65, C][i];
     const equation = find(`reason:equation:${i}`);
