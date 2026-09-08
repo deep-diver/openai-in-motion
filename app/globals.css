@@ -131,7 +131,8 @@ button {
   max-width: 390px;
   pointer-events: none;
 }
-.chapter-copy a {
+.chapter-copy a,
+.chapter-copy button {
   pointer-events: auto;
 }
 .chapter-marker {
