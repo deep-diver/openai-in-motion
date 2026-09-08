@@ -8,10 +8,7 @@
     "description": "OpenAI가 인류 전체에 도움이 되는 AI를 목표로 비영리 연구기관의 출범을 발표했습니다. 연구를 공유하고 여러 기관과 협력하겠다는 방향도 함께 제시했습니다.",
     "detail": "2015년 12월 11일은 OpenAI가 비영리 연구기관의 출범을 공개한 날입니다. Sam Altman은 공동 의장, Ilya Sutskever는 연구 책임자로 소개됐습니다. 발표는 연구 성과의 공유와 기관 간 협력을 통해 인류 전체에 이로운 결과를 추구한다는 방향을 제시했습니다.",
     "set": "lab",
-    "people": [
-      "sam",
-      "ilya"
-    ],
+    "people": ["sam", "ilya"],
     "sources": [
       {
         "title": "Introducing OpenAI",
@@ -80,9 +77,7 @@
     "description": "OpenAI Gym의 공개 베타가 출시됐습니다. 로봇 시뮬레이션과 Atari 게임 등 여러 환경에서 강화학습 알고리즘을 개발하고 결과를 비교·재현할 수 있도록 만든 도구였습니다.",
     "detail": "Gym은 지능을 완성한 모델이 아니라 연구용 환경과 인터페이스입니다. 발표 저자는 Greg Brockman이며, 환경 버전을 유지해 서로 다른 실험의 조건을 비교할 수 있도록 설계했습니다.",
     "set": "gym",
-    "people": [
-      "greg"
-    ],
+    "people": ["greg"],
     "sources": [
       {
         "title": "OpenAI Gym Beta",
@@ -142,10 +137,7 @@
     "description": "OpenAI가 게임·웹사이트·응용 프로그램에서 AI를 훈련하고 평가하는 Universe를 공개했습니다. 에이전트는 화면 픽셀을 보고 가상의 키보드와 마우스를 조작하는 방식으로 환경과 상호작용했습니다.",
     "detail": "플랫폼은 일반 프로그램을 Gym 환경으로 연결하려는 시도였습니다. Greg Brockman은 핵심·분산 인프라, Dario Amodei는 초기 에이전트 결과와 강화학습 기준 구현의 기여자로 명시됐습니다.",
     "set": "gym",
-    "people": [
-      "greg",
-      "dario"
-    ],
+    "people": ["greg", "dario"],
     "sources": [
       {
         "title": "Universe",
@@ -206,10 +198,7 @@
     "description": "OpenAI와 DeepMind의 연구진은 사람이 두 행동 중 더 나은 쪽을 고르는 피드백으로 목표를 학습하는 알고리즘을 소개했습니다. 적은 양의 인간 피드백으로 복잡한 강화학습 환경의 행동을 개선하는 가능성을 보여줬습니다.",
     "detail": "논문은 사람이 직접 보상함수를 작성하는 부담을 줄이는 접근을 다뤘습니다. Dario Amodei와 Paul Christiano는 공식 발표 공동저자입니다. 이 사건은 2022년 InstructGPT와 별개의 초기 인간 선호 학습 연구입니다.",
     "set": "alignment",
-    "people": [
-      "dario",
-      "paul"
-    ],
+    "people": ["dario", "paul"],
     "sources": [
       {
         "title": "Learning from human preferences",
@@ -274,10 +263,7 @@
     "description": "OpenAI의 Dota 2 봇이 The International 현장에서 프로 선수 Dendi와의 1대1 대결을 2대0으로 이겼습니다. 자기 대전을 중심으로 학습한 시스템이 제한된 경기 형식에서 강한 성과를 보인 사건입니다.",
     "detail": "2017년 8월 16일 공식 후속 글은 Dendi와의 경기일을 8월 11일로 기록합니다. 성과는 전체 5대5 경기와 다른 1대1 형식에서 나왔습니다. 공식 글은 Greg Brockman의 개인 GPU 컴퓨터가 초기 실행 문제 해결과 현장 시연에 쓰였다고 설명합니다.",
     "set": "game",
-    "people": [
-      "dendi",
-      "greg"
-    ],
+    "people": ["dendi", "greg"],
     "sources": [
       {
         "title": "More on Dota 2",
@@ -343,9 +329,7 @@
     "description": "OpenAI는 Elon Musk가 이사회를 떠난다고 발표했습니다. 당시 발표는 Tesla의 AI 연구가 확대되면서 생길 수 있는 이해충돌을 줄이기 위한 조치라고 설명했습니다.",
     "detail": "2018년 2월 20일 공개된 발표는 Musk의 이사회 퇴임 계획과 새로운 후원자·자문 인사를 함께 알렸습니다. OpenAI는 당시 Tesla의 AI 집중이 커지면서 생길 수 있는 잠재적 이해충돌을 줄이는 조치라고 설명했습니다.",
     "set": "board",
-    "people": [
-      "elon"
-    ],
+    "people": ["elon"],
     "sources": [
       {
         "title": "OpenAI supporters",
@@ -409,10 +393,7 @@
     "description": "대량의 텍스트로 먼저 학습한 Transformer를 여러 언어 과제에 맞게 조정하는 연구가 공개됐습니다. 오늘날 GPT-1로 불리는 이 연구는 생성형 사전학습이 다양한 언어 이해 문제에 활용될 수 있음을 보여줬습니다.",
     "detail": "당시 연구 제목은 Improving language understanding with unsupervised learning입니다. 공통 언어 모델을 사전학습한 뒤 각 과제에 맞게 미세조정하는 두 단계 접근을 사용했습니다. Alec Radford는 발표 저자이며 Ilya Sutskever는 논문 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "ilya"
-    ],
+    "people": ["alec", "ilya"],
     "sources": [
       {
         "title": "Improving language understanding with unsupervised learning",
@@ -478,10 +459,7 @@
     "description": "다섯 신경망으로 구성된 OpenAI Five가 제한된 규칙의 Dota 2에서 아마추어 팀을 이기기 시작했다고 발표됐습니다. 대규모 자기 대전과 강화학습으로 팀 전략과 장기적인 판단을 학습하는 접근이 공개됐습니다.",
     "detail": "발표는 2018년 6월 6일의 시스템 상태를 설명하며, 영웅 선택과 게임 기능에 제한이 있었습니다. 각 영웅의 신경망 사이에 명시적 통신 채널을 두지 않고 개인 보상과 팀 보상의 비중을 조절하며 협동을 학습했습니다. Greg Brockman과 Jakub Pachocki는 발표 공동저자입니다.",
     "set": "game",
-    "people": [
-      "greg",
-      "jakub"
-    ],
+    "people": ["greg", "jakub"],
     "sources": [
       {
         "title": "OpenAI Five",
@@ -543,10 +521,7 @@
     "description": "OpenAI는 시뮬레이션에서 학습한 로봇 손 Dactyl이 실제 물체의 방향을 바꾸는 연구를 공개했습니다. 다양한 물리·시각 조건을 무작위로 바꿔 학습함으로써 가상 환경의 경험을 현실에 옮기는 접근을 보여줬습니다.",
     "detail": "Dactyl은 실제 로봇 손의 손바닥 위에서 블록이나 프리즘의 방향을 바꾸는 과제를 수행했습니다. 시뮬레이션에서 마찰·크기·시각 조건 등을 바꿔 학습한 정책이 실제 환경에서도 작동하는지를 검증했습니다. Wojciech Zaremba와 Jakub Pachocki는 발표 공동저자입니다.",
     "set": "robotics",
-    "people": [
-      "wojciech",
-      "jakub"
-    ],
+    "people": ["wojciech", "jakub"],
     "sources": [
       {
         "title": "Learning dexterity",
@@ -608,10 +583,7 @@
     "description": "GPT-2는 과제별 추가 학습 없이 문장을 이어 쓰고 여러 언어 작업을 수행하는 가능성을 보여줬습니다. OpenAI는 오용 우려를 이유로 작은 모델부터 공개하며 단계적 배포를 시작했습니다.",
     "detail": "최초 발표에서는 작은 모델을 공개하고 큰 모델의 공개를 유보했습니다. OpenAI는 연구자들과 능력·오용 가능성·공개 영향을 검토하는 단계적 접근을 택했습니다. Alec Radford와 Jeffrey Wu는 연구 및 발표 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "jeffrey"
-    ],
+    "people": ["alec", "jeffrey"],
     "sources": [
       {
         "title": "Better language models and their implications",
@@ -672,10 +644,7 @@
     "description": "OpenAI는 투자 수익에 상한을 두는 OpenAI LP를 발표했습니다. 비영리 조직의 통제 아래에서 더 큰 연구 인프라와 인재에 필요한 자금을 조달하려는 구조였습니다.",
     "detail": "새 구조에서도 비영리 조직이 통제권을 유지했습니다. 투자자와 직원의 수익에 상한을 두어 자금을 조달하고 연구 인재를 확보하려는 구상이었습니다. 당시 발표는 Sam Altman을 CEO, Greg Brockman을 의장·CTO로 소개합니다.",
     "set": "organization",
-    "people": [
-      "sam",
-      "greg"
-    ],
+    "people": ["sam", "greg"],
     "sources": [
       {
         "title": "OpenAI LP",
@@ -740,10 +709,7 @@
     "description": "Microsoft가 OpenAI에 10억 달러를 투자하는 파트너십이 발표됐습니다. 두 회사는 Azure에서 새로운 AI 슈퍼컴퓨팅 기술과 대규모 연구 기반을 함께 구축하기로 했습니다.",
     "detail": "Sam Altman과 Satya Nadella는 당시 각각 OpenAI와 Microsoft의 CEO로 공동 발표에 참여했습니다. 이는 2019년 최초 파트너십이며 이후 투자 확대와 구분됩니다.",
     "set": "investment",
-    "people": [
-      "sam",
-      "satya"
-    ],
+    "people": ["sam", "satya"],
     "sources": [
       {
         "title": "Microsoft invests in and partners with OpenAI",
@@ -816,10 +782,7 @@
     "description": "단계적 공개의 마지막 단계로 15억 개 매개변수의 GPT-2가 공개됐습니다. OpenAI는 모델 공개와 함께 생성 텍스트 탐지 및 공개 과정에서 얻은 연구 결과를 공유했습니다.",
     "detail": "2월부터 이어진 단계적 공개가 최대 크기의 모델 공개에 도달했습니다. 생성 텍스트 탐지 연구와 공개 과정에서 관찰한 결과를 함께 공유하며 책임 있는 연구 공개 방식에 대한 논의를 이어갔습니다. Alec Radford와 Jeffrey Wu는 GPT-2 연구 공동저자입니다.",
     "set": "language",
-    "people": [
-      "alec",
-      "jeffrey"
-    ],
+    "people": ["alec", "jeffrey"],
     "sources": [
       {
         "title": "GPT-2: 1.5B release",
@@ -885,10 +848,7 @@
     "description": "1,750억 개 매개변수를 가진 GPT-3 연구가 발표됐습니다. 별도 미세조정 없이 텍스트로 제시한 소수의 예시를 바탕으로 번역·질문응답 등 여러 과제를 수행하는 능력을 평가했습니다.",
     "detail": "Tom Brown과 Ilya Sutskever는 공식 논문 공동저자입니다. 날짜는 연구 발표일이며 API 비공개 베타 공개일인 6월 11일과 구분됩니다.",
     "set": "language",
-    "people": [
-      "tom",
-      "ilya"
-    ],
+    "people": ["tom", "ilya"],
     "sources": [
       {
         "title": "Language models are few-shot learners",
@@ -950,10 +910,7 @@
     "description": "OpenAI가 GPT-3 계열 모델을 사용할 수 있는 API를 비공개 베타로 공개했습니다. 개발자는 텍스트를 입력하고 결과를 받아 제품과 응용 프로그램에 언어 모델을 연결할 수 있게 됐습니다.",
     "detail": "초기 제공 형태는 사용자가 접근을 신청하는 비공개 베타였습니다. 범용적인 텍스트 입력·출력 인터페이스를 통해 다양한 응용을 실험할 수 있도록 했습니다. Greg Brockman과 Mira Murati는 공식 발표 공동저자입니다.",
     "set": "code",
-    "people": [
-      "greg",
-      "mira"
-    ],
+    "people": ["greg", "mira"],
     "sources": [
       {
         "title": "OpenAI API",
@@ -1018,10 +975,7 @@
     "description": "CLIP은 인터넷의 이미지와 텍스트 쌍으로 시각 개념을 학습하는 모델로 소개됐습니다. 인식할 범주의 이름을 자연어로 제시하면 별도의 과제별 학습 없이 이미지 분류를 수행하는 방식을 보여줬습니다.",
     "detail": "CLIP은 이미지와 자연어의 대응을 학습해 새로운 범주 이름에도 적용하는 방식을 제시했습니다. 이미지와 후보 문장을 비교하는 접근은 같은 날 공개된 이미지 생성 모델 DALL·E와 다른 역할을 맡았습니다. Alec Radford와 Jong Wook Kim은 공식 발표 공동저자입니다.",
     "set": "image",
-    "people": [
-      "alec",
-      "jongwook"
-    ],
+    "people": ["alec", "jongwook"],
     "sources": [
       {
         "title": "CLIP: Connecting text and images",
@@ -1079,10 +1033,7 @@
     "description": "DALL·E는 텍스트 설명에서 이미지를 생성하는 모델로 공개됐습니다. 서로 다른 개념을 조합해 자연어로 요청한 새로운 시각적 표현을 만들어내는 가능성을 보여줬습니다.",
     "detail": "Aditya Ramesh와 Gabriel Goh는 공식 발표의 주요 저자입니다. 아보카도 모양 의자는 당시 공식 소개의 대표 예시에서 가져온 연출입니다.",
     "set": "image",
-    "people": [
-      "aditya",
-      "gabriel"
-    ],
+    "people": ["aditya", "gabriel"],
     "sources": [
       {
         "title": "DALL·E: Creating images from text",
@@ -1144,10 +1095,7 @@
     "description": "자연어를 코드로 바꾸는 Codex의 개선된 버전이 API 비공개 베타로 공개됐습니다. GPT-3의 후속 계열인 Codex는 공개 소스 코드를 학습했고 GitHub Copilot의 기반 모델로도 사용됐습니다.",
     "detail": "2021년 Codex는 자연어와 공개 소스 코드로 학습한 코드 생성 모델이었습니다. Python에 특히 강하며 여러 프로그래밍 언어의 코드 생성·설명·변환을 수행하는 가능성을 보여줬습니다. Wojciech Zaremba와 Greg Brockman은 공식 발표 공동저자입니다.",
     "set": "code",
-    "people": [
-      "wojciech",
-      "greg"
-    ],
+    "people": ["wojciech", "greg"],
     "sources": [
       {
         "title": "OpenAI Codex",
@@ -1205,10 +1153,7 @@
     "description": "사람의 시범과 응답 순위를 활용해 지시를 더 잘 따르도록 만든 InstructGPT가 발표됐습니다. OpenAI는 사람의 피드백을 이용한 강화학습을 적용한 이 모델들을 API의 기본 언어 모델로 제공한다고 밝혔습니다.",
     "detail": "Ryan Lowe와 Jan Leike는 공식 발표 공동저자입니다. 선호 학습으로 행동을 개선했지만 오류나 유해한 응답이 사라졌다는 의미는 아닙니다.",
     "set": "alignment",
-    "people": [
-      "ryan",
-      "jan"
-    ],
+    "people": ["ryan", "jan"],
     "sources": [
       {
         "title": "Aligning language models to follow instructions",
@@ -1278,10 +1223,7 @@
     "description": "OpenAI는 DALL·E 2를 제한된 사용자에게 연구 프리뷰로 제공하기 시작했습니다. 새로운 시스템은 첫 DALL·E보다 더 사실적이고 정확한 이미지를 더 높은 해상도로 만드는 방향을 보여줬습니다.",
     "detail": "공식 후속 발표는 제한된 사용자 대상 연구 프리뷰가 2022년 4월 시작됐다고 설명합니다. 이미지 생성뿐 아니라 변형과 편집을 탐색하고 사용자 피드백으로 기능과 안전 장치를 개선했습니다. Aditya Ramesh와 Mark Chen은 공식 페이지의 연구 기여자입니다.",
     "set": "image",
-    "people": [
-      "aditya",
-      "mark"
-    ],
+    "people": ["aditya", "mark"],
     "sources": [
       {
         "title": "DALL·E 2",
@@ -1348,10 +1290,7 @@
     "description": "68만 시간의 다국어·다중 과제 음성 데이터로 학습한 Whisper가 공개됐습니다. 여러 언어의 음성을 받아쓰고 영어로 번역할 수 있는 모델과 추론 코드가 오픈소스로 제공됐습니다.",
     "detail": "Alec Radford와 Jong Wook Kim은 공식 논문에 공동 제1저자로 표기돼 있습니다. 당시 번역 기능은 여러 언어의 음성을 영어로 옮기는 것으로, 모든 언어 사이의 자유로운 상호 번역을 뜻하지 않습니다.",
     "set": "voice",
-    "people": [
-      "alec",
-      "jongwook"
-    ],
+    "people": ["alec", "jongwook"],
     "sources": [
       {
         "title": "Introducing Whisper",
@@ -1413,10 +1352,7 @@
     "description": "ChatGPT가 무료 연구 프리뷰로 공개됐습니다. GPT-3.5 계열을 대화에 맞게 조정한 모델은 후속 질문에 응답하고 사용자의 피드백을 받는 인터페이스로 제공됐습니다.",
     "detail": "GPT-3.5 계열을 대화에 맞게 조정하고 인간의 시범과 응답 평가를 학습에 활용했습니다. 공개된 대화 인터페이스는 사용자 피드백을 수집하는 연구 프리뷰였으며 당시에도 사실 오류와 편향 등 한계가 남아 있었습니다. John Schulman과 Barret Zoph는 공식 발표의 기여자 명단에 포함됩니다.",
     "set": "chat",
-    "people": [
-      "john",
-      "barret"
-    ],
+    "people": ["john", "barret"],
     "sources": [
       {
         "title": "Introducing ChatGPT",
@@ -1477,10 +1413,7 @@
     "description": "OpenAI와 Microsoft가 다년간 수십억 달러 규모의 투자와 협력 확대를 발표했다. Azure 기반 슈퍼컴퓨팅과 AI 제품 개발이 협력의 중심이었다.",
     "detail": "공식 발표는 다년간·수십억 달러 규모라고 표현한다. 특정 투자액을 추정하지 않으며, Azure 독점 공급 관계는 발표 당시의 설명이다.",
     "set": "investment",
-    "people": [
-      "sam",
-      "satya"
-    ],
+    "people": ["sam", "satya"],
     "sources": [
       {
         "title": "OpenAI와 Microsoft의 협력 확대",
@@ -1546,10 +1479,7 @@
     "detail": "이미지 입력과 텍스트 출력을 지원하는 모델 발표다. 모든 기능이 발표 당일 모든 사용자에게 제공됐다는 뜻은 아니다.",
     "set": "language",
     "model": "GPT-4",
-    "people": [
-      "jakub",
-      "greg"
-    ],
+    "people": ["jakub", "greg"],
     "sources": [
       {
         "title": "GPT-4 연구 발표",
@@ -1668,10 +1598,7 @@
     "description": "OpenAI 이사회가 Sam Altman의 CEO 및 이사회 퇴임을 발표했다. CTO Mira Murati를 즉시 임시 CEO로 선임했다.",
     "detail": "이사회의 발표 내용과 인사 조치만 기록한다. 해임 사유에 관한 이사회의 설명을 별도로 입증된 사실로 단정하지 않는다.",
     "set": "board",
-    "people": [
-      "sam",
-      "mira"
-    ],
+    "people": ["sam", "mira"],
     "sources": [
       {
         "title": "OpenAI 리더십 전환 발표",
@@ -1732,10 +1659,7 @@
     "description": "OpenAI가 Sam Altman의 CEO 복귀와 새로운 초기 이사회 구성을 공식 공지했다. Mira Murati는 CTO로, Greg Brockman은 President로 복귀했다.",
     "detail": "11월 29일은 이 공식 복귀 공지의 날짜다. 앞서 나온 복귀 합의 소식의 날짜와 구별하며, Bret Taylor·Larry Summers·Adam D’Angelo로 구성된 초기 이사회를 설명한다.",
     "set": "board",
-    "people": [
-      "sam",
-      "bret"
-    ],
+    "people": ["sam", "bret"],
     "sources": [
       {
         "title": "CEO 복귀와 새 초기 이사회 공식 공지",
@@ -1801,10 +1725,7 @@
     "detail": "이 날짜는 연구 공개일이다. 일반 사용자를 위한 Sora 서비스의 정식 출시일로 취급하지 않는다.",
     "set": "film",
     "model": "Sora",
-    "people": [
-      "timBrooks",
-      "billPeebles"
-    ],
+    "people": ["timBrooks", "billPeebles"],
     "sources": [
       {
         "title": "Sora 기술 보고서와 공동 저자",
@@ -1861,10 +1782,7 @@
     "detail": "모델의 전체 가능 기능과 발표 당일 제품에서 실제 제공한 기능은 구별해야 한다. 인물은 공식 멀티모달 기여 역할로 연결한다.",
     "set": "voice",
     "model": "GPT-4o",
-    "people": [
-      "prafulla",
-      "alexanderKirillov"
-    ],
+    "people": ["prafulla", "alexanderKirillov"],
     "sources": [
       {
         "title": "Hello GPT-4o",
@@ -1925,10 +1843,7 @@
     "description": "OpenAI가 Ilya Sutskever의 퇴사를 발표하고 Jakub Pachocki를 새로운 수석 과학자로 소개했다. Pachocki는 이전에 연구 책임자로 GPT-4와 OpenAI Five 개발을 이끌었다.",
     "detail": "공식 인사 발표의 날짜와 역할을 기록한다. 바통 전달은 인사 교체를 설명하는 상징적 연출이며 실제 현장의 재현이 아니다.",
     "set": "organization",
-    "people": [
-      "ilya",
-      "jakub"
-    ],
+    "people": ["ilya", "jakub"],
     "sources": [
       {
         "title": "Ilya 퇴사와 Jakub 수석 과학자 선임",
@@ -1994,10 +1909,7 @@
     "detail": "정식 o1의 후속 출시는 별도 사건이다. 이 장면은 9월 12일의 초기 o1-preview 공개에 맞춘다.",
     "set": "reasoning",
     "model": "o1-preview",
-    "people": [
-      "jerry",
-      "noam"
-    ],
+    "people": ["jerry", "noam"],
     "sources": [
       {
         "title": "Learning to reason with LLMs",
@@ -2049,9 +1961,7 @@
     "description": "Stargate는 향후 4년간 미국의 OpenAI용 AI 인프라에 5,000억 달러를 투자할 계획으로 발표됐다. SoftBank가 재무, OpenAI가 운영을 책임지는 주요 파트너로 소개됐다.",
     "detail": "5,000억 달러는 발표된 투자 계획이며 이미 집행된 금액이 아니다. 공식 발표는 초기 출자자로 SoftBank·OpenAI·Oracle·MGX를, Masayoshi Son을 의장으로 제시했다.",
     "set": "infrastructure",
-    "people": [
-      "masayoshi"
-    ],
+    "people": ["masayoshi"],
     "sources": [
       {
         "title": "Stargate 프로젝트 발표",
@@ -2116,10 +2026,7 @@
     "detail": "이 날짜는 API 출시일이다. 공식 발표에서 연구 책임자로 명시된 Michelle Pokrass와 Ananya Kumar를 연결한다.",
     "set": "code",
     "model": "GPT-4.1",
-    "people": [
-      "michelle",
-      "ananya"
-    ],
+    "people": ["michelle", "ananya"],
     "sources": [
       {
         "title": "GPT-4.1 발표와 연구 책임자 목록",
@@ -2176,10 +2083,7 @@
     "detail": "이 날짜는 o3의 최초 예고일이 아니라 o3·o4-mini 출시일이다. 연결된 두 인물은 이 발표의 공식 기여자 목록에 포함돼 있다.",
     "set": "reasoning",
     "model": "o3 · o4-mini",
-    "people": [
-      "jerry",
-      "noam"
-    ],
+    "people": ["jerry", "noam"],
     "sources": [
       {
         "title": "o3·o4-mini 출시와 공식 기여자",
@@ -2233,10 +2137,7 @@
     "detail": "발표 당시 GPT-5는 여러 구성요소를 결합한 시스템이었다. 연결한 Jakub Pachocki와 Mark Chen은 공식 기여자이며 단독 창시자로 표현하지 않는다.",
     "set": "reasoning",
     "model": "GPT-5",
-    "people": [
-      "jakub",
-      "mark"
-    ],
+    "people": ["jakub", "mark"],
     "sources": [
       {
         "title": "GPT-5 발표와 공식 기여자",
@@ -2292,9 +2193,7 @@
     "description": "OpenAI는 자본 재편을 완료했다고 발표했다. 비영리 OpenAI Foundation이 영리 OpenAI Group PBC를 계속 통제하는 구조로 설명했다.",
     "detail": "2025년 5월 5일의 구조 변경 계획과 10월 28일의 완료 발표를 구별한다. Foundation의 지분과 특별 의결·지배구조 권한은 영리 조직에 대한 통제를 뒷받침한다.",
     "set": "organization",
-    "people": [
-      "bret"
-    ],
+    "people": ["bret"],
     "sources": [
       {
         "title": "자본 재편 완료 발표",
@@ -2490,7 +2389,7 @@
       },
       {
         "title": "플레이할 수 있는 결과",
-        "caption": "자동차가 출발점에 돌아오고 게임 결과가 남습니다.",
+        "caption": "자동차가 트랙을 따라 달리다 출발점에 돌아오고, 플레이 가능한 게임 결과가 남습니다.",
         "actions": [
           {
             "target": "output",
@@ -2636,11 +2535,11 @@
       },
       {
         "title": "각 모델을 살펴보다",
-        "caption": "세 장치가 순서대로 회전하며 각 선택지를 보여줍니다.",
+        "caption": "궤도 표식이 있는 세 장치 앞을 작업 카드가 지나며 선택지를 비교합니다.",
         "actions": [
           {
             "target": "hero",
-            "action": "reveal"
+            "action": "pulse"
           },
           {
             "target": "work",
@@ -2654,7 +2553,7 @@
       },
       {
         "title": "작업에 맞는 모델 선택",
-        "caption": "모델 선택 표식과 세 장치가 함께 남습니다.",
+        "caption": "균형 잡힌 작업의 예시 카드가 Terra에 연결되고, 선택된 받침에만 불이 들어옵니다.",
         "actions": [
           {
             "target": "output",

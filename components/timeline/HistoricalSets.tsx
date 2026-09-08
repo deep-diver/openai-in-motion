@@ -1164,7 +1164,11 @@ function TokyoStreet() {
           />
         </group>
       ))}
-      <group name="tokyo:walker" position={[-0.89, 0.2, 0.44]} rotation={[0, Math.PI / 2, 0]}>
+      <group
+        name="tokyo:walker"
+        position={[-0.89, 0.2, 0.44]}
+        rotation={[0, Math.PI / 2, 0]}
+      >
         <Cylinder p={[0, 0.32, 0]} r={0.11} h={0.38} c="#bb6660" />
         <Box p={[0, 0.64, 0]} s={[0.25, 0.28, 0.17]} c="#333d39" />
         <Ball p={[0, 0.91, 0]} r={0.13} c="#cfb391" />
@@ -1293,20 +1297,27 @@ function ReasoningBoard({ tools = false }: { tools?: boolean }) {
           )}
           {!tools && (
             <group name={`reason:equation:${i}`}>
-            <Label
-              text={['3x + 1 = 10', '3x = 9', 'x = 3'][i]}
-              p={[0, 0.7, 0]}
-              w={0.76}
-              h={0.24}
-              color="#e3dcee"
-              size={45}
-            />
+              <Label
+                text={['3x + 1 = 10', '3x = 9', 'x = 3'][i]}
+                p={[0, 0.7, 0]}
+                w={0.76}
+                h={0.24}
+                color="#e3dcee"
+                size={45}
+              />
             </group>
           )}
           {tools && (
             <group name={`reason:evidence:${i}`} position={[0, 1.05, 0.12]}>
               <Box s={[0.53, 0.34, 0.035]} c="#e4e8d5" />
-              <Label text={['SOURCE', 'RESULT', 'IMAGE'][i]} p={[0, 0, 0.024]} w={0.47} h={0.2} color="#486357" size={43} />
+              <Label
+                text={['SOURCE', 'RESULT', 'IMAGE'][i]}
+                p={[0, 0, 0.024]}
+                w={0.47}
+                h={0.2}
+                color="#486357"
+                size={43}
+              />
             </group>
           )}
         </group>
@@ -1487,7 +1498,15 @@ function RaceGame() {
       <Box p={[0, 0.306, 0]} s={[1.64, 0.024, 0.92]} c="#9dba86" />
       <group name="race:car" position={[-0.97, 0.4, -0.58]}>
         <Box s={[0.36, 0.14, 0.22]} c="#cf8e75" />
-        {[-0.065, 0.065].map(z => <Box key={z} p={[0.184, 0, z]} s={[0.012, 0.055, 0.045]} c="#f6edc6" glow />)}
+        {[-0.065, 0.065].map((z) => (
+          <Box
+            key={z}
+            p={[0.184, 0, z]}
+            s={[0.012, 0.055, 0.045]}
+            c="#f6edc6"
+            glow
+          />
+        ))}
         <Box p={[0, 0.11, 0]} s={[0.18, 0.12, 0.19]} c="#dce5d2" />
         {[-0.12, 0.12].map((x) =>
           [-0.12, 0.12].map((z) => (
@@ -1608,19 +1627,43 @@ function LongContextDesk() {
   return (
     <>
       <Box p={[0, 0.09, 0]} s={[2.65, 0.18, 1.25]} c="#80978c" />
-      {[3, 2, 1, 0].map(i => (
-        <Box key={i} p={[-0.22 + i * 0.075, 1.12 + i * 0.03, -i * 0.055]} s={[2.1, 1.9, 0.04]} c={i === 0 ? '#e8eadb' : '#aab9a6'} />
+      {[3, 2, 1, 0].map((i) => (
+        <Box
+          key={i}
+          p={[-0.22 + i * 0.075, 1.12 + i * 0.03, -i * 0.055]}
+          s={[2.1, 1.9, 0.04]}
+          c={i === 0 ? '#e8eadb' : '#aab9a6'}
+        />
       ))}
-      <Label text="1M TOKEN CONTEXT" p={[-0.22, 1.89, 0.035]} w={1.92} h={0.25} color="#476953" size={52} />
+      <Label
+        text="1M TOKEN CONTEXT"
+        p={[-0.22, 1.89, 0.035]}
+        w={1.92}
+        h={0.25}
+        color="#476953"
+        size={52}
+      />
       {Array.from({ length: 12 }, (_, i) => (
-        <Box key={i} p={[-0.26 - (i % 3) * 0.08, 1.65 - i * 0.098, 0.037]} s={[1.66 - (i % 3) * 0.16, 0.029, 0.012]} c={i === 10 ? '#528662' : '#94a78f'} />
+        <Box
+          key={i}
+          p={[-0.26 - (i % 3) * 0.08, 1.65 - i * 0.098, 0.037]}
+          s={[1.66 - (i % 3) * 0.16, 0.029, 0.012]}
+          c={i === 10 ? '#528662' : '#94a78f'}
+        />
       ))}
       <group name="context:scan" position={[-0.22, 1.68, 0.06]}>
         <Box s={[1.91, 0.13, 0.018]} c="#b5dd8e" opacity={0.6} glow />
       </group>
       <group name="context:excerpt" position={[-0.22, 0.67, 0.09]}>
         <Box s={[1.48, 0.3, 0.04]} c="#c8e4ab" />
-        <Label text="MATCHED CONTEXT" p={[0, 0, 0.026]} w={1.34} h={0.2} color="#3a6148" size={45} />
+        <Label
+          text="MATCHED CONTEXT"
+          p={[0, 0, 0.026]}
+          w={1.34}
+          h={0.2}
+          color="#3a6148"
+          size={45}
+        />
       </group>
     </>
   );
@@ -1631,7 +1674,16 @@ function ThreeEngines() {
       {['SOL', 'TERRA', 'LUNA'].map((name, i) => (
         <group key={name} position={[(i - 1) * 0.94, 0, 0]}>
           <Box p={[0, 0.14, 0]} s={[0.8, 0.28, 0.9]} c="#8f9e90" />
+          <group name={`engine:selected:${i}`} position={[0, 0.295, 0]}>
+            <Ring r={0.43} tube={0.025} c="#d4eea5" />
+          </group>
           <group name={`engine:${i}`} position={[0, 0.87, 0]}>
+            <Ring
+              r={0.43}
+              rotation={[0.7, 0, 0.3]}
+              c={['#edcf94', '#b1d4b1', '#c5d9e6'][i]}
+            />
+            <Ball p={[0.42, 0.035, 0]} r={0.055} c="#e9edcf" glow />
             {i === 0 ? (
               <Ball r={0.35} c="#e6c27e" glow />
             ) : i === 1 ? (
@@ -1658,6 +1710,25 @@ function ThreeEngines() {
           />
         </group>
       ))}
+      <group name="engine:task" position={[-1.55, 1.19, 0.93]}>
+        <Box s={[0.86, 0.39, 0.06]} c="#dfe8cb" />
+        <Label
+          text="BALANCED TASK"
+          p={[0, 0.055, 0.037]}
+          w={0.79}
+          h={0.18}
+          color="#466650"
+          size={44}
+        />
+        <Label
+          text="EXAMPLE"
+          p={[0, -0.095, 0.038]}
+          w={0.65}
+          h={0.12}
+          color="#688568"
+          size={36}
+        />
+      </group>
     </>
   );
 }
@@ -2040,7 +2111,7 @@ function getRecentSet(c: Chapter): ReactNode | null {
           support={<Card title="WORKLOAD" lines={['MATCH THE MODEL']} />}
           data={<DataCards labels={['TASK', 'BUDGET', 'DEPTH']} />}
           output={
-            <Card title="MODEL SELECTED" lines={['SOL · TERRA · LUNA']} />
+            <Card title="TERRA SELECTED" lines={['BALANCED TASK', 'EXAMPLE']} />
           }
           banner="GPT-5.6 / SOL · TERRA · LUNA"
         />

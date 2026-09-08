@@ -60,7 +60,9 @@ export function StoryNarration({
             onScrub();
             onSeek({
               serial: Date.now(),
-              progress: (Array.isArray(value) ? value[0] : value) / STORY_TIMING.duration,
+              progress:
+                (Array.isArray(value) ? value[0] : value) /
+                STORY_TIMING.duration,
             });
           }}
         >
@@ -71,7 +73,9 @@ export function StoryNarration({
             <Slider.Thumb
               data-slot="slider-thumb"
               getAriaLabel={() => `${chapter.title}, 재생 위치`}
-              getAriaValueText={(_, seconds) => `${seconds.toFixed(1)}초 / ${STORY_TIMING.duration}초`}
+              getAriaValueText={(_, seconds) =>
+                `${seconds.toFixed(1)}초 / ${STORY_TIMING.duration}초`
+              }
             />
           </Slider.Control>
         </Slider.Root>

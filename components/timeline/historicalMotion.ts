@@ -1,5 +1,11 @@
 import type gsap from 'gsap';
-import { CatmullRomCurve3, Vector3, Mesh, type Group, type Object3D } from 'three';
+import {
+  CatmullRomCurve3,
+  Vector3,
+  Mesh,
+  type Group,
+  type Object3D,
+} from 'three';
 import type { Chapter } from '@/data/types';
 
 /** Event-specific mechanisms: hinges, game pieces, pointers, components and text.
@@ -118,6 +124,35 @@ export function addHistoricalMotion(
         { y: Math.PI * 2, duration: 3.2, ease: 'power2.inOut' },
         B + i * 0.35,
       );
+    const selected = find(`engine:selected:${i}`);
+    if (selected) {
+      tl.set(selected, { visible: false }, 0);
+      if (i === 1) fadeIn(selected, C + 0.25, 0.7);
+    }
+  }
+  const task = find('engine:task');
+  if (task) {
+    fadeIn(task, A, 0.6);
+    tl.to(
+      task.position,
+      { x: -0.94, duration: 0.8, ease: 'power2.inOut' },
+      A + 0.4,
+    );
+    tl.to(
+      task.position,
+      { x: 0.94, duration: 2.3, ease: 'sine.inOut' },
+      B - 0.2,
+    );
+    tl.to(
+      task.position,
+      { x: 0, duration: 0.9, ease: 'power2.inOut' },
+      C - 0.8,
+    );
+    tl.to(
+      task.position,
+      { y: 0.68, z: 0.82, duration: 1.1, ease: 'power2.inOut' },
+      C + 0.25,
+    );
   }
   const cart = find('cart:body'),
     pole = find('cart:pole');
@@ -262,14 +297,40 @@ export function addHistoricalMotion(
   const walker = find('tokyo:walker');
   if (walker) {
     tl.to(walker.position, { x: 0.93, duration: 8.4, ease: 'none' }, A + 0.3);
-    tl.to(walker.position, { y: walker.position.y + 0.022, duration: 0.21, repeat: 39, yoyo: true, ease: 'sine.inOut' }, A + 0.3);
+    tl.to(
+      walker.position,
+      {
+        y: walker.position.y + 0.022,
+        duration: 0.21,
+        repeat: 39,
+        yoyo: true,
+        ease: 'sine.inOut',
+      },
+      A + 0.3,
+    );
     for (let i = 0; i < 2; i++) {
       for (const limb of ['leg', 'arm']) {
         const part = find(`tokyo:${limb}:${i}`);
         if (!part) continue;
         const amplitude = (limb === 'leg' ? 0.42 : -0.24) * (i === 0 ? 1 : -1);
-        tl.fromTo(part.rotation, { x: -amplitude }, { x: amplitude, duration: 0.42, repeat: 19, yoyo: true, ease: 'sine.inOut', immediateRender: false }, A + 0.3);
-        tl.to(part.rotation, { x: 0, duration: 0.35, ease: 'power2.out' }, A + 8.7);
+        tl.fromTo(
+          part.rotation,
+          { x: -amplitude },
+          {
+            x: amplitude,
+            duration: 0.42,
+            repeat: 19,
+            yoyo: true,
+            ease: 'sine.inOut',
+            immediateRender: false,
+          },
+          A + 0.3,
+        );
+        tl.to(
+          part.rotation,
+          { x: 0, duration: 0.35, ease: 'power2.out' },
+          A + 8.7,
+        );
       }
     }
   }
@@ -277,15 +338,23 @@ export function addHistoricalMotion(
   if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
   const scan = find('context:scan');
-  if (scan) tl.to(scan.position, { y: 0.67, duration: 3.25, ease: 'power1.inOut' }, A);
+  if (scan)
+    tl.to(scan.position, { y: 0.67, duration: 3.25, ease: 'power1.inOut' }, A);
   const excerpt = find('context:excerpt');
   if (excerpt) {
     fadeIn(excerpt, B + 0.9, 0.65);
-    tl.to(excerpt.position, { x: 1.8, y: 1.45, z: 1.28, duration: 1.6, ease: 'power2.inOut' }, C - 0.9);
-    excerpt.traverse(part => {
+    tl.to(
+      excerpt.position,
+      { x: 1.8, y: 1.45, z: 1.28, duration: 1.6, ease: 'power2.inOut' },
+      C - 0.9,
+    );
+    excerpt.traverse((part) => {
       if (!(part instanceof Mesh)) return;
-      const materials = Array.isArray(part.material) ? part.material : [part.material];
-      for (const material of materials) tl.to(material, { opacity: 0, duration: 0.7 }, C + 0.9);
+      const materials = Array.isArray(part.material)
+        ? part.material
+        : [part.material];
+      for (const material of materials)
+        tl.to(material, { opacity: 0, duration: 0.7 }, C + 0.9);
     });
   }
   for (let i = 0; i < 3; i++) {
@@ -295,13 +364,17 @@ export function addHistoricalMotion(
     const evidence = find(`reason:evidence:${i}`);
     if (evidence) {
       fadeIn(evidence, at + 0.25, 0.65);
-      tl.to(evidence.position, {
-        x: -(i - 1) * 0.82,
-        y: 1.08 + i * 0.13,
-        z: 0.7,
-        duration: 1.25,
-        ease: 'power2.inOut',
-      }, C + 0.9 + i * 0.15);
+      tl.to(
+        evidence.position,
+        {
+          x: -(i - 1) * 0.82,
+          y: 1.08 + i * 0.3,
+          z: 0.7 + i * 0.06,
+          duration: 1.25,
+          ease: 'power2.inOut',
+        },
+        C + 0.9 + i * 0.15,
+      );
     }
   }
   if (cursor) {
@@ -343,11 +416,22 @@ export function addHistoricalMotion(
     tl.to(style.position, { x: 0.84, duration: 1.1, ease: 'power2.inOut' }, B);
   const car = find('race:car');
   if (car) {
-    const route = new CatmullRomCurve3([
-      [-0.97, -0.58], [0.7, -0.58], [0.97, -0.34], [0.97, 0.34],
-      [0.7, 0.58], [-0.7, 0.58], [-0.97, 0.34], [-0.97, -0.34],
-    ].map(([x, z]) => new Vector3(x, 0.4, z)), true, 'centripetal');
-    const samples = 96, duration = 6.6;
+    const route = new CatmullRomCurve3(
+      [
+        [-0.97, -0.58],
+        [0.7, -0.58],
+        [0.97, -0.34],
+        [0.97, 0.34],
+        [0.7, 0.58],
+        [-0.7, 0.58],
+        [-0.97, 0.34],
+        [-0.97, -0.34],
+      ].map(([x, z]) => new Vector3(x, 0.4, z)),
+      true,
+      'centripetal',
+    );
+    const samples = 96,
+      duration = 6.6;
     let previousYaw = 0;
     tl.addLabel('race-start', B);
     for (let i = 1; i <= samples; i++) {
@@ -356,9 +440,23 @@ export function addHistoricalMotion(
       let yaw = Math.atan2(-tangent.z, tangent.x);
       while (yaw - previousYaw > Math.PI) yaw -= Math.PI * 2;
       while (yaw - previousYaw < -Math.PI) yaw += Math.PI * 2;
-      const at = B + (i - 1) * duration / samples;
-      tl.to(car.position, { x: point.x, y: point.y, z: point.z, duration: duration / samples, ease: 'none' }, at);
-      tl.to(car.rotation, { y: yaw, duration: duration / samples, ease: 'none' }, at);
+      const at = B + ((i - 1) * duration) / samples;
+      tl.to(
+        car.position,
+        {
+          x: point.x,
+          y: point.y,
+          z: point.z,
+          duration: duration / samples,
+          ease: 'none',
+        },
+        at,
+      );
+      tl.to(
+        car.rotation,
+        { y: yaw, duration: duration / samples, ease: 'none' },
+        at,
+      );
       previousYaw = yaw;
     }
   }

@@ -65,9 +65,15 @@ export default function Home() {
   const axis = AXES[chapter.axis];
   const activeBeat = frame.chapterId === chapter.id ? frame.beat : 0;
   const progress = frame.chapterId === chapter.id ? frame.progress : 0;
-  const activeSpeaker = staticSpeaker(chapter, progress * STORY_TIMING.duration);
-  const finished = step === chapters.length - 1 && progress >= 0.999 && !playing;
-  const remaining = Math.ceil((chapters.length - step - progress) * STORY_TIMING.duration / speed);
+  const activeSpeaker = staticSpeaker(
+    chapter,
+    progress * STORY_TIMING.duration,
+  );
+  const finished =
+    step === chapters.length - 1 && progress >= 0.999 && !playing;
+  const remaining = Math.ceil(
+    ((chapters.length - step - progress) * STORY_TIMING.duration) / speed,
+  );
   const copyRef = useRef<HTMLElement>(null);
   const stateRef = useRef({
     step,
@@ -130,8 +136,8 @@ export default function Home() {
     const key = (event: KeyboardEvent) => {
       if (
         event.code !== 'Space' ||
-        event.repeat ||
         event.isComposing ||
+        event.shiftKey ||
         event.altKey ||
         event.ctrlKey ||
         event.metaKey ||
@@ -143,6 +149,7 @@ export default function Home() {
       )
         return;
       event.preventDefault();
+      if (event.repeat) return;
       togglePlay();
     };
     window.addEventListener('keydown', key);
@@ -202,7 +209,8 @@ export default function Home() {
                 재생하면 장면들이 순서대로 이어집니다. 스크롤과 방향키는 장면을
                 이동하고, 스페이스바는 재생을 조절합니다. 하단의 점이나 연도를
                 눌러 원하는 시점으로 바로 이동할 수 있습니다. 터치 화면에서는
-                무대를 좌우로 밀어 장면을 바꾸고, 위아래로 밀어 페이지를 읽습니다.
+                무대를 좌우로 밀어 장면을 바꾸고, 위아래로 밀어 페이지를
+                읽습니다.
               </p>
               <p>
                 인물과 공간은 사실을 설명하기 위한 상징적인 미니어처입니다. 실제
@@ -354,7 +362,13 @@ export default function Home() {
             <button
               className="play-button"
               onClick={togglePlay}
-              aria-label={finished ? '전체 이야기 처음부터 재생' : playing ? '일시정지' : '이야기 재생'}
+              aria-label={
+                finished
+                  ? '전체 이야기 처음부터 재생'
+                  : playing
+                    ? '일시정지'
+                    : '이야기 재생'
+              }
               disabled={reducedMotion}
             >
               {playing ? <Pause size={17} /> : <Play size={17} />}
@@ -371,23 +385,34 @@ export default function Home() {
                 ? '동작 줄이기 적용'
                 : finished
                   ? '여정 완료'
-                : playing
-                  ? '이야기 재생 중'
-                  : '이야기 일시정지'}
+                  : playing
+                    ? '이야기 재생 중'
+                    : '이야기 일시정지'}
             </span>
             <button
               className="speed-button mono"
               aria-label={`현재 ${speed}배속, 눌러서 재생 속도 변경`}
               onClick={() =>
-                setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 2 : s === 2 ? 3 : 1))
+                setSpeed((s) =>
+                  s === 1 ? 1.5 : s === 1.5 ? 2 : s === 2 ? 3 : 1,
+                )
               }
             >
               {speed}×
             </button>
           </div>
           <div className="journey-progress">
-            <progress value={step + progress} max={chapters.length} aria-label="전체 이야기 진행률" />
-            <span className="mono">{step + 1} / {chapters.length} · {finished ? '완료' : `${Math.floor(remaining / 60)}:${String(remaining % 60).padStart(2, '0')} 남음`}</span>
+            <progress
+              value={step + progress}
+              max={chapters.length}
+              aria-label="전체 이야기 진행률"
+            />
+            <span className="mono">
+              {step + 1} / {chapters.length} ·{' '}
+              {finished
+                ? '완료'
+                : `${Math.floor(remaining / 60)}:${String(remaining % 60).padStart(2, '0')} 남음`}
+            </span>
           </div>
           <div className="playback-right">
             <label className="autoplay-label" htmlFor="auto-advance">
@@ -429,7 +454,9 @@ export default function Home() {
               <button
                 key={year}
                 className={chapter.date.startsWith(year) ? 'current' : ''}
-                aria-current={chapter.date.startsWith(year) ? 'date' : undefined}
+                aria-current={
+                  chapter.date.startsWith(year) ? 'date' : undefined
+                }
                 onClick={() =>
                   navigate(chapters.findIndex((c) => c.date.startsWith(year)))
                 }

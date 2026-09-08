@@ -1,7 +1,11 @@
 import type { ObjectId } from '@/data/sceneNotes';
 
 export type LabelBox = { x: number; y: number; width: number; height: number };
-export function fitLabelBox(box: LabelBox, viewportHeight: number, measuredHeight: number): LabelBox {
+export function fitLabelBox(
+  box: LabelBox,
+  viewportHeight: number,
+  measuredHeight: number,
+): LabelBox {
   return {
     ...box,
     height: measuredHeight,

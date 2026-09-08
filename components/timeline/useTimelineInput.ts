@@ -124,7 +124,9 @@ export function useTimelineInput(
       )
         move(Math.sign(dx));
     };
-    const touchCancel = () => { touchY = null; };
+    const touchCancel = () => {
+      touchY = null;
+    };
     window.addEventListener('wheel', wheel, { passive: false });
     window.addEventListener('keydown', keyboard);
     window.addEventListener('touchstart', touchStart, { passive: true });

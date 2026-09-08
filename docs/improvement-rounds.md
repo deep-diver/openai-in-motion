@@ -20,3 +20,7 @@ The fixed isometric camera, single stage, full history and two-panel annotation 
 8. **A racing game with actual steering.** Replaced sideways right-angle translation with a sampled closed curve and continuous heading changes. Headlights make its direction visible. The regression checks the full lap for position/heading jumps, track bounds, completion and backward seeking.
 
 9. **GPT-4.1 gets a distinct long-context scene.** Replaced the repeated model-crate prop with a layered document, scanning highlight and matching excerpt that travels into the code editor. Updated only staging captions/callout text and retained the existing historical claims and sources. Transfer ordering and deterministic-seek regressions passed.
+
+10. **A visible model choice.** Added asymmetric orbit markers to the three GPT-5.6 devices, moved an example workload across them, then connected it to Terra with only that base illuminated. The result and captions explicitly describe an illustrated balanced task. Selection exclusivity and final task position passed.
+
+Final review corrected evidence-card depth/spacing, kept the longer racing lap's caption in sync, and prevented held Space from scrolling the page. All 23 regressions, TypeScript and app lint pass. The production build is checked before publishing. Browser visual QA of the improved app was not run; video capture and visual inspection cover the preceding exported version.
