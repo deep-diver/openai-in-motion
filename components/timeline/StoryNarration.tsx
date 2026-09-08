@@ -39,7 +39,7 @@ export function StoryNarration({
             aria-hidden={i !== dominant}
             style={{
               opacity: reducedMotion ? (i === dominant ? 1 : 0) : weights[i],
-              transform: `translateY(${reducedMotion ? 0 : (i - position) * 88}px)`,
+              transform: `translateY(${reducedMotion ? 0 : (i - position) * 100}%)`,
             }}
           >
             <strong>{beat.title}</strong>

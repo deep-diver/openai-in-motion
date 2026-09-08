@@ -104,6 +104,16 @@ export function addHistoricalMotion(
   const dog = find('clip:dog');
   if (dog)
     tl.to(dog.rotation, { y: -0.35, duration: 1.3, ease: 'power2.inOut' }, B);
+  const candidate = find('clip:selection');
+  if (candidate) {
+    tl.to(
+      candidate.position,
+      { y: 0.357, duration: 1.4, ease: 'power2.inOut' },
+      B + 0.4,
+    );
+  }
+  const match = find('clip:match');
+  if (match) fadeIn(match, C, 0.6);
   const organization = find('org:operating');
   if (organization)
     tl.fromTo(
@@ -156,21 +166,30 @@ export function addHistoricalMotion(
   }
   const cart = find('cart:body'),
     pole = find('cart:pole');
-  if (cart)
-    tl.fromTo(
-      cart.position,
-      { x: -0.4 },
-      { x: 0.35, duration: 1.55, repeat: 5, yoyo: true, ease: 'sine.inOut' },
-      A,
-    );
-  if (pole) {
-    tl.fromTo(
-      pole.rotation,
-      { z: -0.34 },
-      { z: 0.2, duration: 1.2, ease: 'sine.inOut' },
-      A,
-    );
-    tl.to(pole.rotation, { z: 0, duration: 1.6, ease: 'power2.out' }, B);
+  // Damped corrections settle both cart and pole, preserving a visible final result.
+  if (cart || pole) {
+    const samples = 64,
+      duration = 6.8;
+    if (cart) tl.set(cart.position, { x: -0.4 }, 0);
+    if (pole) tl.set(pole.rotation, { z: -0.34 }, 0);
+    for (let i = 1; i <= samples; i++) {
+      const u = i / samples;
+      const envelope = (1 - u) ** 2;
+      const correction = Math.cos(u * Math.PI * 5) * envelope;
+      const at = A + ((i - 1) * duration) / samples;
+      if (cart)
+        tl.to(
+          cart.position,
+          { x: -0.4 * correction, duration: duration / samples, ease: 'none' },
+          at,
+        );
+      if (pole)
+        tl.to(
+          pole.rotation,
+          { z: -0.34 * correction, duration: duration / samples, ease: 'none' },
+          at,
+        );
+    }
   }
   if (c.id.startsWith('gpt-2'))
     for (let i = 0; i < 4; i++) {
@@ -211,6 +230,37 @@ export function addHistoricalMotion(
         { x: 0.27, duration: 0.65, ease: 'power2.inOut' },
         A + i * 0.13,
       );
+  }
+  // Reposition alternating fingertips while the opposing fingers retain their grip.
+  for (let i = 0; i < 4; i++) {
+    const tip = find(`hand:tip:${i}`);
+    if (!tip) continue;
+    tl.to(
+      tip.rotation,
+      { x: 0.95, duration: 0.55, ease: 'power2.inOut' },
+      A + i * 0.13,
+    );
+    for (const [turn, at] of [
+      [0, B - 0.35],
+      [1, C - 0.85],
+    ]) {
+      if (i % 2 !== turn) continue;
+      tl.to(tip.rotation, { x: 0.35, duration: 0.4, ease: 'sine.inOut' }, at);
+      tl.to(
+        tip.rotation,
+        { x: 0.95, duration: 0.6, ease: 'power2.inOut' },
+        at + 1.2,
+      );
+    }
+  }
+  const thumb = find('hand:thumb');
+  if (thumb) {
+    tl.to(thumb.rotation, { z: 0.25, duration: 0.75, ease: 'power2.inOut' }, A);
+    tl.to(
+      thumb.rotation,
+      { z: 0.4, duration: 0.5, yoyo: true, repeat: 1, ease: 'sine.inOut' },
+      C - 0.75,
+    );
   }
   const vote = find('preference:vote:1');
   if (vote)
@@ -334,6 +384,33 @@ export function addHistoricalMotion(
       }
     }
   }
+  const signal = find('omni:signal');
+  if (signal) {
+    fadeIn(signal, A, 0.45);
+    tl.to(
+      signal.scale,
+      {
+        x: 1.18,
+        y: 1.18,
+        duration: 0.3,
+        repeat: 7,
+        yoyo: true,
+        ease: 'sine.inOut',
+      },
+      A + 0.5,
+    );
+  }
+  const visualScan = find('omni:scan');
+  if (visualScan) {
+    fadeIn(visualScan, B, 0.4);
+    tl.to(
+      visualScan.position,
+      { y: 1.1, duration: 1.2, ease: 'power2.inOut' },
+      B,
+    );
+  }
+  const working = find('omni:working');
+  if (working) fadeIn(working, B + 1.45, 0.65);
   const answer = find('omni:answer');
   if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
@@ -464,9 +541,35 @@ export function addHistoricalMotion(
   if (pointer)
     tl.to(
       pointer.position,
-      { x: 0.73, y: 1.29, duration: 1.5, ease: 'power2.inOut' },
+      { x: 0.63, y: 0.71, duration: 1.5, ease: 'power2.inOut' },
       B,
     );
+  const request = find('computer:request');
+  if (request) {
+    fadeIn(request, A, 0.6);
+    tl.to(
+      request.position,
+      { y: 0.91, duration: 1.2, ease: 'power1.inOut' },
+      A + 0.5,
+    );
+  }
+  const click = find('computer:click');
+  if (click) {
+    fadeIn(click, C - 0.55, 0.15);
+    tl.to(
+      click.scale,
+      {
+        x: 1.35,
+        y: 1.35,
+        duration: 0.25,
+        repeat: 1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      },
+      C - 0.5,
+    );
+    tl.set(click, { visible: false }, C + 0.05);
+  }
   for (const name of ['calendar:event', 'quadrics:intersection']) {
     const part = find(name);
     if (part) {

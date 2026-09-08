@@ -9,11 +9,13 @@ const CELL = 126;
 export function TimelineTracks({
   chapters,
   active,
+  progress = 0,
   onSelect,
   reducedMotion,
 }: {
   chapters: Chapter[];
   active: number;
+  progress?: number;
   onSelect: (n: number) => void;
   reducedMotion: boolean;
 }) {
@@ -92,7 +94,14 @@ export function TimelineTracks({
           </div>
           <div
             className="track-playhead"
-            style={{ left: active * CELL + 15 }}
+            aria-hidden="true"
+            style={{
+              left: Math.min(
+                chapters.length * CELL - 1,
+                (active + Math.max(0, Math.min(1, progress))) * CELL + 15,
+              ),
+              transition: reducedMotion ? 'none' : 'left 0.1s linear',
+            }}
           />
           {axes.map((axis) => (
             <div

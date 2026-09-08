@@ -50,3 +50,38 @@ export function leaderPath(box: LabelBox, point: { x: number; y: number }) {
   const elbowY = vertical ? y + (point.y > centerY ? 14 : -14) : y;
   return `M ${x.toFixed(1)} ${y.toFixed(1)} L ${elbowX.toFixed(1)} ${elbowY.toFixed(1)} L ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;
 }
+
+/** Keep the two visible panels apart, including enlarged text on narrow stages. */
+export function separateLabels(
+  primary: LabelBox,
+  secondary: LabelBox,
+  viewportHeight: number,
+): [LabelBox, LabelBox] {
+  const margin = 6,
+    gap = 12;
+  const a = fitLabelBox(
+    primary,
+    viewportHeight,
+    Math.min(primary.height, viewportHeight - margin * 2),
+  );
+  const b = fitLabelBox(
+    secondary,
+    viewportHeight,
+    Math.min(secondary.height, viewportHeight - margin * 2),
+  );
+  const horizontalOverlap =
+    a.x < b.x + b.width + gap && b.x < a.x + a.width + gap;
+  const verticalOverlap =
+    a.y < b.y + b.height + gap && b.y < a.y + a.height + gap;
+  if (!horizontalOverlap || !verticalOverlap) return [a, b];
+  const available = Math.max(2, viewportHeight - margin * 2 - gap);
+  if (a.height + b.height > available) {
+    // Overflow remains scrollable; never shrink the text to make it fit.
+    const share = available / (a.height + b.height);
+    a.height = Math.floor(a.height * share);
+    b.height = Math.floor(b.height * share);
+  }
+  a.y = margin;
+  b.y = viewportHeight - margin - b.height;
+  return [a, b];
+}

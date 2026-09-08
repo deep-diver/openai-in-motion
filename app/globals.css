@@ -1889,3 +1889,50 @@ figure.scene-canvas {
     bottom: 174px;
   }
 }
+
+/* The stage and captions occupy separate rows. Long text expands the page,
+   rather than taking space away from the fixed isometric view. */
+.documentary[data-locale] .scene-view {
+  display: grid;
+  grid-template-rows: minmax(440px, 1fr) auto;
+  height: auto;
+  min-height: 620px;
+}
+.documentary[data-locale] .scene-canvas {
+  position: relative;
+  grid-area: 1 / 1;
+  inset: auto;
+  margin: 0;
+  min-width: 0;
+  min-height: 440px;
+}
+.documentary[data-locale] .continuous-narration {
+  position: relative;
+  grid-area: 2 / 1;
+  inset: auto;
+  padding: 12px 3% 16px;
+}
+.documentary[data-locale] .narration-window {
+  display: grid;
+  min-height: 0;
+}
+.documentary[data-locale] .narration-line {
+  position: relative;
+  grid-area: 1 / 1;
+  inset: auto;
+  padding-bottom: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .narration-line {
+    transition: none;
+  }
+}
+@media (max-width: 700px) {
+  .documentary[data-locale] .scene-view {
+    grid-template-rows: minmax(470px, 1fr) auto;
+    min-height: 0;
+  }
+  .documentary[data-locale] .scene-canvas {
+    min-height: 470px;
+  }
+}

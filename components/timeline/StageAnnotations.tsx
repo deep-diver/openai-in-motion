@@ -7,7 +7,13 @@ import { CAST_DIALOGUE, OBJECT_IDS, importantObjects } from '@/data/sceneNotes';
 import { localizedNotes, localizedDialogue } from '@/data/localization';
 import { useLocale } from './Locale';
 import { PEOPLE, type Chapter } from '@/data/types';
-import { annotationBox, fitLabelBox, leaderPath } from './annotationLayout';
+import {
+  annotationBox,
+  fitLabelBox,
+  leaderPath,
+  separateLabels,
+  type LabelBox,
+} from './annotationLayout';
 import {
   captionWeights,
   dialogueOpacity,
@@ -62,7 +68,7 @@ export function StageAnnotations({
         if (!refs.label) continue;
         refs.measured = {
           width: parseFloat(refs.label.style.width),
-          height: refs.label.offsetHeight,
+          height: refs.label.scrollHeight + 2,
         };
       }
     });
@@ -142,6 +148,49 @@ export function AnnotationProjector({
     if (!scene || bridge.chapterId !== chapter.id) return;
     const time = Number(scene.userData.storyTime ?? 0);
     const weights = captionWeights(time);
+    const boxes = new Map<string, LabelBox>();
+    const measure = (id: string, speech = false) => {
+      const refs = bridge.elements.get(id);
+      const box = annotationBox(
+        speech ? 'speech' : (id as (typeof OBJECT_IDS)[number]),
+        size.width,
+        size.height,
+      );
+      if (refs?.label) {
+        if (refs.measured?.width !== box.width) {
+          refs.label.style.width = `${box.width}px`;
+          refs.measured = {
+            width: box.width,
+            height: refs.label.scrollHeight + 2,
+          };
+        }
+        Object.assign(box, fitLabelBox(box, size.height, refs.measured.height));
+      }
+      boxes.set(id, box);
+      return box;
+    };
+    const objects = importantObjects(chapter.id);
+    const heroBox = measure('hero');
+    let otherId: string = objects[1];
+    measure(otherId);
+    (CAST_DIALOGUE[chapter.id] ?? []).forEach((_, i) => {
+      const id = `speech-${i}`;
+      measure(id, true);
+      const interval = dialogueWindow(chapter, i);
+      if (
+        reducedMotion
+          ? staticSpeaker(chapter, time) === i
+          : dialogueOpacity(time, interval.start, interval.end) > 0
+      )
+        otherId = id;
+    });
+    const [primary, secondary] = separateLabels(
+      heroBox,
+      boxes.get(otherId)!,
+      size.height,
+    );
+    boxes.set('hero', primary);
+    boxes.set(otherId, secondary);
     const update = (
       id: string,
       target: Object3D | undefined,
@@ -152,19 +201,10 @@ export function AnnotationProjector({
     ) => {
       const refs = bridge.elements.get(id);
       if (!refs?.label || !refs.path || !refs.dot) return;
-      const box = annotationBox(
-        speech ? 'speech' : (id as (typeof OBJECT_IDS)[number]),
-        size.width,
-        size.height,
-      );
-      if (refs.measured?.width !== box.width) {
-        refs.label.style.width = `${box.width}px`;
-        refs.measured = {
-          width: box.width,
-          height: refs.label.offsetHeight || box.height,
-        };
-      }
-      Object.assign(box, fitLabelBox(box, size.height, refs.measured.height));
+      const box = boxes.get(id)!;
+      refs.label.style.maxHeight = `${box.height}px`;
+      const clipped = (refs.measured?.height ?? box.height) > box.height + 1;
+      refs.label.style.overflowY = clipped ? 'auto' : '';
       refs.label.style.left = `${box.x}px`;
       refs.label.style.top = `${box.y}px`;
       if (!target || !isVisible(target)) opacity = 0;
@@ -184,6 +224,9 @@ export function AnnotationProjector({
         refs.dot.setAttribute('cx', point.x.toFixed(1));
         refs.dot.setAttribute('cy', point.y.toFixed(1));
       }
+      refs.label.style.pointerEvents = clipped && opacity > 0.1 ? 'auto' : '';
+      refs.label.tabIndex = clipped && opacity > 0.1 ? 0 : -1;
+      refs.label.dataset.annotationScroll = String(clipped && opacity > 0.1);
       refs.label.style.opacity = `${opacity}`;
       refs.label.style.transform = `translateY(${(1 - opacity) * 4}px)`;
       refs.label.style.setProperty('--callout-focus', `${focus}`);

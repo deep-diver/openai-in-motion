@@ -30,6 +30,7 @@ import {
 } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
 import { TimelineTracks } from '@/components/timeline/TimelineTracks';
+import { usePageVisibility } from './usePageVisibility';
 import { useTimelineInput } from '@/components/timeline/useTimelineInput';
 import { chapters as baseChapters } from '@/data/chapters';
 import { localizedChapters, type Locale } from '@/data/localization';
@@ -76,6 +77,8 @@ function Home({
   const [autoAdvance, setAutoAdvance] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
+  const pageVisible = usePageVisibility();
+  const clockPlaying = playing && !infoOpen && pageVisible;
   const [replayKey, setReplayKey] = useState(0);
   const [seek, setSeek] = useState<StorySeek | null>(null);
   const [frame, setFrame] = useState<StoryFrame>({
@@ -167,7 +170,7 @@ function Home({
         infoOpen ||
         (event.target instanceof Element &&
           event.target.closest(
-            'button,a,input,textarea,[role="slider"],[data-slot="slider"],[role="switch"],[role="dialog"]',
+            'button,a,input,textarea,[role="slider"],[data-slot="slider"],[role="switch"],[role="dialog"],[contenteditable]:not([contenteditable="false"])',
           ))
       )
         return;
@@ -324,7 +327,7 @@ function Home({
         <article
           className="chapter-copy"
           ref={copyRef}
-          aria-live={playing ? 'off' : 'polite'}
+          aria-live={clockPlaying ? 'off' : 'polite'}
           aria-atomic="true"
         >
           <div className="chapter-marker mono">
@@ -423,7 +426,7 @@ function Home({
           >
             <Stage
               chapter={baseChapters[step]}
-              playing={playing && !infoOpen}
+              playing={clockPlaying}
               speed={speed}
               replayKey={replayKey}
               seek={seek}
@@ -435,7 +438,7 @@ function Home({
           <StoryNarration
             chapter={chapter}
             progress={progress}
-            playing={playing}
+            playing={clockPlaying}
             reducedMotion={reducedMotion}
             onSeek={setSeek}
             onScrub={() => setPlaying(false)}
@@ -567,6 +570,7 @@ function Home({
         <TimelineTracks
           chapters={chapters}
           active={step}
+          progress={progress}
           onSelect={navigate}
           reducedMotion={reducedMotion}
         />

@@ -17,12 +17,12 @@ export function useTimelineInput(
     const isInteractive = (target: EventTarget | null) =>
       target instanceof Element &&
       !!target.closest(
-        'button,a,input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[contenteditable="true"]',
+        'button,a,input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[role="switch"],[role="combobox"],[role="spinbutton"],[data-annotation-scroll="true"],[contenteditable]:not([contenteditable="false"])',
       );
     const isEditing = (target: EventTarget | null) =>
       target instanceof Element &&
       !!target.closest(
-        'input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[contenteditable="true"]',
+        'input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[role="switch"],[role="combobox"],[role="spinbutton"],[data-annotation-scroll="true"],[contenteditable]:not([contenteditable="false"])',
       );
     const pageOverflows = () =>
       document.documentElement.scrollHeight > window.innerHeight + 2;
@@ -63,6 +63,7 @@ export function useTimelineInput(
       if (
         isEditing(event.target) ||
         event.isComposing ||
+        event.shiftKey ||
         event.altKey ||
         event.ctrlKey ||
         event.metaKey

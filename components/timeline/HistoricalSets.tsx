@@ -346,7 +346,11 @@ function RobotHand() {
           rotation={[-0.2, 0, 0]}
         >
           <Box p={[0, 0.2, 0]} s={[0.11, 0.4, 0.11]} c="#d5e0d0" />
-          <group position={[0, 0.4, 0]} rotation={[0.6, 0, 0]}>
+          <group
+            name={`hand:tip:${i}`}
+            position={[0, 0.4, 0]}
+            rotation={[0.6, 0, 0]}
+          >
             <Box p={[0, 0.13, 0]} s={[0.1, 0.27, 0.1]} c="#9faf9f" />
           </group>
         </group>
@@ -779,10 +783,18 @@ export function getHistoricalSet(chapter: Chapter): ReactNode | null {
             </>
           }
           work={
-            <Card
-              title="TEXT"
-              lines={['a photo of a cat', 'a photo of a dog']}
-            />
+            <>
+              <Card
+                title="TEXT"
+                lines={['a photo of a cat', 'a photo of a dog']}
+              />
+              <group name="clip:selection" position={[-0.69, 0.546, 0.09]}>
+                <Box s={[0.045, 0.16, 0.025]} c="#567b58" glow />
+              </group>
+              <group name="clip:match" position={[0, 0.357, 0.049]}>
+                <Box s={[1.42, 0.185, 0.007]} c="#b8d795" />
+              </group>
+            </>
           }
           support={<Tower label="CLIP" layers={4} />}
           data={<DataCards labels={['IMAGE + TEXT', 'MATCH MEANING']} />}
@@ -1207,6 +1219,19 @@ function OmniDemo() {
         color="#517a65"
         size={65}
       />
+      <group name="omni:scan" position={[0.62, 1.5, 0.08]}>
+        <Box s={[1.18, 0.025, 0.015]} c="#83bbad" glow />
+      </group>
+      <group name="omni:working">
+        <Label
+          text="3x = 9"
+          p={[0.62, 1.01, 0.065]}
+          w={1.2}
+          h={0.2}
+          color="#517a65"
+          size={59}
+        />
+      </group>
       <group name="omni:answer">
         <Label
           text="x = 3"
@@ -1228,13 +1253,8 @@ function OmniDemo() {
         rotation={[Math.PI / 2, 0, 0]}
         c="#bad5c3"
       />
-      <group name="omni:signal">
-        <Ring
-          p={[-0.75, 1.22, 0.4]}
-          r={0.34}
-          c="#b5e1b0"
-          rotation={[0, 0, 0]}
-        />
+      <group name="omni:signal" position={[-0.75, 1.22, 0.4]}>
+        <Ring r={0.34} c="#b5e1b0" rotation={[0, 0, 0]} />
       </group>
     </>
   );
@@ -1554,6 +1574,12 @@ function ComputerUse() {
             size={46}
           />
         </group>
+      </group>
+      <group name="computer:request" position={[-0.69, 1.12, 0.09]}>
+        <Box s={[1.05, 0.025, 0.02]} c="#9cbbaa" glow />
+      </group>
+      <group name="computer:click" position={[0.69, 0.85, 0.12]}>
+        <Ring r={0.16} tube={0.012} c="#d6f19a" rotation={[0, 0, 0]} />
       </group>
       <group name="computer:cursor" position={[-0.74, 1.08, 0.23]}>
         <Cylinder

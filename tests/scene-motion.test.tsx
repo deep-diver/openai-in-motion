@@ -152,3 +152,117 @@ void test('the model comparison selects only Terra for its illustrated balanced 
   engines.tl.kill();
 });
 after(() => gsap.ticker.sleep());
+
+void test('CLIP compares candidates before revealing its selected match', () => {
+  const clip = reel('clip', ['clip:selection', 'clip:match']);
+  clip.tl.time(3, true);
+  assert.equal(clip.find('clip:match').visible, false);
+  clip.tl.time(5, true);
+  assert.ok(clip.find('clip:selection').position.y > 0.05);
+  assert.equal(clip.find('clip:match').visible, false);
+  clip.tl.time(8.2, true);
+  assert.equal(clip.find('clip:selection').position.y, 0.357);
+  assert.equal(clip.find('clip:match').visible, true);
+  clip.tl.time(2, true);
+  assert.equal(clip.find('clip:match').visible, false);
+  clip.tl.kill();
+});
+void test('Dactyl is visible while gripping, alternates fingertips and holds the turned block', () => {
+  const hand = reel('dactyl', [
+    'hand:block',
+    'hand:thumb',
+    ...[0, 1, 2, 3].map((i) => `hand:tip:${i}`),
+  ]);
+  hand.tl.time(3, true);
+  assert.ok(
+    hand.find('story:hero').scale.x > 0.95,
+    'the first grip is not hidden until beat two',
+  );
+  assert.ok(hand.find('hand:tip:0').rotation.x > 0.9);
+  hand.tl.time(4.1, true);
+  assert.ok(hand.find('hand:tip:0').rotation.x < 0.5);
+  assert.ok(
+    hand.find('hand:tip:1').rotation.x > 0.9,
+    'opposing fingers retain the block',
+  );
+  hand.tl.time(7, true);
+  assert.ok(hand.find('hand:tip:1').rotation.x < 0.5);
+  assert.ok(hand.find('hand:tip:0').rotation.x > 0.9);
+  hand.tl.time(11, true);
+  assert.ok(Math.abs(hand.find('hand:block').rotation.z - Math.PI / 2) < 0.001);
+  assert.ok(hand.find('hand:tip:1').rotation.x > 0.9);
+  hand.tl.kill();
+});
+void test('GPT-4o listens and reads before its intermediate step and answer', () => {
+  const omni = reel('gpt-4o-2024', [
+    'omni:signal',
+    'omni:scan',
+    'omni:working',
+    'omni:answer',
+  ]);
+  omni.tl.time(2.5, true);
+  assert.equal(omni.find('omni:signal').visible, true);
+  assert.equal(omni.find('omni:scan').visible, false);
+  assert.equal(omni.find('omni:answer').visible, false);
+  omni.tl.time(5, true);
+  assert.equal(omni.find('omni:scan').visible, true);
+  assert.equal(omni.find('omni:working').visible, false);
+  omni.tl.time(6.5, true);
+  assert.equal(omni.find('omni:working').visible, true);
+  assert.equal(omni.find('omni:answer').visible, false);
+  omni.tl.time(9, true);
+  assert.equal(omni.find('omni:answer').visible, true);
+  assert.equal(omni.find('omni:signal').scale.x, 1);
+  omni.tl.kill();
+});
+void test('calendar creation follows reading, moving and clicking in order', () => {
+  const computer = reel('gpt-5-4-2026', [
+    'computer:request',
+    'computer:cursor',
+    'computer:click',
+    'calendar:event',
+  ]);
+  computer.tl.time(3, true);
+  assert.equal(computer.find('computer:request').visible, true);
+  assert.equal(computer.find('computer:click').visible, false);
+  assert.equal(computer.find('calendar:event').visible, false);
+  computer.tl.time(7, true);
+  assert.equal(computer.find('computer:cursor').position.x, 0.63);
+  assert.equal(computer.find('computer:cursor').position.y, 0.71);
+  assert.equal(computer.find('computer:click').visible, true);
+  assert.equal(computer.find('calendar:event').visible, false);
+  computer.tl.time(9, true);
+  assert.equal(computer.find('computer:click').visible, false);
+  assert.equal(computer.find('calendar:event').visible, true);
+  computer.tl.time(3, true);
+  assert.equal(computer.find('calendar:event').visible, false);
+  computer.tl.kill();
+});
+void test('Gym corrections get smaller and finish with both cart and pole at rest', () => {
+  const gym = reel('gym-beta', ['cart:body', 'cart:pole']);
+  const cart = gym.find('cart:body'),
+    pole = gym.find('cart:pole');
+  gym.tl.time(1.4, true);
+  let previous = cart.position.x;
+  let early = 0,
+    late = 0;
+  for (let t = 1.5; t < 8.2; t += 0.05) {
+    gym.tl.time(t, true);
+    assert.ok(
+      Math.abs(cart.position.x - previous) < 0.06,
+      `cart jumped at ${t}`,
+    );
+    assert.ok(Math.abs(pole.rotation.z / 0.34 - cart.position.x / 0.4) < 0.001);
+    if (t < 4) early = Math.max(early, Math.abs(cart.position.x));
+    if (t > 6) late = Math.max(late, Math.abs(cart.position.x));
+    previous = cart.position.x;
+  }
+  assert.ok(late < early * 0.2);
+  gym.tl.time(12, true);
+  assert.equal(cart.position.x, 0);
+  assert.equal(pole.rotation.z, 0);
+  gym.tl.time(2, true);
+  gym.tl.time(12, true);
+  assert.equal(cart.position.x, 0);
+  gym.tl.kill();
+});

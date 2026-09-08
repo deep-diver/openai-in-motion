@@ -13,6 +13,7 @@ import {
 import {
   annotationBox,
   fitLabelBox,
+  separateLabels,
   leaderPath,
 } from '../components/timeline/annotationLayout';
 import {
@@ -192,3 +193,40 @@ void test('long or enlarged dialogue stays above the bottom edge after measureme
   }
 });
 after(() => gsap.ticker.sleep());
+
+void test('the two visible labels stay separate with long English and enlarged text', () => {
+  for (const width of [280, 360, 620, 1000])
+    for (const height of [280, 440, 600]) {
+      for (const secondary of [
+        'work',
+        'support',
+        'data',
+        'output',
+        'speech',
+      ] as const) {
+        for (const textHeight of [100, 160, 290]) {
+          const hero = {
+            ...annotationBox('hero', width, height),
+            height: textHeight,
+          };
+          const note = {
+            ...annotationBox(secondary, width, height),
+            height: textHeight + 30,
+          };
+          const [a, b] = separateLabels(hero, note, height);
+          assert.ok(a.y >= 0 && a.y + a.height <= height);
+          assert.ok(b.y >= 0 && b.y + b.height <= height);
+          const overlap =
+            a.x < b.x + b.width &&
+            b.x < a.x + a.width &&
+            a.y < b.y + b.height &&
+            b.y < a.y + a.height;
+          assert.equal(
+            overlap,
+            false,
+            `${width}/${height}/${secondary}/${textHeight}`,
+          );
+        }
+      }
+    }
+});

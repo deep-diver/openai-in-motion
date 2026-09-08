@@ -142,4 +142,46 @@ void test('vertical stage gestures scroll; horizontal swipes navigate and cancel
   stage.remove();
   await act(async () => root.unmount());
 });
+void test('switches, editable regions and Shift combinations retain their native keys', async () => {
+  let step = 0;
+  const setStep: Dispatch<SetStateAction<number>> = (next) => {
+    step = typeof next === 'function' ? next(step) : next;
+  };
+  function Probe() {
+    useTimelineInput(setStep, false, 44);
+    return null;
+  }
+  const root = createRoot(document.createElement('div'));
+  await act(async () => root.render(<Probe />));
+  for (const attr of [
+    'role="switch"',
+    'role="combobox"',
+    'role="spinbutton"',
+    'contenteditable=""',
+    'contenteditable="plaintext-only"',
+  ]) {
+    const holder = document.createElement('div');
+    holder.innerHTML = `<div ${attr}>Edit</div>`;
+    document.body.appendChild(holder);
+    const key = new dom.window.KeyboardEvent('keydown', {
+      key: 'ArrowRight',
+      bubbles: true,
+      cancelable: true,
+    });
+    holder.firstElementChild!.dispatchEvent(key);
+    assert.equal(key.defaultPrevented, false, attr);
+    assert.equal(step, 0, attr);
+    holder.remove();
+  }
+  const key = new dom.window.KeyboardEvent('keydown', {
+    key: 'ArrowRight',
+    shiftKey: true,
+    bubbles: true,
+    cancelable: true,
+  });
+  document.body.dispatchEvent(key);
+  assert.equal(key.defaultPrevented, false);
+  assert.equal(step, 0);
+  await act(async () => root.unmount());
+});
 after(() => dom.window.close());
