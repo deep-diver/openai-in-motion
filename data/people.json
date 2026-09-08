@@ -1,0 +1,262 @@
+{
+  "sam": {
+    "name": "샘 올트먼",
+    "english": "Sam Altman",
+    "role": "OpenAI CEO; 2023년 이사회 퇴임·CEO 복귀 발표 당사자",
+    "color": "#679995",
+    "hair": "#49392d",
+    "skin": "#d7b79b"
+  },
+  "greg": {
+    "name": "그레그 브록먼",
+    "english": "Greg Brockman",
+    "role": "GPT-4 사전학습 인프라 책임자",
+    "color": "#788aab",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "ilya": {
+    "name": "일리야 수츠케버",
+    "english": "Ilya Sutskever",
+    "role": "OpenAI 공동창립자·전 수석 과학자; 2024년 퇴사 발표 당사자",
+    "color": "#9b8970",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "elon": {
+    "name": "일론 머스크",
+    "english": "Elon Musk",
+    "role": "초기 공동 의장 · 2018년 이사회 퇴임 발표",
+    "color": "#9d849d",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "john": {
+    "name": "존 슐먼",
+    "english": "John Schulman",
+    "role": "공동창립자 · 강화학습 연구자 · ChatGPT 출시 기여자",
+    "color": "#7d9c84",
+    "hair": "#49392d",
+    "skin": "#d7b79b",
+    "glasses": true
+  },
+  "wojciech": {
+    "name": "보이치에흐 자렘바",
+    "english": "Wojciech Zaremba",
+    "role": "공동창립자 · Dactyl·Codex 발표 공동저자",
+    "color": "#b39471",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "satya": {
+    "name": "사티아 나델라",
+    "english": "Satya Nadella",
+    "role": "2023년 협력 확대 발표 당시 Microsoft 회장 겸 CEO",
+    "color": "#7e90ad",
+    "hair": "#342e2a",
+    "skin": "#d9bba2",
+    "glasses": true
+  },
+  "mira": {
+    "name": "미라 무라티",
+    "english": "Mira Murati",
+    "role": "2023년 11월 17일 CTO에서 임시 CEO로 선임",
+    "color": "#679995",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "jakub": {
+    "name": "야쿠프 파호츠키",
+    "english": "Jakub Pachocki",
+    "role": "GPT-4 사전학습 총괄·최적화 책임자; 2024년 신임 수석 과학자; GPT-5 공식 기여자",
+    "color": "#788aab",
+    "hair": "#49392d",
+    "skin": "#d7b79b",
+    "glasses": true
+  },
+  "dario": {
+    "name": "다리오 아모데이",
+    "english": "Dario Amodei",
+    "role": "Universe 강화학습 기여자 · 인간 선호 학습 발표 공동저자",
+    "color": "#9b8970",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "alec": {
+    "name": "알렉 래드퍼드",
+    "english": "Alec Radford",
+    "role": "GPT·CLIP 연구자 · Whisper 논문 공동 제1저자",
+    "color": "#9d849d",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "jeffrey": {
+    "name": "제프리 우",
+    "english": "Jeffrey Wu",
+    "role": "GPT-2 연구 및 발표 공동저자",
+    "color": "#7d9c84",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "tom": {
+    "name": "톰 브라운",
+    "english": "Tom Brown",
+    "role": "GPT-3 논문 공동저자",
+    "color": "#b39471",
+    "hair": "#49392d",
+    "skin": "#d7b79b"
+  },
+  "jongwook": {
+    "name": "김종욱",
+    "english": "Jong Wook Kim",
+    "role": "CLIP 공동저자 · Whisper 논문 공동 제1저자",
+    "color": "#7e90ad",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "aditya": {
+    "name": "아디티야 라메시",
+    "english": "Aditya Ramesh",
+    "role": "DALL·E 주요 저자 · DALL·E 2 연구 기여자",
+    "color": "#679995",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "gabriel": {
+    "name": "가브리엘 고",
+    "english": "Gabriel Goh",
+    "role": "DALL·E 공식 발표 주요 저자",
+    "color": "#788aab",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "ryan": {
+    "name": "라이언 로우",
+    "english": "Ryan Lowe",
+    "role": "InstructGPT 발표 공동저자",
+    "color": "#9b8970",
+    "hair": "#49392d",
+    "skin": "#d7b79b"
+  },
+  "jan": {
+    "name": "얀 라이케",
+    "english": "Jan Leike",
+    "role": "인간 피드백·정렬 연구자 · InstructGPT 발표 공동저자",
+    "color": "#9d849d",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "mark": {
+    "name": "마크 첸",
+    "english": "Mark Chen",
+    "role": "GPT-5 공식 기여자",
+    "color": "#7d9c84",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "barret": {
+    "name": "배럿 조프",
+    "english": "Barret Zoph",
+    "role": "ChatGPT 공식 출시 발표 기여자",
+    "color": "#b39471",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "paul": {
+    "name": "폴 크리스티아노",
+    "english": "Paul Christiano",
+    "role": "인간 선호를 이용한 강화학습 연구 및 발표 공동저자",
+    "color": "#7e90ad",
+    "hair": "#49392d",
+    "skin": "#d7b79b"
+  },
+  "dendi": {
+    "name": "덴디",
+    "english": "Dendi",
+    "role": "Dota 2 프로 선수 · 2017년 8월 11일 OpenAI 봇의 1대1 상대",
+    "color": "#679995",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "bret": {
+    "name": "브렛 테일러",
+    "english": "Bret Taylor",
+    "role": "2023년 새 초기 이사회 의장; 2025년 자본 재편 완료 발표문 저자",
+    "color": "#788aab",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "timBrooks": {
+    "name": "팀 브룩스",
+    "english": "Tim Brooks",
+    "role": "Sora 기술 보고서 공동 저자",
+    "color": "#9b8970",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "billPeebles": {
+    "name": "빌 피블스",
+    "english": "Bill Peebles",
+    "role": "Sora 기술 보고서 공동 저자",
+    "color": "#9d849d",
+    "hair": "#49392d",
+    "skin": "#d7b79b"
+  },
+  "prafulla": {
+    "name": "프라풀라 다리왈",
+    "english": "Prafulla Dhariwal",
+    "role": "GPT-4o 멀티모달 책임자",
+    "color": "#7d9c84",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "alexanderKirillov": {
+    "name": "알렉산더 키릴로프",
+    "english": "Alexander Kirillov",
+    "role": "GPT-4o 멀티모달 사후학습 책임자",
+    "color": "#b39471",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "jerry": {
+    "name": "제리 트워렉",
+    "english": "Jerry Tworek",
+    "role": "o1 추론 연구 총괄; o3·o4-mini 공식 기여자",
+    "color": "#7e90ad",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  },
+  "noam": {
+    "name": "노암 브라운",
+    "english": "Noam Brown",
+    "role": "o1 추론 연구의 기초 기여자; o3·o4-mini 공식 기여자",
+    "color": "#679995",
+    "hair": "#49392d",
+    "skin": "#d7b79b",
+    "glasses": true
+  },
+  "masayoshi": {
+    "name": "손정의",
+    "english": "Masayoshi Son",
+    "role": "Stargate 발표에서 의장으로 지명",
+    "color": "#788aab",
+    "hair": "#5b4431",
+    "skin": "#cda487"
+  },
+  "michelle": {
+    "name": "미셸 포크라스",
+    "english": "Michelle Pokrass",
+    "role": "GPT-4.1 연구 책임자",
+    "color": "#9b8970",
+    "hair": "#342e2a",
+    "skin": "#d9bba2"
+  },
+  "ananya": {
+    "name": "아나냐 쿠마르",
+    "english": "Ananya Kumar",
+    "role": "GPT-4.1 연구 책임자",
+    "color": "#9d849d",
+    "hair": "#72543b",
+    "skin": "#b99372"
+  }
+}

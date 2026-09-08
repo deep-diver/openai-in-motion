@@ -12,8 +12,7 @@ import {
 import { Group, OrthographicCamera } from 'three';
 import gsap from 'gsap';
 import { Box, Cylinder, Label } from './primitives';
-import { SceneObjects } from './objects';
-import { useStageTransition } from './useStageTransition';
+import { StoryScene, type StoryProps } from './StoryScene';
 
 function FixedCamera() {
   const { camera, size } = useThree();
@@ -93,16 +92,7 @@ function Platform({ reducedMotion }: { reducedMotion: boolean }) {
     </group>
   );
 }
-function Scene({
-  step,
-  reducedMotion,
-}: {
-  step: number;
-  reducedMotion: boolean;
-}) {
-  const groups = useRef<(Group | null)[]>([]);
-  const burst = useRef<Group>(null);
-  useStageTransition(groups, step, reducedMotion, burst);
+function Scene(props: StoryProps) {
   return (
     <>
       <FixedCamera />
@@ -125,29 +115,8 @@ function Scene({
         intensity={1.4}
         color="#ceddae"
       />
-      <Platform reducedMotion={reducedMotion} />
-      {Array.from({ length: 5 }, (_, i) => (
-        <group
-          key={i}
-          ref={(el) => {
-            groups.current[i] = el;
-          }}
-          visible={false}
-        >
-          <SceneObjects step={i} reducedMotion={reducedMotion} />
-        </group>
-      ))}
-      <group ref={burst} visible={false}>
-        {Array.from({ length: 26 }, (_, i) => (
-          <Box
-            key={i}
-            s={[0.07, 0.07, 0.07]}
-            c={i % 2 ? '#ffcc84' : '#f08051'}
-            glow
-            r={0}
-          />
-        ))}
-      </group>
+      <Platform reducedMotion={props.reducedMotion} />
+      <StoryScene {...props} />
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -0.64, 0]}
@@ -181,7 +150,7 @@ class CanvasBoundary extends Component<
     );
   }
 }
-export default function Stage(props: { step: number; reducedMotion: boolean }) {
+export default function Stage(props: StoryProps) {
   const [attempt, setAttempt] = useState(0);
   return (
     <CanvasBoundary key={attempt} onRetry={() => setAttempt((n) => n + 1)}>

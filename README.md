@@ -1,6 +1,12 @@
 # OpenAI — A History in Motion
 
-React Three Fiber + GSAP + Tailwind CSS로 구현한 Single Stage Transformation 웹 앱입니다. React 19 및 Vinext/Vite를 사용합니다.
+React Three Fiber + GSAP + Tailwind CSS로 만든 **Single Stage Transformation** 모션 연대기입니다. React 19 / Vinext / Vite를 사용합니다.
+
+**2015–2026 · 44개 장면 · 132개 스토리 단계 · 32명의 관련 인물**
+
+- 모델의 진화: 24개 장면
+- 큰 이정표: 14개 장면 (마지막 미래 콘셉트 포함)
+- 주요 사건: 6개 장면
 
 ## 실행
 
@@ -9,96 +15,134 @@ npm install
 npm run dev
 ```
 
-개발 서버가 출력하는 주소에서 실행합니다. `npm run build`는 배포 빌드를, `npx tsc --noEmit`은 타입 검사를 수행합니다.
+서버가 출력하는 주소에서 실행합니다.
 
 ## 코드 구조
 
 ```text
 app/
-  page.tsx                         타임라인 콘텐츠·현재 step·화면 UI
-  globals.css                      다크 테마·반응형 레이아웃·Tailwind
+  page.tsx                     현재 장면·재생 상태·인물 소개·전체 UI
+  globals.css                  반응형 다큐멘터리 화면과 세 축 타임라인
+
+data/
+  chapters.json                날짜·축·사실·출처·인물·3단계 스토리
+  chapters.ts                  타입이 지정된 데이터 진입점
+  people.json                  인물 이름과 미니어처 외형 설정
+  types.ts                     Chapter / StoryBeat / Action 타입
+
 components/timeline/
-  Stage.tsx                        Canvas·고정 카메라·영구 단상·조명
-  useStageTransition.ts            GSAP 전환 타임라인과 인터럽트 처리
-  useTimelineInput.ts              휠·키보드·터치 입력 → step
-  objects.tsx                      5개 장면의 3D 오브젝트와 idle 동작
-  primitives.tsx                   기본 3D 형태·캔버스 텍스트 라벨
+  Stage.tsx                    고정 OrthographicCamera·영구 단상·조명
+  StoryScene.tsx               두 장면 버퍼·재생/정지·속도·다시 보기·탐색
+  storyDirector.ts             장면 전환과 3단계 스토리를 실행하는 GSAP 감독
+  StoryActors.tsx              18가지 세트 구성·인물·움직이는 소품
+  objects.tsx                  연구실·서버·로봇·스마트폰 등 공용 3D 오브젝트
+  primitives.tsx               기본 지오메트리·CanvasTexture 텍스트
+  TimelineTracks.tsx           모델 / 이정표 / 사건의 독립된 시간 축
+  useTimelineInput.ts          휠·키보드·터치로 장면 탐색
+
+tests/
+  transition.test.tsx          전체 스토리·되돌리기·탐색·동작 줄이기 검증
+  input.test.tsx               포커스된 버튼의 방향키·짧은 화면의 스크롤 검증
 ```
 
-## 전환 방식
+## 장면은 하나의 타임라인으로 이어집니다
 
-`Platform`은 한 번 등장한 뒤 모든 장면에서 유지됩니다. 각 장면의 **직계 자식 group 하나가 하나의 애니메이션 단위**입니다. 복합 오브젝트 내부 파트는 그대로 함께 움직입니다.
+`Platform`과 작은 빛의 큐브는 절대 장면마다 교체되지 않습니다. 고정된 무대 위에서 이전 장면의 오브젝트가 퇴장하는 동안 다음 장면의 오브젝트가 나타납니다. 빛의 큐브가 그 사이를 이동하며 다음 이야기의 색으로 변합니다.
 
-1. 현재 보이는 장면의 오브젝트를 `scale → 0`으로 축소하면서 아래로 내립니다.
-2. 서버 장면은 위·옆으로 흩어지며, 주황 파편을 함께 출력합니다.
-3. 다음 장면의 오브젝트를 `scale: 0`으로 준비하고, 바닥 아래 또는 위에서 등장시킵니다.
-4. 각 오브젝트에 **0.05초 stagger**, **elastic.out(1, 0.5)** 및 **back.out(1.7)**을 적용합니다.
-5. 퇴장 완료한 장면을 `visible = false`로 숨깁니다.
-
-수치는 `useStageTransition.ts`의 `MOTION`에서 조절합니다.
+각 장면은 약 **12.1초**입니다.
 
 ```ts
-export const MOTION = {
+export const STORY_TIMING = {
+  entry: 1.25,
+  beatLength: 3.35,
+  duration: 12.1,
   stagger: 0.05,
-  exitDuration: 0.28,
-  enterDuration: 0.85,
-  enterEase: 'elastic.out(1, 0.5)',
-  assembleEase: 'back.out(1.7)',
 };
 ```
 
-새 입력이 오면 기존 GSAP timeline을 `kill()`하고 현재 변환 상태에서 퇴장을 이어갑니다. 원래 위치는 `userData.home`에 한 번 저장하여 빠르게 이동하거나 이전 장면으로 돌아가도 위치가 누적되지 않습니다. 컴포넌트가 해제되면 timeline도 정리합니다.
+- 퇴장: `back.in(1.7)`, 바닥 아래로 이동하며 `scale → 0`
+- 등장: **0.05초 stagger**, `elastic.out(1, 0.5)` / `back.out(1.7)`
+- 세 단계: `beat-0`, `beat-1`, `beat-2` GSAP 라벨로 탐색
+- 마지막 단계 이후 다음 장면 자동 재생, 또는 현재 장면에서 정지
 
-`Idle`은 GSAP이 제어하는 루트 group **안쪽**에서 부유·바운스·흔들림을 처리하므로 두 애니메이션이 같은 속성을 덮어쓰지 않습니다. 숨겨진 장면은 idle 업데이트를 건너뜁니다. 사용자 OS의 `prefers-reduced-motion` 설정이 켜지면 전환과 반복 움직임을 생략합니다.
+`StoryScene`은 현재 장면과 직전 장면의 **두 버퍼만 유지**합니다. 44개 세트를 동시에 생성하지 않습니다. 빠르게 되돌아갈 때 아직 보이는 오브젝트는 현재 위치에서 전환을 이어갑니다. GSAP timeline은 교체·해제 시 정리합니다.
+
+## 각 장면의 스토리를 작성하는 방법
+
+`data/chapters.json`에 한 사건을 추가합니다. 실제 기록, 시각적 상징, 움직임이 분리되어 있습니다.
+
+```ts
+{
+  id: 'example',
+  date: '2024-09-12',
+  axis: 'model',
+  set: 'reasoning',
+  model: 'o1-preview',
+  title: '답하기 전에 추론하다',
+  // description, detail, people, personRoles, sources ...
+  beats: [
+    {
+      title: '문제를 받다',
+      caption: '복잡한 질문이 연구실에 도착합니다.',
+      actions: [{ target: 'data', action: 'rise' }],
+    },
+    {
+      title: '경로를 검토하다',
+      caption: '가능한 풀이를 차례로 검토합니다.',
+      actions: [{ target: 'hero', action: 'pulse' }],
+    },
+    {
+      title: '답을 만들다',
+      caption: '검토한 결과가 답안으로 나타납니다.',
+      actions: [{ target: 'output', action: 'reveal' }],
+    },
+  ],
+}
+```
+
+각 세트에는 `hero`, `work`, `support`, `data`, `output` 액터와 해당 사건의 `person-0`, `person-1` 액터가 있습니다. 액터 바깥 group은 장면 전환, 안쪽 `story:*` group은 사건별 움직임을 담당하여 서로 속성을 덮어쓰지 않습니다.
+
+지원 액션: `reveal`, `pulse`, `grow`, `rise`, `write`, `walk`, `leave`, `arrive`, `scatter`, `connect`, `open`, `orbit`, `tilt`, `stamp`.
+
+게임 말의 자기 대전, 음성 파형, Sora 화면의 움직임도 같은 GSAP 시계 안에서 실행되므로 재생·일시정지·속도·탐색에 함께 반응합니다.
+
+## 세 축과 인물
+
+하단은 같은 날짜 열을 공유하는 세 개의 독립 트랙입니다. 각 점을 누르면 해당 사건의 장면으로 이동합니다. 연도 바로가기와 선택 장면에 맞춘 가로 스크롤을 지원합니다.
+
+샘 올트먼, 일리야 수츠케버, 그레그 브록먼, 일론 머스크, 사티아 나델라, 미라 무라티 외에도 GPT·CLIP·Whisper의 연구자, Sora·o1·GPT-4o의 기여자 등이 등장합니다. `personRoles`는 **그 장면 당시의 역할**을 표시하며 현재 직책과 구분합니다. 개별 개발자가 확인되지 않은 장면은 인물을 임의로 연결하지 않습니다.
 
 ## 고정 등각 카메라
 
-```tsx
-<Canvas orthographic camera={{ position: [10, 10.65, 10], zoom: 65 }}>
-```
+카메라 위치는 `[10, 10.65, 10]`, 바라보는 위치는 `[0, 0.65, 0]`입니다. 방향 벡터가 `[10,10,10]`이므로 방위각 45°, 앙각 약 35.264°의 등각 투영입니다. 화면 크기 변경 시에만 `zoom`을 조절하고 장면 전환 중 카메라는 움직이지 않습니다.
 
-카메라는 `[0, 0.65, 0]`을 봅니다. 카메라와 대상 사이의 방향이 `[10, 10, 10]`이므로 수평 회전 45°, 앙각 약 35.264°의 정확한 등각 투영이 됩니다. 화면 크기 변경 시 `zoom`만 조절하며 장면 전환 중에는 카메라를 움직이지 않습니다. OrbitControls는 사용하지 않습니다.
+## 조작과 접근성
 
-## 조작
+- 재생 / 일시정지, 현재 장면 다시 보기
+- 1× / 1.5× / 2× 재생 속도
+- 세 단계 제목을 클릭하여 해당 시퀀스로 이동
+- ‘이어 보기’로 다음 장면 자동 재생 설정
+- 방향키 ← →, 스크롤, 무대 스와이프, 이전/다음 장면 버튼
+- 스페이스바: 재생 / 일시정지
+- 작은 화면에서 무대 밖은 일반 문서 스크롤 유지
+- `prefers-reduced-motion`: 자동 모션을 생략하고 장면을 즉시 표시
+- WebGL 오류 시 재시도 및 텍스트 연대기 유지
 
-- **Next chapter / 이전 화살표**: 다음·이전 장면
-- **하단 연도**: 특정 장면으로 바로 이동
-- **스크롤**: 누적 휠 임계값과 쿨다운으로 트랙패드 관성 억제
-- **방향키 / Page Up·Down**: 이전·다음, **Home·End**: 처음·마지막
-- **모바일 무대 스와이프**: 이전·다음 장면; 무대 밖에서는 일반 문서 스크롤
-- 마지막 장면의 **처음으로**: 첫 장면으로 돌아가기
+## 사실과 연출의 구분
 
-WebGL 미지원/장면 오류 시 안내와 재시도를 제공하며 설명과 타임라인은 계속 사용할 수 있습니다. 외부 3D 모델·텍스처 다운로드 없이 기본 지오메트리로 렌더링합니다.
+모든 역사 장면에 공식 출처가 있습니다. 날짜는 공식 발표일을 기준으로 하며 공개 프리뷰·제품 출시·일반 제공·단계적 배포를 구분합니다. DALL·E 2처럼 확인된 정밀도가 월 단위인 날짜는 일자를 만들지 않았습니다.
 
-## 장면과 날짜
-
-| 장면 | 구성 |
-|---|---|
-| 2015 | 연구실 벽, 화이트보드, 책상·레트로 컴퓨터, 피자 상자, 오락기, 의자 |
-| 2019–2020 | Microsoft 금고, 서버 랙, 발광 GPT-3 큐브 |
-| 2022–2023 | 스마트폰, 안테나, 부유하는 말풍선, 흔들리는 이사회 의자 |
-| 2024 | 영화 슬레이트, 카메라, Sora 프레임, o1 신경망 큐브 |
-| 2026 | 로봇 팔, 에너지 시설, 지구본 홀로그램, 데이터센터 |
-
-**2026은 상상적 AGI Hub 콘셉트이며 AGI 달성이나 실제 시설에 대한 주장이 아닙니다.** GPT-3는 2020년, 이사회 사건은 2023년의 사실을 각각 앞 장면과 묶었습니다. 소품은 역사적 공간을 복제한 것이 아니라 상징적 연출입니다.
-
-공식 출처는 화면의 **About this journey**에서도 확인할 수 있습니다.
-
-- [2015 출범 발표](https://openai.com/index/introducing-openai/)
-- [2019 Microsoft 파트너십](https://openai.com/index/microsoft-invests-in-and-partners-with-openai/)
-- [2020 GPT-3](https://openai.com/index/language-models-are-few-shot-learners/)
-- [2022 ChatGPT](https://openai.com/index/chatgpt/)
-- [2023 CEO 복귀와 이사회](https://openai.com/index/sam-altman-returns-as-ceo-openai-has-a-new-initial-board/)
-- [2024 Sora 연구](https://openai.com/index/video-generation-models-as-world-simulators/)
-- [2024 o1-preview](https://openai.com/index/introducing-openai-o1-preview/)
-
-구현 참고: [R3F Canvas](https://r3f.docs.pmnd.rs/api/canvas), [GSAP easing](https://gsap.com/docs/v3/Eases/).
+모형, 공간, 등장인물의 행동은 설명을 위한 창작입니다. 실제 현장이나 발언의 재현이 아닙니다. 마지막 **AGI Hub는 미래 콘셉트이며 AGI 달성이나 실제 시설을 의미하지 않습니다.** 기록 확인 기준은 2026년 9월 8일입니다.
 
 ## 검증
 
-- `npm test`: 빠른 연속 이동, 퇴장 중 되돌아가기, 동작 줄이기 설정 전환의 회귀 테스트
-- `npm run lint:app`: 앱과 타임라인 소스의 린트 검사
-- `npx tsc --noEmit`: 타입 검사
-- `npm run build`: 프로덕션 빌드
+```sh
+npm test
+npm run lint:app
+npx tsc --noEmit
+npm run build
+```
 
-브라우저의 시각·GPU 렌더링 검사는 수행하지 않았습니다. 전체 `npm run lint`에는 생성된 공용 UI 템플릿의 기존 린트 오류가 남아 있으며, 이번 앱 소스는 `lint:app`으로 별도 검증합니다.
+테스트는 44개 장면의 모든 액션 대상·인물·날짜 순서, 전체 재생 종료 상태, 전환 도중 되돌아가기, 재생 정지와 단계 탐색, 동작 줄이기, 입력 포커스와 페이지 스크롤을 검사합니다.
+
+브라우저의 시각·GPU 렌더링 검사는 수행하지 않았습니다. 전체 `npm run lint`에는 초기 생성된 공용 UI 템플릿의 기존 오류가 남아 있으며, 앱 소스는 `lint:app`으로 별도 검사합니다.

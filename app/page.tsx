@@ -1,16 +1,26 @@
 'use client';
-
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { useTimelineInput } from '@/components/timeline/useTimelineInput';
 import {
-  ArrowDown,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
+import gsap from 'gsap';
+import dynamic from 'next/dynamic';
+import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Asterisk,
   Info,
-  Sparkles,
+  Pause,
+  Play,
+  RotateCcw,
+  ChevronRight,
+  BookOpen,
 } from 'lucide-react';
 import {
   Dialog,
@@ -19,96 +29,134 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import dynamic from 'next/dynamic';
-
+import { Switch } from '@/components/ui/switch';
+import { TimelineTracks } from '@/components/timeline/TimelineTracks';
+import { useTimelineInput } from '@/components/timeline/useTimelineInput';
+import { chapters } from '@/data/chapters';
+import { AXES, PEOPLE } from '@/data/types';
+import type { StoryFrame } from '@/components/timeline/storyDirector';
 const Stage = dynamic(() => import('@/components/timeline/Stage'), {
   ssr: false,
-  loading: () => <div className="scene-loader">연구소를 준비하는 중…</div>,
+  loading: () => <div className="scene-loader">다음 이야기를 준비하는 중…</div>,
 });
-const chapters = [
-  {
-    year: '2015',
-    title: '작은 연구소, 커다란 질문.',
-    desc: '인공지능이 모두에게 이로울 수 있을까? 화이트보드 위의 아이디어와 식지 않은 열정. 모든 것은 하나의 질문에서 시작됐습니다.',
-    tags: ['THE BEGINNING', 'OPEN RESEARCH'],
-    milestone: '2015년 12월 11일, 비영리 연구 기관 OpenAI 출범 발표.',
-    label: 'The beginning',
-    object: 'THE RESEARCH LAB',
-    color: '#c6f77d',
-  },
-  {
-    year: '2019',
-    title: '가능성에, 규모를 더하다.',
-    desc: 'Microsoft와의 파트너십으로 더 강력한 컴퓨팅 인프라를 마련합니다. 2020년, GPT-3는 언어 모델의 새로운 가능성을 보여줍니다.',
-    tags: ['2019–2020', 'MICROSOFT × GPT-3'],
-    milestone: '2019년 Microsoft의 10억 달러 투자. 2020년 GPT-3 발표.',
-    label: 'The scale-up',
-    object: 'THE COMPUTE ENGINE',
-    color: '#9ac8ff',
-  },
-  {
-    year: '2022',
-    title: '세상이 대화를 시작하다.',
-    desc: '질문 하나로 누구나 AI와 대화하는 시대. ChatGPT가 일상으로 스며들고, 2023년의 이사회 혼란은 또 다른 전환점이 됩니다.',
-    tags: ['2022–2023', 'CHATGPT'],
-    milestone: '2022년 11월 30일, ChatGPT 연구 프리뷰 공개.',
-    label: 'The conversation',
-    object: 'THE RIPPLE EFFECT',
-    color: '#83e4c2',
-  },
-  {
-    year: '2024',
-    title: '상상하고, 깊이 생각하다.',
-    desc: '텍스트가 움직이는 세계가 되고, AI는 답하기 전 더 오래 생각합니다. Sora와 o1이 창작과 추론의 경계를 확장합니다.',
-    tags: ['SORA', 'REASONING · o1'],
-    milestone: '2024년 Sora 공개, 9월 o1-preview 출시.',
-    label: 'The new frontier',
-    object: 'THE IMAGINATION LAB',
-    color: '#c7b1ff',
-  },
-  {
-    year: '2026',
-    title: '다음 장은, 아직 쓰는 중.',
-    desc: '로봇 공학, 에너지, 글로벌 컴퓨팅이 하나의 무대에 만납니다. AGI 데이터센터를 상상한 미래 콘셉트입니다.',
-    tags: ['FUTURE CONCEPT', 'AGI HUB'],
-    milestone:
-      '이 장면은 상상적 시나리오이며, AGI 달성이나 실제 시설을 뜻하지 않습니다.',
-    label: 'The possibility',
-    object: 'A POSSIBLE FUTURE',
-    color: '#ffcb8a',
-  },
-];
+const years = [...new Set(chapters.map((c) => c.date.slice(0, 4)))];
 export default function Home() {
   const [step, setStep] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [speed, setSpeed] = useState(1);
+  const [autoAdvance, setAutoAdvance] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
+  const [seek, setSeek] = useState<{ serial: number; beat: number } | null>(
+    null,
+  );
+  const [frame, setFrame] = useState<StoryFrame>({
+    chapterId: chapters[0].id,
+    progress: 0,
+    beat: 0,
+    phase: 'transition',
+  });
   const chapter = chapters[step];
+  const axis = AXES[chapter.axis];
+  const activeBeat = frame.chapterId === chapter.id ? frame.beat : 0;
+  const progress = frame.chapterId === chapter.id ? frame.progress : 0;
   const copyRef = useRef<HTMLElement>(null);
-  useTimelineInput(setStep, infoOpen);
+  const stateRef = useRef({
+    step,
+    playing,
+    autoAdvance,
+    reducedMotion,
+    progress,
+  });
+  useLayoutEffect(() => {
+    stateRef.current = { step, playing, autoAdvance, reducedMotion, progress };
+  }, [step, playing, autoAdvance, reducedMotion, progress]);
+  const navigate: Dispatch<SetStateAction<number>> = useCallback((next) => {
+    setSeek(null);
+    setStep((current) =>
+      Math.max(
+        0,
+        Math.min(
+          chapters.length - 1,
+          typeof next === 'function' ? next(current) : next,
+        ),
+      ),
+    );
+  }, []);
+  useTimelineInput(navigate, infoOpen, chapters.length);
+  const togglePlay = useCallback(() => {
+    const state = stateRef.current;
+    if (state.reducedMotion) return;
+    if (state.progress >= 0.999 && !state.playing) {
+      setReplayKey((k) => k + 1);
+      setSeek(null);
+      setPlaying(true);
+    } else setPlaying((p) => !p);
+  }, []);
+  const onFrame = useCallback((next: StoryFrame) => setFrame(next), []);
+  const onComplete = useCallback((id: string) => {
+    const state = stateRef.current;
+    if (chapters[state.step].id !== id) return;
+    if (
+      state.playing &&
+      state.autoAdvance &&
+      !state.reducedMotion &&
+      state.step < chapters.length - 1
+    ) {
+      setSeek(null);
+      setStep(state.step + 1);
+    } else setPlaying(false);
+  }, []);
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      setReducedMotion(media.matches);
+      if (media.matches) setPlaying(false);
+    };
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+  useEffect(() => {
+    const key = (event: KeyboardEvent) => {
+      if (
+        event.code !== 'Space' ||
+        infoOpen ||
+        (event.target instanceof Element &&
+          event.target.closest(
+            'button,a,input,textarea,[role="switch"],[role="dialog"]',
+          ))
+      )
+        return;
+      event.preventDefault();
+      togglePlay();
+    };
+    window.addEventListener('keydown', key);
+    return () => window.removeEventListener('keydown', key);
+  }, [infoOpen, togglePlay]);
   useLayoutEffect(() => {
     if (!copyRef.current || reducedMotion) return;
     const children = copyRef.current.children;
     const tween = gsap.fromTo(
       children,
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, stagger: 0.035, duration: 0.45, ease: 'power2.out' },
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.03, ease: 'power2.out' },
     );
     return () => {
       tween.kill();
       gsap.set(children, { clearProps: 'opacity,transform' });
     };
   }, [step, reducedMotion]);
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReducedMotion(media.matches);
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, []);
+  const replay = () => {
+    setReplayKey((v) => v + 1);
+    setSeek(null);
+    setPlaying(!reducedMotion);
+  };
   return (
     <main
-      className="app-shell"
-      style={{ '--accent': chapter.color } as React.CSSProperties}
+      className="app-shell documentary"
+      style={{ '--accent': axis.color } as React.CSSProperties}
     >
       <header className="site-header">
         <div className="brand">
@@ -118,188 +166,274 @@ export default function Home() {
           <span className="brand-sub">A history in motion</span>
         </div>
         <div className="header-center">
-          ONE STAGE <span>·</span> A WORLD OF CHANGE
+          MODELS <span>·</span> MILESTONES <span>·</span> PEOPLE
         </div>
         <Dialog open={infoOpen} onOpenChange={setInfoOpen}>
           <DialogTrigger className="about-button">
-            About this journey <Info size={15} />
+            이 여정에 대하여 <Info size={15} />
           </DialogTrigger>
-          <DialogContent className="max-w-lg p-7 max-h-[85svh] overflow-y-auto">
-            <DialogTitle className="text-xl">이 여정에 대하여</DialogTitle>
+          <DialogContent className="max-w-xl p-7 max-h-[85svh] overflow-y-auto">
+            <DialogTitle className="text-xl">
+              하나의 무대, 세 갈래의 역사
+            </DialogTitle>
             <DialogDescription>
-              2015년의 시작부터, 아직 쓰이지 않은 다음 장까지.
+              2015–2026 · {chapters.length}개 장면의 움직이는 연대기
             </DialogDescription>
             <div className="dialog-article">
               <p>
-                다섯 개의 미니어처 장면으로 살펴보는 OpenAI의 역사입니다.
-                스크롤, 방향키 또는 Next 버튼으로 다음 시대로 이동하세요.
+                모델의 변천, 큰 이정표, 조직의 주요 사건을 서로 다른 세 축으로
+                따라갑니다. 각 장면은 도입·전개·결과의 세 시퀀스로 진행됩니다.
               </p>
               <p>
-                2019 장면은 2020년 GPT-3를, 2022 장면은 2023년 이사회 사건을
-                함께 다룹니다. 2026 AGI Hub는 미래를 상상한 연출입니다.
+                재생하면 장면들이 순서대로 이어집니다. 스크롤과 방향키는 장면을
+                이동하고, 스페이스바는 재생을 조절합니다. 하단의 점이나 연도를
+                눌러 원하는 시점으로 바로 이동할 수 있습니다.
               </p>
-              <p>OpenAI와 무관한 비공식 인터랙티브 프로젝트입니다.</p>
+              <p>
+                인물과 공간은 사실을 설명하기 위한 상징적인 미니어처입니다. 실제
+                모습·현장 동작·발언을 재현한 것이 아닙니다. 인물 역할은 각 공식
+                발표의 저자·기여자 또는 당시 직책을 기준으로 합니다.
+              </p>
+              <p>
+                날짜는 원칙적으로 공식 발표일이며, 확인된 정밀도에 따라 월
+                단위로 표시한 장면도 있습니다. 마지막 AGI Hub는 미래 콘셉트로,
+                AGI 달성을 의미하지 않습니다.
+              </p>
+              <p>
+                OpenAI와 무관한 비공식 프로젝트입니다. 기록 확인 기준: 2026년
+                9월 8일.
+              </p>
               <div className="source-list">
-                <p className="mono">OFFICIAL SOURCES</p>
-                <a
-                  href="https://openai.com/index/introducing-openai/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2015 · Introducing OpenAI ↗
-                </a>
-                <a
-                  href="https://openai.com/index/microsoft-invests-in-and-partners-with-openai/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2019 · Microsoft partnership ↗
-                </a>
-                <a
-                  href="https://openai.com/index/language-models-are-few-shot-learners/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2020 · GPT-3 ↗
-                </a>
-                <a
-                  href="https://openai.com/index/chatgpt/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2022 · Introducing ChatGPT ↗
-                </a>
-                <a
-                  href="https://openai.com/index/sam-altman-returns-as-ceo-openai-has-a-new-initial-board/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2023 · Leadership & board ↗
-                </a>
-                <a
-                  href="https://openai.com/index/video-generation-models-as-world-simulators/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2024 · Sora research ↗
-                </a>
-                <a
-                  href="https://openai.com/index/introducing-openai-o1-preview/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2024 · o1-preview ↗
-                </a>
+                <p className="mono">현재 장면의 공식 출처</p>
+                {chapter.sources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {source.title} ↗
+                  </a>
+                ))}
               </div>
             </div>
           </DialogContent>
         </Dialog>
       </header>
-      <section className="experience" aria-label="OpenAI 역사 타임라인">
+      <section className="experience" aria-label="OpenAI 역사 다큐멘터리">
         <article
-          ref={copyRef}
           className="chapter-copy"
-          aria-live="polite"
+          ref={copyRef}
+          aria-live={playing ? 'off' : 'polite'}
           aria-atomic="true"
         >
           <div className="chapter-marker mono">
             <span className="live-dot" />
-            CHAPTER {String(step + 1).padStart(2, '0')}{' '}
-            <span style={{ color: '#647258' }}> / </span> 05
+            {axis.english}
+            <span className="chapter-separator">/</span>
+            {String(step + 1).padStart(2, '0')} OF {chapters.length}
           </div>
-          <h1 className="year-title">{chapter.year}</h1>
+          <div className="date-lockup">
+            <h1 className="year-title">{chapter.date.slice(0, 4)}</h1>
+            <span className="date-detail mono">
+              {chapter.dateLabel ?? chapter.date.slice(5).replace('-', ' / ')}
+            </span>
+          </div>
           <h2 className="chapter-title">{chapter.title}</h2>
-          <p className="chapter-desc">{chapter.desc}</p>
-          <div className="chapter-tags">
-            {chapter.tags.map((tag) => (
-              <span className="chapter-tag" key={tag}>
-                {tag}
-              </span>
-            ))}
+          <p className="chapter-desc">{chapter.description}</p>
+          <div className="fact-note">
+            <span className="fact-dot" />
+            <p>{chapter.detail}</p>
           </div>
-          <div className="milestone">
-            <Sparkles size={17} />
-            <div>
-              <small className="mono">A MOMENT THAT MATTERED</small>
-              <p>{chapter.milestone}</p>
+          {chapter.people.length > 0 && (
+            <div className="cast-list">
+              <p className="cast-heading mono">PEOPLE IN THIS CHAPTER</p>
+              <div className="cast-members">
+                {chapter.people.map((id) => {
+                  const p = PEOPLE[id];
+                  return (
+                    <div className="cast-member" key={id}>
+                      <span
+                        className="person-initial"
+                        style={{ background: p.color }}
+                      >
+                        {p.english
+                          .split(' ')
+                          .map((s) => s[0])
+                          .slice(0, 2)
+                          .join('')}
+                      </span>
+                      <div>
+                        <strong>{p.name}</strong>
+                        <small>{chapter.personRoles?.[id] ?? p.role}</small>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
+          <a
+            className="source-link"
+            href={chapter.sources[0]?.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BookOpen size={12} /> 공식 기록 읽기 <ArrowUpRight size={12} />
+          </a>
         </article>
         <div className="scene-view">
           <div className="scene-caption mono">
-            <span className="live-dot" />{' '}
-            {step === 4 ? 'FUTURE CONCEPT' : 'LIVE DIORAMA'}{' '}
-            <span style={{ color: '#5f6b53' }}> / </span>{' '}
+            <span className="live-dot" />
+            {chapter.concept
+              ? 'FUTURE CONCEPT'
+              : playing
+                ? 'STORY PLAYING'
+                : 'STORY PAUSED'}
+            <span className="caption-rule" />
             {String(step + 1).padStart(2, '0')}
           </div>
           <figure
             className="scene-canvas"
-            aria-label={`${chapter.year}년 ${chapter.object} 3D 장면`}
+            aria-label={`${chapter.date}, ${chapter.title}. ${chapter.beats[activeBeat].caption}`}
           >
-            <Stage step={step} reducedMotion={reducedMotion} />
+            <Stage
+              chapter={chapter}
+              playing={playing && !infoOpen}
+              speed={speed}
+              replayKey={replayKey}
+              seek={seek}
+              reducedMotion={reducedMotion}
+              onFrame={onFrame}
+              onComplete={onComplete}
+            />
           </figure>
-          <div className="scene-label mono">
-            <span />
-            {chapter.object}
-            <span />
+          <div className="story-caption">
+            <div className="story-beats" aria-label="장면 시퀀스">
+              {chapter.beats.map((beat, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSeek({ serial: Date.now(), beat: i })}
+                  className={
+                    i === activeBeat
+                      ? 'active'
+                      : i < activeBeat
+                        ? 'complete'
+                        : ''
+                  }
+                  aria-current={i === activeBeat ? 'step' : undefined}
+                >
+                  <span className="mono">0{i + 1}</span>
+                  {beat.title}
+                  {i < 2 && <ChevronRight size={11} />}
+                </button>
+              ))}
+            </div>
+            <p aria-live={playing ? 'off' : 'polite'}>
+              {chapter.beats[activeBeat].caption}
+            </p>
           </div>
-          <div className="scene-coordinate mono">↗ 35.264°</div>
         </div>
       </section>
-      <footer className="timeline-footer">
-        <div className="timeline-top">
-          <span className="scroll-hint">
-            <ArrowDown size={14} /> 스크롤하며 시간을 여행하세요
-          </span>
-          <span className="progress-meta mono">
-            <strong>0{step + 1}</strong> / 05
-          </span>
-        </div>
-        <div className="timeline-row">
-          <nav className="chapter-nav" aria-label="연도 선택">
-            <div
-              className="chapter-progress"
-              style={{ width: `${step * 25}%` }}
-            />
-            {chapters.map((item, index) => (
-              <button
-                type="button"
-                key={item.year}
-                onClick={() => setStep(index)}
-                className={index === step ? 'active' : ''}
-                aria-current={index === step ? 'step' : undefined}
-                aria-label={`${item.year}년 ${item.label}`}
-              >
-                <strong className="mono">{item.year}</strong>
-                <span>{item.label}</span>
-              </button>
-            ))}
-          </nav>
-          <div className="navigation-buttons">
+      <footer className="film-footer">
+        <div className="playback-bar">
+          <div className="playback-left">
             <button
-              className="previous-button"
-              aria-label="이전 장면"
+              className="play-button"
+              onClick={togglePlay}
+              aria-label={playing ? '일시정지' : '이야기 재생'}
+              disabled={reducedMotion}
+            >
+              {playing ? <Pause size={17} /> : <Play size={17} />}
+            </button>
+            <button
+              className="replay-button"
+              onClick={replay}
+              aria-label="현재 장면 다시 재생"
+            >
+              <RotateCcw size={15} />
+            </button>
+            <span className="playback-label">
+              {reducedMotion
+                ? '동작 줄이기 적용'
+                : playing
+                  ? '이야기 재생 중'
+                  : '이야기 일시정지'}
+            </span>
+            <button
+              className="speed-button mono"
+              aria-label="재생 속도 변경"
+              onClick={() =>
+                setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 2 : 1))
+              }
+            >
+              {speed}×
+            </button>
+          </div>
+          <div className="film-progress" aria-hidden="true">
+            <span style={{ width: `${progress * 100}%` }} />
+          </div>
+          <div className="playback-right">
+            <label className="autoplay-label" htmlFor="auto-advance">
+              이어 보기
+              <Switch
+                id="auto-advance"
+                checked={autoAdvance}
+                onCheckedChange={setAutoAdvance}
+                aria-label="다음 장면 자동 재생"
+                size="sm"
+              />
+            </label>
+            <button
+              className="scene-nav-button"
               disabled={step === 0}
-              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              aria-label="이전 장면"
+              onClick={() => navigate(step - 1)}
             >
               <ArrowLeft size={17} />
             </button>
             <button
-              className="next-button"
-              onClick={() => setStep((s) => (s + 1) % 5)}
+              className="next-scene"
+              onClick={() => {
+                if (step === chapters.length - 1) {
+                  navigate(0);
+                  setPlaying(!reducedMotion);
+                } else navigate(step + 1);
+              }}
             >
-              {step === 4 ? '처음으로' : 'Next chapter'}
-              <ArrowRight size={17} />
+              {step === chapters.length - 1 ? '처음부터' : '다음 장면'}
+              <ArrowRight size={15} />
             </button>
           </div>
         </div>
+        <div className="year-navigation">
+          <span className="mono">EXPLORE THE ARCHIVE</span>
+          <nav aria-label="연도 바로가기">
+            {years.map((year) => (
+              <button
+                key={year}
+                className={chapter.date.startsWith(year) ? 'current' : ''}
+                onClick={() =>
+                  navigate(chapters.findIndex((c) => c.date.startsWith(year)))
+                }
+              >
+                {year}
+              </button>
+            ))}
+          </nav>
+          <span className="archive-count mono">{chapters.length} SCENES</span>
+        </div>
+        <TimelineTracks
+          chapters={chapters}
+          active={step}
+          onSelect={navigate}
+          reducedMotion={reducedMotion}
+        />
         <div className="footer-bottom">
-          <span>
-            An independent exploration of OpenAI <ArrowUpRight size={12} />
-          </span>
+          <span>하나의 무대에서 이어지는 인공지능의 역사</span>
           <span className="keyboard-hint">
-            <span className="keycap">←</span>
-            <span className="keycap">→</span> 키보드로도 탐색할 수 있어요
+            <span className="keycap">← →</span> 장면 이동{' '}
+            <span className="keycap">space</span> 재생 / 정지
           </span>
           <span className="mono">2015 — 2026</span>
         </div>

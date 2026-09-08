@@ -517,7 +517,7 @@ export function MovieCamera() {
     </>
   );
 }
-export function Brain() {
+export function Brain({ label = 'o1' }: { label?: string }) {
   return (
     <>
       <Cylinder p={[0, 0.15, 0]} h={0.3} r={0.84} c="#74728c" />
@@ -560,7 +560,7 @@ export function Brain() {
           );
         })}
       </group>
-      <Label text="o1" p={[0, 1.44, 0.85]} w={0.8} h={0.6} size={110} />
+      <Label text={label} p={[0, 1.44, 0.85]} w={0.8} h={0.6} size={110} />
       <Label
         text="THINKING…"
         p={[0, 0.41, 0.72]}
