@@ -42,4 +42,18 @@ void test('o1 reveals the worked example in order; o3 gathers separate tool evid
   }
   tools.tl.kill();
 });
+void test('Sora walks with opposing limbs and settles into its final pose', () => {
+  const walk = reel('sora-research-2024', ['tokyo:walker', 'tokyo:leg:0', 'tokyo:leg:1', 'tokyo:arm:0', 'tokyo:arm:1']);
+  walk.tl.time(2.05, true);
+  const a = walk.find('tokyo:leg:0').rotation.x;
+  const b = walk.find('tokyo:leg:1').rotation.x;
+  assert.ok(Math.abs(a) > 0.05);
+  assert.ok(Math.abs(a + b) < 0.0001);
+  assert.ok(a * walk.find('tokyo:arm:0').rotation.x < 0);
+  walk.tl.time(11, true);
+  assert.equal(walk.find('tokyo:walker').position.x, 0.93);
+  assert.equal(walk.find('tokyo:leg:0').rotation.x, 0);
+  assert.equal(walk.find('tokyo:leg:1').rotation.x, 0);
+  walk.tl.kill();
+});
 after(() => gsap.ticker.sleep());

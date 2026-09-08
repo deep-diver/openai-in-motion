@@ -1164,12 +1164,19 @@ function TokyoStreet() {
           />
         </group>
       ))}
-      <group name="tokyo:walker" position={[-0.89, 0.2, 0.44]}>
+      <group name="tokyo:walker" position={[-0.89, 0.2, 0.44]} rotation={[0, Math.PI / 2, 0]}>
         <Cylinder p={[0, 0.32, 0]} r={0.11} h={0.38} c="#bb6660" />
         <Box p={[0, 0.64, 0]} s={[0.25, 0.28, 0.17]} c="#333d39" />
         <Ball p={[0, 0.91, 0]} r={0.13} c="#cfb391" />
-        {[-0.07, 0.07].map((x) => (
-          <Cylinder key={x} p={[x, 0.1, 0]} r={0.034} h={0.21} c="#373e38" />
+        {[-0.07, 0.07].map((x, i) => (
+          <group key={x} name={`tokyo:leg:${i}`} position={[x, 0.2, 0]}>
+            <Cylinder p={[0, -0.1, 0]} r={0.034} h={0.21} c="#373e38" />
+          </group>
+        ))}
+        {[-0.16, 0.16].map((x, i) => (
+          <group key={x} name={`tokyo:arm:${i}`} position={[x, 0.72, 0]}>
+            <Box p={[0, -0.12, 0]} s={[0.055, 0.25, 0.065]} c="#333d39" />
+          </group>
         ))}
         <Box p={[0, 0.94, 0.11]} s={[0.2, 0.035, 0.025]} c="#393e35" />
       </group>

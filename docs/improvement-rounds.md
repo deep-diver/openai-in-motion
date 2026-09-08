@@ -14,3 +14,5 @@ The fixed isometric camera, single stage, full history and two-panel annotation 
 5. **Readable, connected annotations.** Labels remeasure after font/layout changes and long dialogue moves above the stage boundary while its leader follows. The cast list highlights the current speaker and selected years expose their state. All six annotation regressions passed, including enlarged dialogue and the strict two-panel limit across 44 scenes.
 
 6. **Reasoning that unfolds.** o1's worked example now reveals one equation at a time. In o3, separate search/code/image evidence cards appear at each visited tool and gather into one result. Added regressions for intermediate visibility, ordering and the completed evidence stack; they passed.
+
+7. **Sora's street demonstration walks.** The character now faces the travel direction, alternates arms and legs, and moves with a small walking bounce before settling naturally. The opposing-limb and final-pose regression passed.

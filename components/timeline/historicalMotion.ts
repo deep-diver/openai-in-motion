@@ -260,8 +260,19 @@ export function addHistoricalMotion(
   if (vga)
     tl.to(vga.position, { x: -0.27, duration: 1.4, ease: 'power2.inOut' }, B);
   const walker = find('tokyo:walker');
-  if (walker)
+  if (walker) {
     tl.to(walker.position, { x: 0.93, duration: 8.4, ease: 'none' }, A + 0.3);
+    tl.to(walker.position, { y: walker.position.y + 0.022, duration: 0.21, repeat: 39, yoyo: true, ease: 'sine.inOut' }, A + 0.3);
+    for (let i = 0; i < 2; i++) {
+      for (const limb of ['leg', 'arm']) {
+        const part = find(`tokyo:${limb}:${i}`);
+        if (!part) continue;
+        const amplitude = (limb === 'leg' ? 0.42 : -0.24) * (i === 0 ? 1 : -1);
+        tl.fromTo(part.rotation, { x: -amplitude }, { x: amplitude, duration: 0.42, repeat: 19, yoyo: true, ease: 'sine.inOut', immediateRender: false }, A + 0.3);
+        tl.to(part.rotation, { x: 0, duration: 0.35, ease: 'power2.out' }, A + 8.7);
+      }
+    }
+  }
   const answer = find('omni:answer');
   if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
