@@ -56,4 +56,25 @@ void test('Sora walks with opposing limbs and settles into its final pose', () =
   assert.equal(walk.find('tokyo:leg:1').rotation.x, 0);
   walk.tl.kill();
 });
+void test('the generated racing car follows a continuous loop and turns with the track', () => {
+  const race = reel('gpt-5-3-codex-2026', ['race:car']);
+  const car = race.find('race:car');
+  race.tl.time(4.2, true);
+  let last = car.position.clone(), yaw = car.rotation.y;
+  for (let t = 4.25; t <= 10.6; t += 0.05) {
+    race.tl.time(t, true);
+    assert.ok(last.distanceTo(car.position) < 0.1, `position jump at ${t}`);
+    assert.ok(Math.abs(car.rotation.y - yaw) < 0.7, `heading jump at ${t}`);
+    assert.ok(Math.abs(car.position.x) < 1.1 && Math.abs(car.position.z) < 0.8);
+    last = car.position.clone(); yaw = car.rotation.y;
+  }
+  race.tl.time(10.7, true);
+  assert.ok(Math.abs(car.position.x + 0.97) < 0.001);
+  assert.ok(Math.abs(car.position.z + 0.58) < 0.001);
+  const end = car.rotation.y;
+  assert.ok(Math.abs(end) > Math.PI);
+  race.tl.time(5, true); race.tl.time(10.7, true);
+  assert.equal(car.rotation.y, end);
+  race.tl.kill();
+});
 after(() => gsap.ticker.sleep());

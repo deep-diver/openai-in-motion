@@ -1,5 +1,5 @@
 import type gsap from 'gsap';
-import { Mesh, type Group, type Object3D } from 'three';
+import { CatmullRomCurve3, Vector3, Mesh, type Group, type Object3D } from 'three';
 import type { Chapter } from '@/data/types';
 
 /** Event-specific mechanisms: hinges, game pieces, pointers, components and text.
@@ -331,12 +331,24 @@ export function addHistoricalMotion(
     tl.to(style.position, { x: 0.84, duration: 1.1, ease: 'power2.inOut' }, B);
   const car = find('race:car');
   if (car) {
-    const lap = tl.addLabel('race-start', B);
-    lap
-      .to(car.position, { x: 0.98, duration: 1.15, ease: 'none' }, B)
-      .to(car.position, { z: 0.57, duration: 0.7, ease: 'none' }, B + 1.15)
-      .to(car.position, { x: -0.97, duration: 1.15, ease: 'none' }, B + 1.85)
-      .to(car.position, { z: -0.58, duration: 0.7, ease: 'none' }, B + 3);
+    const route = new CatmullRomCurve3([
+      [-0.97, -0.58], [0.7, -0.58], [0.97, -0.34], [0.97, 0.34],
+      [0.7, 0.58], [-0.7, 0.58], [-0.97, 0.34], [-0.97, -0.34],
+    ].map(([x, z]) => new Vector3(x, 0.4, z)), true, 'centripetal');
+    const samples = 96, duration = 6.6;
+    let previousYaw = 0;
+    tl.addLabel('race-start', B);
+    for (let i = 1; i <= samples; i++) {
+      const point = route.getPointAt(i / samples);
+      const tangent = route.getTangentAt(i / samples);
+      let yaw = Math.atan2(-tangent.z, tangent.x);
+      while (yaw - previousYaw > Math.PI) yaw -= Math.PI * 2;
+      while (yaw - previousYaw < -Math.PI) yaw += Math.PI * 2;
+      const at = B + (i - 1) * duration / samples;
+      tl.to(car.position, { x: point.x, y: point.y, z: point.z, duration: duration / samples, ease: 'none' }, at);
+      tl.to(car.rotation, { y: yaw, duration: duration / samples, ease: 'none' }, at);
+      previousYaw = yaw;
+    }
   }
   const pointer = find('computer:cursor');
   if (pointer)

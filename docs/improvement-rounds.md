@@ -16,3 +16,5 @@ The fixed isometric camera, single stage, full history and two-panel annotation 
 6. **Reasoning that unfolds.** o1's worked example now reveals one equation at a time. In o3, separate search/code/image evidence cards appear at each visited tool and gather into one result. Added regressions for intermediate visibility, ordering and the completed evidence stack; they passed.
 
 7. **Sora's street demonstration walks.** The character now faces the travel direction, alternates arms and legs, and moves with a small walking bounce before settling naturally. The opposing-limb and final-pose regression passed.
+
+8. **A racing game with actual steering.** Replaced sideways right-angle translation with a sampled closed curve and continuous heading changes. Headlights make its direction visible. The regression checks the full lap for position/heading jumps, track bounds, completion and backward seeking.
