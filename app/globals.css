@@ -1769,3 +1769,8 @@ figure.scene-canvas {
   .playback-bar { flex-wrap: wrap; }
   .journey-progress { flex-basis: 100%; max-width: none; order: 3; }
 }
+.cast-member.is-speaking .person-initial {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cast-member.is-speaking strong { color: var(--accent); }

@@ -12,6 +12,7 @@ import {
 } from '../data/sceneNotes';
 import {
   annotationBox,
+  fitLabelBox,
   leaderPath,
 } from '../components/timeline/annotationLayout';
 import {
@@ -180,5 +181,14 @@ void test('the persistent story thread keeps moving through both cue boundaries 
     assert.equal(scene.userData.storyTime, time + 0.02);
   }
   tl.kill();
+});
+void test('long or enlarged dialogue stays above the bottom edge after measurement', () => {
+  for (const height of [88, 126, 176]) {
+    const initial = annotationBox('speech', 350, 580);
+    const box = fitLabelBox(initial, 580, height);
+    assert.ok(box.y >= 0);
+    assert.ok(box.y + box.height <= 580 - 6);
+    assert.ok(leaderPath(box, { x: 180, y: 230 }).endsWith('180.0 230.0'));
+  }
 });
 after(() => gsap.ticker.sleep());

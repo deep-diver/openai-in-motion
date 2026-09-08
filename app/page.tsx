@@ -36,6 +36,7 @@ import { AXES, PEOPLE } from '@/data/types';
 import type { StoryFrame } from '@/components/timeline/storyDirector';
 import {
   dialogueWindow,
+  staticSpeaker,
   STORY_TIMING,
   type StorySeek,
 } from '@/components/timeline/storyClock';
@@ -64,6 +65,7 @@ export default function Home() {
   const axis = AXES[chapter.axis];
   const activeBeat = frame.chapterId === chapter.id ? frame.beat : 0;
   const progress = frame.chapterId === chapter.id ? frame.progress : 0;
+  const activeSpeaker = staticSpeaker(chapter, progress * STORY_TIMING.duration);
   const finished = step === chapters.length - 1 && progress >= 0.999 && !playing;
   const remaining = Math.ceil((chapters.length - step - progress) * STORY_TIMING.duration / speed);
   const copyRef = useRef<HTMLElement>(null);
@@ -267,8 +269,9 @@ export default function Home() {
                   const p = PEOPLE[id];
                   return (
                     <button
-                      className="cast-member"
+                      className={`cast-member ${activeSpeaker === i ? 'is-speaking' : ''}`}
                       key={id}
+                      aria-pressed={activeSpeaker === i}
                       aria-label={`${p.name}의 연출 대사 보기`}
                       onClick={() => {
                         setPlaying(false);
@@ -426,6 +429,7 @@ export default function Home() {
               <button
                 key={year}
                 className={chapter.date.startsWith(year) ? 'current' : ''}
+                aria-current={chapter.date.startsWith(year) ? 'date' : undefined}
                 onClick={() =>
                   navigate(chapters.findIndex((c) => c.date.startsWith(year)))
                 }

@@ -2,7 +2,7 @@
 /* eslint-disable react/react-compiler -- the R3F frame loop projects animated scene objects into DOM refs. */
 import { useFrame } from '@react-three/fiber';
 import { Vector3, type Group, type Object3D } from 'three';
-import { useMemo } from 'react';
+import { useLayoutEffect, useMemo } from 'react';
 import {
   CAST_DIALOGUE,
   OBJECT_IDS,
@@ -10,7 +10,7 @@ import {
   importantObjects,
 } from '@/data/sceneNotes';
 import { PEOPLE, type Chapter } from '@/data/types';
-import { annotationBox, leaderPath } from './annotationLayout';
+import { annotationBox, fitLabelBox, leaderPath } from './annotationLayout';
 import {
   captionWeights,
   dialogueOpacity,
@@ -57,6 +57,21 @@ export function StageAnnotations({
   const dialogue = CAST_DIALOGUE[chapter.id] ?? [];
   const objects = importantObjects(chapter.id);
   const ids = [...objects, ...dialogue.map((_, i) => `speech-${i}`)];
+  useLayoutEffect(() => {
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(() => {
+      for (const refs of bridge.elements.values()) {
+        if (!refs.label) continue;
+        refs.measured = {
+          width: parseFloat(refs.label.style.width),
+          height: refs.label.offsetHeight,
+        };
+      }
+    });
+    for (const refs of bridge.elements.values())
+      if (refs.label) observer.observe(refs.label);
+    return () => observer.disconnect();
+  }, [bridge, chapter.id]);
   return (
     <div className="stage-annotations" key={chapter.id}>
       <svg className="annotation-leaders" aria-hidden="true">
@@ -139,8 +154,6 @@ export function AnnotationProjector({
         size.width,
         size.height,
       );
-      refs.label.style.left = `${box.x}px`;
-      refs.label.style.top = `${box.y}px`;
       if (refs.measured?.width !== box.width) {
         refs.label.style.width = `${box.width}px`;
         refs.measured = {
@@ -148,7 +161,9 @@ export function AnnotationProjector({
           height: refs.label.offsetHeight || box.height,
         };
       }
-      box.height = refs.measured.height;
+      Object.assign(box, fitLabelBox(box, size.height, refs.measured.height));
+      refs.label.style.left = `${box.x}px`;
+      refs.label.style.top = `${box.y}px`;
       if (!target || !isVisible(target)) opacity = 0;
       if (target) {
         target.getWorldScale(scale);

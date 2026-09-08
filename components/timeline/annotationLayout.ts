@@ -1,6 +1,13 @@
 import type { ObjectId } from '@/data/sceneNotes';
 
 export type LabelBox = { x: number; y: number; width: number; height: number };
+export function fitLabelBox(box: LabelBox, viewportHeight: number, measuredHeight: number): LabelBox {
+  return {
+    ...box,
+    height: measuredHeight,
+    y: Math.max(0, Math.min(box.y, viewportHeight - measuredHeight - 6)),
+  };
+}
 /** Fixed perimeter positions keep text steady while the leader endpoints follow the set. */
 export function annotationBox(
   id: ObjectId | 'speech',
