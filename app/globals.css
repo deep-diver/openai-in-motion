@@ -1415,6 +1415,12 @@ figure.scene-canvas {
 .documentary .experience {
   min-height: 650px;
 }
+.documentary.app-shell {
+  height: auto;
+  min-height: 100svh;
+  overflow-x: clip;
+  overflow-y: visible;
+}
 .documentary .scene-canvas {
   inset: 25px -2% 125px 0;
 }
@@ -1644,5 +1650,82 @@ figure.scene-canvas {
   }
   .character-speech p {
     font-size: 14px;
+  }
+}
+
+/* Readable controls and copy, with document flow accommodating larger text. */
+.documentary .chapter-desc {
+  font-size: 1rem;
+}
+.fact-note p,
+.cast-member strong,
+.source-link,
+.playback-label,
+.speed-button,
+.autoplay-label,
+.next-scene,
+.year-navigation button,
+.track-heading {
+  font-size: 0.875rem;
+}
+.cast-heading,
+.cast-member small,
+.person-initial,
+.track-event,
+.track-date-row > div,
+.track-date-row strong,
+.track-heading small,
+.track-heading-spacer,
+.documentary .chapter-marker,
+.documentary .scene-caption,
+.documentary .footer-bottom,
+.year-navigation > span {
+  font-size: 0.75rem;
+}
+.play-button,
+.replay-button,
+.speed-button,
+.scene-nav-button,
+.next-scene,
+.cast-member,
+.year-navigation button {
+  min-height: 40px;
+}
+.play-button,
+.replay-button,
+.speed-button,
+.scene-nav-button {
+  min-width: 40px;
+}
+.track-heading,
+.timeline-track {
+  height: 48px;
+}
+.track-headings {
+  width: 150px;
+}
+.track-event {
+  min-height: 38px;
+}
+.year-navigation nav {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+@media (max-width: 700px) {
+  .year-navigation nav {
+    flex-wrap: nowrap;
+  }
+  .track-headings {
+    width: 126px;
+  }
+  .documentary .brand-sub {
+    display: none;
+  }
+  .documentary .about-button {
+    font-size: 0.875rem;
+  }
+  .playback-left,
+  .playback-right {
+    flex-wrap: wrap;
   }
 }
