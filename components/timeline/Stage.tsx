@@ -14,6 +14,7 @@ import { Group, OrthographicCamera, PCFShadowMap } from 'three';
 import gsap from 'gsap';
 import { Box, Cylinder, Label } from './primitives';
 import { StoryScene, type StoryProps } from './StoryScene';
+import { createAnnotationBridge, StageAnnotations } from './StageAnnotations';
 
 const SHADOW_SETTINGS = { type: PCFShadowMap };
 
@@ -25,7 +26,10 @@ function FixedCamera() {
     // Only viewport fit changes on resize. No orbit or camera animation.
     ortho.position.set(10, 10.65, 10);
     ortho.lookAt(0, 0.65, 0);
-    ortho.zoom = Math.min(size.width / 9.8, size.height / 7.7);
+    ortho.zoom = Math.min(
+      size.width / (size.width < 620 ? 10.8 : 13.4),
+      size.height / 9.7,
+    );
     ortho.updateProjectionMatrix();
   }, [camera, size]);
   return null;
@@ -155,23 +159,27 @@ class CanvasBoundary extends Component<
 }
 function Stage(props: StoryProps) {
   const [attempt, setAttempt] = useState(0);
+  const [annotations] = useState(createAnnotationBridge);
   return (
     <CanvasBoundary key={attempt} onRetry={() => setAttempt((n) => n + 1)}>
-      <Canvas
-        orthographic
-        camera={{ position: [10, 10.65, 10], zoom: 65, near: 0.1, far: 100 }}
-        shadows={SHADOW_SETTINGS}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
-        fallback={
-          <div className="scene-loader">
-            이 브라우저는 WebGL을 지원하지 않습니다. 타임라인의 설명은 계속
-            탐색할 수 있습니다.
-          </div>
-        }
-      >
-        <Scene {...props} />
-      </Canvas>
+      <div className="annotated-stage">
+        <Canvas
+          orthographic
+          camera={{ position: [10, 10.65, 10], zoom: 65, near: 0.1, far: 100 }}
+          shadows={SHADOW_SETTINGS}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, alpha: true }}
+          fallback={
+            <div className="scene-loader">
+              이 브라우저는 WebGL을 지원하지 않습니다. 타임라인의 설명은 계속
+              탐색할 수 있습니다.
+            </div>
+          }
+        >
+          <Scene {...props} annotations={annotations} />
+        </Canvas>
+        <StageAnnotations chapter={props.chapter} bridge={annotations} />
+      </div>
     </CanvasBoundary>
   );
 }

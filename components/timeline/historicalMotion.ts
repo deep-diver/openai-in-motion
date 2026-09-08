@@ -1,5 +1,5 @@
 import type gsap from 'gsap';
-import type { Group } from 'three';
+import { Mesh, type Group, type Object3D } from 'three';
 import type { Chapter } from '@/data/types';
 
 /** Event-specific mechanisms: hinges, game pieces, pointers, components and text.
@@ -10,10 +10,32 @@ export function addHistoricalMotion(
   scene: Group,
   c: Chapter,
 ) {
-  const A = 1.55,
-    B = 4.8,
-    C = 8.25;
+  const A = 1.4,
+    B = 4.0,
+    C = 7.35;
   const find = (name: string) => scene.getObjectByName(name);
+  const fadeIn = (part: Object3D, at: number, duration = 0.8) => {
+    tl.set(part, { visible: false }, 0);
+    tl.set(part, { visible: true }, at);
+    part.traverse((child) => {
+      if (!(child instanceof Mesh)) return;
+      const materials = Array.isArray(child.material)
+        ? child.material
+        : [child.material];
+      for (const material of materials) {
+        const opacity = Number(
+          (material.userData.storyOpacity ??= material.opacity),
+        );
+        material.transparent = true;
+        tl.fromTo(
+          material,
+          { opacity: 0 },
+          { opacity, duration, ease: 'sine.inOut' },
+          at,
+        );
+      }
+    });
+  };
   const hero = find('story:hero');
   // A screen tells its story line by line; the monitor itself keeps its size.
   const heroLines: Group[] = [];
@@ -21,8 +43,11 @@ export function addHistoricalMotion(
     if (part.name.startsWith('screen:line:')) heroLines.push(part as Group);
   });
   heroLines.forEach((line, i) => {
-    tl.set(line, { visible: false }, 0);
-    tl.set(line, { visible: true }, A + i * 1.55);
+    fadeIn(
+      line,
+      c.id === 'gpt-5-1-2025' && i > 0 ? B + 1.1 + (i - 1) * 0.9 : A + i * 1.25,
+      0.65,
+    );
   });
   scene.traverse((part) => {
     if (part.name.startsWith('layer:')) {
@@ -57,8 +82,7 @@ export function addHistoricalMotion(
     const part = hero?.getObjectByName(name);
     if (part) {
       const y = part.position.y;
-      tl.set(part, { visible: false }, 0);
-      tl.set(part, { visible: true }, B);
+      fadeIn(part, B, 0.9);
       tl.fromTo(
         part.position,
         { y: y + 0.55 },
@@ -101,7 +125,7 @@ export function addHistoricalMotion(
     tl.fromTo(
       cart.position,
       { x: -0.4 },
-      { x: 0.35, duration: 1.1, repeat: 3, yoyo: true, ease: 'sine.inOut' },
+      { x: 0.35, duration: 1.55, repeat: 5, yoyo: true, ease: 'sine.inOut' },
       A,
     );
   if (pole) {
@@ -237,12 +261,9 @@ export function addHistoricalMotion(
     tl.to(vga.position, { x: -0.27, duration: 1.4, ease: 'power2.inOut' }, B);
   const walker = find('tokyo:walker');
   if (walker)
-    tl.to(walker.position, { x: 0.93, duration: 5, ease: 'none' }, A + 0.3);
+    tl.to(walker.position, { x: 0.93, duration: 8.4, ease: 'none' }, A + 0.3);
   const answer = find('omni:answer');
-  if (answer) {
-    tl.set(answer, { visible: false }, 0);
-    tl.set(answer, { visible: true }, C);
-  }
+  if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
   if (cursor) {
     tl.to(cursor.position, { x: 0, duration: 1.3, ease: 'power2.inOut' }, B);
@@ -300,8 +321,7 @@ export function addHistoricalMotion(
   for (const name of ['calendar:event', 'quadrics:intersection']) {
     const part = find(name);
     if (part) {
-      tl.set(part, { visible: false }, 0);
-      tl.set(part, { visible: true }, C);
+      fadeIn(part, C, 1.2);
     }
   }
   // Model outputs, the solved puzzle and the completed PCB remain at their full size.

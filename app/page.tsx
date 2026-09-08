@@ -19,7 +19,6 @@ import {
   Pause,
   Play,
   RotateCcw,
-  ChevronRight,
   BookOpen,
 } from 'lucide-react';
 import {
@@ -35,6 +34,12 @@ import { useTimelineInput } from '@/components/timeline/useTimelineInput';
 import { chapters } from '@/data/chapters';
 import { AXES, PEOPLE } from '@/data/types';
 import type { StoryFrame } from '@/components/timeline/storyDirector';
+import {
+  dialogueWindow,
+  STORY_TIMING,
+  type StorySeek,
+} from '@/components/timeline/storyClock';
+import { StoryNarration } from '@/components/timeline/StoryNarration';
 const Stage = dynamic(() => import('@/components/timeline/Stage'), {
   ssr: false,
   loading: () => <div className="scene-loader">다음 이야기를 준비하는 중…</div>,
@@ -48,9 +53,7 @@ export default function Home() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
-  const [seek, setSeek] = useState<{ serial: number; beat: number } | null>(
-    null,
-  );
+  const [seek, setSeek] = useState<StorySeek | null>(null);
   const [frame, setFrame] = useState<StoryFrame>({
     chapterId: chapters[0].id,
     progress: 0,
@@ -125,7 +128,7 @@ export default function Home() {
         infoOpen ||
         (event.target instanceof Element &&
           event.target.closest(
-            'button,a,input,textarea,[role="switch"],[role="dialog"]',
+            'button,a,input,textarea,[role="slider"],[data-slot="slider"],[role="switch"],[role="dialog"]',
           ))
       )
         return;
@@ -182,7 +185,8 @@ export default function Home() {
             <div className="dialog-article">
               <p>
                 모델의 변천, 큰 이정표, 조직의 주요 사건을 서로 다른 세 축으로
-                따라갑니다. 각 장면은 도입·전개·결과의 세 시퀀스로 진행됩니다.
+                따라갑니다. 각 장면의 동작과 대사는 하나의 재생 흐름으로
+                이어집니다.
               </p>
               <p>
                 재생하면 장면들이 순서대로 이어집니다. 스크롤과 방향키는 장면을
@@ -191,7 +195,8 @@ export default function Home() {
               </p>
               <p>
                 인물과 공간은 사실을 설명하기 위한 상징적인 미니어처입니다. 실제
-                모습·현장 동작·발언을 재현한 것이 아닙니다. 인물 역할은 각 공식
+                모습·현장 동작·발언을 재현한 것이 아닙니다. 말풍선은 실제 인용이
+                아닌 장면 설명을 위한 연출 대사입니다. 인물 역할은 각 공식
                 발표의 저자·기여자 또는 당시 직책을 기준으로 합니다.
               </p>
               <p>
@@ -247,12 +252,25 @@ export default function Home() {
           </div>
           {chapter.people.length > 0 && (
             <div className="cast-list">
-              <p className="cast-heading mono">PEOPLE IN THIS CHAPTER</p>
+              <p className="cast-heading">등장인물 · 눌러서 대사 보기</p>
               <div className="cast-members">
-                {chapter.people.map((id) => {
+                {chapter.people.map((id, i) => {
                   const p = PEOPLE[id];
                   return (
-                    <div className="cast-member" key={id}>
+                    <button
+                      className="cast-member"
+                      key={id}
+                      aria-label={`${p.name}의 연출 대사 보기`}
+                      onClick={() => {
+                        setPlaying(false);
+                        setSeek({
+                          serial: Date.now(),
+                          progress:
+                            (dialogueWindow(chapter, i).start + 1) /
+                            STORY_TIMING.duration,
+                        });
+                      }}
+                    >
                       <span
                         className="person-initial"
                         style={{ background: p.color }}
@@ -267,7 +285,7 @@ export default function Home() {
                         <strong>{p.name}</strong>
                         <small>{chapter.personRoles?.[id] ?? p.role}</small>
                       </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
@@ -308,31 +326,14 @@ export default function Home() {
               onComplete={onComplete}
             />
           </figure>
-          <div className="story-caption">
-            <div className="story-beats" aria-label="장면 시퀀스">
-              {chapter.beats.map((beat, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSeek({ serial: Date.now(), beat: i })}
-                  className={
-                    i === activeBeat
-                      ? 'active'
-                      : i < activeBeat
-                        ? 'complete'
-                        : ''
-                  }
-                  aria-current={i === activeBeat ? 'step' : undefined}
-                >
-                  <span className="mono">0{i + 1}</span>
-                  {beat.title}
-                  {i < 2 && <ChevronRight size={11} />}
-                </button>
-              ))}
-            </div>
-            <p aria-live={playing ? 'off' : 'polite'}>
-              {chapter.beats[activeBeat].caption}
-            </p>
-          </div>
+          <StoryNarration
+            chapter={chapter}
+            progress={progress}
+            playing={playing}
+            reducedMotion={reducedMotion}
+            onSeek={setSeek}
+            onScrub={() => setPlaying(false)}
+          />
         </div>
       </section>
       <footer className="film-footer">
@@ -369,9 +370,6 @@ export default function Home() {
             >
               {speed}×
             </button>
-          </div>
-          <div className="film-progress" aria-hidden="true">
-            <span style={{ width: `${progress * 100}%` }} />
           </div>
           <div className="playback-right">
             <label className="autoplay-label" htmlFor="auto-advance">

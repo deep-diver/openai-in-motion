@@ -2,13 +2,10 @@ import gsap from 'gsap';
 import { Color, Group, Mesh, MeshStandardMaterial, type Object3D } from 'three';
 import { AXES, type Action, type Chapter } from '@/data/types';
 import { addHistoricalMotion } from './historicalMotion';
+import { addContinuousMotion } from './continuousMotion';
+import { STORY_TIMING } from './storyClock';
+export { STORY_TIMING } from './storyClock';
 
-export const STORY_TIMING = {
-  entry: 1.25,
-  beatLength: 3.35,
-  duration: 14.2,
-  stagger: 0.05,
-} as const;
 export type StoryFrame = {
   chapterId: string;
   beat: number;
@@ -269,6 +266,7 @@ export function createStoryTimeline({
   const preserve =
     incoming.visible && incoming.userData.chapterId === chapter.id && !replay;
   incoming.userData.chapterId = chapter.id;
+  incoming.userData.storyTime = 0;
   const actors = incoming.children;
   actors.forEach((actor) => {
     pose(actor);
@@ -284,6 +282,7 @@ export function createStoryTimeline({
     paused: true,
     onUpdate: () => {
       const time = tl.time();
+      incoming.userData.storyTime = time;
       const progress = time / STORY_TIMING.duration;
       const bucket = Math.floor(time * 10);
       if (bucket !== lastReport) {
@@ -446,10 +445,12 @@ export function createStoryTimeline({
       STORY_TIMING.entry + 2 * STORY_TIMING.beatLength,
     );
   addHistoricalMotion(tl, incoming, chapter);
+  addContinuousMotion(tl, incoming, bridge, chapter);
   const hold = { value: 0 };
   tl.to(hold, { value: 1, duration: 0.2 }, STORY_TIMING.duration - 0.2);
   if (reducedMotion) {
     tl.totalProgress(1, true);
+    incoming.userData.storyTime = STORY_TIMING.duration;
     if (outgoing) outgoing.visible = false;
     onFrame({ chapterId: chapter.id, beat: 2, progress: 1, phase: 'story' });
   } else tl.play();

@@ -1,0 +1,345 @@
+{
+  "openai-founding": [
+    {
+      "person": "sam",
+      "text": "여러 기관과 연구를 나누는 출발점을 함께 보죠."
+    },
+    {
+      "person": "ilya",
+      "text": "인류 전체에 도움이 되는 연구를 이야기해 볼까요."
+    }
+  ],
+  "gym-beta": [
+    {
+      "person": "greg",
+      "text": "같은 환경에서 실험 결과를 나란히 비교해 보세요."
+    }
+  ],
+  "universe": [
+    {
+      "person": "greg",
+      "text": "여러 프로그램을 하나의 학습 환경에 연결해 보죠."
+    },
+    {
+      "person": "dario",
+      "text": "화면을 보고 키보드와 마우스로 움직여 볼까요."
+    }
+  ],
+  "human-preferences": [
+    {
+      "person": "dario",
+      "text": "두 행동 중 어느 쪽이 더 나은지 골라 주세요."
+    },
+    {
+      "person": "paul",
+      "text": "그 선택을 모아서 학습의 방향을 잡아 보죠."
+    }
+  ],
+  "dota-1v1": [
+    {
+      "person": "dendi",
+      "text": "이번 대결은 일대일이에요. 움직임을 함께 보시죠."
+    },
+    {
+      "person": "greg",
+      "text": "자기 대전으로 배운 봇의 경기력을 확인해 보죠."
+    }
+  ],
+  "musk-board-departure": [
+    {
+      "person": "elon",
+      "text": "이사회 명패가 내려오는 장면을 함께 보시죠."
+    }
+  ],
+  "gpt-1": [
+    {
+      "person": "alec",
+      "text": "먼저 많은 글을 읽고 언어의 패턴을 익혀 보죠."
+    },
+    {
+      "person": "ilya",
+      "text": "그다음에는 풀어야 할 과제에 맞춰 조정해 볼까요."
+    }
+  ],
+  "openai-five": [
+    {
+      "person": "greg",
+      "text": "이번에는 다섯 영웅이 함께 움직이는 경기예요."
+    },
+    {
+      "person": "jakub",
+      "text": "개인의 보상과 팀의 보상을 함께 살펴보세요."
+    }
+  ],
+  "dactyl": [
+    {
+      "person": "wojciech",
+      "text": "가상 환경에서 익힌 동작을 실제 손에 옮겨 보죠."
+    },
+    {
+      "person": "jakub",
+      "text": "마찰과 크기를 바꿔도 블록을 돌리는지 볼까요."
+    }
+  ],
+  "gpt-2-staged": [
+    {
+      "person": "alec",
+      "text": "문장의 시작을 주고 어떻게 이어 쓰는지 보세요."
+    },
+    {
+      "person": "jeffrey",
+      "text": "작은 모델부터 공개하며 그 영향을 살펴보죠."
+    }
+  ],
+  "openai-lp": [
+    {
+      "person": "sam",
+      "text": "비영리 조직의 통제권이 어디에 있는지 보세요."
+    },
+    {
+      "person": "greg",
+      "text": "투자 수익에 상한을 둔 새 구조를 펼쳐 볼까요."
+    }
+  ],
+  "microsoft-partnership": [
+    {
+      "person": "sam",
+      "text": "함께 구축할 연구 기반을 이 연결선으로 보세요."
+    },
+    {
+      "person": "satya",
+      "text": "애저에서 AI 슈퍼컴퓨팅 기반을 함께 설계해 보죠."
+    }
+  ],
+  "gpt-2-full": [
+    {
+      "person": "alec",
+      "text": "이제 가장 큰 GPT-2 모델까지 공개되는 차례예요."
+    },
+    {
+      "person": "jeffrey",
+      "text": "생성된 글을 탐지하는 연구 결과도 함께 보시죠."
+    }
+  ],
+  "gpt-3": [
+    {
+      "person": "tom",
+      "text": "몇 가지 예시만 주고 다음 답변을 확인해 볼까요."
+    },
+    {
+      "person": "ilya",
+      "text": "별도 미세조정 없이 과제를 수행하는지 살펴보죠."
+    }
+  ],
+  "api-private-beta": [
+    {
+      "person": "greg",
+      "text": "텍스트를 넣고 결과를 받는 연결을 만들어 보죠."
+    },
+    {
+      "person": "mira",
+      "text": "이 비공개 베타에서 어떤 응용이 가능한지 볼까요."
+    }
+  ],
+  "clip": [
+    {
+      "person": "alec",
+      "text": "사진과 가장 잘 맞는 설명을 나란히 놓아 보세요."
+    },
+    {
+      "person": "jongwook",
+      "text": "분류할 이름을 문장으로 바꿔서 비교해 볼까요."
+    }
+  ],
+  "dall-e": [
+    {
+      "person": "aditya",
+      "text": "아보카도 모양의 의자를 문장으로 요청해 볼까요."
+    },
+    {
+      "person": "gabriel",
+      "text": "서로 다른 두 개념이 한 이미지에 모였네요."
+    }
+  ],
+  "codex-2021": [
+    {
+      "person": "wojciech",
+      "text": "만들고 싶은 동작을 자연스러운 문장으로 적어 보세요."
+    },
+    {
+      "person": "greg",
+      "text": "그 요청이 어떤 코드로 바뀌는지 함께 확인해 보죠."
+    }
+  ],
+  "instructgpt": [
+    {
+      "person": "ryan",
+      "text": "먼저 좋은 응답의 예시를 보여 주고 비교해 보죠."
+    },
+    {
+      "person": "jan",
+      "text": "사람이 매긴 순위를 학습에 반영하는 과정을 보세요."
+    }
+  ],
+  "dall-e-2": [
+    {
+      "person": "aditya",
+      "text": "같은 설명에서 이미지가 얼마나 정교해졌는지 보죠."
+    },
+    {
+      "person": "mark",
+      "text": "생성한 이미지를 변형하고 편집하는 모습도 보세요."
+    }
+  ],
+  "whisper": [
+    {
+      "person": "alec",
+      "text": "여러 언어의 음성이 어떻게 글로 바뀌는지 들어 보죠."
+    },
+    {
+      "person": "jongwook",
+      "text": "이번에는 음성을 영어 문장으로 옮겨서 확인해 보죠."
+    }
+  ],
+  "chatgpt-launch": [
+    {
+      "person": "john",
+      "text": "첫 답변에 이어서 궁금한 점을 다시 물어보세요."
+    },
+    {
+      "person": "barret",
+      "text": "연구 프리뷰의 답변을 살펴보고 의견을 남겨 주세요."
+    }
+  ],
+  "microsoft-partnership-2023": [
+    {
+      "person": "sam",
+      "text": "확대된 협력이 연구 기반과 제품을 어떻게 잇는지 보죠."
+    },
+    {
+      "person": "satya",
+      "text": "슈퍼컴퓨팅과 AI 제품 개발을 함께 연결해 보세요."
+    }
+  ],
+  "gpt-4-2023": [
+    {
+      "person": "jakub",
+      "text": "사진과 질문을 함께 넣고 설명을 확인해 보죠."
+    },
+    {
+      "person": "greg",
+      "text": "이런 학습을 받치는 연산 기반도 함께 보세요."
+    }
+  ],
+  "devday-2023": [],
+  "board-removal-2023": [
+    {
+      "person": "sam",
+      "text": "이 장면은 CEO 교체가 발표된 날을 보여 줘요."
+    },
+    {
+      "person": "mira",
+      "text": "임시 CEO로 바뀐 자리부터 함께 확인해 볼까요."
+    }
+  ],
+  "altman-return-2023": [
+    {
+      "person": "sam",
+      "text": "CEO 자리로 돌아오는 흐름을 따라가 보시죠."
+    },
+    {
+      "person": "bret",
+      "text": "새 초기 이사회의 세 자리를 함께 확인해 보세요."
+    }
+  ],
+  "sora-research-2024": [
+    {
+      "person": "timBrooks",
+      "text": "문장으로 요청한 장면이 영상으로 이어지네요."
+    },
+    {
+      "person": "billPeebles",
+      "text": "움직이는 장면이 시간에 따라 어떻게 달라지는지 보죠."
+    }
+  ],
+  "gpt-4o-2024": [
+    {
+      "person": "prafulla",
+      "text": "목소리와 화면을 함께 다루는 대화를 살펴보세요."
+    },
+    {
+      "person": "alexanderKirillov",
+      "text": "말을 듣고 화면을 보며 이어지는 응답을 확인해 보죠."
+    }
+  ],
+  "chief-scientist-transition-2024": [
+    {
+      "person": "ilya",
+      "text": "수석 과학자의 명패가 바뀌는 장면을 함께 보시죠."
+    },
+    {
+      "person": "jakub",
+      "text": "새로운 직책은 이 명패에서 함께 확인해 보세요."
+    }
+  ],
+  "o1-preview-2024": [
+    {
+      "person": "jerry",
+      "text": "답하기 전에 문제를 단계별로 풀어 가는지 보죠."
+    },
+    {
+      "person": "noam",
+      "text": "중간 단계를 차근차근 따라가며 풀이를 확인해 보세요."
+    }
+  ],
+  "stargate-2025": [
+    {
+      "person": "masayoshi",
+      "text": "5,000억 달러는 앞으로 투자할 계획이에요."
+    }
+  ],
+  "gpt-4-1-2025": [
+    {
+      "person": "michelle",
+      "text": "긴 문맥 속에서 필요한 정보를 찾아 이어 보죠."
+    },
+    {
+      "person": "ananya",
+      "text": "코드와 지시 사항을 함께 놓고 결과를 확인해 보세요."
+    }
+  ],
+  "o3-o4-mini-2025": [
+    {
+      "person": "jerry",
+      "text": "검색하고 분석하며 필요한 도구를 연결해 보죠."
+    },
+    {
+      "person": "noam",
+      "text": "찾아낸 자료와 계산 결과를 한 답변으로 모아 보세요."
+    }
+  ],
+  "gpt-5-2025": [
+    {
+      "person": "jakub",
+      "text": "질문마다 답변 경로가 어떻게 달라지는지 보죠."
+    },
+    {
+      "person": "mark",
+      "text": "빠른 응답과 깊은 추론의 두 갈래를 확인해 보세요."
+    }
+  ],
+  "recapitalization-2025": [
+    {
+      "person": "bret",
+      "text": "재편 뒤에도 비영리 재단이 통제권을 갖는 구조예요."
+    }
+  ],
+  "gpt-5-1-2025": [],
+  "gpt-5-2-2025": [],
+  "gpt-5-3-codex-2026": [],
+  "gpt-5-4-2026": [],
+  "gpt-5-5-2026": [],
+  "gpt-5-6-2026": [],
+  "gpt-6-astra-2026": [],
+  "future-agi-hub": []
+}

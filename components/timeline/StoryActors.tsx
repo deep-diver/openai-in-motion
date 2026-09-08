@@ -1,12 +1,5 @@
 'use client';
-import {
-  Box,
-  Ball,
-  Cylinder,
-  Label,
-  Ring,
-  Plant,
-} from './primitives';
+import { Box, Ball, Cylinder, Label, Ring, Plant } from './primitives';
 import {
   Arcade,
   Antenna,
@@ -51,6 +44,9 @@ export function Person({ id }: { id: PersonId }) {
       {[-0.066, 0.066].map((x) => (
         <Ball key={x} p={[x, 0.96, 0.165]} r={0.018} c="#3a372f" />
       ))}
+      <group name="face:mouth" position={[0, 0.872, 0.179]}>
+        <Box s={[0.065, 0.018, 0.009]} c="#76554a" r={0.005} />
+      </group>
       {p.glasses &&
         [-0.065, 0.065].map((x) => (
           <Ring

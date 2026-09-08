@@ -1946,12 +1946,7 @@ function getRecentSet(c: Chapter): ReactNode | null {
             <Card title={c.model ?? 'GPT-5'} lines={['ROUTE TO A RESPONSE']} />
           }
           data={<DataCards labels={['SIMPLE', 'COMPLEX']} />}
-          output={
-            <Card
-              title="ONE CONVERSATION"
-              lines={['FAST + DEEP']}
-            />
-          }
+          output={<Card title="ONE CONVERSATION" lines={['FAST + DEEP']} />}
           banner={c.model?.toUpperCase()}
         />
       );

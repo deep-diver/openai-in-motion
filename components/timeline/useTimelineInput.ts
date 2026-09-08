@@ -17,12 +17,12 @@ export function useTimelineInput(
     const isInteractive = (target: EventTarget | null) =>
       target instanceof Element &&
       !!target.closest(
-        'button,a,input,select,textarea,[role="dialog"],[contenteditable="true"]',
+        'button,a,input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[contenteditable="true"]',
       );
     const isEditing = (target: EventTarget | null) =>
       target instanceof Element &&
       !!target.closest(
-        'input,select,textarea,[role="dialog"],[contenteditable="true"]',
+        'input,select,textarea,[role="slider"],[data-slot="slider"],[role="dialog"],[contenteditable="true"]',
       );
     const pageOverflows = () =>
       document.documentElement.scrollHeight > window.innerHeight + 2;
@@ -108,6 +108,7 @@ export function useTimelineInput(
     const touchStart = (event: TouchEvent) => {
       if (
         event.touches.length !== 1 ||
+        isInteractive(event.target) ||
         !(event.target instanceof Element) ||
         !event.target.closest('.scene-view')
       )

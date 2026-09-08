@@ -45,6 +45,18 @@ void test('focused navigation buttons retain arrow keys, while form fields keep 
   );
   assert.equal(step, 1);
   button.remove();
+  const slider = document.createElement('span');
+  slider.setAttribute('role', 'slider');
+  document.body.appendChild(slider);
+  slider.dispatchEvent(
+    new dom.window.KeyboardEvent('keydown', {
+      key: 'ArrowRight',
+      bubbles: true,
+      cancelable: true,
+    }),
+  );
+  assert.equal(step, 1, 'slider arrows scrub time rather than switch chapters');
+  slider.remove();
   input.remove();
   await act(async () => root.unmount());
 });
