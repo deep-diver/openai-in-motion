@@ -3,12 +3,9 @@
 import { useFrame } from '@react-three/fiber';
 import { Vector3, type Group, type Object3D } from 'three';
 import { useLayoutEffect, useMemo } from 'react';
-import {
-  CAST_DIALOGUE,
-  OBJECT_IDS,
-  OBJECT_NOTES,
-  importantObjects,
-} from '@/data/sceneNotes';
+import { CAST_DIALOGUE, OBJECT_IDS, importantObjects } from '@/data/sceneNotes';
+import { localizedNotes, localizedDialogue } from '@/data/localization';
+import { useLocale } from './Locale';
 import { PEOPLE, type Chapter } from '@/data/types';
 import { annotationBox, fitLabelBox, leaderPath } from './annotationLayout';
 import {
@@ -53,8 +50,9 @@ export function StageAnnotations({
   chapter: Chapter;
   bridge: AnnotationBridge;
 }) {
-  const notes = OBJECT_NOTES[chapter.id];
-  const dialogue = CAST_DIALOGUE[chapter.id] ?? [];
+  const { locale, t } = useLocale();
+  const notes = localizedNotes(locale)[chapter.id];
+  const dialogue = localizedDialogue(locale)[chapter.id] ?? [];
   const objects = importantObjects(chapter.id);
   const ids = [...objects, ...dialogue.map((_, i) => `speech-${i}`)];
   useLayoutEffect(() => {
@@ -85,7 +83,10 @@ export function StageAnnotations({
           </g>
         ))}
       </svg>
-      <ul className="object-callout-list" aria-label="무대 위 오브젝트 설명">
+      <ul
+        className="object-callout-list"
+        aria-label={t('무대 위 오브젝트 설명', 'Objects on the stage')}
+      >
         {objects.map((id) => (
           <li
             key={id}
@@ -104,8 +105,10 @@ export function StageAnnotations({
           ref={elementRef(bridge, `speech-${i}`, 'label')}
         >
           <div>
-            <strong>{PEOPLE[line.person].name}</strong>
-            <span>연출 대사</span>
+            <strong>
+              {t(PEOPLE[line.person].name, PEOPLE[line.person].english)}
+            </strong>
+            <span>{t('연출 대사', 'Scripted dialogue')}</span>
           </div>
           <p>{line.text}</p>
         </div>

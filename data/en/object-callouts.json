@@ -1,0 +1,442 @@
+{
+  "openai-founding": {
+    "hero": {
+      "label": "Research whiteboard",
+      "text": "The founding ambition: AI that benefits everyone."
+    },
+    "work": {
+      "label": "Research desk",
+      "text": "A shared workspace for the first research team."
+    }
+  },
+  "gym-beta": {
+    "hero": {
+      "label": "CartPole environment",
+      "text": "Balance a pole by controlling the cart."
+    },
+    "support": {
+      "label": "Reward signal",
+      "text": "Compare agents using the same reward measure."
+    }
+  },
+  "universe": {
+    "hero": {
+      "label": "Connected screens",
+      "text": "One agent interacts with different programs."
+    },
+    "data": {
+      "label": "Remote inputs",
+      "text": "Screen pixels, keyboard and mouse connect the tasks."
+    }
+  },
+  "human-preferences": {
+    "hero": {
+      "label": "Behavior comparison",
+      "text": "People choose which of two behaviors they prefer."
+    },
+    "output": {
+      "label": "Learned backflip",
+      "text": "Human feedback guides the agent toward a backflip."
+    }
+  },
+  "dota-1v1": {
+    "hero": {
+      "label": "Mid-lane duel",
+      "text": "A Dota 2 bot faces Dendi in a one-on-one demonstration."
+    },
+    "output": {
+      "label": "Match score",
+      "text": "The bot wins the demonstration 2–0."
+    }
+  },
+  "musk-board-departure": {
+    "hero": {
+      "label": "Boardroom table",
+      "text": "Elon Musk leaves OpenAI's board."
+    },
+    "support": {
+      "label": "Board notice",
+      "text": "The announcement distinguishes board service from support."
+    }
+  },
+  "gpt-1": {
+    "hero": {
+      "label": "GPT model",
+      "text": "Pretraining builds a foundation for downstream tasks."
+    },
+    "data": {
+      "label": "Books corpus",
+      "text": "A large collection of text supplies the learning material."
+    }
+  },
+  "openai-five": {
+    "hero": {
+      "label": "Five-player arena",
+      "text": "Five agents coordinate as an OpenAI Five team."
+    },
+    "output": {
+      "label": "Teamwork",
+      "text": "The scene shifts from individual moves to shared rewards."
+    }
+  },
+  "dactyl": {
+    "hero": {
+      "label": "Robotic hand",
+      "text": "Dactyl manipulates a block with a real robotic hand."
+    },
+    "work": {
+      "label": "Simulation lab",
+      "text": "Varying virtual conditions helps transfer learned movements."
+    }
+  },
+  "gpt-2-staged": {
+    "hero": {
+      "label": "Staged model crates",
+      "text": "GPT-2 begins with a limited model release."
+    },
+    "output": {
+      "label": "Initial release",
+      "text": "The largest model is withheld while impacts are studied."
+    }
+  },
+  "openai-lp": {
+    "hero": {
+      "label": "Organization model",
+      "text": "A new capped-profit entity supports the research mission."
+    },
+    "output": {
+      "label": "Capped returns",
+      "text": "Investor returns are limited within the new structure."
+    }
+  },
+  "microsoft-partnership": {
+    "hero": {
+      "label": "Partnership bridge",
+      "text": "OpenAI research connects to Microsoft's infrastructure."
+    },
+    "output": {
+      "label": "$1 billion investment",
+      "text": "Microsoft announces its 2019 investment in OpenAI."
+    }
+  },
+  "gpt-2-full": {
+    "hero": {
+      "label": "Opened model crates",
+      "text": "The final stage makes the largest GPT-2 model available."
+    },
+    "output": {
+      "label": "Full release",
+      "text": "The 1.5-billion-parameter model is released."
+    }
+  },
+  "gpt-3": {
+    "hero": {
+      "label": "GPT-3 model",
+      "text": "A larger language model learns tasks from prompt examples."
+    },
+    "data": {
+      "label": "Few-shot examples",
+      "text": "A handful of examples specifies the translation task."
+    }
+  },
+  "api-private-beta": {
+    "hero": {
+      "label": "API terminal",
+      "text": "Developers send text to a model through an API."
+    },
+    "output": {
+      "label": "Connected app",
+      "text": "The response flows into an application in the private beta."
+    }
+  },
+  "clip": {
+    "hero": {
+      "label": "Image comparison",
+      "text": "CLIP compares a photograph with text descriptions."
+    },
+    "work": {
+      "label": "Candidate captions",
+      "text": "Category names become natural-language candidates."
+    }
+  },
+  "dall-e": {
+    "hero": {
+      "label": "Avocado chair",
+      "text": "DALL·E combines two concepts in a generated image."
+    },
+    "work": {
+      "label": "Text prompt",
+      "text": "The request describes a chair shaped like an avocado."
+    }
+  },
+  "codex-2021": {
+    "hero": {
+      "label": "Code window",
+      "text": "Codex turns a natural-language request into code."
+    },
+    "output": {
+      "label": "Execution result",
+      "text": "The generated program produces a visible result."
+    }
+  },
+  "instructgpt": {
+    "hero": {
+      "label": "Answer comparison",
+      "text": "Human rankings help train a more helpful model."
+    },
+    "output": {
+      "label": "Preferred response",
+      "text": "The selected answer follows the user's instruction."
+    }
+  },
+  "dall-e-2": {
+    "hero": {
+      "label": "Astronaut on horseback",
+      "text": "DALL·E 2 generates a more detailed image."
+    },
+    "work": {
+      "label": "Image prompt",
+      "text": "A text description specifies the subject and visual style."
+    }
+  },
+  "whisper": {
+    "hero": {
+      "label": "Speech translation",
+      "text": "Whisper turns speech into text across languages."
+    },
+    "work": {
+      "label": "Microphone waveform",
+      "text": "Audio is the starting point for transcription."
+    }
+  },
+  "chatgpt-launch": {
+    "hero": {
+      "label": "Chat window",
+      "text": "ChatGPT introduces a conversational research preview."
+    },
+    "output": {
+      "label": "User feedback",
+      "text": "Public responses help reveal strengths and limitations."
+    }
+  },
+  "microsoft-partnership-2023": {
+    "hero": {
+      "label": "Expanded partnership",
+      "text": "OpenAI and Microsoft extend their collaboration."
+    },
+    "support": {
+      "label": "Supercomputing",
+      "text": "Infrastructure supports a broader research and product effort."
+    }
+  },
+  "gpt-4-2023": {
+    "hero": {
+      "label": "Image question",
+      "text": "GPT-4 examines an image alongside a written question."
+    },
+    "output": {
+      "label": "Image explanation",
+      "text": "A response explains the unusual charging arrangement."
+    }
+  },
+  "devday-2023": {
+    "hero": {
+      "label": "Developer stage",
+      "text": "DevDay brings model and developer announcements together."
+    },
+    "work": {
+      "label": "Custom GPTs",
+      "text": "Builders can configure a GPT for a specific purpose."
+    }
+  },
+  "board-removal-2023": {
+    "hero": {
+      "label": "Boardroom table",
+      "text": "The board announces a change in OpenAI's leadership."
+    },
+    "support": {
+      "label": "Interim appointment",
+      "text": "Mira Murati is named interim CEO in the announcement."
+    }
+  },
+  "altman-return-2023": {
+    "hero": {
+      "label": "Reassembled board",
+      "text": "Sam Altman returns as CEO with a new initial board."
+    },
+    "support": {
+      "label": "Three board seats",
+      "text": "Bret Taylor, Larry Summers and Adam D'Angelo form the board."
+    }
+  },
+  "sora-research-2024": {
+    "hero": {
+      "label": "Tokyo street",
+      "text": "Sora's early demonstration turns a prompt into moving video."
+    },
+    "work": {
+      "label": "Scene prompt",
+      "text": "A written description guides the street scene."
+    }
+  },
+  "gpt-4o-2024": {
+    "hero": {
+      "label": "Live multimodal demo",
+      "text": "GPT-4o combines voice, vision and text interaction."
+    },
+    "output": {
+      "label": "Omni model",
+      "text": "The model connects different kinds of input and output."
+    }
+  },
+  "chief-scientist-transition-2024": {
+    "hero": {
+      "label": "Research baton",
+      "text": "The chief scientist role changes hands."
+    },
+    "output": {
+      "label": "New chief scientist",
+      "text": "Jakub Pachocki succeeds Ilya Sutskever."
+    }
+  },
+  "o1-preview-2024": {
+    "hero": {
+      "label": "Reasoning board",
+      "text": "o1 works through intermediate steps before the answer."
+    },
+    "work": {
+      "label": "Problem check",
+      "text": "The equations illustrate checking a proposed solution."
+    }
+  },
+  "stargate-2025": {
+    "hero": {
+      "label": "Construction crane",
+      "text": "Stargate is announced as an infrastructure project."
+    },
+    "work": {
+      "label": "Investment plan",
+      "text": "The $500 billion figure describes a four-year plan."
+    }
+  },
+  "gpt-4-1-2025": {
+    "hero": {
+      "label": "Long-context desk",
+      "text": "GPT-4.1 searches a large context for relevant information."
+    },
+    "work": {
+      "label": "Context window",
+      "text": "The launch supports up to one million tokens of context."
+    }
+  },
+  "o3-o4-mini-2025": {
+    "hero": {
+      "label": "Research workbench",
+      "text": "o3 and o4-mini combine reasoning with tools."
+    },
+    "output": {
+      "label": "Evidence-based answer",
+      "text": "Search results and calculations inform the response."
+    }
+  },
+  "gpt-5-2025": {
+    "hero": {
+      "label": "Response router",
+      "text": "GPT-5 chooses a response path for the task."
+    },
+    "data": {
+      "label": "Question complexity",
+      "text": "Simple and complex requests illustrate different routes."
+    }
+  },
+  "recapitalization-2025": {
+    "hero": {
+      "label": "Organization structure",
+      "text": "OpenAI completes its recapitalization."
+    },
+    "support": {
+      "label": "Nonprofit control",
+      "text": "The OpenAI Foundation retains control of the organization."
+    }
+  },
+  "gpt-5-1-2025": {
+    "hero": {
+      "label": "Conversation controls",
+      "text": "GPT-5.1 adds more ways to adapt response style."
+    },
+    "support": {
+      "label": "Thinking model",
+      "text": "The model adjusts its reasoning to the request."
+    }
+  },
+  "gpt-5-2-2025": {
+    "hero": {
+      "label": "Work planning desk",
+      "text": "GPT-5.2 handles a structured knowledge-work task."
+    },
+    "data": {
+      "label": "Task constraints",
+      "text": "Requirements guide the resulting project schedule."
+    }
+  },
+  "gpt-5-3-codex-2026": {
+    "hero": {
+      "label": "Racing game",
+      "text": "GPT-5.3-Codex iterates on a playable game."
+    },
+    "work": {
+      "label": "Code workspace",
+      "text": "Requests, code changes and feedback form a working loop."
+    }
+  },
+  "gpt-5-4-2026": {
+    "hero": {
+      "label": "Email and calendar",
+      "text": "GPT-5.4 carries a task across connected work tools."
+    },
+    "work": {
+      "label": "Scheduling request",
+      "text": "Availability and instructions guide the planned meeting."
+    }
+  },
+  "gpt-5-5-2026": {
+    "hero": {
+      "label": "Intersecting surfaces",
+      "text": "GPT-5.5 works through a mathematical visualization."
+    },
+    "output": {
+      "label": "Intersection curve",
+      "text": "The scene reveals where the two surfaces meet."
+    }
+  },
+  "gpt-5-6-2026": {
+    "hero": {
+      "label": "Three model stations",
+      "text": "GPT-5.6 presents model options for different workloads."
+    },
+    "data": {
+      "label": "Selection criteria",
+      "text": "This example chooses Terra for its illustrative task."
+    }
+  },
+  "gpt-6-astra-2026": {
+    "hero": {
+      "label": "Circuit board",
+      "text": "GPT-6 Astra builds a PCB design through an agent workflow."
+    },
+    "work": {
+      "label": "Component placement",
+      "text": "Parts and routes gradually assemble into the design."
+    }
+  },
+  "future-agi-hub": {
+    "hero": {
+      "label": "Globe hologram",
+      "text": "A conceptual hub connects future AI infrastructure."
+    },
+    "data": {
+      "label": "Robot arm",
+      "text": "Robotics is one part of this imagined system, not an AGI claim."
+    }
+  }
+}

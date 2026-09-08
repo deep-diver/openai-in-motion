@@ -1,0 +1,884 @@
+{
+  "openai-founding": {
+    "title": "A research lab for everyone",
+    "short": "OpenAI founded",
+    "description": "OpenAI announced its launch as a nonprofit research organization seeking AI that benefits all of humanity, with a commitment to sharing research and collaborating with other institutions.",
+    "detail": "The public launch was announced on December 11, 2015. Sam Altman was introduced as co-chair and Ilya Sutskever as research director. The announcement emphasized sharing research and cooperation across institutions.",
+    "beats": [
+      {
+        "title": "AI for everyone's benefit",
+        "caption": "A whiteboard and research desk appear, bringing the nonprofit lab's first question onto the stage."
+      },
+      {
+        "title": "The research team arrives",
+        "caption": "Sam Altman and Ilya Sutskever take their places beside the research materials."
+      },
+      {
+        "title": "A promise to share research",
+        "caption": "The completed lab holds the founding commitment to sharing research."
+      }
+    ]
+  },
+  "gym-beta": {
+    "title": "Gym: a common training ground",
+    "short": "Gym",
+    "description": "OpenAI Gym launched in public beta: a toolkit for developing, comparing and reproducing reinforcement learning experiments in environments such as robot simulations and Atari games.",
+    "detail": "Gym was a research environment and interface, rather than a finished intelligence model. Greg Brockman authored the announcement. Versioned environments made experimental conditions easier to compare.",
+    "beats": [
+      {
+        "title": "Before the pole falls",
+        "caption": "In Gym's CartPole environment, a cart starts moving to balance a pole."
+      },
+      {
+        "title": "Observe, then act",
+        "caption": "The tilted pole straightens as the cart moves: a cycle of observations and actions."
+      },
+      {
+        "title": "Compare on the same task",
+        "caption": "The balanced pole and benchmark marker remain, representing experiments in a shared environment."
+      }
+    ]
+  },
+  "universe": {
+    "title": "Universe: learning through a screen",
+    "short": "Universe",
+    "description": "OpenAI introduced Universe for training and evaluating AI across games, websites and applications. Agents observed screen pixels and interacted through a virtual keyboard and mouse.",
+    "detail": "Universe aimed to connect ordinary programs to Gym environments. Greg Brockman was credited for core and distributed infrastructure; Dario Amodei for early agent results and a reinforcement learning baseline.",
+    "beats": [
+      {
+        "title": "From games to the web",
+        "caption": "Games, websites and applications appear in the Universe window."
+      },
+      {
+        "title": "See the screen, take action",
+        "caption": "A common interface connects pixel observations to keyboard and mouse actions."
+      },
+      {
+        "title": "One research interface",
+        "caption": "The connected environments remain, illustrating learning across computer tasks."
+      }
+    ]
+  },
+  "human-preferences": {
+    "title": "Learning goals from human preferences",
+    "short": "Human feedback",
+    "description": "OpenAI and DeepMind researchers introduced an algorithm that learns objectives from people choosing between pairs of behaviors, showing how limited human feedback could improve behavior in complex reinforcement learning environments.",
+    "detail": "The research explored reducing the burden of hand-writing reward functions. Dario Amodei and Paul Christiano coauthored the announcement. This early preference-learning work is distinct from 2022's InstructGPT.",
+    "beats": [
+      {
+        "title": "Compare two behaviors",
+        "caption": "Panels showing behaviors A and B appear in front of a human evaluator."
+      },
+      {
+        "title": "A person chooses",
+        "caption": "A selection marker rises: human preference becomes a learning signal."
+      },
+      {
+        "title": "An agent learns a backflip",
+        "caption": "The result recalls an experiment that learned a backflip from human comparisons."
+      }
+    ]
+  },
+  "dota-1v1": {
+    "title": "A Dota bot faces a professional",
+    "short": "Dota 1v1",
+    "description": "OpenAI's Dota 2 bot defeated professional player Dendi 2–0 in a one-on-one demonstration at The International, showing strong performance from self-play in a restricted match format.",
+    "detail": "The August 16, 2017 follow-up dates the match to August 11. This was a 1v1 format, distinct from a full 5v5 game. The official account describes Greg Brockman's personal GPU computer helping resolve early runtime issues and support the live demonstration.",
+    "beats": [
+      {
+        "title": "One lane with Dendi",
+        "caption": "Pieces representing the bot and Dendi face each other beside Dota 2 towers."
+      },
+      {
+        "title": "From self-play to a live match",
+        "caption": "The pieces move along the lane as a self-play policy meets a human opponent."
+      },
+      {
+        "title": "BOT 2–0 DENDI",
+        "caption": "The scoreboard and middle lane preserve the result of the 2017 1v1 demonstration."
+      }
+    ]
+  },
+  "musk-board-departure": {
+    "title": "Musk's board departure announced",
+    "short": "Musk leaves board",
+    "description": "OpenAI announced that Elon Musk would leave its board, explaining that the move would reduce potential conflicts as Tesla expanded its AI work.",
+    "detail": "The February 20, 2018 announcement combined Musk's planned board departure with news of new supporters and advisers. OpenAI framed it as reducing potential future conflicts of interest with Tesla's growing AI focus.",
+    "beats": [
+      {
+        "title": "A seat on the board",
+        "caption": "An ELON MUSK nameplate rests on the boardroom table."
+      },
+      {
+        "title": "The nameplate moves away",
+        "caption": "The nameplate and figure move beside the table to represent the departure."
+      },
+      {
+        "title": "An empty chair",
+        "caption": "The empty seat and official announcement remain."
+      }
+    ]
+  },
+  "gpt-1": {
+    "title": "GPT-1: learn from text, then adapt",
+    "short": "GPT-1",
+    "description": "Research showed how a Transformer pretrained on large amounts of text could be adapted to different language tasks. Now known as GPT-1, it demonstrated generative pretraining for language understanding.",
+    "detail": "The research was titled Improving language understanding with unsupervised learning. It used two stages: pretraining a shared language model, then fine-tuning it for each task. Alec Radford authored the announcement; Ilya Sutskever coauthored the paper.",
+    "beats": [
+      {
+        "title": "Build the pretrained layers",
+        "caption": "Transformer layers assemble to represent learning from text."
+      },
+      {
+        "title": "Fine-tune for a task",
+        "caption": "Books and text cards align beside the two-stage training process."
+      },
+      {
+        "title": "One foundation, many tasks",
+        "caption": "Classification and question answering appear beside the completed model tower."
+      }
+    ]
+  },
+  "openai-five": {
+    "title": "OpenAI Five: learning as a team",
+    "short": "OpenAI Five",
+    "description": "OpenAI announced that its five-network Dota 2 system had begun defeating amateur teams under restricted rules, using large-scale self-play and reinforcement learning for teamwork and long-term decisions.",
+    "detail": "The announcement described the system as of June 6, 2018, with restrictions on heroes and game features. Cooperation was learned by balancing individual and team rewards, without an explicit communication channel between the heroes' networks. Greg Brockman and Jakub Pachocki coauthored the announcement.",
+    "beats": [
+      {
+        "title": "From one hero to five",
+        "caption": "Five pieces take their places on each side of the Dota 2 board."
+      },
+      {
+        "title": "Moving as a team",
+        "caption": "Agents move through the lanes, representing self-play and cooperation."
+      },
+      {
+        "title": "OpenAI Five's teamwork",
+        "caption": "The 5v5 board and teamwork marker hold the scene from the 2018 announcement."
+      }
+    ]
+  },
+  "dactyl": {
+    "title": "Dactyl: from simulation to a hand",
+    "short": "Dactyl",
+    "description": "OpenAI presented Dactyl, a robotic hand trained in simulation to reorient real objects. Randomizing physical and visual conditions helped transfer simulated experience to the real world.",
+    "detail": "Dactyl manipulated the orientation of blocks and prisms in a real robotic palm. The research tested policies trained with variations in friction, size and visual conditions. Wojciech Zaremba and Jakub Pachocki coauthored the announcement.",
+    "beats": [
+      {
+        "title": "The fingers close",
+        "caption": "Dactyl's five-fingered hand grips a lettered block."
+      },
+      {
+        "title": "Turn the block",
+        "caption": "The block rotates, illustrating manipulation transferred from simulation."
+      },
+      {
+        "title": "Show another face",
+        "caption": "The block changes orientation again, then rests in the hand: the 2018 manipulation demo."
+      }
+    ]
+  },
+  "gpt-2-staged": {
+    "title": "GPT-2: deciding how to release",
+    "short": "GPT-2 staged release",
+    "description": "GPT-2 demonstrated text continuation and multiple language tasks without task-specific training. Citing misuse concerns, OpenAI began a staged release with smaller models.",
+    "detail": "The initial announcement released a small model while withholding the larger one. OpenAI worked with researchers to assess capabilities, misuse and release impacts. Alec Radford and Jeffrey Wu coauthored the research and announcement.",
+    "beats": [
+      {
+        "title": "Four model sizes",
+        "caption": "Crates marked 124M, 355M, 774M and 1.5B appear; the smallest unlocks."
+      },
+      {
+        "title": "Review the release",
+        "caption": "The three larger crates stay closed beside evaluation records."
+      },
+      {
+        "title": "Start with the small model",
+        "caption": "Only the smallest crate remains open, making staged release visible."
+      }
+    ]
+  },
+  "openai-lp": {
+    "title": "OpenAI LP: capital and mission",
+    "short": "OpenAI LP",
+    "description": "OpenAI announced OpenAI LP, a capped-profit structure under nonprofit control, intended to raise funding for larger research infrastructure and talent.",
+    "detail": "The nonprofit retained control. Returns for investors and employees were capped as part of the approach to funding research and recruiting talent. The announcement introduced Sam Altman as CEO and Greg Brockman as chairman and CTO.",
+    "beats": [
+      {
+        "title": "The nonprofit mission",
+        "caption": "The NONPROFIT sign and research mission sit at the top of the structure."
+      },
+      {
+        "title": "An operating layer takes shape",
+        "caption": "The purple OPENAI LP layer settles beneath the nonprofit."
+      },
+      {
+        "title": "Control and capped returns",
+        "caption": "Control lines and the CAPPED RETURNS marker complete the structure."
+      }
+    ]
+  },
+  "microsoft-partnership": {
+    "title": "Microsoft's $1 billion partnership",
+    "short": "Microsoft · $1B",
+    "description": "Microsoft announced a $1 billion investment partnership with OpenAI. The companies planned to build new AI supercomputing technologies and large-scale research infrastructure on Azure.",
+    "detail": "Sam Altman and Satya Nadella participated as the CEOs of OpenAI and Microsoft. This is the initial 2019 partnership, distinct from later investment expansions.",
+    "beats": [
+      {
+        "title": "OpenAI meets Azure",
+        "caption": "The research lab faces an Azure area marked with Microsoft's four-color logo."
+      },
+      {
+        "title": "A $1 billion partnership",
+        "caption": "Bridge segments descend between the two organizations."
+      },
+      {
+        "title": "Building compute together",
+        "caption": "The completed bridge and $1 BILLION marker represent the 2019 announcement."
+      }
+    ]
+  },
+  "gpt-2-full": {
+    "title": "Opening GPT-2's final crate",
+    "short": "GPT-2 full release",
+    "description": "The 1.5-billion-parameter GPT-2 model was released as the final stage of its rollout. OpenAI also shared research on detecting generated text and lessons from the release process.",
+    "detail": "The staged release begun in February reached the largest model. Text-detection research and observations from the rollout continued the discussion of responsible research release. Alec Radford and Jeffrey Wu coauthored the GPT-2 research.",
+    "beats": [
+      {
+        "title": "The last locked crate",
+        "caption": "The three previously released crates are open; only 1.5B remains locked."
+      },
+      {
+        "title": "Unlocking 1.5B",
+        "caption": "The final lock moves aside and the largest lid opens."
+      },
+      {
+        "title": "The final weights are released",
+        "caption": "All four crates stay open beside the release report."
+      }
+    ]
+  },
+  "gpt-3": {
+    "title": "GPT-3: a few examples set the task",
+    "short": "GPT-3",
+    "description": "The 175-billion-parameter GPT-3 research evaluated translation, question answering and other tasks using a few text examples, without separate fine-tuning.",
+    "detail": "Tom Brown and Ilya Sutskever coauthored the paper. This date marks the research announcement, distinct from the API private beta on June 11.",
+    "beats": [
+      {
+        "title": "175 billion parameters",
+        "caption": "Model layers stack above the 175B marker."
+      },
+      {
+        "title": "A few translation examples",
+        "caption": "Examples such as sea → mer and sky → ciel precede a tree → ? card."
+      },
+      {
+        "title": "An answer from context",
+        "caption": "The output tree → arbre illustrates a task communicated through few-shot examples."
+      }
+    ]
+  },
+  "api-private-beta": {
+    "title": "An API opens the door to applications",
+    "short": "OpenAI API",
+    "description": "OpenAI launched a private beta API for GPT-3-family models, allowing developers to send text and receive results inside their products and applications.",
+    "detail": "Access initially required applying to a private beta. A general-purpose text-in, text-out interface supported experiments across applications. Greg Brockman and Mira Murati coauthored the announcement.",
+    "beats": [
+      {
+        "title": "A developer's request",
+        "caption": "An API request and prompt appear in the terminal."
+      },
+      {
+        "title": "The model responds",
+        "caption": "Response lines connect the model to the developer's code."
+      },
+      {
+        "title": "From research to applications",
+        "caption": "The API connection remains: the June 2020 private beta."
+      }
+    ]
+  },
+  "clip": {
+    "title": "CLIP: connecting images and words",
+    "short": "CLIP",
+    "description": "CLIP learned visual concepts from image–text pairs on the internet. Naming categories in natural language allowed image classification without additional task-specific training.",
+    "detail": "CLIP learned correspondences between images and language that could extend to new category names. Comparing images with candidate descriptions served a different role from DALL·E, the image generator introduced that same day. Alec Radford and Jong Wook Kim coauthored the announcement.",
+    "beats": [
+      {
+        "title": "An image and its labels",
+        "caption": "A dog figure faces two candidate descriptions: a cat and a dog."
+      },
+      {
+        "title": "Compare the meanings",
+        "caption": "The dog turns as the image and text cards align."
+      },
+      {
+        "title": "Connected to the right description",
+        "caption": "The selected phrase, a photo of a dog, links the image to language."
+      }
+    ]
+  },
+  "dall-e": {
+    "title": "DALL·E: words become pictures",
+    "short": "DALL·E",
+    "description": "DALL·E was introduced as a model that generates images from text descriptions, combining concepts into new visual forms requested in natural language.",
+    "detail": "Aditya Ramesh and Gabriel Goh were principal authors of the official introduction. The avocado-shaped chair is a staged representation of a prominent example in that introduction.",
+    "beats": [
+      {
+        "title": "An avocado-shaped chair",
+        "caption": "A prompt asks for an avocado combined with an armchair."
+      },
+      {
+        "title": "Words make an unfamiliar object",
+        "caption": "An avocado chair with green flesh and a brown pit drops into place."
+      },
+      {
+        "title": "That memorable avocado chair",
+        "caption": "A variation appears in the gallery; both completed chairs remain at full size."
+      }
+    ]
+  },
+  "codex-2021": {
+    "title": "Codex: request code in plain language",
+    "short": "Codex",
+    "description": "An improved Codex model, translating natural language into code, entered private beta through the API. A descendant of GPT-3 trained on public source code, Codex also powered GitHub Copilot.",
+    "detail": "The 2021 model learned from natural language and public code. It was particularly capable in Python and demonstrated generation, explanation and translation across programming languages. Wojciech Zaremba and Greg Brockman coauthored the announcement.",
+    "beats": [
+      {
+        "title": "Ask for a function",
+        "caption": "A natural-language request enters the code window."
+      },
+      {
+        "title": "The function appears line by line",
+        "caption": "The function declaration and return statement emerge."
+      },
+      {
+        "title": "Hello, world!",
+        "caption": "The execution result remains alongside the generated code."
+      }
+    ]
+  },
+  "instructgpt": {
+    "title": "InstructGPT: learning human preferences",
+    "short": "InstructGPT",
+    "description": "OpenAI introduced InstructGPT, trained with human demonstrations and response rankings to follow instructions better. Models using reinforcement learning from human feedback became the API's default language models.",
+    "detail": "Ryan Lowe and Jan Leike coauthored the announcement. Improving behavior through preference learning did not eliminate errors or harmful responses.",
+    "beats": [
+      {
+        "title": "Answer A and answer B",
+        "caption": "Two responses to the same request appear on a comparison desk."
+      },
+      {
+        "title": "Vote for a preferred answer",
+        "caption": "The marker rises over the human-selected response."
+      },
+      {
+        "title": "A response that follows instructions",
+        "caption": "The feedback-informed result appears while the comparison panels remain."
+      }
+    ]
+  },
+  "dall-e-2": {
+    "title": "DALL·E 2: more detailed images",
+    "short": "DALL·E 2",
+    "description": "OpenAI began a limited research preview of DALL·E 2, demonstrating more realistic and accurate images at higher resolution than the first DALL·E.",
+    "detail": "An official follow-up dates the limited research preview to April 2022. It explored image generation, variations and editing, using feedback to refine features and safeguards. Aditya Ramesh and Mark Chen were listed research contributors.",
+    "beats": [
+      {
+        "title": "An astronaut on horseback",
+        "caption": "A prompt brings together an astronaut and a horse."
+      },
+      {
+        "title": "The familiar image takes shape",
+        "caption": "A miniature horse with a spacesuited rider descends into place."
+      },
+      {
+        "title": "A preview of generation and editing",
+        "caption": "The completed figure and research-preview marker point toward variations and editing."
+      }
+    ],
+    "dateLabel": "April"
+  },
+  "whisper": {
+    "title": "Whisper: multilingual speech into text",
+    "short": "Whisper",
+    "description": "Whisper was released after training on 680,000 hours of multilingual, multitask audio. Models and inference code were open-sourced for transcription and translation into English.",
+    "detail": "Alec Radford and Jong Wook Kim were marked as co-first authors of the paper. Translation meant converting speech in multiple languages into English, rather than unrestricted translation between every language pair.",
+    "beats": [
+      {
+        "title": "Voices in many languages",
+        "caption": "Waveforms move beside a microphone as multilingual greetings appear."
+      },
+      {
+        "title": "From sound to text and translation",
+        "caption": "English translations follow the greetings."
+      },
+      {
+        "title": "Transcripts, translations, open models",
+        "caption": "The source-language transcripts and English translations remain beside the open-model marker."
+      }
+    ]
+  },
+  "chatgpt-launch": {
+    "title": "ChatGPT: the conversation begins",
+    "short": "ChatGPT",
+    "description": "ChatGPT launched as a free research preview. A GPT-3.5-family model adapted for dialogue answered follow-up questions through an interface that collected user feedback.",
+    "detail": "Training used human demonstrations and response evaluations to adapt the GPT-3.5 family for dialogue. The public preview still had limitations including factual errors and bias. John Schulman and Barret Zoph were listed contributors.",
+    "beats": [
+      {
+        "title": "The first hello in that chat window",
+        "caption": "Hello! appears in the early ChatGPT interface with its dark left sidebar."
+      },
+      {
+        "title": "You can ask again",
+        "caption": "An answer is followed by a request for a simpler explanation and another response."
+      },
+      {
+        "title": "Conversation and feedback",
+        "caption": "The finished exchange remains beside a prompt asking whether it was helpful."
+      }
+    ]
+  },
+  "microsoft-partnership-2023": {
+    "title": "A broader Microsoft partnership",
+    "short": "Microsoft expands",
+    "description": "OpenAI and Microsoft announced a multiyear, multibillion-dollar expansion centered on Azure supercomputing and AI product development.",
+    "detail": "The official announcement describes a multiyear, multibillion-dollar investment; this scene does not estimate a specific amount. Azure's exclusive-provider relationship is presented as described at the time.",
+    "beats": [
+      {
+        "title": "Two organizations renew a commitment",
+        "caption": "OpenAI and Microsoft announce the next phase of their long-term collaboration."
+      },
+      {
+        "title": "Compute connects the labs",
+        "caption": "Joint supercomputing and Azure infrastructure support research."
+      },
+      {
+        "title": "Connections become products",
+        "caption": "The paths from models to APIs and products expand."
+      }
+    ]
+  },
+  "gpt-4-2023": {
+    "title": "GPT-4: understanding an image",
+    "short": "GPT-4",
+    "description": "OpenAI introduced GPT-4 as a model accepting image and text inputs and producing text, describing improvements on professional and academic benchmarks alongside real-world limitations.",
+    "detail": "This was a model announcement with image-input and text-output capabilities. It did not mean every feature was available to every user on announcement day.",
+    "beats": [
+      {
+        "title": "What is unusual about this picture?",
+        "caption": "A phone and blue VGA connector recall an image-understanding example from GPT-4's introduction."
+      },
+      {
+        "title": "A connection that does not fit",
+        "caption": "The VGA plug moves toward the phone to highlight the mismatch."
+      },
+      {
+        "title": "Explain what the picture shows",
+        "caption": "The answer explains that VGA is not a phone charger. Image and explanation remain together."
+      }
+    ]
+  },
+  "devday-2023": {
+    "title": "The first DevDay",
+    "short": "DevDay",
+    "description": "The first DevDay introduced GPT-4 Turbo, the Assistants API and new multimodal API features. GPT-4 Turbo supported a 128K context window.",
+    "detail": "This scene focuses on developer product announcements. It does not assign overall product-development responsibility to a particular person.",
+    "beats": [
+      {
+        "title": "The developer stage lights up",
+        "caption": "The presentation stage introduces new models and APIs."
+      },
+      {
+        "title": "Open the toolbox",
+        "caption": "Long context, the Assistants API and multimodal capabilities join the toolkit."
+      },
+      {
+        "title": "Connect the tools to new apps",
+        "caption": "Developers can combine these tools in their own applications."
+      }
+    ]
+  },
+  "board-removal-2023": {
+    "title": "The board announces a CEO change",
+    "short": "CEO transition",
+    "description": "OpenAI's board announced Sam Altman's departure as CEO and from the board, appointing CTO Mira Murati interim CEO with immediate effect.",
+    "detail": "This scene records the board's announcement and personnel actions. It does not treat the board's stated reasons for the dismissal as independently established facts.",
+    "beats": [
+      {
+        "title": "The board's announcement",
+        "caption": "The board announces changes to the CEO role and its membership."
+      },
+      {
+        "title": "A leadership gap",
+        "caption": "Sam Altman's departure is announced."
+      },
+      {
+        "title": "An interim CEO",
+        "caption": "CTO Mira Murati takes over as interim CEO immediately."
+      }
+    ]
+  },
+  "altman-return-2023": {
+    "title": "A return and a new initial board",
+    "short": "Altman returns",
+    "description": "OpenAI officially announced Sam Altman's return as CEO and a new initial board. Mira Murati returned as CTO and Greg Brockman as President.",
+    "detail": "November 29 is the date of the official return announcement, distinct from the earlier agreement to return. The initial board comprised Bret Taylor, Larry Summers and Adam D'Angelo.",
+    "beats": [
+      {
+        "title": "Announcing the return",
+        "caption": "Sam Altman's return as CEO is formally announced."
+      },
+      {
+        "title": "Seats on a new board",
+        "caption": "An initial board forms with Bret Taylor as chair."
+      },
+      {
+        "title": "Operations reconnect",
+        "caption": "The returning leadership and new board take on the next phase."
+      }
+    ]
+  },
+  "sora-research-2024": {
+    "title": "Sora: words into a moving world",
+    "short": "Sora",
+    "description": "OpenAI shared its Sora research. The technical report described a model trained on video and images that could generate videos up to one minute long.",
+    "detail": "This date marks the research unveiling, not the public launch of a consumer Sora service.",
+    "beats": [
+      {
+        "title": "A woman walks through Tokyo",
+        "caption": "Neon signs and a figure in a black jacket and red skirt recall an early Sora example."
+      },
+      {
+        "title": "A still picture starts moving",
+        "caption": "The figure walks down the street in front of the signs."
+      },
+      {
+        "title": "From a sentence to a moving world",
+        "caption": "The figure, Tokyo street and TEXT → VIDEO marker remain."
+      }
+    ]
+  },
+  "gpt-4o-2024": {
+    "title": "GPT-4o: bringing senses together",
+    "short": "GPT-4o",
+    "description": "OpenAI introduced GPT-4o as a model combining text, voice and vision, describing text, audio, image and video inputs and text, audio and image outputs.",
+    "detail": "The model's full stated capabilities are distinct from features actually available in products on launch day. People are linked through their officially credited multimodal roles.",
+    "beats": [
+      {
+        "title": "A math problem on camera",
+        "caption": "A microphone and camera face a board showing 3x + 1 = 10."
+      },
+      {
+        "title": "See, hear and solve together",
+        "caption": "Visual and voice inputs connect in a representation of the real-time math-help demonstration."
+      },
+      {
+        "title": "x = 3",
+        "caption": "The answer appears beside the camera, microphone and worked problem."
+      }
+    ]
+  },
+  "chief-scientist-transition-2024": {
+    "title": "A change of chief scientist",
+    "short": "Chief scientist",
+    "description": "OpenAI announced Ilya Sutskever's departure and introduced Jakub Pachocki as chief scientist. Pachocki had previously led GPT-4 and OpenAI Five development as director of research.",
+    "detail": "The date and roles follow the official personnel announcement. Passing a baton is a symbolic explanation of the transition, not a reconstruction of an actual event.",
+    "beats": [
+      {
+        "title": "A researcher leaves",
+        "caption": "The news announces Ilya Sutskever's departure."
+      },
+      {
+        "title": "The research baton",
+        "caption": "A baton pass represents the appointment of a new chief scientist."
+      },
+      {
+        "title": "A new chief scientist",
+        "caption": "Jakub Pachocki takes on the research leadership role."
+      }
+    ]
+  },
+  "o1-preview-2024": {
+    "title": "o1-preview: reason before answering",
+    "short": "o1-preview",
+    "description": "OpenAI introduced the o1 family, trained through reinforcement learning for complex reasoning. Its early o1-preview version became available in ChatGPT and to limited API users.",
+    "detail": "The later release of the full o1 model is a separate event. This scene covers the initial September 12 o1-preview announcement.",
+    "beats": [
+      {
+        "title": "Think before answering",
+        "caption": "THINK, CHECK and ANSWER stages appear beside the question."
+      },
+      {
+        "title": "Move to the checking stage",
+        "caption": "A glowing marker travels from THINK to CHECK."
+      },
+      {
+        "title": "An answer after checking",
+        "caption": "The marker reaches ANSWER and the completed result remains."
+      }
+    ]
+  },
+  "stargate-2025": {
+    "title": "Stargate: a plan for more compute",
+    "short": "Stargate",
+    "description": "Stargate was announced with a plan to invest $500 billion over four years in US AI infrastructure for OpenAI. SoftBank was named the financial lead and OpenAI the operational lead.",
+    "detail": "The $500 billion figure is an announced investment plan, not money already spent. Initial equity funders included SoftBank, OpenAI, Oracle and MGX, with Masayoshi Son named chairman.",
+    "beats": [
+      {
+        "title": "A blueprint for Texas",
+        "caption": "A crane and infrastructure plan unfold over a blueprint marked TEXAS."
+      },
+      {
+        "title": "Planning computing facilities",
+        "caption": "Three server areas rise to represent the proposed buildout."
+      },
+      {
+        "title": "A $500 billion, four-year plan",
+        "caption": "The PLANNED marker and amount remain as a model of the announced investment plan."
+      }
+    ]
+  },
+  "gpt-4-1-2025": {
+    "title": "GPT-4.1: code and long context",
+    "short": "GPT-4.1",
+    "description": "GPT-4.1, GPT-4.1 mini and GPT-4.1 nano launched in the API, emphasizing improvements in coding, instruction following and long-context handling.",
+    "detail": "This date marks the API release. Michelle Pokrass and Ananya Kumar are linked through their officially listed research-lead roles.",
+    "beats": [
+      {
+        "title": "Long code and documents",
+        "caption": "A highlight scans down a layered document to find relevant context."
+      },
+      {
+        "title": "Find the useful passage",
+        "caption": "The matching context is highlighted and moves toward the code editor."
+      },
+      {
+        "title": "The code changes",
+        "caption": "Before-and-after code remains, illustrating development with long context."
+      }
+    ]
+  },
+  "o3-o4-mini-2025": {
+    "title": "o3 and o4-mini: reasoning with tools",
+    "short": "o3 · o4-mini",
+    "description": "OpenAI released o3 and o4-mini, emphasizing reasoning models that combine tools such as search, Python analysis and visual inspection in ChatGPT.",
+    "detail": "This is the o3 and o4-mini release date, not the first o3 preview announcement. Both people shown are included in the official contributor list.",
+    "beats": [
+      {
+        "title": "Search, computation and vision",
+        "caption": "SEARCH, PYTHON and VISION workstations appear beside the question."
+      },
+      {
+        "title": "Reason across tools",
+        "caption": "A glowing marker travels between tools, collecting useful information."
+      },
+      {
+        "title": "Bring the evidence into an answer",
+        "caption": "The evidence and completed answer remain together."
+      }
+    ]
+  },
+  "gpt-5-2025": {
+    "title": "GPT-5: fast answers and deeper reasoning",
+    "short": "GPT-5",
+    "description": "GPT-5 was introduced as a system combining a fast-answering model, a deeper-reasoning model and a router that selects a path for each question. It was released in ChatGPT and the developer API.",
+    "detail": "At announcement, GPT-5 combined multiple components. Jakub Pachocki and Mark Chen appear as official contributors, not as sole creators.",
+    "beats": [
+      {
+        "title": "Two different questions",
+        "caption": "Inputs representing a simple and a complex question reach the router."
+      },
+      {
+        "title": "Choose a path for the question",
+        "caption": "One input answers through FAST; the other enters DEEPER."
+      },
+      {
+        "title": "From each path to an answer",
+        "caption": "The deeper-reasoning input reaches the conversation output, leaving both routes visible."
+      }
+    ]
+  },
+  "recapitalization-2025": {
+    "title": "Recapitalization: Foundation and Group PBC",
+    "short": "Recapitalization",
+    "description": "OpenAI announced its completed recapitalization, with the nonprofit OpenAI Foundation continuing to control the for-profit OpenAI Group PBC.",
+    "detail": "The May 5, 2025 restructuring plan is distinct from the October 28 completion announcement. The Foundation's equity and special voting and governance rights support its control of the for-profit organization.",
+    "beats": [
+      {
+        "title": "The recapitalization is complete",
+        "caption": "An announcement authored by Bret Taylor confirms completion."
+      },
+      {
+        "title": "Two organizations, two names",
+        "caption": "The Foundation and Group PBC take their places."
+      },
+      {
+        "title": "Maintaining nonprofit control",
+        "caption": "The nonprofit Foundation continues to control the for-profit Group."
+      }
+    ]
+  },
+  "gpt-5-1-2025": {
+    "title": "GPT-5.1: tune the conversation",
+    "short": "GPT-5.1",
+    "description": "GPT-5.1 Instant and GPT-5.1 Thinking were announced with improvements to conversational style, instruction following and adaptive reasoning time.",
+    "detail": "This is the ChatGPT announcement date. The developer API announcement followed on November 13. No individual is cast because a direct product-contribution role was not established from this source.",
+    "beats": [
+      {
+        "title": "A conversation that fits",
+        "caption": "A request for a simple explanation and tone options appear in ChatGPT."
+      },
+      {
+        "title": "Choose a friendly tone",
+        "caption": "The marker moves to FRIENDLY as the response appears."
+      },
+      {
+        "title": "Answer in the chosen style",
+        "caption": "The complete response, selected tone and Instant/Thinking characteristics remain."
+      }
+    ]
+  },
+  "gpt-5-2-2025": {
+    "title": "GPT-5.2: connecting knowledge work",
+    "short": "GPT-5.2",
+    "description": "GPT-5.2 was introduced with an emphasis on multistep professional work, including long-context understanding, tool use, spreadsheets and presentations.",
+    "detail": "The announcement described Instant, Thinking and Pro rollout in ChatGPT and API availability. No individual is cast because an individual creator role was not established.",
+    "beats": [
+      {
+        "title": "Who works when?",
+        "caption": "A workforce schedule from the official demo appears with people, dates and constraints."
+      },
+      {
+        "title": "Fill the schedule",
+        "caption": "Team assignment bars move into their rows."
+      },
+      {
+        "title": "A workforce plan",
+        "caption": "The completed schedule and WORKFORCE PLAN result remain."
+      }
+    ]
+  },
+  "gpt-5-3-codex-2026": {
+    "title": "GPT-5.3-Codex: collaborate while it works",
+    "short": "GPT-5.3-Codex",
+    "description": "GPT-5.3-Codex was introduced as combining coding performance with reasoning and professional knowledge, emphasizing long-running tasks that users can steer during execution.",
+    "detail": "The announcement describes an early version assisting with training debugging, deployment management and evaluation diagnosis. This is not a claim of autonomous self-creation or AGI. No directly verified individual product contributor is cast.",
+    "beats": [
+      {
+        "title": "Build me a racing game",
+        "caption": "A coding desk, track and car represent the publicly demonstrated game-building task."
+      },
+      {
+        "title": "Run it and improve it",
+        "caption": "The car drives around the track, running the generated game."
+      },
+      {
+        "title": "A playable result",
+        "caption": "The car continues around the track and returns to the start, leaving a playable game result."
+      }
+    ]
+  },
+  "gpt-5-4-2026": {
+    "title": "GPT-5.4: expanding professional work",
+    "short": "GPT-5.4",
+    "description": "GPT-5.4 launched in ChatGPT, the API and Codex, combining reasoning, coding and tool use for professional work such as documents, spreadsheets and presentations.",
+    "detail": "This scene focuses on the release and officially described tasks. No individual is cast because a direct contribution to the model was not established from the announcement.",
+    "beats": [
+      {
+        "title": "A meeting request arrives",
+        "caption": "Email and calendar windows open beside a meeting request."
+      },
+      {
+        "title": "The cursor moves to the calendar",
+        "caption": "The cursor travels from the email to a calendar slot."
+      },
+      {
+        "title": "Add the event",
+        "caption": "A MEETING block appears and the completed task remains."
+      }
+    ]
+  },
+  "gpt-5-5-2026": {
+    "title": "GPT-5.5: carrying work across steps",
+    "short": "GPT-5.5",
+    "description": "GPT-5.5 was introduced for connected tasks involving coding, online research, data analysis and software use. Rollout in ChatGPT and Codex began April 23; API availability was announced in an update the following day.",
+    "detail": "The initial announcement and next-day API update are distinct. No individual is cast because a specific product-contribution role was not established.",
+    "beats": [
+      {
+        "title": "Find the intersection of two surfaces",
+        "caption": "Two opposing quadratic surfaces unfold on a mathematical workbench."
+      },
+      {
+        "title": "Connect equations to a picture",
+        "caption": "The surfaces and equations align to examine where they meet."
+      },
+      {
+        "title": "The red intersection appears",
+        "caption": "A red circle marks the intersection, leaving a completed visualization."
+      }
+    ]
+  },
+  "gpt-5-6-2026": {
+    "title": "GPT-5.6: Sol, Terra and Luna",
+    "short": "GPT-5.6",
+    "description": "The GPT-5.6 family reached general availability after a limited preview. Sol was described as the flagship, Terra as a balanced model for everyday work and Luna as a cost-efficient option.",
+    "detail": "The limited preview began June 26, 2026; this scene covers the July 9 general-availability announcement. Model descriptions follow the official account. No directly verified individual product contributor is cast.",
+    "beats": [
+      {
+        "title": "A family of three models",
+        "caption": "Devices representing the sun, Earth and moon stand side by side."
+      },
+      {
+        "title": "Compare the models",
+        "caption": "An example task card passes the three devices and their orbit markers."
+      },
+      {
+        "title": "Choose a model for the task",
+        "caption": "A balanced-workload example connects to Terra; only its selected base lights up."
+      }
+    ]
+  },
+  "gpt-6-astra-2026": {
+    "title": "GPT-6 Astra: a staged rollout",
+    "short": "GPT-6 Astra",
+    "description": "GPT-6 Astra was announced with an emphasis on coding, research, computer use and complex multistep work. Official release notes describe a staged rollout beginning with a small number of organizations.",
+    "detail": "This record follows sources checked on September 8, 2026. A staged rollout does not mean access for everyone on announcement day and does not establish AGI. No directly verified individual product contributor is cast.",
+    "beats": [
+      {
+        "title": "Circuit design in KiCad",
+        "caption": "Electronic components settle onto a green PCB workbench."
+      },
+      {
+        "title": "Route the connections",
+        "caption": "Copper traces connect the components in a software-design demonstration."
+      },
+      {
+        "title": "The completed layout",
+        "caption": "The circuit layout and staged-access marker remain."
+      }
+    ]
+  },
+  "future-agi-hub": {
+    "title": "The next chapter is still being written.",
+    "short": "AGI Hub · concept",
+    "description": "Robotics, energy and global computing meet on one stage: an imagined future of intelligence that benefits everyone.",
+    "detail": "This is an original future concept, not a claim of achieved AGI or an actual facility.",
+    "beats": [
+      {
+        "title": "Three technologies meet",
+        "caption": "Computing, energy and robotics come together on the shared stage."
+      },
+      {
+        "title": "Imagine the connections",
+        "caption": "Technologies for helping people connect around a single globe."
+      },
+      {
+        "title": "Back to the first question",
+        "caption": "How can AI benefit everyone? The next chapter is still being written."
+      }
+    ],
+    "dateLabel": "Future concept"
+  }
+}

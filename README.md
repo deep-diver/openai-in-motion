@@ -17,11 +17,20 @@ npm run dev
 
 서버가 출력하는 주소에서 실행합니다.
 
+## 한국어 / English
+
+`/`는 한국어, `/en`은 영어로 시작합니다. 상단의 한국어 / EN 링크는 현재 장면, 재생 위치와 속도를 유지한 채 설명을 전환합니다. 언어별 설명은 `data/en/`에 있으며, 날짜·출처 URL·인물·동작은 원본 데이터를 공유합니다.
+
+The English edition covers all 44 scenes, 132 narrative cues, 88 selected object callouts and 66 scripted dialogue lines. Speech bubbles are explanatory scripts, not quotations. The final AGI Hub remains explicitly labeled as a future concept.
+
+3D 장면에는 항상 원본 Chapter 객체를 전달하므로 번역 전환이 GSAP 타임라인을 재생성하지 않습니다. 새 장면을 추가할 때는 `data/en/chapters.json`과 선택된 콜아웃·대사도 함께 작성하고 `npm test`로 번역 누락을 확인합니다.
+
 ## 코드 구조
 
 ```text
 app/
-  page.tsx                     현재 장면·재생 상태·인물 소개·전체 UI
+  page.tsx                     한국어 진입점
+  en/page.tsx                  영문 진입점과 영문 메타데이터
   globals.css                  반응형 다큐멘터리 화면과 세 축 타임라인
 
 data/
@@ -34,6 +43,8 @@ data/
   types.ts                     Chapter / StoryBeat / Action 타입
 
 components/timeline/
+  HistoryExperience.tsx        공유 재생 UI·한국어/영어 전환
+  Locale.tsx                   언어 컨텍스트·로딩 안내
   Stage.tsx                    고정 OrthographicCamera·영구 단상·조명
   StoryScene.tsx               두 장면 버퍼·재생/정지·속도·다시 보기·탐색
   storyDirector.ts             장면 전환과 3단계 스토리를 실행하는 GSAP 감독

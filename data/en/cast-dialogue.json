@@ -1,0 +1,345 @@
+{
+  "openai-founding": [
+    {
+      "person": "sam",
+      "text": "Let's start with sharing research across institutions."
+    },
+    {
+      "person": "ilya",
+      "text": "Let's talk about research that benefits all of humanity."
+    }
+  ],
+  "gym-beta": [
+    {
+      "person": "greg",
+      "text": "Compare experiments side by side in the same environment."
+    }
+  ],
+  "universe": [
+    {
+      "person": "greg",
+      "text": "Connect different programs to one learning environment."
+    },
+    {
+      "person": "dario",
+      "text": "Watch the screen and act with a keyboard and mouse."
+    }
+  ],
+  "human-preferences": [
+    {
+      "person": "dario",
+      "text": "Which of these two behaviors is better?"
+    },
+    {
+      "person": "paul",
+      "text": "Those choices can guide what the agent learns."
+    }
+  ],
+  "dota-1v1": [
+    {
+      "person": "dendi",
+      "text": "This match is one-on-one. Watch the moves."
+    },
+    {
+      "person": "greg",
+      "text": "Let's see how a bot trained through self-play performs."
+    }
+  ],
+  "musk-board-departure": [
+    {
+      "person": "elon",
+      "text": "Watch the nameplate leave the boardroom table."
+    }
+  ],
+  "gpt-1": [
+    {
+      "person": "alec",
+      "text": "First, read lots of text and learn its patterns."
+    },
+    {
+      "person": "ilya",
+      "text": "Then adapt that foundation to the task."
+    }
+  ],
+  "openai-five": [
+    {
+      "person": "greg",
+      "text": "This time, five heroes move together."
+    },
+    {
+      "person": "jakub",
+      "text": "Look at both individual rewards and team rewards."
+    }
+  ],
+  "dactyl": [
+    {
+      "person": "wojciech",
+      "text": "Transfer a movement learned in simulation to a real hand."
+    },
+    {
+      "person": "jakub",
+      "text": "Can it turn the block when friction and size change?"
+    }
+  ],
+  "gpt-2-staged": [
+    {
+      "person": "alec",
+      "text": "Give it the start of a sentence and see what follows."
+    },
+    {
+      "person": "jeffrey",
+      "text": "Release a smaller model first and study the impact."
+    }
+  ],
+  "openai-lp": [
+    {
+      "person": "sam",
+      "text": "Notice where the nonprofit retains control."
+    },
+    {
+      "person": "greg",
+      "text": "Let's unfold this structure with capped investor returns."
+    }
+  ],
+  "microsoft-partnership": [
+    {
+      "person": "sam",
+      "text": "Follow the connection to the research infrastructure."
+    },
+    {
+      "person": "satya",
+      "text": "Let's build AI supercomputing infrastructure on Azure."
+    }
+  ],
+  "gpt-2-full": [
+    {
+      "person": "alec",
+      "text": "Now it's time to release the largest GPT-2 model."
+    },
+    {
+      "person": "jeffrey",
+      "text": "Look at the research on detecting generated text, too."
+    }
+  ],
+  "gpt-3": [
+    {
+      "person": "tom",
+      "text": "Give it a few examples, then inspect the next answer."
+    },
+    {
+      "person": "ilya",
+      "text": "See whether it handles the task without fine-tuning."
+    }
+  ],
+  "api-private-beta": [
+    {
+      "person": "greg",
+      "text": "Connect text input to a model's output."
+    },
+    {
+      "person": "mira",
+      "text": "What applications can this private beta support?"
+    }
+  ],
+  "clip": [
+    {
+      "person": "alec",
+      "text": "Place the photo beside its candidate descriptions."
+    },
+    {
+      "person": "jongwook",
+      "text": "Turn the category names into text and compare."
+    }
+  ],
+  "dall-e": [
+    {
+      "person": "aditya",
+      "text": "Ask for an avocado-shaped chair in a sentence."
+    },
+    {
+      "person": "gabriel",
+      "text": "Two different concepts meet in one image."
+    }
+  ],
+  "codex-2021": [
+    {
+      "person": "wojciech",
+      "text": "Describe what you want the program to do."
+    },
+    {
+      "person": "greg",
+      "text": "Let's see how that request becomes code."
+    }
+  ],
+  "instructgpt": [
+    {
+      "person": "ryan",
+      "text": "Start with examples of good responses, then compare."
+    },
+    {
+      "person": "jan",
+      "text": "Watch human rankings feed into training."
+    }
+  ],
+  "dall-e-2": [
+    {
+      "person": "aditya",
+      "text": "See how much more detailed the image becomes."
+    },
+    {
+      "person": "mark",
+      "text": "Explore variations and edits of the generated image."
+    }
+  ],
+  "whisper": [
+    {
+      "person": "alec",
+      "text": "Follow speech in different languages into text."
+    },
+    {
+      "person": "jongwook",
+      "text": "Now follow that speech into English."
+    }
+  ],
+  "chatgpt-launch": [
+    {
+      "person": "john",
+      "text": "Ask a follow-up question after the first answer."
+    },
+    {
+      "person": "barret",
+      "text": "Review the research preview's responses and leave feedback."
+    }
+  ],
+  "microsoft-partnership-2023": [
+    {
+      "person": "sam",
+      "text": "See how the expanded partnership connects research and products."
+    },
+    {
+      "person": "satya",
+      "text": "Follow the link between supercomputing and AI products."
+    }
+  ],
+  "gpt-4-2023": [
+    {
+      "person": "jakub",
+      "text": "Provide an image and a question, then read the explanation."
+    },
+    {
+      "person": "greg",
+      "text": "Look at the computing infrastructure behind this training."
+    }
+  ],
+  "devday-2023": [],
+  "board-removal-2023": [
+    {
+      "person": "sam",
+      "text": "This scene marks the announcement of a CEO change."
+    },
+    {
+      "person": "mira",
+      "text": "Start with the appointment of an interim CEO."
+    }
+  ],
+  "altman-return-2023": [
+    {
+      "person": "sam",
+      "text": "Follow the return to the CEO role."
+    },
+    {
+      "person": "bret",
+      "text": "Look at the three seats on the new initial board."
+    }
+  ],
+  "sora-research-2024": [
+    {
+      "person": "timBrooks",
+      "text": "A scene described in words becomes a video."
+    },
+    {
+      "person": "billPeebles",
+      "text": "Watch how the scene changes over time."
+    }
+  ],
+  "gpt-4o-2024": [
+    {
+      "person": "prafulla",
+      "text": "Explore a conversation combining voice and vision."
+    },
+    {
+      "person": "alexanderKirillov",
+      "text": "Follow a response that listens and looks at the screen."
+    }
+  ],
+  "chief-scientist-transition-2024": [
+    {
+      "person": "ilya",
+      "text": "Watch the chief scientist's nameplate change."
+    },
+    {
+      "person": "jakub",
+      "text": "The new title appears on this nameplate."
+    }
+  ],
+  "o1-preview-2024": [
+    {
+      "person": "jerry",
+      "text": "Follow the problem step by step before the answer."
+    },
+    {
+      "person": "noam",
+      "text": "Trace the intermediate steps in this worked example."
+    }
+  ],
+  "stargate-2025": [
+    {
+      "person": "masayoshi",
+      "text": "The $500 billion is a plan for future investment."
+    }
+  ],
+  "gpt-4-1-2025": [
+    {
+      "person": "michelle",
+      "text": "Find the information that matters within a long context."
+    },
+    {
+      "person": "ananya",
+      "text": "Consider the code and instructions together."
+    }
+  ],
+  "o3-o4-mini-2025": [
+    {
+      "person": "jerry",
+      "text": "Connect the tools needed to search and analyze."
+    },
+    {
+      "person": "noam",
+      "text": "Bring the sources and calculations into one answer."
+    }
+  ],
+  "gpt-5-2025": [
+    {
+      "person": "jakub",
+      "text": "See how the response path changes with the question."
+    },
+    {
+      "person": "mark",
+      "text": "Follow the fast-answer and deeper-reasoning routes."
+    }
+  ],
+  "recapitalization-2025": [
+    {
+      "person": "bret",
+      "text": "The nonprofit Foundation retains control after restructuring."
+    }
+  ],
+  "gpt-5-1-2025": [],
+  "gpt-5-2-2025": [],
+  "gpt-5-3-codex-2026": [],
+  "gpt-5-4-2026": [],
+  "gpt-5-5-2026": [],
+  "gpt-5-6-2026": [],
+  "gpt-6-astra-2026": [],
+  "future-agi-hub": []
+}

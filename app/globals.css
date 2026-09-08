@@ -1808,3 +1808,84 @@ figure.scene-canvas {
 .cast-member.is-speaking strong {
   color: var(--accent);
 }
+
+/* Language controls share the header and never remount the playing stage. */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+.language-switch {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.language-switch a {
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 0 7px;
+  font-size: 12px;
+  color: #aebe9f;
+  border-radius: 5px;
+}
+.language-switch a[aria-current='true'] {
+  color: #e9f3df;
+  background: #45523b;
+}
+.language-switch a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.documentary[data-locale='en'] .chapter-title {
+  letter-spacing: -0.6px;
+}
+.documentary[data-locale='en'] .character-speech > div {
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+.documentary[data-locale='en'] .object-callout span,
+.documentary[data-locale='en'] .character-speech p {
+  letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.documentary[data-locale='en'] .narration-window {
+  min-height: 110px;
+}
+.documentary[data-locale='en'] .scene-canvas {
+  bottom: 150px;
+}
+@media (max-width: 1180px) {
+  .documentary .header-center {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .documentary .site-header {
+    height: auto;
+    min-height: 76px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  .header-actions {
+    gap: 10px;
+  }
+  .documentary[data-locale='en'] .about-button {
+    font-size: 12px;
+  }
+  .documentary[data-locale='en'] .scene-view {
+    height: 490px;
+  }
+  .documentary[data-locale='en'] .narration-window {
+    min-height: 134px;
+  }
+  .documentary[data-locale='en'] .scene-canvas {
+    bottom: 174px;
+  }
+}

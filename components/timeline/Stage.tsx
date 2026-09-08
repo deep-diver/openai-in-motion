@@ -1,6 +1,7 @@
 'use client';
 /* eslint-disable react/react-compiler -- Three.js objects are mutable external scene state; GSAP intentionally mutates them from effects. */
 
+import { useLocale } from './Locale';
 import { Canvas, useThree } from '@react-three/fiber';
 import {
   Component,
@@ -136,7 +137,11 @@ function Scene(props: StoryProps) {
   );
 }
 class CanvasBoundary extends Component<
-  { children: ReactNode; onRetry: () => void },
+  {
+    children: ReactNode;
+    onRetry: () => void;
+    t: (ko: string, en: string) => string;
+  },
   { failed: boolean }
 > {
   state = { failed: false };
@@ -146,10 +151,20 @@ class CanvasBoundary extends Component<
   render() {
     return this.state.failed ? (
       <div className="scene-loader">
-        <p>3D 장면을 불러오지 못했습니다.</p>
-        <p>하드웨어 가속을 지원하는 브라우저에서 다시 시도해 주세요.</p>
+        <p>
+          {this.props.t(
+            '3D 장면을 불러오지 못했습니다.',
+            'The 3D scene could not load.',
+          )}
+        </p>
+        <p>
+          {this.props.t(
+            '하드웨어 가속을 지원하는 브라우저에서 다시 시도해 주세요.',
+            'Please retry in a browser with hardware acceleration.',
+          )}
+        </p>
         <button className="retry-button" onClick={this.props.onRetry}>
-          다시 시도
+          {this.props.t('다시 시도', 'Try again')}
         </button>
       </div>
     ) : (
@@ -158,10 +173,15 @@ class CanvasBoundary extends Component<
   }
 }
 function Stage(props: StoryProps) {
+  const { t } = useLocale();
   const [attempt, setAttempt] = useState(0);
   const [annotations] = useState(createAnnotationBridge);
   return (
-    <CanvasBoundary key={attempt} onRetry={() => setAttempt((n) => n + 1)}>
+    <CanvasBoundary
+      t={t}
+      key={attempt}
+      onRetry={() => setAttempt((n) => n + 1)}
+    >
       <div className="annotated-stage">
         <Canvas
           orthographic
@@ -171,8 +191,10 @@ function Stage(props: StoryProps) {
           gl={{ antialias: true, alpha: true }}
           fallback={
             <div className="scene-loader">
-              이 브라우저는 WebGL을 지원하지 않습니다. 타임라인의 설명은 계속
-              탐색할 수 있습니다.
+              {t(
+                '이 브라우저는 WebGL을 지원하지 않습니다. 타임라인의 설명은 계속 탐색할 수 있습니다.',
+                'This browser does not support WebGL. You can still explore the timeline descriptions.',
+              )}
             </div>
           }
         >

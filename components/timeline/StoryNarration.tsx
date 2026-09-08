@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from './Locale';
 import { Slider } from '@base-ui/react/slider';
 import type { Chapter } from '@/data/types';
 import {
@@ -23,6 +24,7 @@ export function StoryNarration({
   onSeek: (seek: StorySeek) => void;
   onScrub: () => void;
 }) {
+  const { t } = useLocale();
   const time = progress * STORY_TIMING.duration;
   const weights = captionWeights(time);
   const position = weights[1] + weights[2] * 2;
@@ -55,7 +57,10 @@ export function StoryNarration({
           largeStep={1}
           value={[time]}
           thumbAlignment="edge"
-          aria-label="현재 장면의 재생 위치"
+          aria-label={t(
+            '현재 장면의 재생 위치',
+            'Playback position in this scene',
+          )}
           onValueChange={(value) => {
             onScrub();
             onSeek({
@@ -72,9 +77,17 @@ export function StoryNarration({
             </Slider.Track>
             <Slider.Thumb
               data-slot="slider-thumb"
-              getAriaLabel={() => `${chapter.title}, 재생 위치`}
+              getAriaLabel={() =>
+                t(
+                  `${chapter.title}, 재생 위치`,
+                  `${chapter.title}, playback position`,
+                )
+              }
               getAriaValueText={(_, seconds) =>
-                `${seconds.toFixed(1)}초 / ${STORY_TIMING.duration}초`
+                t(
+                  `${seconds.toFixed(1)}초 / ${STORY_TIMING.duration}초`,
+                  `${seconds.toFixed(1)} of ${STORY_TIMING.duration} seconds`,
+                )
               }
             />
           </Slider.Control>
@@ -84,7 +97,10 @@ export function StoryNarration({
             <button
               key={i}
               title={beat.title}
-              aria-label={`${beat.title} 부분으로 이동`}
+              aria-label={t(
+                `${beat.title} 부분으로 이동`,
+                `Jump to ${beat.title}`,
+              )}
               style={{ left: `${(cueTime(i) / STORY_TIMING.duration) * 100}%` }}
               onClick={() => onSeek({ serial: Date.now(), beat: i })}
             >
@@ -94,7 +110,7 @@ export function StoryNarration({
         </div>
       </div>
       <div className="scrubber-meta">
-        <span>하나로 이어지는 이야기</span>
+        <span>{t('하나로 이어지는 이야기', 'One continuous story')}</span>
         <span className="mono">
           {time.toFixed(1)} / {STORY_TIMING.duration.toFixed(1)}s
         </span>

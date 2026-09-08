@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from './Locale';
 import { useEffect, useRef } from 'react';
 import { Cpu, Flag, GitBranch } from 'lucide-react';
 import { AXES, type Axis, type Chapter } from '@/data/types';
@@ -16,6 +17,14 @@ export function TimelineTracks({
   onSelect: (n: number) => void;
   reducedMotion: boolean;
 }) {
+  const { t } = useLocale();
+  const axisLabel = (axis: Axis) =>
+    t(
+      AXES[axis].label,
+      { model: 'Models', milestone: 'Milestones', event: 'Turning points' }[
+        axis
+      ],
+    );
   const scroll = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!scroll.current) return;
@@ -44,7 +53,7 @@ export function TimelineTracks({
             >
               <Icon size={14} />
               <span>
-                {AXES[axis].label}
+                {axisLabel(axis)}
                 <small>
                   {chapters.filter((c) => c.axis === axis).length} scenes
                 </small>
@@ -56,7 +65,10 @@ export function TimelineTracks({
       <div
         className="tracks-scroll"
         ref={scroll}
-        aria-label="세 축으로 보는 상세 연대기"
+        aria-label={t(
+          '세 축으로 보는 상세 연대기',
+          'Detailed timeline in three threads',
+        )}
       >
         <div className="tracks-inner" style={{ width: chapters.length * CELL }}>
           <div className="track-date-row">
@@ -100,7 +112,7 @@ export function TimelineTracks({
                     <button
                       className={`track-event ${i === active ? 'selected' : ''} ${i < active ? 'past' : ''}`}
                       aria-current={i === active ? 'step' : undefined}
-                      aria-label={`${chapter.dateLabel ?? chapter.date}, ${AXES[axis].label}, ${chapter.title}`}
+                      aria-label={`${chapter.dateLabel ?? chapter.date}, ${axisLabel(axis)}, ${chapter.title}`}
                       onClick={() => onSelect(i)}
                     >
                       <span className="event-dot" />

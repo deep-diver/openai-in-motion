@@ -878,7 +878,7 @@ export function getHistoricalSet(chapter: Chapter): ReactNode | null {
           output={
             <Card
               title="TRANSCRIPTION"
-              lines={['원어 자막', 'ENGLISH TRANSLATION']}
+              lines={['SOURCE-LANGUAGE TEXT', 'ENGLISH TRANSLATION']}
             />
           }
           banner="WHISPER / AUDIO TO TEXT"
