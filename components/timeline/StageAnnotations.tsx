@@ -6,6 +6,7 @@ import { useLayoutEffect, useMemo } from 'react';
 import { CAST_DIALOGUE, OBJECT_IDS, importantObjects } from '@/data/sceneNotes';
 import { localizedNotes, localizedDialogue } from '@/data/localization';
 import { useLocale } from './Locale';
+import { PersonPortrait } from './PersonPortrait';
 import { PEOPLE, type Chapter } from '@/data/types';
 import {
   annotationBox,
@@ -110,11 +111,16 @@ export function StageAnnotations({
           key={line.person}
           ref={elementRef(bridge, `speech-${i}`, 'label')}
         >
-          <div>
-            <strong>
-              {t(PEOPLE[line.person].name, PEOPLE[line.person].english)}
-            </strong>
-            <span>{t('연출 대사', 'Scripted dialogue')}</span>
+          <div className="speech-identity">
+            <PersonPortrait person={line.person} />
+            <div className="speech-person">
+              <strong>
+                {t(PEOPLE[line.person].name, PEOPLE[line.person].english)}
+              </strong>
+              <span className="speech-disclaimer">
+                {t('연출 대사', 'Scripted dialogue')}
+              </span>
+            </div>
           </div>
           <p>{line.text}</p>
         </div>

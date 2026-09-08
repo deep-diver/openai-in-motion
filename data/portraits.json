@@ -1,0 +1,350 @@
+{
+  "sam": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/%E2%80%9CSam_Altman%E2%80%9D_by_Village_Global_%28Cropped%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E2%80%9CSam_Altman%E2%80%9D_by_Village_Global_(Cropped).jpg",
+    "credit": "Village Global, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "objectPosition": "50% 0%",
+    "src": "/portraits/sam.jpg",
+    "crop": {
+      "left": 660,
+      "top": 100,
+      "width": 1100,
+      "height": 1100,
+      "imageWidth": 2444,
+      "imageHeight": 4148
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+  },
+  "greg": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Greg_Brockman%2C_2019.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Greg_Brockman,_2019.jpg",
+    "credit": "Simulation (YouTube), via Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "objectPosition": "50% 25%",
+    "src": "/portraits/greg.jpg",
+    "crop": {
+      "left": 30,
+      "top": 0,
+      "width": 520,
+      "height": 520,
+      "imageWidth": 580,
+      "imageHeight": 743
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  "ilya": {
+    "imageUrl": "https://imagecdn.royalsociety.org/people/P178152.jpg",
+    "sourceUrl": "https://royalsociety.org/people/ilya-sutskever-35834/",
+    "credit": "The Royal Society",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 20%",
+    "src": "/portraits/ilya.jpg",
+    "crop": {
+      "left": 70,
+      "top": 12,
+      "width": 145,
+      "height": 145,
+      "imageWidth": 283,
+      "imageHeight": 283
+    }
+  },
+  "elon": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elon_Musk_Royal_Society_(crop2).jpg",
+    "credit": "Debbie Rowe / The Royal Society, via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "objectPosition": "50% 15%",
+    "src": "/portraits/elon.jpg",
+    "crop": {
+      "left": 240,
+      "top": 110,
+      "width": 900,
+      "height": 900,
+      "imageWidth": 1337,
+      "imageHeight": 1771
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "john": {
+    "imageUrl": "http://joschu.net/images/me-beach.jpg",
+    "sourceUrl": "http://joschu.net/",
+    "credit": "John Schulman, personal homepage",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 15%",
+    "src": "/portraits/john.jpg",
+    "crop": {
+      "left": 200,
+      "top": 140,
+      "width": 390,
+      "height": 390,
+      "imageWidth": 767,
+      "imageHeight": 1034
+    }
+  },
+  "wojciech": {
+    "imageUrl": "https://foresight.org/wp-content/uploads/2026/06/Wojciech-Zaremba.png",
+    "sourceUrl": "https://foresight.org/people/wojciech-zaremba/",
+    "credit": "Foresight Institute",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 20%",
+    "src": "/portraits/wojciech.webp",
+    "crop": {
+      "left": 420,
+      "top": 50,
+      "width": 380,
+      "height": 380,
+      "imageWidth": 1280,
+      "imageHeight": 720
+    }
+  },
+  "satya": {
+    "imageUrl": "https://news.microsoft.com/source/wp-content/uploads/2024/07/MS-Exec-Nadella-Satya-2017-08-31-22-2-455x683.jpg",
+    "sourceUrl": "https://news.microsoft.com/source/exec/satya-nadella/",
+    "credit": "Brian Smale and Microsoft",
+    "license": "CC BY-SA 4.0",
+    "objectPosition": "50% 0%",
+    "src": "/portraits/satya.jpg",
+    "crop": {
+      "left": 123,
+      "top": 33,
+      "width": 220,
+      "height": 220,
+      "imageWidth": 455,
+      "imageHeight": 683
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "mira": {
+    "imageUrl": "https://live.staticflickr.com/65535/53784356287_39b7261160_b.jpg",
+    "sourceUrl": "https://www.flickr.com/photos/thayerschool/53784356287/in/album-72177720317818757",
+    "credit": "Mark Washburn / Dartmouth Engineering",
+    "license": "All rights reserved (Dartmouth Engineering official photograph)",
+    "objectPosition": "50% 15%",
+    "src": "/portraits/mira.jpg",
+    "crop": {
+      "left": 345,
+      "top": 85,
+      "width": 340,
+      "height": 340,
+      "imageWidth": 1024,
+      "imageHeight": 683
+    }
+  },
+  "jakub": {
+    "imageUrl": "https://simons.berkeley.edu/sites/default/files/styles/post_card_lg_2x/public/photo_2.jpg?h=16b768a2&itok=HRu27KwW",
+    "sourceUrl": "https://simons.berkeley.edu/people/jakub-pachocki",
+    "credit": "Simons Institute for the Theory of Computing, UC Berkeley",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "40% 15%",
+    "src": "/portraits/jakub.jpg",
+    "crop": {
+      "left": 160,
+      "top": 0,
+      "width": 660,
+      "height": 660,
+      "imageWidth": 1200,
+      "imageHeight": 1200
+    }
+  },
+  "dario": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dario_Amodei_in_2023.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dario_Amodei_in_2023.jpg",
+    "credit": "Simon Walker / No 10 Downing Street, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "objectPosition": "50% 10%",
+    "src": "/portraits/dario.jpg",
+    "crop": {
+      "left": 175,
+      "top": 190,
+      "width": 720,
+      "height": 720,
+      "imageWidth": 1400,
+      "imageHeight": 2240
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+  },
+  "paul": {
+    "imageUrl": "https://paulfchristiano.com/wp-content/uploads/2026/01/websiteheadshot.png",
+    "sourceUrl": "https://paulfchristiano.com/",
+    "credit": "Paul Christiano / personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/paul.png"
+  },
+  "jeffrey": {
+    "imageUrl": "https://www.wuthejeff.com/assets/images/jeffwu/main.jpg",
+    "sourceUrl": "https://www.wuthejeff.com/",
+    "credit": "Jeff Wu / personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "67% 34%",
+    "src": "/portraits/jeffrey.jpg"
+  },
+  "tom": {
+    "imageUrl": "https://www-cdn.anthropic.com/images/4zrzovbb/website/9e472b0f8ac60744d68c59519ee26b4c10078a24-640x800.jpg",
+    "sourceUrl": "https://www.anthropic.com/company/leadership",
+    "credit": "Anthropic / Tom Brown leadership portrait",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/tom.jpg"
+  },
+  "barret": {
+    "imageUrl": "https://barretzoph.github.io/images/headshot.jpg",
+    "sourceUrl": "https://barretzoph.github.io/",
+    "credit": "Barret Zoph / personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "44% 40%",
+    "src": "/portraits/barret.jpg"
+  },
+  "gabriel": {
+    "imageUrl": "https://gabgoh.github.io/face3.png",
+    "sourceUrl": "https://gabgoh.github.io/",
+    "credit": "Gabriel Goh / personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/gabriel.png"
+  },
+  "ryan": {
+    "imageUrl": "https://cs.mcgill.ca/~rlowe1/images/research_pic.png",
+    "sourceUrl": "https://cs.mcgill.ca/~rlowe1/",
+    "credit": "Ryan Lowe / McGill University personal profile",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/ryan.png"
+  },
+  "mark": {
+    "imageUrl": "https://assets.swoogo.com/uploads/full/3031877-652587c571ddb.jpg",
+    "sourceUrl": "https://event.technologyreview.com/emtech-mit-2023/speaker/901826/mark-chen",
+    "credit": "MIT Technology Review / EmTech MIT speaker profile",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/mark.jpg"
+  },
+  "jan": {
+    "imageUrl": "https://80000hours.org/wp-content/uploads/2025/04/jan-300x300.jpg",
+    "sourceUrl": "https://80000hours.org/podcast/episodes/jan-leike-superalignment/",
+    "credit": "80,000 Hours / Jan Leike podcast profile",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/jan.jpg"
+  },
+  "alec": {
+    "imageUrl": "https://indicodata.ai/wp-content/uploads/2025/10/Indico_headshot__0000_TWilde-1%402x-300x300.png",
+    "sourceUrl": "https://indicodata.ai/about/",
+    "credit": "Indico Data / Alec Radford advisor profile",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/alec.png"
+  },
+  "aditya": {
+    "imageUrl": "https://2023-conf.baai.ac.cn/images2024/80668b8fa7f39392a949c4671c8049fb.jpg",
+    "sourceUrl": "https://2024.baai.ac.cn/speakers",
+    "credit": "Beijing Academy of Artificial Intelligence / 2024 conference speaker profile",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/aditya.jpg"
+  },
+  "jongwook": {
+    "imageUrl": "https://ct.kaist.ac.kr/files/upload/images/604c94703fe68c30fcd3ea6e(1).png",
+    "sourceUrl": "https://ct.kaist.ac.kr/boards/view/clq_board/1746",
+    "credit": "KAIST Graduate School of Culture Technology / Jong Wook Kim colloquium speaker photograph",
+    "license": "Official profile photograph; rights retained by source",
+    "src": "/portraits/jongwook.png"
+  },
+  "billPeebles": {
+    "imageUrl": "https://www.wpeebles.com/images/me2025.jpg",
+    "sourceUrl": "https://www.wpeebles.com/",
+    "credit": "William (Bill) Peebles — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/billPeebles.jpg"
+  },
+  "prafulla": {
+    "imageUrl": "https://prafulladhariwal.com/assets/imgs/profile.jpg",
+    "sourceUrl": "https://prafulladhariwal.com/",
+    "credit": "Prafulla Dhariwal — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "55% 55%",
+    "framingNote": "Primary profile shows central subject outdoors; a tighter CSS zoom around center keeps another background person out.",
+    "src": "/portraits/prafulla.jpg",
+    "crop": {
+      "left": 210,
+      "top": 155,
+      "width": 325,
+      "height": 325,
+      "imageWidth": 720,
+      "imageHeight": 720
+    }
+  },
+  "alexanderKirillov": {
+    "imageUrl": "https://alexander-kirillov.github.io/images/alexander_kirillov.jpg",
+    "sourceUrl": "https://alexander-kirillov.github.io/",
+    "credit": "Alexander Kirillov — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/alexanderKirillov.jpg"
+  },
+  "noam": {
+    "imageUrl": "https://noambrown.com/assets/img/profile-poker.jpg",
+    "sourceUrl": "https://noambrown.com/",
+    "credit": "Noam Brown — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/noam.jpg"
+  },
+  "ananya": {
+    "imageUrl": "https://ananyakumar.wordpress.com/wp-content/uploads/2021/01/square_smiling_slightly_turned_main.png",
+    "sourceUrl": "https://ananyakumar.wordpress.com/",
+    "credit": "Ananya Kumar — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/ananya.png"
+  },
+  "jerry": {
+    "imageUrl": "https://millionintegrals.com/jt-web-square-export.jpg",
+    "sourceUrl": "https://millionintegrals.com/",
+    "credit": "Jerry Tworek — personal website",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/jerry.jpg"
+  },
+  "bret": {
+    "imageUrl": "https://cdn.sanity.io/images/ca4jck6w/production/a1c2df9160cfeb241e1bccca4a8a407c9669fc61-2564x2564.png",
+    "sourceUrl": "https://sierra.ai/author/bret-taylor",
+    "credit": "Sierra — Bret Taylor official profile",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/bret.png"
+  },
+  "masayoshi": {
+    "imageUrl": "https://group.softbank/media/Project/sbg/sbg/images/about/officer/son/pic_01.jpg",
+    "sourceUrl": "https://group.softbank/en/about/officer/son",
+    "credit": "SoftBank Group — Masayoshi Son official biography",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/masayoshi.jpg"
+  },
+  "timBrooks": {
+    "imageUrl": "https://iu35-prod.s3.amazonaws.com/images/Tim_Brooks.width-1360.png",
+    "sourceUrl": "https://www.innovatorsunder35.com/the-list/tim-brooks/",
+    "credit": "MIT Technology Review — Innovators Under 35 profile",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "src": "/portraits/timBrooks.png"
+  },
+  "michelle": {
+    "imageUrl": "https://avatars.githubusercontent.com/u/5784632?v=4",
+    "sourceUrl": "https://github.com/mpokrass",
+    "credit": "Michelle Pokrass — GitHub profile",
+    "license": "Official profile photograph; rights retained by source",
+    "objectPosition": "50% 35%",
+    "verificationUrls": [
+      "https://github.com/mpokrass",
+      "https://x.com/michpokrass/with_replies",
+      "https://events.stanford.edu/event/making-genai-useful"
+    ],
+    "verificationNote": "GitHub names Michelle Pokrass and links @michpokrass; that X profile states shipping at OpenAI. Stanford event names Michelle Pokrass as OpenAI Post-Training Research Manager.",
+    "src": "/portraits/michelle.jpg"
+  },
+  "dendi": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Dendi.main.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dendi.main.jpg",
+    "credit": "T-meContrl / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "objectPosition": "50% 25%",
+    "src": "/portraits/dendi.jpg"
+  }
+}

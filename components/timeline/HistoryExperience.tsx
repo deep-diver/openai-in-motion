@@ -35,6 +35,7 @@ import { useTimelineInput } from '@/components/timeline/useTimelineInput';
 import { chapters as baseChapters } from '@/data/chapters';
 import { localizedChapters, type Locale } from '@/data/localization';
 import { LocaleContext, SceneLoader, useLocale } from './Locale';
+import { portraits } from '@/data/portraits';
 import { AXES, PEOPLE } from '@/data/types';
 import type { StoryFrame } from '@/components/timeline/storyDirector';
 import {
@@ -315,6 +316,30 @@ function Home({
                     </a>
                   ))}
                 </div>
+                {chapter.people.length > 0 && (
+                  <div className="source-list portrait-credits">
+                    <p className="mono">
+                      {t('인물 사진 출처', 'Portrait credits')}
+                    </p>
+                    {chapter.people.map((id) => {
+                      const portrait = portraits[id];
+                      if (!portrait) return null;
+                      return (
+                        <div className="portrait-credit" key={id}>
+                          <a
+                            href={portrait.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {t(PEOPLE[id].name, PEOPLE[id].english)} ·{' '}
+                            {portrait.credit} ↗
+                          </a>
+                          <small>{portrait.license}</small>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </DialogContent>
           </Dialog>
