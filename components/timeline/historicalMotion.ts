@@ -265,6 +265,22 @@ export function addHistoricalMotion(
   const answer = find('omni:answer');
   if (answer) fadeIn(answer, C);
   const cursor = find('reason:cursor');
+  for (let i = 0; i < 3; i++) {
+    const at = [A, B + 0.65, C][i];
+    const equation = find(`reason:equation:${i}`);
+    if (equation) fadeIn(equation, at, 0.65);
+    const evidence = find(`reason:evidence:${i}`);
+    if (evidence) {
+      fadeIn(evidence, at + 0.25, 0.65);
+      tl.to(evidence.position, {
+        x: -(i - 1) * 0.82,
+        y: 1.08 + i * 0.13,
+        z: 0.7,
+        duration: 1.25,
+        ease: 'power2.inOut',
+      }, C + 0.9 + i * 0.15);
+    }
+  }
   if (cursor) {
     tl.to(cursor.position, { x: 0, duration: 1.3, ease: 'power2.inOut' }, B);
     tl.to(

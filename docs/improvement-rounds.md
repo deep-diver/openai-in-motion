@@ -12,3 +12,5 @@ The fixed isometric camera, single stage, full history and two-panel annotation 
 4. **Playback that explains itself.** Added 3× to the existing speed control, an overall progress/remaining-time readout, and a clear completion state that restarts the whole story. Composed the existing Base UI slider primitives at the call site so the actual input exposes a scene name and seconds, with 0.1-second arrows and 1-second page steps. The rendered input regression and TypeScript check passed.
 
 5. **Readable, connected annotations.** Labels remeasure after font/layout changes and long dialogue moves above the stage boundary while its leader follows. The cast list highlights the current speaker and selected years expose their state. All six annotation regressions passed, including enlarged dialogue and the strict two-panel limit across 44 scenes.
+
+6. **Reasoning that unfolds.** o1's worked example now reveals one equation at a time. In o3, separate search/code/image evidence cards appear at each visited tool and gather into one result. Added regressions for intermediate visibility, ordering and the completed evidence stack; they passed.

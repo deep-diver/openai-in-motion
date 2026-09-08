@@ -1285,6 +1285,7 @@ function ReasoningBoard({ tools = false }: { tools?: boolean }) {
             </group>
           )}
           {!tools && (
+            <group name={`reason:equation:${i}`}>
             <Label
               text={['3x + 1 = 10', '3x = 9', 'x = 3'][i]}
               p={[0, 0.7, 0]}
@@ -1293,6 +1294,13 @@ function ReasoningBoard({ tools = false }: { tools?: boolean }) {
               color="#e3dcee"
               size={45}
             />
+            </group>
+          )}
+          {tools && (
+            <group name={`reason:evidence:${i}`} position={[0, 1.05, 0.12]}>
+              <Box s={[0.53, 0.34, 0.035]} c="#e4e8d5" />
+              <Label text={['SOURCE', 'RESULT', 'IMAGE'][i]} p={[0, 0, 0.024]} w={0.47} h={0.2} color="#486357" size={43} />
+            </group>
           )}
         </group>
       ))}
