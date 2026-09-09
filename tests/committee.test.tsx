@@ -205,13 +205,15 @@ void test('every foreground participant has an independent portrait and visible 
     ['ha', 'lim'],
   );
 });
-void test('subtitle crossfades never blank or double the total text opacity', () => {
+void test('captions remain readable without overlapping paragraphs at either transition', () => {
   for (let i = 0; i <= 1000; i++) {
     const weights = [0, 1, 2].map((index) => captionWeight(i / 1000, index));
     assert.ok(weights.every((v) => v >= 0 && v <= 1));
-    assert.ok(Math.abs(weights.reduce((a, b) => a + b, 0) - 1) < 1e-10);
+    assert.ok(weights.filter((v) => v > 0).length <= 1);
+    const nearBoundary =
+      Math.min(Math.abs(i / 1000 - 1 / 3), Math.abs(i / 1000 - 2 / 3)) < 0.016;
+    if (!nearBoundary) assert.equal(Math.max(...weights), 1);
   }
-  assert.ok(Math.abs(captionWeight(1 / 3, 0) - 0.5) < 1e-9);
   assert.deepEqual(
     [0, 1, 2].map((i) => captionWeight(1, i)),
     [0, 0, 1],

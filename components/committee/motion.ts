@@ -23,15 +23,16 @@ export function entryPose(elapsed: number, index: number, reduced: boolean) {
 export const navigationStart = (playing: boolean, reduced: boolean) =>
   reduced ? SCENE_DURATION : playing ? 0 : 3;
 
-/** Overlapping subtitles preserve continuity at both story boundaries. */
+/** A short fade through empty space keeps two paragraphs from becoming a blurry double exposure. */
 export function captionWeight(progress: number, index: number) {
-  const blend = (edge: number) => {
-    const t = clamp01((progress - edge + 0.035) / 0.07);
-    return t * t * (3 - 2 * t);
-  };
-  if (index === 0) return 1 - blend(1 / 3);
-  if (index === 1) return blend(1 / 3) - blend(2 / 3);
-  return blend(2 / 3);
+  const active = Math.min(2, Math.floor(clamp01(progress) * 3));
+  if (index !== active) return 0;
+  const start = index / 3,
+    end = (index + 1) / 3;
+  const fadeIn = index === 0 ? 1 : clamp01((progress - start) / 0.015);
+  const fadeOut = index === 2 ? 1 : clamp01((end - progress) / 0.015);
+  const value = Math.min(fadeIn, fadeOut);
+  return value * value * (3 - 2 * value);
 }
 
 /** Main actions settle into a readable final tableau; small ambient loops remain separate. */

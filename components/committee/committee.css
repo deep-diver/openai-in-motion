@@ -1161,3 +1161,245 @@
     display: none;
   }
 }
+
+/* Sharp screen-facing labels are anchored to objects but never rasterized or skewed. */
+.committee-set-label {
+  display: block;
+  width: max-content;
+  max-width: 112px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font:
+    650 14px/1.3 'Apple SD Gothic Neo',
+    'Malgun Gothic',
+    Arial,
+    sans-serif;
+  text-align: center;
+  white-space: pre-line;
+  word-break: keep-all;
+  box-shadow: 0 1px 5px #06142122;
+  pointer-events: none;
+  transition: opacity 0.18s;
+}
+.committee-set-label-title {
+  max-width: 230px;
+  font-size: 17px;
+  padding: 5px 10px;
+  letter-spacing: -0.025em;
+}
+.committee-caption-stack p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.committee-identity span {
+  font-size: 14px;
+}
+.committee-speaker > p {
+  font-size: 15px;
+}
+/* Citation appears in the narrative column, preserving the two stage callouts. */
+.committee-story {
+  position: relative;
+}
+.committee-auto-sources {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin: 16px 0 0;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: #c2d9e9;
+  font-size: 14px !important;
+}
+.committee-auto-indicator {
+  width: 23px;
+  height: 13px;
+  border-radius: 12px;
+  background: #536679;
+  position: relative;
+}
+.committee-auto-indicator::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+}
+.committee-auto-sources[aria-pressed='true'] .committee-auto-indicator {
+  background: #3b897b;
+}
+.committee-auto-sources[aria-pressed='true'] .committee-auto-indicator::after {
+  transform: translateX(10px);
+}
+.committee-source-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 16px;
+  right: 16px;
+  z-index: 6;
+  padding: 20px 20px 15px;
+  border: 1px solid #b1e1d0;
+  border-radius: 13px;
+  background: #eef8f2;
+  color: #183d38;
+  box-shadow: 0 20px 48px #0005;
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+}
+.committee-source-overlay-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.committee-source-overlay-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 650;
+}
+.committee-source-overlay-heading button {
+  border: 0;
+  background: none;
+  color: #244f46;
+  padding: 7px;
+  margin: -7px;
+}
+.committee-source-overlay-publisher {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #48665e;
+  margin: 18px 0 7px;
+}
+.committee-source-overlay-publisher > span {
+  display: block;
+}
+.committee-source-overlay h3 {
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  word-break: keep-all;
+}
+.committee-source-overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+}
+.committee-source-overlay-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #173f35;
+  font-size: 14px;
+  font-weight: 650;
+  text-underline-offset: 4px;
+}
+.committee-source-overlay-actions button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  color: #48665e;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.committee-source-overlay-hint {
+  font-size: 12px;
+  color: #526f67;
+  margin: 17px 0 0;
+}
+.committee-source-overlay-timer {
+  height: 2px;
+  margin-top: 12px;
+  background: #cfded6;
+}
+.committee-source-overlay-timer i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #30745e;
+  transform-origin: left;
+}
+.committee-source-overlay :focus-visible {
+  outline-color: #16614d !important;
+}
+@media (max-width: 700px) {
+  .committee-source-overlay {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 18px;
+  }
+  .committee-source-overlay h3 {
+    font-size: 18px;
+  }
+  .committee-set-label {
+    max-width: 90px;
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+  .committee-set-label-title {
+    max-width: 180px;
+    font-size: 16px;
+  }
+}
+
+/* Final scene balance: simpler backdrop and stronger reading hierarchy. */
+.committee-stage {
+  background: radial-gradient(
+    ellipse at 49% 45%,
+    #405e72 0%,
+    #263f53 42%,
+    #132637 87%
+  );
+}
+.committee-stage-meta {
+  font-size: 13px;
+  letter-spacing: 0.015em;
+}
+.committee-object strong {
+  font-size: 16px;
+}
+.committee-object p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.committee-caption-stack {
+  min-height: 86px;
+}
+.committee-speaker {
+  box-shadow: 0 12px 30px #0003;
+}
+.committee-source-overlay-heading button {
+  min-height: 36px;
+  min-width: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+}
+.committee-source-overlay-heading button:hover {
+  background: #d8e9df;
+}
+@media (min-width: 1050px) {
+  .committee-stage {
+    min-height: 640px;
+  }
+  .committee-stage-duo {
+    min-height: 680px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .committee-set-label {
+    transition: none;
+  }
+}

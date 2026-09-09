@@ -46,6 +46,7 @@ import type { Clock, Projection } from './CommitteeStage';
 import { SCENE_DURATION as DURATION, navigationStart } from './motion';
 import './committee.css';
 import SpeakerCard from './SpeakerCard';
+import SourceOverlay from './SourceOverlay';
 import { sceneCast } from './sceneDesign';
 import { captionWeight } from './motion';
 const Stage = dynamic(() => import('./CommitteeStage'), {
@@ -98,7 +99,9 @@ function CommitteeFilm({
     [reduced, setReduced] = useState(false),
     [dialog, setDialog] = useState<'sources' | 'archive' | null>(null),
     [filter, setFilter] = useState<Axis | 'all'>('all'),
-    [ready, setReady] = useState(false);
+    [ready, setReady] = useState(false),
+    [autoSources, setAutoSources] = useState(true),
+    [evidenceHeld, setEvidenceHeld] = useState(false);
   const startTime = useRef(0);
   const clock = useRef<Clock>({ time: 0, previousTime: 0, reduced: false });
   const projection: Projection = useRef({
@@ -177,8 +180,21 @@ function CommitteeFilm({
     if (reduced) {
       t.pause();
       clock.current.time = DURATION;
-    } else t.paused(!ready || !playing || !visible || dialog !== null);
-  }, [index, replay, playing, speed, visible, dialog, reduced, ready]);
+    } else
+      t.paused(
+        !ready || !playing || !visible || dialog !== null || evidenceHeld,
+      );
+  }, [
+    index,
+    replay,
+    playing,
+    speed,
+    visible,
+    dialog,
+    reduced,
+    ready,
+    evidenceHeld,
+  ]);
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const change = () => {
@@ -408,6 +424,25 @@ function CommitteeFilm({
               ))}
             </div>
           </div>
+          <button
+            className="committee-auto-sources"
+            aria-pressed={autoSources}
+            onClick={() => setAutoSources((value) => !value)}
+          >
+            <span className="committee-auto-indicator" /> 근거 자동 표시{' '}
+            {autoSources ? '켜짐' : '꺼짐'}
+          </button>
+          {autoSources && (
+            <SourceOverlay
+              key={`${scene.id}:${replay}`}
+              scene={scene}
+              progress={displayProgress}
+              speed={speed}
+              reduced={reduced}
+              onHold={setEvidenceHeld}
+              onOpen={() => setDialog('sources')}
+            />
+          )}
           <button
             className="committee-details"
             onClick={() => setDialog('sources')}

@@ -1,6 +1,7 @@
 'use client';
 /* eslint-disable react/react-compiler -- R3F scene objects are deliberately mutated by the animation clock. */
 import Label from './StageLabel';
+import StageFloor from './StageFloor';
 import {
   Component,
   useLayoutEffect,
@@ -21,7 +22,7 @@ import {
   Ring,
   type Vec3,
 } from '@/components/timeline/primitives';
-import { AXES, PEOPLE, type Scene } from '@/data/committee/types';
+import { AXES, type Scene } from '@/data/committee/types';
 export type Clock = { time: number; previousTime: number; reduced: boolean };
 export type Projection = RefObject<{
   object: HTMLDivElement | null;
@@ -48,23 +49,22 @@ function Camera() {
 function Person({
   p,
   color = INK,
-  name,
   slot,
 }: {
   p: Vec3;
   color?: string;
-  name: string;
   slot: string;
 }) {
   return (
     <group position={p}>
       <Cylinder p={[0, 0.005, 0]} r={0.33} h={0.045} c={color} />
+      <Ring p={[0, 0.031, 0]} r={0.29} c={MINT} tube={0.009} />
       <group name={slot} position={[0, 0.86, 0]} />
       <group name="person-head" position={[0, 0.79, 0]}>
         <Ball r={0.19} c="#e5b99a" />
         <Box p={[0, 0.14, -0.02]} s={[0.32, 0.12, 0.26]} c="#30363b" />
       </group>
-      <Label text={name} p={[0, 0.12, 0.36]} w={0.72} h={0.19} color={INK} />
+
       {[-1, 1].map((side) => (
         <group
           key={side}
@@ -295,6 +295,16 @@ function Set({ scene }: { scene: Scene }) {
                   s={[0.48, 0.58, 0.48]}
                   c={i % 2 ? BLUE : MINT}
                 />
+                <group
+                  position={[Math.cos(a) * 1.95, 0, Math.sin(a) * 1.95]}
+                  rotation={[0, Math.PI / 2 - a, 0]}
+                >
+                  <Box
+                    p={[0, 0.64, -0.18]}
+                    s={[0.46, 0.43, 0.08]}
+                    c={i % 2 ? BLUE : MINT}
+                  />
+                </group>
                 <Cylinder
                   p={[Math.cos(a) * 1.3, 0.78, Math.sin(a) * 1.3]}
                   r={0.05}
@@ -793,7 +803,7 @@ function Layer({
         <Box p={[0, 2.15, -2.03]} s={[4.96, 0.72, 0.15]} c="#5d7890" />
         <Box p={[0, 2.15, -2]} s={[4.8, 0.6, 0.13]} c={INK} />
         <Label
-          text={scene.label}
+          text={scene.short}
           p={[0, 2.16, -1.922]}
           w={4.4}
           h={0.37}
@@ -801,44 +811,15 @@ function Layer({
         />
       </group>
       <group name="anchor-object" position={stageDesign[scene.set].anchor} />
-      {stageDesign[scene.set].floor === 'round' ? (
-        <Cylinder p={[0, 0.015, 0]} r={2.15} h={0.025} c="#d4e2e4" />
-      ) : (
-        <Box
-          p={[0, 0.015, 0]}
-          s={[4.35, 0.025, 3.45]}
-          c={stageDesign[scene.set].floor === 'grid' ? '#d5e3e9' : '#dde4df'}
-          r={0.08}
-        />
-      )}
-      {stageDesign[scene.set].floor === 'grid' &&
-        [-1, 0, 1].map((x) => (
-          <Box
-            key={x}
-            p={[x, 0.033, 0]}
-            s={[0.012, 0.004, 3.35]}
-            c="#bacdd8"
-            r={0}
-          />
-        ))}
+      <StageFloor scene={scene} />
       <Set scene={scene} />
       {scene.secondarySpeaker && (
         <group name="entry">
-          <Person
-            p={[-2.3, 0.04, 1.6]}
-            color={BLUE}
-            name={PEOPLE[scene.secondarySpeaker.person].name}
-            slot="anchor-secondary"
-          />
+          <Person p={[-2.3, 0.04, 1.6]} color={BLUE} slot="anchor-secondary" />
         </group>
       )}
       <group name="entry">
-        <Person
-          p={[2.3, 0.04, 1.6]}
-          color={INK}
-          name={PEOPLE[scene.speaker.person].name}
-          slot="anchor-primary"
-        />
+        <Person p={[2.3, 0.04, 1.6]} color={INK} slot="anchor-primary" />
       </group>
     </group>
   );
@@ -951,15 +932,17 @@ function World({
         r={0.07}
       />
       <Box p={[0, -0.025, 0]} s={[6.54, 0.1, 5.54]} c="#ecf0ec" />
-      {[-2, -1, 0, 1, 2].map((x) => (
-        <Box
-          key={x}
-          p={[x, 0.03, 0]}
-          s={[0.006, 0.004, 5.3]}
-          c="#d4e0e2"
-          r={0}
-        />
-      ))}
+      {[-1, 1].flatMap((x) =>
+        [-1, 1].map((z) => (
+          <Cylinder
+            key={`${x}${z}`}
+            p={[x * 3.02, 0.03, z * 2.52]}
+            r={0.045}
+            h={0.008}
+            c="#8fa9b5"
+          />
+        )),
+      )}
       <Label
         text="K O R E A   /   Y E A R  O N E"
         p={[0, -0.24, 2.815]}
@@ -1025,7 +1008,7 @@ export default function CommitteeStage(props: {
         orthographic
         camera={{ position: [11, 11.8, 11], zoom: 60, near: 0.1, far: 100 }}
         shadows={{ type: PCFShadowMap }}
-        dpr={[1, 1.5]}
+        dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
       >
         <World {...props} />
