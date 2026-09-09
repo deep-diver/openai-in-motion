@@ -9,7 +9,7 @@ export default function SpeakerCard({ speaker }: { speaker: SceneSpeaker }) {
         {photo && (
           <span className="committee-face">
             <img
-              src={photo.src}
+              src={photo.dataUri}
               width={photo.width}
               height={photo.height}
               decoding="async"

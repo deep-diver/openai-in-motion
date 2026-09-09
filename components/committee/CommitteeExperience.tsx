@@ -315,7 +315,7 @@ function CommitteeFilm({
             <div className="committee-division-person">
               {divisionPhoto && (
                 <img
-                  src={divisionPhoto.src}
+                  src={divisionPhoto.dataUri}
                   width={divisionPhoto.width}
                   height={divisionPhoto.height}
                   decoding="async"

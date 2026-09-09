@@ -247,6 +247,12 @@ void test('all displayed committee portraits are small bundled WebP assets with 
     );
     assert.equal(bytes.toString('ascii', 0, 4), 'RIFF');
     assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
+    assert.ok(photo.dataUri.startsWith('data:image/webp;base64,'));
+    assert.deepEqual(
+      Buffer.from(photo.dataUri.split(',')[1], 'base64'),
+      bytes,
+      'embedded portrait matches the local optimized asset',
+    );
     assert.ok(photo.width <= 320 && photo.height <= 320);
     total += bytes.length;
     assert.ok(
