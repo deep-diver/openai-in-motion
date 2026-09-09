@@ -10,6 +10,8 @@ import {
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group, OrthographicCamera, PCFShadowMap, Vector3 } from 'three';
 import { layerPose, entryPose } from './motion';
+import DivisionSets from './DivisionSets';
+import { divisionSequence } from './divisionMotion';
 import {
   Box,
   Cylinder,
@@ -225,6 +227,14 @@ function Globe() {
 }
 function Set({ scene }: { scene: Scene }) {
   switch (scene.set) {
+    case 'organisation':
+    case 'defense':
+    case 'media':
+    case 'civic':
+    case 'compute-routing':
+    case 'democracy':
+    case 'document-format':
+      return <DivisionSets scene={scene} />;
     case 'assembly':
       return (
         <>
@@ -622,6 +632,7 @@ function Layer({
         ? clock.current.previousTime
         : clock.current.time;
     const p = t / 24;
+    const sequence = divisionSequence(p);
     const pose = layerPose(clock.current.time, previous, clock.current.reduced);
     root.current.visible = pose.visible;
     root.current.position.y = pose.y;
@@ -629,6 +640,40 @@ function Layer({
     for (let i = 0; i < items.current.length; i++) {
       const o = items.current[i],
         n = o.name;
+      if (n.startsWith('new-division-'))
+        o.scale.setScalar(sequence.newDivisions);
+      if (n.startsWith('org-card-'))
+        o.position.y = (1 - sequence.newDivisions) * 1.5;
+      if (n === 'controlled-gate') o.position.y = sequence.gate;
+      if (n.startsWith('classified-')) {
+        const k = Number(n.split('-')[1]);
+        o.position.set(
+          k === 2 ? -1.45 : -1.45 + sequence.transfer * 2.85,
+          0.3 + k * 0.35,
+          0.7,
+        );
+      }
+      if (n.startsWith('civic-platform-')) {
+        const k = Number(n.split('-')[2]);
+        o.position.y = (k % 3) * 0.25 * (1 - sequence.gather);
+      }
+      if (n.startsWith('proposal-')) {
+        const k = Number(n.split('-')[1]),
+          a = (k * Math.PI) / 3;
+        o.position.set(
+          Math.cos(a) * sequence.proposalRadius,
+          0.95 + Math.sin(t * 0.5 + k) * 0.035,
+          Math.sin(a) * sequence.proposalRadius,
+        );
+      }
+      if (n.startsWith('resource-')) {
+        const a = t * 0.6 + (Number(n.split('-')[1]) * Math.PI) / 2;
+        o.position.set(Math.cos(a) * 1.6, 0.25, 0.35 + Math.sin(a) * 1.1);
+      }
+      if (n === 'rights-book') o.rotation.y = Math.sin(t * 0.4) * 0.08;
+      if (n === 'document-scan') o.position.x = sequence.scan;
+      if (n === 'structured-document')
+        o.position.y = (1 - sequence.structured) * -1.3;
       if (n === 'entry') {
         const e = entryPose(t, i, clock.current.reduced);
         o.scale.setScalar(e.scale);

@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -32,7 +33,12 @@ import {
 import { Slider } from '@/components/ui/slider';
 import { usePageVisibility } from '@/components/timeline/usePageVisibility';
 import { useTimelineInput } from '@/components/timeline/useTimelineInput';
-import { scenes } from '@/data/committee/scenes';
+import {
+  divisions,
+  divisionLinks,
+  scenesForDivision,
+  type DivisionSelection,
+} from '@/data/committee/divisions';
 import { sources } from '@/data/committee/sources';
 import { AXES, PEOPLE, type Axis } from '@/data/committee/types';
 import portraits from '@/data/committee/portraits.json';
@@ -47,6 +53,39 @@ const Stage = dynamic(() => import('./CommitteeStage'), {
 });
 const date = (v: string) => v.replaceAll('-', '.');
 export default function CommitteeExperience() {
+  const [division, setDivision] = useState<DivisionSelection>('all');
+  const restoreFocus = useRef(false);
+  useLayoutEffect(() => {
+    if (restoreFocus.current)
+      document
+        .querySelector<HTMLButtonElement>(
+          '.committee-division-choices button[aria-pressed="true"]',
+        )
+        ?.focus({ preventScroll: true });
+  }, [division]);
+  return (
+    <CommitteeFilm
+      key={division}
+      division={division}
+      onDivisionChange={(value) => {
+        restoreFocus.current = true;
+        setDivision(value);
+      }}
+    />
+  );
+}
+function CommitteeFilm({
+  division,
+  onDivisionChange,
+}: {
+  division: DivisionSelection;
+  onDivisionChange: (division: DivisionSelection) => void;
+}) {
+  const scenes = useMemo(() => scenesForDivision(division), [division]);
+  const divisionInfo = divisions.find((d) => d.id === division);
+  const divisionPhoto = divisionInfo?.person
+    ? portraits[divisionInfo.person as keyof typeof portraits]
+    : null;
   const [index, setIndex] = useState(0),
     [previous, setPrevious] = useState<number | null>(null),
     [playing, setPlaying] = useState(true),
@@ -73,21 +112,24 @@ export default function CommitteeExperience() {
   const scene = scenes[index],
     axis = AXES[scene.axis];
   const photo = portraits[scene.speaker.person as keyof typeof portraits];
-  const go = useCallback((next: SetStateAction<number>) => {
-    const before = state.current.index;
-    const requested = typeof next === 'function' ? next(before) : next;
-    const n = Math.max(0, Math.min(scenes.length - 1, requested));
-    if (n === before) return;
-    clock.current.previousTime = clock.current.time;
-    state.current.index = n;
-    startTime.current = navigationStart(
-      state.current.playing,
-      state.current.reduced,
-    );
-    setPrevious(before);
-    setIndex(n);
-    setProgress(startTime.current / DURATION);
-  }, []);
+  const go = useCallback(
+    (next: SetStateAction<number>) => {
+      const before = state.current.index;
+      const requested = typeof next === 'function' ? next(before) : next;
+      const n = Math.max(0, Math.min(scenes.length - 1, requested));
+      if (n === before) return;
+      clock.current.previousTime = clock.current.time;
+      state.current.index = n;
+      startTime.current = navigationStart(
+        state.current.playing,
+        state.current.reduced,
+      );
+      setPrevious(before);
+      setIndex(n);
+      setProgress(startTime.current / DURATION);
+    },
+    [scenes.length, setPrevious, setIndex, setProgress],
+  );
   useTimelineInput(go, dialog !== null, scenes.length);
   useLayoutEffect(() => {
     state.current = { index, playing, speed, reduced };
@@ -123,7 +165,7 @@ export default function CommitteeExperience() {
     return () => {
       t.kill();
     };
-  }, [index, replay, go]);
+  }, [index, replay, go, scenes.length]);
   useEffect(() => {
     const t = tween.current;
     if (!t) return;
@@ -156,7 +198,7 @@ export default function CommitteeExperience() {
       setProgress(0);
       setPlaying(true);
     } else setPlaying((v) => !v);
-  }, [go]);
+  }, [go, scenes.length, setReplay, setProgress, setPlaying]);
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
       if (
@@ -212,7 +254,7 @@ export default function CommitteeExperience() {
             OpenAI 편 <ArrowUpRight size={15} />
           </Link>
           <button onClick={() => setDialog('archive')}>
-            <List size={17} /> 전체 기록
+            <List size={17} /> {divisionInfo ? '분과 기록' : '전체 기록'}
           </button>
         </nav>
       </header>
@@ -233,6 +275,81 @@ export default function CommitteeExperience() {
           사람의 일상으로 향하기까지.
         </p>
       </section>
+      <section className="committee-divisions" aria-label="분과별 여정 선택">
+        <div className="committee-division-heading">
+          <strong>분과별로 따라가기</strong>
+          <span>출범 8개 → 2026년 3월 10개 분과</span>
+        </div>
+        <div className="committee-division-choices">
+          <button
+            aria-pressed={division === 'all'}
+            onClick={() => onDivisionChange('all')}
+          >
+            전체 여정 <small>{scenesForDivision('all').length}</small>
+          </button>
+          {divisions.map((d) => (
+            <button
+              key={d.id}
+              aria-pressed={division === d.id}
+              onClick={() => onDivisionChange(d.id)}
+            >
+              {d.name}
+              <small>{scenesForDivision(d.id).length}</small>
+            </button>
+          ))}
+        </div>
+        {divisionInfo ? (
+          <div className="committee-division-intro">
+            <div>
+              <span>{divisionInfo.history}</span>
+              <h2>{divisionInfo.question}</h2>
+              <span>
+                {date(scenes[0].date)} — {date(scenes.at(-1)!.date)} · 수록 기록
+                범위
+              </span>
+            </div>
+            <div className="committee-division-person">
+              {divisionPhoto && (
+                <img
+                  src={divisionPhoto.src}
+                  alt={`${divisionInfo.chair} 프로필`}
+                  style={{ objectPosition: divisionPhoto.objectPosition }}
+                />
+              )}
+              <p>
+                {divisionInfo.chair}
+                <small>
+                  {divisionInfo.person
+                    ? '기록에 등장하는 분과장'
+                    : '2026년 신설 분과'}{' '}
+                  · {scenes.length}개 장면
+                </small>
+                <a
+                  href={sources[divisionInfo.sources.at(-1)!].url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  분과 구성 근거 ↗
+                </a>
+              </p>
+            </div>
+          </div>
+        ) : (
+          <p className="committee-division-help">
+            분과를 선택하면 논의와 현장 활동을 이어 봅니다. 과학·인재와 교육
+            TF의 개편 전 기록도 함께 담았습니다.{' '}
+            <a href={sources.organisation.url} target="_blank" rel="noreferrer">
+              조직 변화 ↗
+            </a>
+          </p>
+        )}
+      </section>
+      {divisionInfo && (
+        <p className="committee-division-legend">
+          ‘주관·참여’는 자료에 명시된 활동, ‘관련 의제’는 담당 분야와 연결해
+          읽는 정책입니다. 수록 장면 수는 전체 회의 횟수나 성과 순위가 아닙니다.
+        </p>
+      )}
       <section className="committee-theater" aria-label="위원회 여정 재생">
         <aside className="committee-story" key={scene.id}>
           <div className="committee-story-top">
@@ -251,6 +368,16 @@ export default function CommitteeExperience() {
             <span>{scene.scope}</span>
           </div>
           <p>{scene.summary}</p>
+          <div className="committee-scene-divisions">
+            {(divisionLinks[scene.id] ?? [])
+              .filter((l) => division === 'all' || l.division === division)
+              .map((l) => (
+                <span key={l.division}>
+                  {divisions.find((d) => d.id === l.division)?.name} ·{' '}
+                  {l.relation}
+                </span>
+              ))}
+          </div>
           <div className="committee-beat">
             <span>장면 속 이야기</span>
             <div className="committee-caption-stack">
@@ -498,7 +625,11 @@ export default function CommitteeExperience() {
       >
         <DialogContent className="committee-dialog">
           <DialogTitle>
-            {dialog === 'archive' ? '첫 1년, 전체 기록' : scene.title}
+            {dialog === 'archive'
+              ? divisionInfo
+                ? `${divisionInfo.name}의 기록`
+                : '첫 1년, 전체 기록'
+              : scene.title}
           </DialogTitle>
           <DialogDescription>
             {dialog === 'archive'
@@ -554,9 +685,33 @@ export default function CommitteeExperience() {
               </ul>
               <h3>이 여정에서의 의미</h3>
               <p>{scene.meaning}</p>
+              {!!divisionLinks[scene.id]?.length && (
+                <>
+                  <h3>이 분과가 한 일</h3>
+                  {divisionLinks[scene.id].map((l) => (
+                    <div
+                      className="committee-division-evidence"
+                      key={l.division}
+                    >
+                      <strong>
+                        {divisions.find((d) => d.id === l.division)?.name} ·{' '}
+                        {l.relation}
+                      </strong>
+                      <p>{l.note}</p>
+                      <a
+                        href={sources[l.source].url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        활동 관계 근거 ↗
+                      </a>
+                    </div>
+                  ))}
+                </>
+              )}
               <h3>어디까지 확인됐나</h3>
               <p>{scene.boundary}</p>
-              <h3>다음 장면으로</h3>
+              <h3>이어지는 의제</h3>
               <p>{scene.bridge}</p>
               <h3>근거 자료</h3>
               {scene.sources.map((id) => {

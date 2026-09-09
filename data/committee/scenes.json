@@ -34,7 +34,9 @@
       "mode": "정책 설명",
       "source": "launch"
     },
-    "sources": ["launch"],
+    "sources": [
+      "launch"
+    ],
     "metric": "8"
   },
   {
@@ -72,7 +74,9 @@
       "mode": "발언 요지",
       "source": "models"
     },
-    "sources": ["models"],
+    "sources": [
+      "models"
+    ],
     "metric": "5"
   },
   {
@@ -110,7 +114,10 @@
       "mode": "정책 설명",
       "source": "week-news"
     },
-    "sources": ["week", "week-news"],
+    "sources": [
+      "week",
+      "week-news"
+    ],
     "metric": "MILA"
   },
   {
@@ -148,8 +155,48 @@
       "mode": "발언 요지",
       "source": "caio"
     },
-    "sources": ["caio"],
+    "sources": [
+      "caio"
+    ],
     "metric": "48"
+  },
+  {
+    "id": "education-tf",
+    "date": "2025-09-23",
+    "title": "분과 밖의 빈틈을 TF로 채우다",
+    "short": "교육·보안·지역 TF",
+    "axis": "strategy",
+    "set": "organisation",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "8개 분과에 교육·보안·지역 TF를 더해, 여러 의제에 걸친 문제를 집중해서 다루기 시작한다.",
+    "facts": [
+      "교육 TF는 초·중등 교육과 전 국민 AI 소양 강화를 담당하며 김현철 교수가 이끌었다.",
+      "지역 TF는 지방시대위원회와의 협력을, 보안 TF는 별도의 보안 현안 대응을 맡았다."
+    ],
+    "meaning": "분과 사이의 경계에 놓인 과제에는 별도 협업 구조가 필요했다.",
+    "boundary": "이 시점에는 10개 분과가 아니다. 교육·보안·지역은 TF이며, 이후의 조직 개편과 구분한다.",
+    "beats": [
+      "8개의 논의 거점이 중앙 테이블을 둘러싼다.",
+      "교육·보안·지역 세 장의 의제 카드가 테이블 위로 들어온다.",
+      "분과와 TF를 잇는 선이 생기며 협업 구조를 보여준다."
+    ],
+    "bridge": "임시 협업의 경험은 이듬해 상설 분과와 특별위원회 개편으로 이어진다.",
+    "object": {
+      "title": "세 개의 의제 카드",
+      "text": "교육·보안·지역 TF를 상징하며, 별도 분과 수에 포함하지 않습니다."
+    },
+    "label": "8 DIVISIONS + 3 TF",
+    "speaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "교육 문제를 인재 양성에만 묶지 않고, 학교와 시민의 AI 소양까지 확장한 단계다.",
+      "source": "taskforces",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "taskforces"
+    ]
   },
   {
     "id": "fire-response",
@@ -185,7 +232,10 @@
       "mode": "정책 설명",
       "source": "plenary"
     },
-    "sources": ["plenary", "resilience"]
+    "sources": [
+      "plenary",
+      "resilience"
+    ]
   },
   {
     "id": "workshop",
@@ -222,7 +272,9 @@
       "mode": "정책 설명",
       "source": "workshop"
     },
-    "sources": ["workshop"],
+    "sources": [
+      "workshop"
+    ],
     "metric": "DRAFT",
     "endDate": "2025-10-24"
   },
@@ -261,8 +313,87 @@
       "mode": "정책 설명",
       "source": "gpu"
     },
-    "sources": ["gpu"],
+    "sources": [
+      "gpu"
+    ],
     "metric": "GPU"
+  },
+  {
+    "id": "science-symposium",
+    "date": "2025-10-31",
+    "title": "과학자들이 AI의 쓰임을 모으다",
+    "short": "과학AI 심포지엄",
+    "axis": "society",
+    "set": "science",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "과학·인재 분과와 한국과학AI포럼이 공동 심포지엄을 열어 분야별 연구의 변화와 정책 제안을 모았다.",
+    "facts": [
+      "장소는 서울대학교 목암홀이며, 바이오·화학·수학·물리·지구과학 등을 함께 다뤘다.",
+      "분야별 의견을 국가 과학기술과 과학AI 정책 기획에 참고하기 위한 자리였다."
+    ],
+    "meaning": "과학AI를 한 모델의 성능보다 여러 연구 분야의 공통 기반으로 바라보는 과정이다.",
+    "boundary": "심포지엄 논의가 모든 후속 정책으로 채택됐다는 의미는 아니다.",
+    "beats": [
+      "서로 다른 분야의 실험 장치가 하나씩 켜진다.",
+      "입자와 연구 기록이 가운데 AI 장치로 모인다.",
+      "분야별 제안은 완성된 해답 대신 다음 연구의 질문으로 남는다."
+    ],
+    "bridge": "이 논의의 흐름은 K-문샷처럼 연구 기반을 연결하는 의제로 이어진다.",
+    "object": {
+      "title": "공동 연구 장치",
+      "text": "분야별 연구와 AI를 연결하는 논의를 상징합니다."
+    },
+    "label": "SCIENCE × AI",
+    "speaker": {
+      "person": "seok",
+      "role": "당시 과학·인재 분과장",
+      "text": "여러 과학 분야가 함께 AI의 활용 가능성과 필요한 기반을 검토한 자리다.",
+      "source": "science-forum",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "science-forum",
+      "science-forum-report"
+    ]
+  },
+  {
+    "id": "amazon-meeting",
+    "date": "2025-12-05",
+    "title": "클라우드 협력을 테이블에 올리다",
+    "short": "아마존 면담",
+    "axis": "infrastructure",
+    "set": "diplomacy",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "임문영 부위원장이 아마존의 데이비드 자폴스키 수석부회장을 만났다. 박태웅 공공AX 분과장도 참여했다.",
+    "facts": [
+      "국내 AI 기반시설 투자와 협력 방안을 논의했다.",
+      "위원회는 AI 생태계를 뒷받침하는 인프라의 중요성을 설명했다."
+    ],
+    "meaning": "공공AX의 논의 범위는 서비스 화면을 넘어 클라우드 기반까지 닿아 있다.",
+    "boundary": "면담과 투자 기대를 정부 시스템의 특정 사업자 선정이나 구축 완료로 해석하지 않는다.",
+    "beats": [
+      "한국과 해외의 두 거점이 지구본 양옆에 들어선다.",
+      "클라우드 자원을 상징하는 빛이 두 거점 사이를 오간다.",
+      "협력 연결선은 남지만 정부 시스템의 선택은 열린 채로 둔다."
+    ],
+    "bridge": "다음에는 기업들이 실제 AI를 쓰면서 겪는 어려움을 듣는다.",
+    "object": {
+      "title": "두 개의 클라우드 거점",
+      "text": "국내 인프라와 국제 협력의 접점을 나타냅니다."
+    },
+    "label": "CLOUD COOPERATION",
+    "speaker": {
+      "person": "park",
+      "role": "공공AX 분과장",
+      "text": "공공서비스의 AI 전환에는 이를 안정적으로 뒷받침할 기반시설 논의도 필요하다.",
+      "source": "amazon",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "amazon"
+    ]
   },
   {
     "id": "draft",
@@ -299,7 +430,9 @@
       "mode": "발언 요지",
       "source": "draft"
     },
-    "sources": ["draft"],
+    "sources": [
+      "draft"
+    ],
     "metric": "98"
   },
   {
@@ -337,7 +470,9 @@
       "mode": "발언 요지",
       "source": "allocation"
     },
-    "sources": ["allocation"],
+    "sources": [
+      "allocation"
+    ],
     "metric": "10K"
   },
   {
@@ -375,7 +510,9 @@
       "mode": "정책 설명",
       "source": "enterprise"
     },
-    "sources": ["enterprise"]
+    "sources": [
+      "enterprise"
+    ]
   },
   {
     "id": "consultation",
@@ -412,8 +549,49 @@
       "mode": "정책 설명",
       "source": "consult"
     },
-    "sources": ["consult", "action"],
+    "sources": [
+      "consult",
+      "action"
+    ],
     "metric": "330"
+  },
+  {
+    "id": "citizen-dialogue",
+    "date": "2026-01-05",
+    "title": "시민의 접근성도 정책의 조건",
+    "short": "시민사회 간담회",
+    "axis": "society",
+    "set": "civic",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "사회분과가 참여연대·디지털정의네트워크 등 시민단체에 행동계획을 설명하고 AI 기본사회에 대한 의견을 들었다.",
+    "facts": [
+      "참석자들은 AI 접근성과 활용 역량의 차이가 불평등으로 이어질 수 있다고 지적했다.",
+      "사회분과는 공론화 플랫폼 등 소통 창구를 통해 시민사회와 협력할 계획을 밝혔다."
+    ],
+    "meaning": "AI의 보급량뿐 아니라 누구에게 어떤 기회가 주어지는지를 묻는 논의다.",
+    "boundary": "의견 청취와 후속 소통 계획을 격차 해소의 완료로 표현하지 않는다.",
+    "beats": [
+      "높이가 다른 시민의 자리들이 드러난다.",
+      "각 자리의 의견 카드가 중앙으로 모인다.",
+      "높이 차이를 줄이는 발판이 움직이며 포용의 과제를 보여준다."
+    ],
+    "bridge": "접근성의 질문은 창작자의 권리와 노동 현장의 문제로 넓어진다.",
+    "object": {
+      "title": "높이가 다른 시민의 자리",
+      "text": "AI 접근성과 활용 역량의 차이를 상징합니다."
+    },
+    "label": "AI FOR EVERYONE",
+    "speaker": {
+      "person": "yoo",
+      "role": "사회 분과장",
+      "text": "시민사회를 AI 기본사회의 협력 상대로 삼고 여러 소통 창구를 활용하겠다고 설명했다.",
+      "source": "civil-society",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "civil-society"
+    ]
   },
   {
     "id": "copyright",
@@ -450,7 +628,47 @@
       "mode": "정책 설명",
       "source": "copyright"
     },
-    "sources": ["copyright"]
+    "sources": [
+      "copyright"
+    ]
+  },
+  {
+    "id": "media-dialogue",
+    "date": "2026-01-20",
+    "title": "방송 콘텐츠와 AI, 함께 성장할 조건",
+    "short": "방송협회 회동",
+    "axis": "society",
+    "set": "media",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "데이터·사회 분과장이 방송협회와 만나 AI 학습, 저작권, 국내 콘텐츠 산업의 동반 성장 문제를 논의했다.",
+    "facts": [
+      "임문영 부위원장과 백은옥·유재연 분과장이 참여했다.",
+      "방송협회 회장과 KBS·MBC·EBS 대표들이 참석해 협력 방안을 함께 모색했다."
+    ],
+    "meaning": "데이터 활용의 기회와 콘텐츠 생산자의 권리를 같은 테이블에 놓는다.",
+    "boundary": "이 회동으로 학습 이용허락이나 보상 기준에 합의했다는 뜻은 아니다.",
+    "beats": [
+      "네 방송사의 화면과 콘텐츠 기록이 무대에 켜진다.",
+      "콘텐츠와 AI 사이에 저작권 문서가 놓인다.",
+      "어느 쪽도 사라지지 않은 채, 협상의 테이블이 유지된다."
+    ],
+    "bridge": "활용과 권리의 균형은 데이터 가치평가 논의로 이어진다.",
+    "object": {
+      "title": "콘텐츠와 권리 문서",
+      "text": "AI 학습과 콘텐츠 산업의 협력 조건을 나타냅니다."
+    },
+    "label": "CONTENT × RIGHTS",
+    "speaker": {
+      "person": "baek",
+      "role": "데이터 분과장",
+      "text": "AI 학습에 쓰이는 콘텐츠의 활용과 권리를 함께 논의한 회동이다.",
+      "source": "broadcasters",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "broadcasters"
+    ]
   },
   {
     "id": "legal-framework",
@@ -486,7 +704,9 @@
       "mode": "정책 설명",
       "source": "plenary"
     },
-    "sources": ["plenary"],
+    "sources": [
+      "plenary"
+    ],
     "metric": "ACT"
   },
   {
@@ -524,7 +744,9 @@
       "mode": "정책 설명",
       "source": "education"
     },
-    "sources": ["education"]
+    "sources": [
+      "education"
+    ]
   },
   {
     "id": "uae",
@@ -561,7 +783,9 @@
       "mode": "정책 설명",
       "source": "uae"
     },
-    "sources": ["uae"],
+    "sources": [
+      "uae"
+    ],
     "metric": "UAE"
   },
   {
@@ -599,7 +823,9 @@
       "mode": "발언 요지",
       "source": "cabinet"
     },
-    "sources": ["cabinet"],
+    "sources": [
+      "cabinet"
+    ],
     "metric": "REPORT"
   },
   {
@@ -637,7 +863,10 @@
       "mode": "발언 요지",
       "source": "plenary"
     },
-    "sources": ["action", "plenary"],
+    "sources": [
+      "action",
+      "plenary"
+    ],
     "metric": "99 / 326"
   },
   {
@@ -675,7 +904,9 @@
       "mode": "정책 설명",
       "source": "resilience"
     },
-    "sources": ["resilience"]
+    "sources": [
+      "resilience"
+    ]
   },
   {
     "id": "moonshot",
@@ -712,8 +943,87 @@
       "mode": "정책 설명",
       "source": "moon"
     },
-    "sources": ["moon"],
+    "sources": [
+      "moon"
+    ],
     "metric": "12"
+  },
+  {
+    "id": "division-reform",
+    "date": "2026-02-25",
+    "title": "교육과 민주주의에 독립된 자리를",
+    "short": "분과 개편 의결",
+    "axis": "strategy",
+    "set": "organisation",
+    "status": "의결",
+    "scope": "위원회 활동",
+    "summary": "전체회의에서 교육·인재와 AI민주주의 분과 신설을 포함한 운영세칙 개정을 의결했다.",
+    "facts": [
+      "기존 과학·인재의 인재 영역을 교육 TF와 통합하도록 했다.",
+      "지역·보안 TF는 장기 협력을 위한 특별위원회로 전환하는 방향을 정했다."
+    ],
+    "meaning": "기술 개발만으로 설명되지 않는 교육과 민주주의 의제가 독립된 논의 구조를 얻는다.",
+    "boundary": "이 장면은 개편 의결일이다. 구체적인 10개 분과 구성 발표는 3월 25일 기록에서 다룬다.",
+    "beats": [
+      "기존 분과들이 연결된 원탁을 유지한다.",
+      "교육·인재와 AI민주주의의 두 거점이 새로 나타난다.",
+      "새 거점이 공통 테이블에 연결되며 책임 영역이 넓어진다."
+    ],
+    "bridge": "3월에는 사람과 조직을 채우는 후속 개편이 발표된다.",
+    "object": {
+      "title": "새로 연결되는 두 거점",
+      "text": "교육·인재와 AI민주주의 분과 신설을 상징합니다."
+    },
+    "label": "8 → 10 DIVISIONS",
+    "speaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "교육과 민주주의의 의제를 독립적으로 논의할 조직적 근거를 마련했다.",
+      "source": "plenary",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "plenary",
+      "resilience"
+    ]
+  },
+  {
+    "id": "defense-visit",
+    "date": "2026-03-04",
+    "title": "국방 AX, 현장의 문턱을 묻다",
+    "short": "방산기업 간담회",
+    "axis": "infrastructure",
+    "set": "defense",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "국방·안보 분과가 한화에어로스페이스에서 방산기업과 만나 국방 분야의 AI 전환을 논의했다.",
+    "facts": [
+      "임문영 부위원장과 심승배 분과장, 분과 위원들이 참여했다.",
+      "한화에어로스페이스·한화시스템 관계자들과 민간 기술의 국방 활용 문제를 다뤘다."
+    ],
+    "meaning": "행동계획을 실행하려면 기술과 조달·보안 제도 사이의 장벽을 풀어야 한다.",
+    "boundary": "고위 수준의 정책 간담회 기록이며 무기체계 도입·실전 배치의 완료를 뜻하지 않는다.",
+    "beats": [
+      "국방 데이터와 민간 기술 사이에 경계문이 보인다.",
+      "분류된 기록들이 통제된 통로를 향해 이동한다.",
+      "경계는 유지하면서 협업할 시험 공간이 켜진다."
+    ],
+    "bridge": "이후 분과장은 데이터 분류와 법·제도 개선의 필요성을 더 구체적으로 설명한다.",
+    "object": {
+      "title": "데이터의 경계문",
+      "text": "보안을 유지하면서 민간 기술을 활용하는 정책 과제를 상징합니다."
+    },
+    "label": "DEFENSE × CIVIL AI",
+    "speaker": {
+      "person": "sim",
+      "role": "국방·안보 분과장",
+      "text": "국방 AI 전환의 현장에는 기술뿐 아니라 제도와 데이터의 접근 조건이 놓여 있다.",
+      "source": "defense-field",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "defense-field"
+    ]
   },
   {
     "id": "labor",
@@ -750,8 +1060,86 @@
       "mode": "정책 설명",
       "source": "labor"
     },
-    "sources": ["labor"],
+    "sources": [
+      "labor"
+    ],
     "metric": "WORK"
+  },
+  {
+    "id": "defense-data",
+    "date": "2026-03-22",
+    "title": "데이터마다 다른 경계가 필요하다",
+    "short": "국방 데이터 제언",
+    "axis": "strategy",
+    "set": "defense",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "심승배 분과장이 인터뷰에서 국방 데이터의 민감도 구분과 국방 AX 거점, 법령 정비의 필요성을 설명했다.",
+    "facts": [
+      "행정·군수·전력 등 데이터 종류에 따라 공개와 활용 조건을 구분하는 방향을 제시했다.",
+      "민간 기업이 참여할 수 있는 국방 AX 생태계의 필요성을 강조했다."
+    ],
+    "meaning": "모든 국방 데이터를 같은 방식으로 개방할 수 없다는 점이 핵심이다.",
+    "boundary": "분과장의 공개 인터뷰다. 법령 제정이나 데이터 전면 개방의 완료를 뜻하지 않는다.",
+    "beats": [
+      "데이터 기록들이 서로 다른 분류 칸에 들어간다.",
+      "분류된 칸 중 일부만 협업 공간과 연결된다.",
+      "닫힌 경계와 열린 통로가 동시에 남는다."
+    ],
+    "bridge": "기술의 연결을 가능하게 하는 것은 데이터와 제도의 세밀한 설계다.",
+    "object": {
+      "title": "구분된 데이터 칸",
+      "text": "데이터의 민감도에 따라 활용 조건을 달리하는 과제를 보여줍니다."
+    },
+    "label": "CLASSIFY · CONNECT",
+    "speaker": {
+      "person": "sim",
+      "role": "국방·안보 분과장",
+      "text": "국방 데이터는 민감도에 맞춰 구분하고, 법령과 활용 거점을 함께 정비해야 한다고 설명했다.",
+      "source": "defense-interview",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "defense-interview"
+    ]
+  },
+  {
+    "id": "expanded-organisation",
+    "date": "2026-03-25",
+    "title": "10개 분과, 더 세밀해진 책임",
+    "short": "조직 확대 발표",
+    "axis": "strategy",
+    "set": "organisation",
+    "status": "발표",
+    "scope": "위원회 활동",
+    "summary": "위원회가 10개 분과, 2개 특별위원회, 1개 법률 TF로의 확대 개편과 민간위원 보강을 발표했다.",
+    "facts": [
+      "기존 82명에 전문가 45명을 더해 민간위원 총 127명 규모로 구성했다.",
+      "지역·보안은 특별위원회, 법률은 TF로 구분했다."
+    ],
+    "meaning": "분과의 전문성과 부처·기관 사이의 협력을 동시에 강화하려는 구조다.",
+    "boundary": "출범 당시 대통령 위촉 민간위원 34명과 이 시점의 분과·위촉 구분을 포함한 127명은 집계 범위가 다르다.",
+    "beats": [
+      "8개 거점 옆에 새 분과의 두 거점이 자리를 잡는다.",
+      "각 거점의 연결선이 중앙으로 이어진다.",
+      "원탁 밖의 협업 카드는 특별위원회와 법률 TF로 남는다."
+    ],
+    "bridge": "개편된 분과들은 산업과 시민의 구체적인 현안을 이어 맡는다.",
+    "object": {
+      "title": "10개의 연결 거점",
+      "text": "분과 수와 특별위원회·TF를 구분해 보여줍니다."
+    },
+    "label": "10 DIVISIONS · 127",
+    "speaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "조직 개편은 전문성과 실행력을 높이려는 조치라고 설명했다.",
+      "source": "organisation",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "organisation"
+    ]
   },
   {
     "id": "daegu",
@@ -788,7 +1176,9 @@
       "mode": "정책 설명",
       "source": "daegu"
     },
-    "sources": ["daegu"]
+    "sources": [
+      "daegu"
+    ]
   },
   {
     "id": "gwangju",
@@ -825,7 +1215,9 @@
       "mode": "정책 설명",
       "source": "gwangju"
     },
-    "sources": ["gwangju"]
+    "sources": [
+      "gwangju"
+    ]
   },
   {
     "id": "physical",
@@ -856,13 +1248,53 @@
     },
     "label": "PHYSICAL AI / TEST AND LEARN",
     "speaker": {
-      "person": "lim",
-      "role": "초대 상근부위원장",
-      "text": "위원회는 물리 세계의 AI를 위한 전문 논의 체계를 확장했다.",
-      "mode": "정책 설명",
-      "source": "physical"
+      "person": "jo",
+      "role": "산업AX·생태계 분과장",
+      "text": "자율주행과 휴머노이드를 지속적으로 논의하기 위해 분과 안에 별도 그룹을 만들었다.",
+      "source": "physical",
+      "mode": "정책 설명"
     },
-    "sources": ["physical"]
+    "sources": [
+      "physical"
+    ]
+  },
+  {
+    "id": "public-catalogue",
+    "date": "2026-04-29",
+    "title": "서비스보다 먼저, 데이터의 지도를",
+    "short": "공공AX 기반 점검",
+    "axis": "infrastructure",
+    "set": "document-format",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "박태웅 공공AX 분과장이 공개 행사에서 데이터 명세와 카탈로그 없는 정부 AI 전환을 비판했다.",
+    "facts": [
+      "기관별로 흩어진 데이터의 목록과 접근 조건을 먼저 정리해야 한다고 주장했다.",
+      "찾고 접근하고 연계하고 재사용할 수 있는 데이터 기반을 강조했다."
+    ],
+    "meaning": "챗봇이나 서비스 화면을 만들기 전에 그 서비스가 읽을 데이터를 준비해야 한다는 문제 제기다.",
+    "boundary": "분과장의 진단과 비판이다. 발언 속 표현을 정부 전체에 대한 실측 통계로 사용하지 않는다.",
+    "beats": [
+      "정리되지 않은 문서들이 왼쪽에 쌓인다.",
+      "스캔선이 지나며 문서의 목록과 구조가 드러난다.",
+      "연결 가능한 데이터의 지도가 오른쪽에 남는다."
+    ],
+    "bridge": "이 문제는 공공문서 형식과 데이터 표준화의 과제로 계속 이어진다.",
+    "object": {
+      "title": "데이터 카탈로그",
+      "text": "무슨 데이터가 어디 있는지 찾아 활용할 수 있게 하는 기반입니다."
+    },
+    "label": "CATALOGUE BEFORE AX",
+    "speaker": {
+      "person": "park",
+      "role": "공공AX 분과장",
+      "text": "데이터의 명세와 카탈로그를 정리하지 않고 서비스를 앞세우는 접근을 비판했다.",
+      "source": "public-critique",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "public-critique"
+    ]
   },
   {
     "id": "interim",
@@ -898,7 +1330,9 @@
       "mode": "발언 요지",
       "source": "interim"
     },
-    "sources": ["interim"],
+    "sources": [
+      "interim"
+    ],
     "metric": "CONTINUE"
   },
   {
@@ -935,8 +1369,124 @@
       "mode": "발언 요지",
       "source": "interim"
     },
-    "sources": ["interim"],
+    "sources": [
+      "interim"
+    ],
     "metric": "REVIEW"
+  },
+  {
+    "id": "humanoid-dialogue",
+    "date": "2026-06-09",
+    "title": "휴머노이드, 부품부터 수요까지",
+    "short": "휴머노이드 간담회",
+    "axis": "infrastructure",
+    "set": "factory",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "산업AX·생태계 분과가 로봇·AI 기업과 만나 국내 휴머노이드 생태계의 경쟁력과 필요한 지원을 들었다.",
+    "facts": [
+      "4월 신설한 휴머노이드 그룹은 장병탁 교수를 리더로 산업계·학계 전문가 14명이 참여했다.",
+      "로봇 모델과 엣지 AI 칩, 공공 수요 등 현장 의견을 관계 부처에 전달했다."
+    ],
+    "meaning": "하나의 로봇은 모델·칩·제조·수요의 연결 위에서 움직인다.",
+    "boundary": "간담회와 정책 제언 전달을 국산 로봇 생태계의 자립 완료로 보지 않는다.",
+    "beats": [
+      "로봇 팔과 제어 장치가 따로 나타난다.",
+      "작업물이 이동하며 로봇과 제어 장치의 연결을 보여준다.",
+      "생산 동작은 이어지고, 다음 수요를 기다리는 공간이 남는다."
+    ],
+    "bridge": "같은 분과의 관심은 자율주행과 데이터센터 공급망까지 이어진다.",
+    "object": {
+      "title": "로봇 팔과 제어 장치",
+      "text": "로봇 모델·엣지 칩·현장 수요를 함께 검토하는 의제입니다."
+    },
+    "label": "HUMANOID ECOSYSTEM",
+    "speaker": {
+      "person": "jo",
+      "role": "산업AX·생태계 분과장",
+      "text": "로봇의 성능뿐 아니라 국내 공급망과 적용할 현장을 함께 논의한 자리다.",
+      "source": "humanoids",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "humanoids"
+    ]
+  },
+  {
+    "id": "university-forum",
+    "date": "2026-06-10",
+    "title": "과목 하나가 아니라, 전공 전체를",
+    "short": "대학 AI 교육혁신",
+    "axis": "society",
+    "set": "school",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "교육·인재 분과가 대학의 AI 교육을 학제·교육과정·교수자 역량까지 함께 바꾸는 방안을 논의했다.",
+    "facts": [
+      "가천대·성균관대·연세대·한양여대가 운영 사례를 공유했다.",
+      "이민석 분과장이 패널토의를 이끌었으며 온·오프라인으로 약 380명이 참석했다."
+    ],
+    "meaning": "AI 수업을 더하는 일에서 전공마다 필요한 역량과 교육 방식을 재설계하는 일로 의제가 넓어진다.",
+    "boundary": "이 포럼의 논의가 모든 대학의 교육과정 개편 완료를 뜻하지 않는다.",
+    "beats": [
+      "교실의 여러 전공 자리가 따로 켜진다.",
+      "공유 화면을 중심으로 배움의 자료가 모인다.",
+      "각 전공의 자리는 유지하면서 공통 학습 기반을 연결한다."
+    ],
+    "bridge": "인재 양성은 산업 현장의 활용과 국제 협력에 필요한 역량으로 이어진다.",
+    "object": {
+      "title": "전공을 잇는 학습 화면",
+      "text": "교과목·학제·교수자 역량을 함께 바꾸자는 논의입니다."
+    },
+    "label": "RETHINK THE CURRICULUM",
+    "speaker": {
+      "person": "minseok",
+      "role": "교육·인재 분과장",
+      "text": "AI 과목을 늘리는 데서 더 나아가 전공 교육의 내용과 방법을 함께 검토한 자리다.",
+      "source": "university-forum",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "university-forum"
+    ]
+  },
+  {
+    "id": "global-agenda",
+    "date": "2026-06-25",
+    "title": "한국의 강점을 국제 의제로",
+    "short": "글로벌협력 제언",
+    "axis": "strategy",
+    "set": "diplomacy",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "오혜연 분과장이 인터뷰에서 국제 표준과 지역 특화지구를 글로벌 협력·수출로 연결하는 방향을 설명했다.",
+    "facts": [
+      "상반기 법령 정비와 국제 표준화 논의, 하반기 특화지구 방향을 소개했다.",
+      "광주의 모빌리티와 부울경의 피지컬 AI 등 지역별 강점에 집중하는 구상을 제시했다."
+    ],
+    "meaning": "국제협력은 해외를 만나는 일뿐 아니라 한국이 제시할 기술과 의제를 구체화하는 일이다.",
+    "boundary": "6월 25일은 인터뷰 보도일이며 인터뷰는 전월 진행됐다. 특화지구와 표준의 구상은 완료된 성과로 표시하지 않는다.",
+    "beats": [
+      "국내의 기술 거점이 지구본 옆에 자리 잡는다.",
+      "지역의 연구와 산업을 상징하는 카드가 국제 연결망으로 향한다.",
+      "거점과 지구본의 연결은 다음 협력 과제로 남는다."
+    ],
+    "bridge": "1주년 보고에서는 범부처 협의체와 표준화 거버넌스의 진척을 다시 확인한다.",
+    "object": {
+      "title": "지역에서 세계로 향하는 선",
+      "text": "지역 특화 역량과 국제 표준·수출 의제를 잇습니다."
+    },
+    "label": "LOCAL STRENGTH · GLOBAL AGENDA",
+    "speaker": {
+      "person": "oh",
+      "role": "글로벌협력 분과장",
+      "text": "지역별 강점에 집중해 글로벌 협력과 수출로 연결하는 방향을 설명했다.",
+      "source": "global-interview",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "global-interview"
+    ]
   },
   {
     "id": "manufacturing",
@@ -973,7 +1523,9 @@
       "mode": "발언 요지",
       "source": "manufacturing"
     },
-    "sources": ["manufacturing"],
+    "sources": [
+      "manufacturing"
+    ],
     "metric": "M.AX"
   },
   {
@@ -1011,7 +1563,9 @@
       "mode": "정책 설명",
       "source": "mobility"
     },
-    "sources": ["mobility"]
+    "sources": [
+      "mobility"
+    ]
   },
   {
     "id": "data-value",
@@ -1042,13 +1596,91 @@
     },
     "label": "DATA / VALUE AND ACCESS",
     "speaker": {
-      "person": "bae",
-      "role": "과기부총리 · 과기정통부 장관 · 당시 위원회 운영 총괄",
-      "text": "위원회는 데이터 가치평가의 활용과 관계부처 협력을 논의했다.",
-      "mode": "정책 설명",
-      "source": "data"
+      "person": "baek",
+      "role": "데이터 분과장",
+      "text": "데이터의 가치를 기업의 자금 조달과 연결하는 논의다.",
+      "source": "data",
+      "mode": "정책 설명"
     },
-    "sources": ["data"]
+    "sources": [
+      "data"
+    ]
+  },
+  {
+    "id": "aidc-supply-chain",
+    "date": "2026-07-14",
+    "title": "GPU 뒤의 공급망을 드러내다",
+    "short": "AIDC 공급망 간담회",
+    "axis": "infrastructure",
+    "set": "energy",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "산업AX·생태계 분과가 데이터센터의 전력·냉각·부지 등 산업생태계의 병목과 육성 방안을 논의했다.",
+    "facts": [
+      "서울스퀘어에서 AI 데이터센터 산업생태계 육성 간담회를 개최했다.",
+      "GPU뿐 아니라 전력설비·냉각기술·건설 역량을 함께 검토했다."
+    ],
+    "meaning": "데이터센터는 여러 산업이 결합되어야 작동하는 기반시설이다.",
+    "boundary": "논의된 지원 방향을 부지 확보나 전력 공급의 완료로 표시하지 않는다.",
+    "beats": [
+      "서버 랙 옆에 전력 설비가 솟아오른다.",
+      "터빈이 움직이며 연산 자원 뒤의 물리적 기반을 드러낸다.",
+      "서버와 에너지 설비가 같은 무대에서 계속 작동한다."
+    ],
+    "bridge": "다음 질문은 확보한 자원을 얼마나 효율적으로 쓸 수 있느냐다.",
+    "object": {
+      "title": "서버와 전력 설비",
+      "text": "AIDC를 만드는 공급망과 기반시설을 함께 나타냅니다."
+    },
+    "label": "POWER · COOLING · COMPUTE",
+    "speaker": {
+      "person": "jo",
+      "role": "산업AX·생태계 분과장",
+      "text": "데이터센터는 GPU만이 아니라 전력·냉각·건설 역량이 결합된 기반시설이라고 강조했다.",
+      "source": "aidc-supply",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "aidc-supply"
+    ]
+  },
+  {
+    "id": "compute-allocation",
+    "date": "2026-07-20",
+    "title": "많이 확보한 다음, 잘 쓰는 법",
+    "short": "컴퓨팅 전략 세미나",
+    "axis": "infrastructure",
+    "set": "compute-routing",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "기술혁신·인프라 분과가 에이전틱 AI 시대의 국가 컴퓨팅 전략을 논의했다. 공공AX 분과장도 참석했다.",
+    "facts": [
+      "연산·메모리 최적화, 다중 에이전트 운영, 서비스 비용과 처리시간이 논의됐다.",
+      "모델·반도체·메모리·운영체계를 함께 보는 시스템 관점이 제기됐다."
+    ],
+    "meaning": "GPU 수량의 경쟁에서 실제 서비스의 효율과 자원배분으로 질문이 넓어진다.",
+    "boundary": "세미나에서 제시된 방향이다. 전국의 자원 통합 운영이 이미 구현됐다는 뜻은 아니다.",
+    "beats": [
+      "GPU·메모리·에이전트 거점이 따로 켜진다.",
+      "작업 카드가 거점을 거치며 전달된다.",
+      "세 거점의 순환이 이어져 시스템 전체의 효율을 보여준다."
+    ],
+    "bridge": "자원배분의 다음에는 모델을 더 잘 학습시키는 데이터와 환경의 문제가 있다.",
+    "object": {
+      "title": "세 개의 연산 거점",
+      "text": "GPU·메모리·서비스를 함께 설계하는 관점을 보여줍니다."
+    },
+    "label": "GPU × MEMORY × AGENTS",
+    "speaker": {
+      "person": "shin",
+      "role": "기술혁신·인프라 분과장",
+      "text": "AI를 안정적이고 효율적으로 활용할 시스템 경쟁력이 중요해지고 있다고 설명했다.",
+      "source": "compute-seminar",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "compute-seminar"
+    ]
   },
   {
     "id": "chips",
@@ -1085,8 +1717,48 @@
       "mode": "정책 설명",
       "source": "chips"
     },
-    "sources": ["chips"],
+    "sources": [
+      "chips"
+    ],
     "metric": "22"
+  },
+  {
+    "id": "post-training",
+    "date": "2026-08-27",
+    "title": "모델이 풀고, 평가받고, 다시 배우다",
+    "short": "포스트 트레이닝 제언",
+    "axis": "infrastructure",
+    "set": "compute-routing",
+    "status": "논의",
+    "scope": "위원회 활동",
+    "summary": "신진우 분과장이 과기정통부 미래전략회의에서 데이터와 포스트 트레이닝에 집중할 필요성을 제시했다.",
+    "facts": [
+      "최상위 모델 역량을 높이기 위한 학습 환경과 데이터 확보를 강조했다.",
+      "국가AI전략위원회 분과장이 외부 정책회의에서 제언한 기록이다."
+    ],
+    "meaning": "완성된 모델을 평가하고 다시 개선하는 학습 환경도 정책의 의제가 된다.",
+    "boundary": "과기정통부 주최 회의의 공개 제언이다. 분과가 주관한 회의나 확정된 사업으로 분류하지 않는다.",
+    "beats": [
+      "모델과 과제·평가를 나타내는 거점이 놓인다.",
+      "과제 카드가 순환하며 피드백 과정을 만든다.",
+      "순환은 끝나지 않고, 계속 개선해야 할 모델의 모습을 남긴다."
+    ],
+    "bridge": "1주년에는 각 분과가 이런 논의를 어디까지 정책으로 연결했는지 점검한다.",
+    "object": {
+      "title": "반복되는 과제 카드",
+      "text": "학습·평가·피드백 환경의 중요성을 나타냅니다."
+    },
+    "label": "TASK → EVALUATE → LEARN",
+    "speaker": {
+      "person": "shin",
+      "role": "기술혁신·인프라 분과장",
+      "text": "최상위 모델을 위해 데이터와 포스트 트레이닝 환경에 집중해야 한다고 제언했다.",
+      "source": "post-training",
+      "mode": "발언 요지"
+    },
+    "sources": [
+      "post-training"
+    ]
   },
   {
     "id": "ha-inauguration",
@@ -1123,7 +1795,9 @@
       "mode": "발언 요지",
       "source": "ha"
     },
-    "sources": ["ha"],
+    "sources": [
+      "ha"
+    ],
     "metric": "NEXT"
   },
   {
@@ -1161,7 +1835,9 @@
       "mode": "발언 요지",
       "source": "europe"
     },
-    "sources": ["europe"],
+    "sources": [
+      "europe"
+    ],
     "metric": "EUROPE"
   },
   {
@@ -1199,7 +1875,164 @@
       "mode": "정책 설명",
       "source": "cloud"
     },
-    "sources": ["cloud"]
+    "sources": [
+      "cloud"
+    ]
+  },
+  {
+    "id": "global-review",
+    "date": "2026-09-08",
+    "title": "국제 규칙을 논의할 연결망",
+    "short": "글로벌협력 1년 점검",
+    "axis": "strategy",
+    "set": "diplomacy",
+    "status": "성과 점검",
+    "scope": "위원회 활동",
+    "summary": "1주년 보고에서는 글로벌협력 분과의 범부처 협의체 출범과 표준화 거버넌스 착수를 소개했다.",
+    "facts": [
+      "글로벌 AI 거버넌스 범부처 협의체는 6월 출범한 것으로 보고됐다.",
+      "국가 AI 표준화 거버넌스 체계 구축에 착수했다고 밝혔다."
+    ],
+    "meaning": "국제협력을 개별 면담에서 정부 간 조율과 규칙의 문제로 넓힌다.",
+    "boundary": "9월 8일은 보고일이다. 협의체의 정확한 6월 출범일을 임의로 정하지 않았으며, 표준화 체계는 착수 단계다.",
+    "beats": [
+      "지구본 양옆에 국내·국제 논의 거점이 나타난다.",
+      "국내에서 모은 정책 카드가 국제 연결망으로 향한다.",
+      "지구본은 계속 돌며 아직 진행 중인 협력의 과제를 남긴다."
+    ],
+    "bridge": "국제적 연결은 시민이 체감하는 기회와 연결될 때 의미가 커진다.",
+    "object": {
+      "title": "표준화의 연결망",
+      "text": "범부처 조율과 국제 규칙 논의의 연결을 나타냅니다."
+    },
+    "label": "GLOBAL GOVERNANCE",
+    "speaker": {
+      "person": "oh",
+      "role": "글로벌협력 분과장",
+      "text": "국제 협력 의제를 국내 부처의 정책과 연결하는 분과의 역할을 보여준다.",
+      "source": "division-year",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "division-year"
+    ]
+  },
+  {
+    "id": "education-review",
+    "date": "2026-09-08",
+    "title": "학교에서 평생학습까지 잇다",
+    "short": "교육·인재 1년 점검",
+    "axis": "society",
+    "set": "school",
+    "status": "성과 점검",
+    "scope": "위원회 활동",
+    "summary": "1주년 보고는 교육·인재 분과의 AI 인재양성 사업 지원을 소개했다.",
+    "facts": [
+      "3월 개편에서 교육 TF와 기존 인재 의제를 한 분과로 모았다.",
+      "초·중등과 평생교육부터 고급·융합 인재까지 연결하는 구조로 설계했다."
+    ],
+    "meaning": "교육의 여러 단계를 끊김 없이 연결하는 것이 이 분과의 과제다.",
+    "boundary": "사업 지원과 조직 설계를 다룬다. 교육 효과나 수료 인원에 대한 확인되지 않은 성과 수치는 제시하지 않는다.",
+    "beats": [
+      "교실의 책상과 학습 화면이 등장한다.",
+      "서로 다른 배움의 자리가 하나의 화면을 공유한다.",
+      "교실은 완성된 채 다음 학습자를 기다린다."
+    ],
+    "bridge": "기술의 혜택을 넓히는 일은 시민이 의사결정에 참여하는 문제와 만난다.",
+    "object": {
+      "title": "서로 연결된 학습 자리",
+      "text": "학교·평생교육·전문인재를 이어 보는 분과의 의제입니다."
+    },
+    "label": "LEARNING CONTINUUM",
+    "speaker": {
+      "person": "ha",
+      "role": "상근부위원장",
+      "text": "교육·인재 분과의 정책 지원을 돌아보는 1주년 기록이다.",
+      "source": "division-year",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "division-year",
+      "organisation"
+    ]
+  },
+  {
+    "id": "democracy-review",
+    "date": "2026-09-08",
+    "title": "AI 공론장, 다음 해를 향한 설계",
+    "short": "AI민주주의 다음 과제",
+    "axis": "society",
+    "set": "democracy",
+    "status": "성과 점검",
+    "scope": "위원회 활동",
+    "summary": "AI민주주의 분과는 민주정부 전략 수립 지원을 돌아보고 공론장 시제품과 후속 행동계획 방향을 제시했다.",
+    "facts": [
+      "1주년 보도는 AI 공론장 프로토타입 개발을 향후 과제로 소개했다.",
+      "2027년 3월 비전·행동계획 확정·발표 일정이 제시됐다."
+    ],
+    "meaning": "시민의 의견이 모이고 정책 논의로 이어지는 과정 자체가 AI 시대의 설계 대상이다.",
+    "boundary": "무대의 공론장은 개념 연출이다. 실제 서비스가 완성됐다는 뜻이 아니며, 2027년 일정은 미래 계획이다.",
+    "beats": [
+      "각 시민의 제안 카드가 따로 나타난다.",
+      "카드들이 중앙의 열린 토론 공간으로 모인다.",
+      "완료 도장 대신 PLAN 표식이 남아 다음 과제를 보여준다."
+    ],
+    "bridge": "첫 1년의 마지막 질문은 조직과 계획이 일상의 변화로 이어졌는가이다.",
+    "object": {
+      "title": "PLAN이 남은 공론장",
+      "text": "공론장 시제품은 향후 계획으로 제시된 내용입니다."
+    },
+    "label": "AI PUBLIC FORUM · PLAN",
+    "speaker": {
+      "person": "ha",
+      "role": "상근부위원장",
+      "text": "공론장의 개념을 시각화한 장면이며, 아직 완성된 정책 효과를 뜻하지 않는다.",
+      "source": "democracy-year",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "democracy-year",
+      "division-year"
+    ]
+  },
+  {
+    "id": "public-documents-review",
+    "date": "2026-09-08",
+    "title": "AI가 읽을 수 있는 정부 문서로",
+    "short": "공공문서 관리 점검",
+    "axis": "infrastructure",
+    "set": "document-format",
+    "status": "성과 점검",
+    "scope": "위원회 활동",
+    "summary": "1주년 보고에서는 공공 문서 형식과 데이터 관리 방식을 AI 활용에 맞게 바꾸는 과제를 다뤘다.",
+    "facts": [
+      "온나라와 공직자메일의 문서 첨부 방식, 공공 API와 데이터 표준화가 거론됐다.",
+      "데이터 분과의 공공데이터 관리 가이드라인 마련도 보고됐다."
+    ],
+    "meaning": "정부의 AI 전환은 새로운 서비스뿐 아니라 매일 만드는 문서의 구조에서 시작한다.",
+    "boundary": "HWP를 AI가 절대 읽지 못한다는 뜻은 아니다. 형식과 문서 구조에 따라 기계판독 효율이 달라지며, 전 기관의 전환 완료를 주장하지 않는다.",
+    "beats": [
+      "왼쪽에 기존 문서와 복잡한 표가 놓인다.",
+      "스캔선이 지나며 오른쪽에 구조화된 문서가 나타난다.",
+      "새 형식의 기록이 남아 이후 서비스가 읽을 기반을 보여준다."
+    ],
+    "bridge": "데이터 기반을 바꾸는 일도 마지막에는 국민이 체감하는 결과로 점검해야 한다.",
+    "object": {
+      "title": "형식이 바뀌는 문서",
+      "text": "기계가 읽고 활용하기 쉬운 문서 관리의 과제입니다."
+    },
+    "label": "HWP → STRUCTURED DATA",
+    "speaker": {
+      "person": "baek",
+      "role": "데이터 분과장",
+      "text": "데이터의 양뿐 아니라 문서 형식과 구조도 AI 활용에 영향을 준다.",
+      "source": "document-year",
+      "mode": "정책 설명"
+    },
+    "sources": [
+      "document-year",
+      "division-year"
+    ]
   },
   {
     "id": "anniversary",
@@ -1236,7 +2069,10 @@
       "mode": "직접 인용",
       "source": "reflection"
     },
-    "sources": ["anniversary", "reflection"],
+    "sources": [
+      "anniversary",
+      "reflection"
+    ],
     "metric": "YEAR ONE"
   }
 ]

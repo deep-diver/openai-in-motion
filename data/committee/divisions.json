@@ -1,0 +1,113 @@
+[
+  {
+    "id": "technology",
+    "name": "기술혁신·인프라",
+    "chair": "신진우",
+    "question": "모델·반도체·컴퓨팅 자원을 어떻게 하나의 기반으로 연결할까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "shin"
+  },
+  {
+    "id": "industry",
+    "name": "산업AX·생태계",
+    "chair": "조준희",
+    "question": "AI를 기업의 실제 업무와 생산 공정에 어떻게 적용할까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "jo"
+  },
+  {
+    "id": "public",
+    "name": "공공AX",
+    "chair": "박태웅",
+    "question": "국민이 쓰는 행정 서비스와 정부의 일하는 방식을 어떻게 바꿀까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "park"
+  },
+  {
+    "id": "data",
+    "name": "데이터",
+    "chair": "백은옥",
+    "question": "학습에 필요한 데이터의 이용·보상·가치를 어떻게 설계할까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "baek"
+  },
+  {
+    "id": "society",
+    "name": "사회",
+    "chair": "유재연",
+    "question": "일자리와 권리, AI 접근성의 격차에 어떻게 대응할까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "yoo"
+  },
+  {
+    "id": "global",
+    "name": "글로벌협력",
+    "chair": "오혜연",
+    "question": "국제 협력과 표준 논의에서 한국은 어떤 역할을 맡을까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "oh"
+  },
+  {
+    "id": "science",
+    "name": "과학",
+    "chair": "석차옥",
+    "question": "AI로 실험과 발견의 과정을 어떻게 바꿀까?",
+    "history": "과학·인재 → 2026.03 과학 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "seok"
+  },
+  {
+    "id": "defense",
+    "name": "국방·안보",
+    "chair": "심승배",
+    "question": "민간 AI 기술과 국방 데이터 사이의 장벽을 어떻게 풀까?",
+    "history": "2025.09 출범 분과",
+    "sources": [
+      "division-chairs"
+    ],
+    "person": "sim"
+  },
+  {
+    "id": "education",
+    "name": "교육·인재",
+    "chair": "이민석",
+    "question": "학교부터 평생학습까지 AI 역량을 어떻게 이어갈까?",
+    "history": "교육 TF·과학·인재 → 2026.03 교육·인재 분과",
+    "sources": [
+      "organisation",
+      "university-forum"
+    ],
+    "person": "minseok"
+  },
+  {
+    "id": "democracy",
+    "name": "AI민주주의",
+    "chair": "AI민주주의 분과",
+    "question": "AI 시대의 시민 참여와 민주적 의사결정을 어떻게 설계할까?",
+    "history": "2026.02 신설 의결 · 2026.03 확대 개편",
+    "sources": [
+      "organisation"
+    ],
+    "person": null
+  }
+]

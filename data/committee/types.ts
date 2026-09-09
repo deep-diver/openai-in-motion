@@ -1,5 +1,12 @@
 export type Axis = 'strategy' | 'infrastructure' | 'society';
 export type SetKind =
+  | 'organisation'
+  | 'defense'
+  | 'media'
+  | 'civic'
+  | 'compute-routing'
+  | 'democracy'
+  | 'document-format'
   | 'assembly'
   | 'network'
   | 'compute'
@@ -32,7 +39,16 @@ export type PersonId =
   | 'cha'
   | 'bengio'
   | 'kim'
-  | 'haemin';
+  | 'haemin'
+  | 'shin'
+  | 'jo'
+  | 'park'
+  | 'baek'
+  | 'yoo'
+  | 'oh'
+  | 'seok'
+  | 'sim'
+  | 'minseok';
 export type Scene = {
   id: string;
   date: string;
@@ -75,6 +91,15 @@ export const AXES = {
   society: { name: '사람과 현장', color: '#f4c79c' },
 };
 export const PEOPLE: Record<PersonId, { name: string; role: string }> = {
+  minseok: { name: '이민석', role: '교육·인재 분과장' },
+  shin: { name: '신진우', role: '기술혁신·인프라 분과장' },
+  jo: { name: '조준희', role: '산업AX·생태계 분과장' },
+  park: { name: '박태웅', role: '공공AX 분과장' },
+  baek: { name: '백은옥', role: '데이터 분과장' },
+  yoo: { name: '유재연', role: '사회 분과장' },
+  oh: { name: '오혜연', role: '글로벌협력 분과장' },
+  seok: { name: '석차옥', role: '과학 분과장' },
+  sim: { name: '심승배', role: '국방·안보 분과장' },
   lee: { name: '이재명', role: '대통령 · 위원장' },
   lim: { name: '임문영', role: '초대 상근부위원장' },
   bae: { name: '배경훈', role: '과학기술정보통신부 장관' },

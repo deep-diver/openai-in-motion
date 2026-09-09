@@ -1,0 +1,371 @@
+{
+  "models": [
+    {
+      "division": "technology",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "models"
+    }
+  ],
+  "gpu-agreement": [
+    {
+      "division": "technology",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "gpu"
+    }
+  ],
+  "allocation": [
+    {
+      "division": "technology",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "allocation"
+    }
+  ],
+  "chips": [
+    {
+      "division": "technology",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "chips"
+    }
+  ],
+  "enterprise": [
+    {
+      "division": "industry",
+      "relation": "참여",
+      "note": "조준희 산업AX·생태계 분과장이 기업 간담회에 참여했다.",
+      "source": "enterprise"
+    }
+  ],
+  "physical": [
+    {
+      "division": "industry",
+      "relation": "조직 개편",
+      "note": "산업AX·생태계 분과 안에 자율주행·휴머노이드 소분과를 설치했다.",
+      "source": "physical"
+    }
+  ],
+  "manufacturing": [
+    {
+      "division": "industry",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "manufacturing"
+    }
+  ],
+  "mobility": [
+    {
+      "division": "industry",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "mobility"
+    }
+  ],
+  "caio": [
+    {
+      "division": "public",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "caio"
+    }
+  ],
+  "fire-response": [
+    {
+      "division": "public",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "plenary"
+    }
+  ],
+  "recovery": [
+    {
+      "division": "public",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "resilience"
+    }
+  ],
+  "cloud": [
+    {
+      "division": "public",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "cloud"
+    }
+  ],
+  "copyright": [
+    {
+      "division": "data",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "copyright"
+    },
+    {
+      "division": "society",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "copyright"
+    }
+  ],
+  "data-value": [
+    {
+      "division": "data",
+      "relation": "주관",
+      "note": "데이터 분과의 데이터 가치평가 세미나.",
+      "source": "data"
+    }
+  ],
+  "labor": [
+    {
+      "division": "society",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "labor"
+    }
+  ],
+  "europe": [
+    {
+      "division": "society",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "europe"
+    },
+    {
+      "division": "global",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "europe"
+    }
+  ],
+  "bengio": [
+    {
+      "division": "global",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "week"
+    }
+  ],
+  "uae": [
+    {
+      "division": "global",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "uae"
+    }
+  ],
+  "moonshot": [
+    {
+      "division": "science",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "moon"
+    }
+  ],
+  "action-plan": [],
+  "education": [
+    {
+      "division": "education",
+      "relation": "관련 의제",
+      "note": "해당 분과의 담당 의제와 연결되는 기록입니다. 분과의 단독 주관을 뜻하지 않습니다.",
+      "source": "education"
+    }
+  ],
+  "education-tf": [
+    {
+      "division": "education",
+      "relation": "조직 개편",
+      "note": "8개 분과에 교육·보안·지역 TF를 더해, 여러 의제에 걸친 문제를 집중해서 다루기 시작한다.",
+      "source": "taskforces"
+    }
+  ],
+  "science-symposium": [
+    {
+      "division": "science",
+      "relation": "공동 주최",
+      "note": "과학·인재 분과와 한국과학AI포럼이 공동 심포지엄을 열어 분야별 연구의 변화와 정책 제안을 모았다.",
+      "source": "science-forum"
+    }
+  ],
+  "amazon-meeting": [
+    {
+      "division": "public",
+      "relation": "참여",
+      "note": "임문영 부위원장이 아마존의 데이비드 자폴스키 수석부회장을 만났다. 박태웅 공공AX 분과장도 참여했다.",
+      "source": "amazon"
+    }
+  ],
+  "citizen-dialogue": [
+    {
+      "division": "society",
+      "relation": "주관",
+      "note": "사회분과가 참여연대·디지털정의네트워크 등 시민단체에 행동계획을 설명하고 AI 기본사회에 대한 의견을 들었다.",
+      "source": "civil-society"
+    }
+  ],
+  "media-dialogue": [
+    {
+      "division": "data",
+      "relation": "참여",
+      "note": "데이터·사회 분과장이 방송협회와 만나 AI 학습, 저작권, 국내 콘텐츠 산업의 동반 성장 문제를 논의했다.",
+      "source": "broadcasters"
+    },
+    {
+      "division": "society",
+      "relation": "참여",
+      "note": "유재연 사회 분과장이 방송협회 회동에 참여했다.",
+      "source": "broadcasters"
+    }
+  ],
+  "division-reform": [
+    {
+      "division": "democracy",
+      "relation": "조직 개편",
+      "note": "전체회의에서 교육·인재와 AI민주주의 분과 신설을 포함한 운영세칙 개정을 의결했다.",
+      "source": "plenary"
+    },
+    {
+      "division": "education",
+      "relation": "조직 개편",
+      "note": "인재 영역과 교육 TF를 통합해 교육·인재 분과 신설을 의결했다.",
+      "source": "resilience"
+    },
+    {
+      "division": "science",
+      "relation": "조직 개편",
+      "note": "기존 과학·인재 분과에서 인재 영역을 분리하는 개편이다.",
+      "source": "resilience"
+    }
+  ],
+  "defense-visit": [
+    {
+      "division": "defense",
+      "relation": "참여",
+      "note": "국방·안보 분과가 한화에어로스페이스에서 방산기업과 만나 국방 분야의 AI 전환을 논의했다.",
+      "source": "defense-field"
+    }
+  ],
+  "defense-data": [
+    {
+      "division": "defense",
+      "relation": "참여",
+      "note": "심승배 분과장이 인터뷰에서 국방 데이터의 민감도 구분과 국방 AX 거점, 법령 정비의 필요성을 설명했다.",
+      "source": "defense-interview"
+    }
+  ],
+  "expanded-organisation": [
+    {
+      "division": "education",
+      "relation": "조직 개편",
+      "note": "위원회가 10개 분과, 2개 특별위원회, 1개 법률 TF로의 확대 개편과 민간위원 보강을 발표했다.",
+      "source": "organisation"
+    },
+    {
+      "division": "democracy",
+      "relation": "조직 개편",
+      "note": "AI민주주의 분과를 포함한 10개 분과 확대 개편 발표.",
+      "source": "organisation"
+    },
+    {
+      "division": "science",
+      "relation": "조직 개편",
+      "note": "과학·인재를 과학 분과와 교육·인재 분과로 분리했다.",
+      "source": "organisation"
+    }
+  ],
+  "humanoid-dialogue": [
+    {
+      "division": "industry",
+      "relation": "주관",
+      "note": "산업AX·생태계 분과가 로봇·AI 기업과 만나 국내 휴머노이드 생태계의 경쟁력과 필요한 지원을 들었다.",
+      "source": "humanoids"
+    }
+  ],
+  "aidc-supply-chain": [
+    {
+      "division": "industry",
+      "relation": "주관",
+      "note": "산업AX·생태계 분과가 데이터센터의 전력·냉각·부지 등 산업생태계의 병목과 육성 방안을 논의했다.",
+      "source": "aidc-supply"
+    }
+  ],
+  "compute-allocation": [
+    {
+      "division": "technology",
+      "relation": "주관",
+      "note": "기술혁신·인프라 분과가 에이전틱 AI 시대의 국가 컴퓨팅 전략을 논의했다. 공공AX 분과장도 참석했다.",
+      "source": "compute-seminar"
+    },
+    {
+      "division": "public",
+      "relation": "참여",
+      "note": "박태웅 공공AX 분과장이 세미나에 참석했다.",
+      "source": "compute-seminar"
+    }
+  ],
+  "post-training": [
+    {
+      "division": "technology",
+      "relation": "참여",
+      "note": "신진우 분과장이 과기정통부 미래전략회의에서 데이터와 포스트 트레이닝에 집중할 필요성을 제시했다.",
+      "source": "post-training"
+    }
+  ],
+  "global-review": [
+    {
+      "division": "global",
+      "relation": "성과 보고",
+      "note": "1주년 보고에서는 글로벌협력 분과의 범부처 협의체 출범과 표준화 거버넌스 착수를 소개했다.",
+      "source": "division-year"
+    }
+  ],
+  "education-review": [
+    {
+      "division": "education",
+      "relation": "성과 보고",
+      "note": "1주년 보고는 교육·인재 분과의 AI 인재양성 사업 지원을 소개했다.",
+      "source": "division-year"
+    }
+  ],
+  "democracy-review": [
+    {
+      "division": "democracy",
+      "relation": "성과 보고",
+      "note": "AI민주주의 분과는 민주정부 전략 수립 지원을 돌아보고 공론장 시제품과 후속 행동계획 방향을 제시했다.",
+      "source": "democracy-year"
+    }
+  ],
+  "public-documents-review": [
+    {
+      "division": "data",
+      "relation": "성과 보고",
+      "note": "1주년 보고에서는 공공 문서 형식과 데이터 관리 방식을 AI 활용에 맞게 바꾸는 과제를 다뤘다.",
+      "source": "document-year"
+    }
+  ],
+  "public-catalogue": [
+    {
+      "division": "public",
+      "relation": "참여",
+      "note": "박태웅 공공AX 분과장이 공개 행사에서 데이터 명세와 카탈로그 없는 정부 AI 전환을 비판했다.",
+      "source": "public-critique"
+    }
+  ],
+  "university-forum": [
+    {
+      "division": "education",
+      "relation": "주관",
+      "note": "교육·인재 분과가 대학의 AI 교육을 학제·교육과정·교수자 역량까지 함께 바꾸는 방안을 논의했다.",
+      "source": "university-forum"
+    }
+  ],
+  "global-agenda": [
+    {
+      "division": "global",
+      "relation": "참여",
+      "note": "오혜연 분과장이 인터뷰에서 국제 표준과 지역 특화지구를 글로벌 협력·수출로 연결하는 방향을 설명했다.",
+      "source": "global-interview"
+    }
+  ]
+}

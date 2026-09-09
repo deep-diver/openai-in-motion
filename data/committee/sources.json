@@ -229,5 +229,145 @@
     "publisher": "ZDNet Korea",
     "published": "2026-09-08",
     "kind": "언론 보도"
+  },
+  "division-chairs": {
+    "title": "출범 당시 8개 분과와 분과장 명단",
+    "url": "https://www.edaily.co.kr/News/Read?newsId=02460006642298480",
+    "publisher": "이데일리",
+    "published": "2025-09-08",
+    "kind": "언론 보도"
+  },
+  "taskforces": {
+    "title": "교육·보안·지역 3개 TF 구성",
+    "url": "https://www.yna.co.kr/view/AKR20250923158100017",
+    "publisher": "연합뉴스",
+    "published": "2025-09-23",
+    "kind": "언론 보도"
+  },
+  "science-forum": {
+    "title": "제1회 한국과학AI포럼 심포지엄 안내",
+    "url": "https://www.kim.or.kr/board/?_0000_method=view&ncode=a002&num=9181",
+    "publisher": "대한금속·재료학회",
+    "published": "2025-10-21",
+    "kind": "당사자 자료"
+  },
+  "science-forum-report": {
+    "title": "과학AI 심포지엄 개최와 분야별 논의",
+    "url": "https://www.unipress.co.kr/news/articleView.html?idxno=13405",
+    "publisher": "대학지성 In&Out",
+    "published": "2025-11",
+    "kind": "언론 보도"
+  },
+  "amazon": {
+    "title": "아마존과 AI 인프라 협력 면담",
+    "url": "https://www.etnews.com/20251205000206",
+    "publisher": "전자신문",
+    "published": "2025-12-05",
+    "kind": "언론 보도"
+  },
+  "civil-society": {
+    "title": "사회분과, AI 기본사회 시민사회 간담회",
+    "url": "https://www.yna.co.kr/amp/view/AKR20260105130000017",
+    "publisher": "연합뉴스",
+    "published": "2026-01-05",
+    "kind": "언론 보도"
+  },
+  "broadcasters": {
+    "title": "데이터·사회 분과장, 방송협회와 저작권·콘텐츠 논의",
+    "url": "https://www.asiae.co.kr/realtime/sokbo_viewNew.htm?idxno=2026012017122333630",
+    "publisher": "아시아경제",
+    "published": "2026-01-20",
+    "kind": "언론 보도"
+  },
+  "defense-field": {
+    "title": "국방·안보 분과, 한화 방산기업 간담회",
+    "url": "https://zdnet.co.kr/view/?no=20260304185352",
+    "publisher": "ZDNet Korea",
+    "published": "2026-03-04",
+    "kind": "언론 보도"
+  },
+  "defense-interview": {
+    "title": "심승배 분과장 인터뷰: 국방 데이터와 제도 개선",
+    "url": "https://www.etnews.com/20260320000127",
+    "publisher": "전자신문",
+    "published": "2026-03-22",
+    "kind": "언론 보도"
+  },
+  "organisation": {
+    "title": "10개 분과·2개 특별위원회·1개 TF로 확대 개편",
+    "url": "https://www.mt.co.kr/amp/tech/2026/03/25/2026032510342574168",
+    "publisher": "머니투데이",
+    "published": "2026-03-25",
+    "kind": "언론 보도"
+  },
+  "humanoids": {
+    "title": "산업AX·생태계 분과, 휴머노이드 업계 간담회",
+    "url": "https://zdnet.co.kr/view/?no=20260609141453",
+    "publisher": "ZDNet Korea",
+    "published": "2026-06-09",
+    "kind": "언론 보도"
+  },
+  "aidc-supply": {
+    "title": "산업AX·생태계 분과, AIDC 산업생태계 육성 간담회",
+    "url": "https://www.yna.co.kr/amp/view/AKR20260714118100017",
+    "publisher": "연합뉴스",
+    "published": "2026-07-14",
+    "kind": "언론 보도"
+  },
+  "compute-seminar": {
+    "title": "기술혁신·인프라 분과, 국가 AI 컴퓨팅 전략 세미나",
+    "url": "https://v.daum.net/v/87jCaB7159",
+    "publisher": "연합뉴스 · 다음 수록",
+    "published": "2026-07-20",
+    "kind": "언론 보도"
+  },
+  "post-training": {
+    "title": "신진우 분과장, 포스트 트레이닝과 데이터 전략 제언",
+    "url": "https://www.etnews.com/20260827000175",
+    "publisher": "전자신문",
+    "published": "2026-08-27",
+    "kind": "언론 보도"
+  },
+  "division-year": {
+    "title": "1주년 성과보고: 분과별 정책 지원과 후속 계획",
+    "url": "https://www.mt.co.kr/tech/2026/09/08/2026090815034631395",
+    "publisher": "머니투데이",
+    "published": "2026-09-08",
+    "kind": "언론 보도"
+  },
+  "democracy-year": {
+    "title": "AI민주주의 분과의 후속 비전·행동계획 일정",
+    "url": "https://www4.ajunews.com/view/20260908142317696",
+    "publisher": "아주경제",
+    "published": "2026-09-08",
+    "kind": "언론 보도"
+  },
+  "document-year": {
+    "title": "1주년 보고: 공공문서 형식과 데이터 관리 개선",
+    "url": "https://www.viva100.com/article/20260908501371",
+    "publisher": "브릿지경제",
+    "published": "2026-09-08",
+    "kind": "언론 보도"
+  },
+  "university-forum": {
+    "title": "교육·인재 분과 주관, 대학 AI 교육혁신 정책포럼",
+    "url": "https://zdnet.co.kr/view/?no=20260610172039",
+    "publisher": "ZDNet Korea",
+    "published": "2026-06-10",
+    "kind": "언론 보도"
+  },
+  "global-interview": {
+    "title": "오혜연 분과장 인터뷰: 국제 표준·특화지구·협력 의제",
+    "url": "https://zdnet.co.kr/view/?no=20260625111803",
+    "publisher": "ZDNet Korea",
+    "published": "2026-06-25",
+    "kind": "언론 보도"
+  },
+  "public-critique": {
+    "title": "박태웅 분과장, 데이터 카탈로그와 공공AX 순서 지적",
+    "url": "https://v.daum.net/v/20260429145947395",
+    "publisher": "디지털데일리 · 다음 수록",
+    "published": "2026-04-29",
+    "kind": "언론 보도"
   }
 }

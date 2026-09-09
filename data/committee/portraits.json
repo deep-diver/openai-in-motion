@@ -54,5 +54,77 @@
     "rights": "Official source. No asset-specific reuse license verified.",
     "objectPosition": "50% 30%",
     "src": "/committee/portraits/kim.png"
+  },
+  "shin": {
+    "src": "/committee/portraits/shin.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-015.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "jo": {
+    "src": "/committee/portraits/jo.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-033.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "park": {
+    "src": "/committee/portraits/park.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-008.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "baek": {
+    "src": "/committee/portraits/baek.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-010.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "yoo": {
+    "src": "/committee/portraits/yoo.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-018.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "oh": {
+    "src": "/committee/portraits/oh.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-017.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "seok": {
+    "src": "/committee/portraits/seok.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-013.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "sim": {
+    "src": "/committee/portraits/sim.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-016.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
+  },
+  "minseok": {
+    "src": "/committee/portraits/minseok.png",
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-025.png",
+    "credit": "국가인공지능전략위원회 공식 프로필",
+    "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
+    "objectPosition": "50% 30%"
   }
 }
