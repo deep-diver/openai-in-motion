@@ -17,6 +17,23 @@ npm run dev
 
 서버가 출력하는 주소에서 실행합니다.
 
+## GitHub Pages 배포
+
+`npm run build:pages`는 서버 없이 실행되는 정적 사이트를 `out/`에 만듭니다.
+기존 `npm run build`는 Sites 배포용으로 유지합니다.
+
+- 공개 주소: `https://deep-diver.github.io/openai-in-motion/`
+- 영어: `/openai-in-motion/en/`
+- 국가AI전략위원회: `/openai-in-motion/korea/`
+- `main`에 푸시하면 `.github/workflows/pages.yml`이 테스트, 빌드, 배포를 수행합니다.
+- 다른 저장소에서는 Actions의 `GITHUB_REPOSITORY`로 기본 경로를 자동 계산합니다.
+  사용자 도메인을 쓰려면 `NEXT_PUBLIC_BASE_PATH`를 빈 문자열로 설정합니다.
+
+`pages-static/`은 세 페이지의 HTML 진입점과 정적 호스팅용 Link/지연 로딩 어댑터입니다.
+장면, 재생기, 데이터, CSS는 기존 앱과 공유합니다. 각 페이지에 실제 `index.html`이
+있어 직접 접속과 새로고침에 서버의 경로 재작성 기능이 필요하지 않습니다.
+사진과 Geist 글꼴도 사이트에 포함됩니다. 영상 산출물(`outputs/`)은 배포에 포함하지 않습니다.
+
 ## 한국어 / English
 
 `/`는 한국어, `/en`은 영어로 시작합니다. 상단의 한국어 / EN 링크는 현재 장면, 재생 위치와 속도를 유지한 채 설명을 전환합니다. 언어별 설명은 `data/en/`에 있으며, 날짜·출처 URL·인물·동작은 원본 데이터를 공유합니다.

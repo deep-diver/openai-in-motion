@@ -17,4 +17,10 @@ export type Portrait = {
     imageHeight: number;
   };
 };
-export const portraits = data as Partial<Record<PersonId, Portrait>>;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+export const portraits = Object.fromEntries(
+  Object.entries(data).map(([id, portrait]) => [
+    id,
+    { ...portrait, src: `${basePath}${portrait.src}` },
+  ]),
+) as Partial<Record<PersonId, Portrait>>;

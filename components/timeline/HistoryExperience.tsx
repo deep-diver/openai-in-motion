@@ -11,6 +11,7 @@ import {
 import gsap from 'gsap';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { sitePath } from '@/lib/sitePath';
 import {
   ArrowLeft,
   ArrowRight,
@@ -229,7 +230,7 @@ function Home({
             {(['ko', 'en'] as const).map((language) => (
               <a
                 key={language}
-                href={language === 'en' ? '/en' : '/'}
+                href={sitePath(language === 'en' ? '/en/' : '/')}
                 hrefLang={language}
                 lang={language}
                 aria-current={locale === language ? 'true' : undefined}
@@ -248,7 +249,7 @@ function Home({
                   window.history.replaceState(
                     window.history.state,
                     '',
-                    `${language === 'en' ? '/en' : '/'}${window.location.search}${window.location.hash}`,
+                    `${sitePath(language === 'en' ? '/en/' : '/')}${window.location.search}${window.location.hash}`,
                   );
                 }}
               >

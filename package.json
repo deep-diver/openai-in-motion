@@ -12,7 +12,8 @@
     "lint": "oxlint",
     "format": "oxfmt",
     "test": "tsx --test tests/*.test.tsx",
-    "lint:app": "oxlint app components/timeline tests"
+    "lint:app": "oxlint app components/timeline tests",
+    "build:pages": "node scripts/build-pages.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
