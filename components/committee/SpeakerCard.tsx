@@ -10,6 +10,9 @@ export default function SpeakerCard({ speaker }: { speaker: SceneSpeaker }) {
           <span className="committee-face">
             <img
               src={photo.src}
+              width={photo.width}
+              height={photo.height}
+              decoding="async"
               alt={PEOPLE[speaker.person].name}
               style={{
                 objectPosition: photo.objectPosition,

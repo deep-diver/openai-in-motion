@@ -316,6 +316,9 @@ function CommitteeFilm({
               {divisionPhoto && (
                 <img
                   src={divisionPhoto.src}
+                  width={divisionPhoto.width}
+                  height={divisionPhoto.height}
+                  decoding="async"
                   alt={`${divisionInfo.chair} 프로필`}
                   style={{ objectPosition: divisionPhoto.objectPosition }}
                 />

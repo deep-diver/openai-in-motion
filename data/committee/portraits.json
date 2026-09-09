@@ -5,7 +5,10 @@
     "credit": "국가인공지능전략위원회",
     "rights": "Committee website footer states all rights reserved; no asset-specific reuse license found.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/lee.png"
+    "src": "/committee/portraits/optimized/lee.03994d6da581.webp",
+    "originalSrc": "/committee/portraits/lee.png",
+    "width": 238,
+    "height": 303
   },
   "ha": {
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
@@ -13,7 +16,10 @@
     "credit": "국가인공지능전략위원회",
     "rights": "Committee website footer states all rights reserved; no asset-specific reuse license found.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/ha.png"
+    "src": "/committee/portraits/optimized/ha.5499216f03fb.webp",
+    "originalSrc": "/committee/portraits/ha.png",
+    "width": 256,
+    "height": 320
   },
   "bae": {
     "sourceUrl": "https://www.msit.go.kr/user/mnstrSchdl/mnstr.do?mId=257&mPid=256&sCode=user",
@@ -21,7 +27,10 @@
     "credit": "과학기술정보통신부",
     "rights": "Official source. No asset-specific reuse license verified.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/bae.png"
+    "src": "/committee/portraits/optimized/bae.e42edef02a46.webp",
+    "originalSrc": "/committee/portraits/bae.png",
+    "width": 273,
+    "height": 320
   },
   "cha": {
     "sourceUrl": "https://www.ne.go.kr/new/user/contents/BD_selectContents.do?q_userMenuEngNm=010204",
@@ -29,7 +38,10 @@
     "credit": "국가교육위원회",
     "rights": "Official source. No asset-specific reuse license verified.",
     "objectPosition": "50% 0%",
-    "src": "/committee/portraits/cha.png"
+    "src": "/committee/portraits/optimized/cha.e3f042aebf9d.webp",
+    "originalSrc": "/committee/portraits/cha.png",
+    "width": 256,
+    "height": 320
   },
   "bengio": {
     "sourceUrl": "https://mila.quebec/en/directory/yoshua-bengio",
@@ -37,7 +49,10 @@
     "credit": "Mila",
     "rights": "Mila official academic profile portrait; no asset-specific reuse license found.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/bengio.webp"
+    "src": "/committee/portraits/optimized/bengio.cdd2cb3148f8.webp",
+    "originalSrc": "/committee/portraits/bengio.webp",
+    "width": 256,
+    "height": 320
   },
   "lim": {
     "sourceUrl": "https://www.korea.kr/news/policyNewsView.do?newsId=148945170",
@@ -45,7 +60,10 @@
     "credit": "대한민국 정책브리핑 / 임문영 미래전환 대표",
     "rights": "Policy Briefing page permits text under KOGL Type 1 but explicitly excludes most photographs; image reuse permission not established.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/lim.jpg"
+    "src": "/committee/portraits/optimized/lim.138a79c7ae52.webp",
+    "originalSrc": "/committee/portraits/lim.jpg",
+    "width": 170,
+    "height": 219
   },
   "kim": {
     "sourceUrl": "https://www.motir.go.kr/kor/contents/70",
@@ -53,78 +71,108 @@
     "credit": "산업통상부",
     "rights": "Official source. No asset-specific reuse license verified.",
     "objectPosition": "50% 30%",
-    "src": "/committee/portraits/kim.png"
+    "src": "/committee/portraits/optimized/kim.d8309c1a3b92.webp",
+    "originalSrc": "/committee/portraits/kim.png",
+    "width": 114,
+    "height": 136
   },
   "shin": {
-    "src": "/committee/portraits/shin.png",
+    "src": "/committee/portraits/optimized/shin.bde2867e963e.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-015.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/shin.png",
+    "width": 120,
+    "height": 153
   },
   "jo": {
-    "src": "/committee/portraits/jo.png",
+    "src": "/committee/portraits/optimized/jo.0759d30e177f.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-033.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/jo.png",
+    "width": 120,
+    "height": 153
   },
   "park": {
-    "src": "/committee/portraits/park.png",
+    "src": "/committee/portraits/optimized/park.417ff96ebb23.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-008.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/park.png",
+    "width": 120,
+    "height": 153
   },
   "baek": {
-    "src": "/committee/portraits/baek.png",
+    "src": "/committee/portraits/optimized/baek.19dd9cfef91e.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-010.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/baek.png",
+    "width": 120,
+    "height": 153
   },
   "yoo": {
-    "src": "/committee/portraits/yoo.png",
+    "src": "/committee/portraits/optimized/yoo.dd0b98df298e.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-018.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/yoo.png",
+    "width": 120,
+    "height": 153
   },
   "oh": {
-    "src": "/committee/portraits/oh.png",
+    "src": "/committee/portraits/optimized/oh.b709b277d530.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-017.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/oh.png",
+    "width": 120,
+    "height": 153
   },
   "seok": {
-    "src": "/committee/portraits/seok.png",
+    "src": "/committee/portraits/optimized/seok.1a2251b58888.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-013.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/seok.png",
+    "width": 120,
+    "height": 153
   },
   "sim": {
-    "src": "/committee/portraits/sim.png",
+    "src": "/committee/portraits/optimized/sim.1bd50c78aad3.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-016.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/sim.png",
+    "width": 120,
+    "height": 153
   },
   "minseok": {
-    "src": "/committee/portraits/minseok.png",
+    "src": "/committee/portraits/optimized/minseok.88209f78272e.webp",
     "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
     "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-profile-025.png",
     "credit": "국가인공지능전략위원회 공식 프로필",
     "rights": "Official committee profile image; no reuse license verified. Website states copyright and all rights reserved.",
-    "objectPosition": "50% 30%"
+    "objectPosition": "50% 30%",
+    "originalSrc": "/committee/portraits/minseok.png",
+    "width": 120,
+    "height": 153
   }
 }

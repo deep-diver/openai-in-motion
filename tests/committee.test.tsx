@@ -232,3 +232,27 @@ void test('large stage actions progress then hold while two speakers take turns'
   assert.equal(activityTime(20), activityTime(24));
   assert.equal(activityTime(24), 18);
 });
+
+void test('all displayed committee portraits are small bundled WebP assets with versioned URLs', () => {
+  let total = 0;
+  for (const [person, photo] of Object.entries(portraits)) {
+    assert.match(
+      photo.src,
+      new RegExp(
+        `^/committee/portraits/optimized/${person}\\.[a-f0-9]{12}\\.webp$`,
+      ),
+    );
+    const bytes = readFileSync(
+      new URL('../public' + photo.src, import.meta.url),
+    );
+    assert.equal(bytes.toString('ascii', 0, 4), 'RIFF');
+    assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
+    assert.ok(photo.width <= 320 && photo.height <= 320);
+    total += bytes.length;
+    assert.ok(
+      readFileSync(new URL('../public' + photo.originalSrc, import.meta.url))
+        .length > 0,
+    );
+  }
+  assert.ok(total < 100_000, `portrait download budget: ${total} bytes`);
+});
