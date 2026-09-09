@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Group, OrthographicCamera, Vector3 } from 'three';
+import { Group, OrthographicCamera, PCFShadowMap, Vector3 } from 'three';
 import { layerPose, entryPose } from './motion';
 import {
   Box,
@@ -811,7 +811,7 @@ export default function CommitteeStage(props: {
         onCreated={props.onReady}
         orthographic
         camera={{ position: [11, 11.8, 11], zoom: 60, near: 0.1, far: 100 }}
-        shadows
+        shadows={{ type: PCFShadowMap }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true }}
       >
