@@ -608,11 +608,11 @@ function CommitteeFilm({
         <div className="committee-rail" ref={rail}>
           <div
             className="committee-track-grid"
-            style={{ width: scenes.length * 132 }}
+            style={{ width: scenes.length * 156 }}
           >
             <div
               className="committee-playhead"
-              style={{ left: (index + progress) * 132 }}
+              style={{ left: (index + progress) * 156 }}
             />
             {(Object.keys(AXES) as Axis[]).map((a) => (
               <div className="committee-track" key={a}>
