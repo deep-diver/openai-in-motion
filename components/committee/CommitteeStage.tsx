@@ -943,17 +943,6 @@ function World({
           />
         )),
       )}
-      <Label
-        text="K O R E A   /   Y E A R  O N E"
-        p={[0, -0.24, 2.815]}
-        w={3.6}
-        h={0.24}
-        color={INK}
-      />
-      {/* A persistent policy folio is the visual link through all of the changing sets. */}
-      <group position={[0, 0.055, 2.32]} scale={0.62}>
-        <Paper text="2025 → 2026" />
-      </group>
       {previous && (
         <Layer
           key={`previous-${previous.id}`}

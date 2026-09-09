@@ -27,7 +27,6 @@ const labels: Record<string, string> = {
   PLAN: '계획',
   STRUCTURED: '구조화',
   'YEAR ONE': '첫 1년',
-  'K O R E A   /   Y E A R  O N E': '국가AI전략위원회',
   OPEN: '개방',
   REVIEW: '검토',
   RESTRICTED: '보호',
