@@ -1,5 +1,6 @@
 'use client';
 /* eslint-disable react/react-compiler -- R3F scene objects are deliberately mutated by the animation clock. */
+import Label from './StageLabel';
 import {
   Component,
   useLayoutEffect,
@@ -9,18 +10,18 @@ import {
 } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group, OrthographicCamera, PCFShadowMap, Vector3 } from 'three';
-import { layerPose, entryPose } from './motion';
+import { layerPose, entryPose, activityTime, speakingGesture } from './motion';
 import DivisionSets from './DivisionSets';
 import { divisionSequence } from './divisionMotion';
+import { stageDesign } from './sceneDesign';
 import {
   Box,
   Cylinder,
   Ball,
   Ring,
-  Label,
   type Vec3,
 } from '@/components/timeline/primitives';
-import type { Scene } from '@/data/committee/types';
+import { AXES, PEOPLE, type Scene } from '@/data/committee/types';
 export type Clock = { time: number; previousTime: number; reduced: boolean };
 export type Projection = RefObject<{
   object: HTMLDivElement | null;
@@ -44,12 +45,43 @@ function Camera() {
   }, [camera, size]);
   return null;
 }
-function Person({ p, color = INK }: { p: Vec3; color?: string }) {
+function Person({
+  p,
+  color = INK,
+  name,
+  slot,
+}: {
+  p: Vec3;
+  color?: string;
+  name: string;
+  slot: string;
+}) {
   return (
-    <group position={p} name="person">
+    <group position={p}>
+      <Cylinder p={[0, 0.005, 0]} r={0.33} h={0.045} c={color} />
+      <group name={slot} position={[0, 0.86, 0]} />
+      <group name="person-head" position={[0, 0.79, 0]}>
+        <Ball r={0.19} c="#e5b99a" />
+        <Box p={[0, 0.14, -0.02]} s={[0.32, 0.12, 0.26]} c="#30363b" />
+      </group>
+      <Label text={name} p={[0, 0.12, 0.36]} w={0.72} h={0.19} color={INK} />
+      {[-1, 1].map((side) => (
+        <group
+          key={side}
+          position={[side * 0.19, 0.55, 0]}
+          name={side === 1 ? `person-hand-${slot}` : 'person-rest'}
+        >
+          <Box p={[0, -0.12, 0]} s={[0.11, 0.28, 0.13]} c={color} />
+          <Ball p={[0, -0.29, 0]} r={0.065} c="#e5b99a" />
+        </group>
+      ))}
+      <Box
+        p={[0, 0.55, 0.14]}
+        s={[0.14, 0.14, 0.045]}
+        c={PAPER}
+        rotation={[0, 0, Math.PI / 4]}
+      />
       <Cylinder p={[0, 0.37, 0]} r={0.16} h={0.46} c={color} />
-      <Ball p={[0, 0.79, 0]} r={0.19} c="#e5b99a" />
-      <Box p={[0, 0.93, -0.02]} s={[0.32, 0.12, 0.26]} c="#30363b" />
       <Box p={[0, 0.44, 0.157]} s={[0.038, 0.22, 0.03]} c={BLUE} />
       {[-0.09, 0.09].map((x) => (
         <Box key={x} p={[x, 0.08, 0]} s={[0.11, 0.22, 0.14]} c={INK} />
@@ -71,6 +103,8 @@ function Screen({
   return (
     <group position={p}>
       <Box p={[0, 0.92, 0]} s={[w, 0.98, 0.16]} c={INK} />
+      <Box p={[0, 0.92, -0.1]} s={[w * 0.65, 0.5, 0.07]} c="#3d5367" />
+      <Ball p={[w / 2 - 0.13, 0.48, 0.1]} r={0.025} c={MINT} glow />
       <Box p={[0, 0.92, 0.092]} s={[w - 0.13, 0.82, 0.025]} c={color} />
       <Label
         text={text}
@@ -89,6 +123,10 @@ function Rack({ p = [0, 0, 0], color = BLUE }: { p?: Vec3; color?: string }) {
   return (
     <group position={p}>
       <Box p={[0, 0.78, 0]} s={[0.66, 1.5, 0.6]} c={INK} />
+      <Box p={[0, 0.025, 0]} s={[0.78, 0.07, 0.7]} c="#637c91" />
+      {[-0.15, 0, 0.15].map((x) => (
+        <Box key={x} p={[x, 1.54, 0]} s={[0.045, 0.018, 0.4]} c="#8299a8" />
+      ))}
       {[0, 1, 2, 3, 4].map((i) => (
         <group key={i}>
           <Box
@@ -97,6 +135,11 @@ function Rack({ p = [0, 0, 0], color = BLUE }: { p?: Vec3; color?: string }) {
             c="#425973"
           />
           <Ball p={[-0.19, 0.27 + i * 0.23, 0.35]} r={0.026} c={color} glow />
+          <Box
+            p={[0.07, 0.27 + i * 0.23, 0.334]}
+            s={[0.22, 0.025, 0.012]}
+            c="#91a5b4"
+          />
         </group>
       ))}
     </group>
@@ -111,7 +154,9 @@ function Paper({
 }) {
   return (
     <group position={p}>
+      <Box p={[0, -0.038, 0]} s={[1.46, 0.08, 1.86]} c="#577c96" />
       <Box s={[1.4, 0.09, 1.8]} c={PAPER} />
+      <Box p={[-0.55, 0.052, 0]} s={[0.018, 0.012, 1.7]} c={GOLD} />
       <Label
         text={text}
         p={[0, 0.052, 0]}
@@ -632,11 +677,13 @@ function Layer({
         ? clock.current.previousTime
         : clock.current.time;
     const p = t / 24;
+    const action = activityTime(t);
     const sequence = divisionSequence(p);
     const pose = layerPose(clock.current.time, previous, clock.current.reduced);
     root.current.visible = pose.visible;
     root.current.position.y = pose.y;
     // Only changing sets leave the stage. Story endings retain their complete composition.
+    let entryIndex = 0;
     for (let i = 0; i < items.current.length; i++) {
       const o = items.current[i],
         n = o.name;
@@ -667,7 +714,7 @@ function Layer({
         );
       }
       if (n.startsWith('resource-')) {
-        const a = t * 0.6 + (Number(n.split('-')[1]) * Math.PI) / 2;
+        const a = action * 0.6 + (Number(n.split('-')[1]) * Math.PI) / 2;
         o.position.set(Math.cos(a) * 1.6, 0.25, 0.35 + Math.sin(a) * 1.1);
       }
       if (n === 'rights-book') o.rotation.y = Math.sin(t * 0.4) * 0.08;
@@ -675,18 +722,26 @@ function Layer({
       if (n === 'structured-document')
         o.position.y = (1 - sequence.structured) * -1.3;
       if (n === 'entry') {
-        const e = entryPose(t, i, clock.current.reduced);
+        const e = entryPose(t, entryIndex++, clock.current.reduced);
         o.scale.setScalar(e.scale);
         o.position.y = e.y;
       }
-      if (n === 'person')
-        o.rotation.z = clock.current.reduced
-          ? 0
-          : Math.sin(t * 1.7 + i) * 0.025;
+      if (n.startsWith('person-hand-'))
+        o.rotation.x =
+          -0.18 -
+          speakingGesture(
+            p,
+            n.endsWith('secondary'),
+            !!scene.secondarySpeaker,
+          ) *
+            0.62;
+      if (n === 'person-head')
+        o.rotation.y = clock.current.reduced ? 0 : Math.sin(t * 0.6 + i) * 0.07;
+
       if (n === 'globe') o.rotation.y = t * 0.16;
-      if (n === 'robot') o.rotation.z = Math.sin(t * 0.8 + i) * 0.18;
+      if (n === 'robot') o.rotation.z = Math.sin(action * 0.8 + i) * 0.18;
       if (n === 'balance') o.rotation.z = Math.sin(t * 0.7) * 0.13 * (1 - p);
-      if (n === 'chip') o.position.y = Math.sin(t * 1.4) * 0.07;
+      if (n === 'chip') o.position.y = Math.sin(action * 1.4) * 0.07;
       if (n === 'document') o.position.x = Math.sin(p * Math.PI * 2) * 0.35;
       if (n === 'stamp')
         o.position.y =
@@ -695,18 +750,22 @@ function Layer({
       if (n === 'turbine') o.rotation.z = t * 0.6;
       if (n === 'backup') o.scale.setScalar(0.65 + Math.min(1, p * 2) * 0.35);
       if (n === 'warning') o.visible = p < 0.53;
-      if (n === 'scan') o.position.x = Math.sin(t * 0.55) * 2;
+      if (n === 'scan') o.position.x = Math.sin(action * 0.55) * 2;
       if (n === 'car') {
-        o.position.set(Math.sin(t * 0.38) * 1.55, 0, Math.cos(t * 0.38) * 0.75);
-        o.rotation.y = -t * 0.38;
+        o.position.set(
+          Math.sin(action * 0.38) * 1.55,
+          0,
+          Math.cos(action * 0.38) * 0.75,
+        );
+        o.rotation.y = -action * 0.38;
       }
       if (n.startsWith('flow')) {
         const k = Number(n.slice(4));
-        o.position.set(((t * 0.6 + k * 1.1) % 3.6) - 1.8, 0.2, 0.6);
+        o.position.set(((action * 0.6 + k * 1.1) % 3.6) - 1.8, 0.2, 0.6);
       }
       if (n.startsWith('parcel')) {
         const k = Number(n.slice(6));
-        o.position.x = ((t * 0.35 + k * 1.4) % 3.8) - 1.9;
+        o.position.x = ((action * 0.35 + k * 1.4) % 3.8) - 1.9;
       }
       if (n.startsWith('orbit')) {
         const k = Number(n.slice(5)),
@@ -721,8 +780,17 @@ function Layer({
     }
   });
   return (
-    <group ref={root}>
+    <group ref={root} name={previous ? 'previous-scene' : 'active-scene'}>
       <group name="entry">
+        {[-2.22, 2.22].map((x) => (
+          <Box
+            key={x}
+            p={[x, 1.08, -2.03]}
+            s={[0.08, 2.16, 0.09]}
+            c="#637c91"
+          />
+        ))}
+        <Box p={[0, 2.15, -2.03]} s={[4.96, 0.72, 0.15]} c="#5d7890" />
         <Box p={[0, 2.15, -2]} s={[4.8, 0.6, 0.13]} c={INK} />
         <Label
           text={scene.label}
@@ -732,33 +800,108 @@ function Layer({
           color={PAPER}
         />
       </group>
+      <group name="anchor-object" position={stageDesign[scene.set].anchor} />
+      {stageDesign[scene.set].floor === 'round' ? (
+        <Cylinder p={[0, 0.015, 0]} r={2.15} h={0.025} c="#d4e2e4" />
+      ) : (
+        <Box
+          p={[0, 0.015, 0]}
+          s={[4.35, 0.025, 3.45]}
+          c={stageDesign[scene.set].floor === 'grid' ? '#d5e3e9' : '#dde4df'}
+          r={0.08}
+        />
+      )}
+      {stageDesign[scene.set].floor === 'grid' &&
+        [-1, 0, 1].map((x) => (
+          <Box
+            key={x}
+            p={[x, 0.033, 0]}
+            s={[0.012, 0.004, 3.35]}
+            c="#bacdd8"
+            r={0}
+          />
+        ))}
       <Set scene={scene} />
-      <Person p={[-2.3, 0, 1.6]} color={BLUE} />
-      <Person p={[2.3, 0, 1.6]} color={INK} />
+      {scene.secondarySpeaker && (
+        <group name="entry">
+          <Person
+            p={[-2.3, 0.04, 1.6]}
+            color={BLUE}
+            name={PEOPLE[scene.secondarySpeaker.person].name}
+            slot="anchor-secondary"
+          />
+        </group>
+      )}
+      <group name="entry">
+        <Person
+          p={[2.3, 0.04, 1.6]}
+          color={INK}
+          name={PEOPLE[scene.speaker.person].name}
+          slot="anchor-primary"
+        />
+      </group>
     </group>
   );
 }
-function ProjectionBridge({ projection }: { projection: Projection }) {
-  const { camera, size } = useThree();
+function ProjectionBridge({
+  projection,
+  dual,
+}: {
+  projection: Projection;
+  dual: boolean;
+}) {
+  const { camera, size, scene } = useThree();
   const point = useRef(new Vector3());
+  const cardEdges = useRef({ object: { x: 0, y: 0 }, speaker: { x: 0, y: 0 } });
+  useLayoutEffect(() => {
+    const measure = () => {
+      for (const key of ['object', 'speaker'] as const) {
+        const box = projection.current[key];
+        if (!box?.parentElement) continue;
+        const stage = box.parentElement.getBoundingClientRect();
+        const card = box.getBoundingClientRect();
+        cardEdges.current[key] = {
+          x: (key === 'object' ? card.right : card.left) - stage.left,
+          y: card.top - stage.top + Math.min(card.height / 2, 48),
+        };
+      }
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    for (const key of ['object', 'speaker'] as const) {
+      const box = projection.current[key];
+      if (box) {
+        observer.observe(box);
+        if (box.parentElement) observer.observe(box.parentElement);
+      }
+    }
+    return () => observer.disconnect();
+  }, [projection, dual, size.width, size.height]);
   useFrame(() => {
-    for (const [key, position] of [
-      ['object', [0, 1.15, 0]],
-      ['speaker', [2.3, 0.8, 1.6]],
-    ] as const) {
-      const box = projection.current[key],
-        path =
-          projection.current[key === 'object' ? 'objectLine' : 'speakerLine'];
-      if (!box || !path) continue;
-      point.current.set(position[0], position[1], position[2]).project(camera);
-      const x = ((point.current.x + 1) / 2) * size.width,
-        y = ((1 - point.current.y) / 2) * size.height;
-      const bx =
-          key === 'object' ? box.offsetLeft + box.offsetWidth : box.offsetLeft,
-        by = box.offsetTop + box.offsetHeight / 2;
+    const layer = scene.getObjectByName('active-scene');
+    if (!layer) return;
+    for (const key of ['object', 'speaker'] as const) {
+      const box = projection.current[key];
+      const path =
+        projection.current[key === 'object' ? 'objectLine' : 'speakerLine'];
+      const anchor = layer.getObjectByName(
+        key === 'speaker'
+          ? 'anchor-primary'
+          : dual
+            ? 'anchor-secondary'
+            : 'anchor-object',
+      );
+      if (!box || !path || !anchor) continue;
+      anchor.getWorldPosition(point.current).project(camera);
+      const x = ((point.current.x + 1) * size.width) / 2;
+      const y = ((1 - point.current.y) * size.height) / 2;
+      const { x: bx, y: by } = cardEdges.current[key];
+      const visible =
+        layer.visible && y > 0 && y < size.height && x > 0 && x < size.width;
+      path.style.opacity = visible ? '1' : '0';
       path.setAttribute(
         'd',
-        `M ${x} ${y} L ${(x + bx) / 2} ${by} L ${bx} ${by}`,
+        `M ${x} ${y} L ${x + (bx - x) * 0.45} ${by} L ${bx} ${by} M ${x - 2.5} ${y} a 2.5 2.5 0 1 0 5 0 a 2.5 2.5 0 1 0 -5 0`,
       );
     }
   });
@@ -778,22 +921,42 @@ function World({
   return (
     <>
       <Camera />
-      <ambientLight intensity={1.4} />
+      <ambientLight intensity={0.85} />
+      <hemisphereLight args={['#d8edff', '#6b777c', 0.8]} />
       <directionalLight
         position={[3, 8, 5]}
-        intensity={3}
+        intensity={2.5}
+        color="#fff0dc"
         castShadow
+        shadow-bias={-0.0003}
+        shadow-normalBias={0.035}
         shadow-mapSize={[1024, 1024]}
       />
-      <directionalLight position={[-4, 4, -4]} intensity={2} color="#9ed8ff" />
-      <Box p={[0, -0.28, 0]} s={[6.6, 0.5, 5.6]} c="#bccbda" r={0.13} />
+      <directionalLight
+        position={[-4, 4, -4]}
+        intensity={1.6}
+        color="#a6dcff"
+      />
+      <directionalLight
+        position={[5, 2, -4]}
+        intensity={0.7}
+        color={AXES[scene.axis].color}
+      />
+      <Box p={[0, -0.46, 0]} s={[6.72, 0.14, 5.72]} c="#203b50" r={0.13} />
+      <Box p={[0, -0.28, 0]} s={[6.6, 0.38, 5.6]} c="#acc2d2" r={0.13} />
+      <Box
+        p={[0, -0.075, 0]}
+        s={[6.61, 0.035, 5.61]}
+        c={AXES[scene.axis].color}
+        r={0.07}
+      />
       <Box p={[0, -0.025, 0]} s={[6.54, 0.1, 5.54]} c="#ecf0ec" />
       {[-2, -1, 0, 1, 2].map((x) => (
         <Box
           key={x}
           p={[x, 0.03, 0]}
-          s={[0.009, 0.006, 5.3]}
-          c="#c8d5db"
+          s={[0.006, 0.004, 5.3]}
+          c="#d4e0e2"
           r={0}
         />
       ))}
@@ -805,7 +968,9 @@ function World({
         color={INK}
       />
       {/* A persistent policy folio is the visual link through all of the changing sets. */}
-      <Paper p={[0, 0.05, 2.4]} text="2025 → 2026" />
+      <group position={[0, 0.055, 2.32]} scale={0.62}>
+        <Paper text="2025 → 2026" />
+      </group>
       {previous && (
         <Layer
           key={`previous-${previous.id}`}
@@ -815,7 +980,10 @@ function World({
         />
       )}
       <Layer key={scene.id} scene={scene} clock={clock} />
-      <ProjectionBridge projection={projection} />
+      <ProjectionBridge
+        projection={projection}
+        dual={!!scene.secondarySpeaker}
+      />
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -0.55, 0]}

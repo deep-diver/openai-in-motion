@@ -1,10 +1,10 @@
 'use client';
+import Label from './StageLabel';
 import {
   Box,
   Cylinder,
   Ball,
   Ring,
-  Label,
   type Vec3,
 } from '@/components/timeline/primitives';
 import type { Scene } from '@/data/committee/types';
@@ -48,6 +48,8 @@ function Monitor({
   return (
     <group position={p}>
       <Box p={[0, 0.8, 0]} s={[1.05, 0.78, 0.16]} c={INK} />
+      <Box p={[0, 0.8, -0.095]} s={[0.65, 0.42, 0.06]} c="#526c80" />
+      <Ball p={[0.4, 0.47, 0.105]} r={0.022} c={MINT} glow />
       <Box p={[0, 0.8, 0.09]} s={[0.92, 0.65, 0.03]} c={color} />
       <Label text={text} p={[0, 0.8, 0.12]} w={0.86} h={0.36} color={INK} />
       <Cylinder p={[0, 0.3, 0]} r={0.07} h={0.6} c={INK} />

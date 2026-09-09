@@ -1,4 +1,10 @@
 import assert from 'node:assert/strict';
+import { sceneCast, stageDesign } from '../components/committee/sceneDesign';
+import {
+  captionWeight,
+  activityTime,
+  speakingGesture,
+} from '../components/committee/motion';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { scenes } from '../data/committee/scenes';
@@ -157,4 +163,72 @@ void test('division scenes tell progressive stories and hold their results throu
   assert.equal(last.structured, 1);
   assert.equal(divisionSequence(0.9).structured, last.structured);
   assert.equal(divisionSequence(0.9).newDivisions, last.newDivisions);
+});
+
+void test('every foreground participant has an independent portrait and visible activity evidence', () => {
+  const dual = scenes.filter((s) => s.secondarySpeaker);
+  assert.equal(dual.length, 7);
+  for (const scene of scenes) {
+    const cast = sceneCast(scene);
+    assert.ok(cast.length >= 1 && cast.length <= 2);
+    assert.equal(
+      new Set(cast.map((person) => person.person)).size,
+      cast.length,
+    );
+    for (const person of cast) {
+      assert.ok(
+        scene.sources.includes(person.source),
+        `${scene.id}: ${person.person} evidence`,
+      );
+      const portrait = portraits[person.person as keyof typeof portraits];
+      assert.ok(portrait?.src && portrait.sourceUrl, scene.id);
+      assert.ok(
+        readFileSync(new URL('../public' + portrait.src, import.meta.url))
+          .length > 1000,
+      );
+      assert.ok(person.text && person.role);
+    }
+    assert.ok(
+      stageDesign[scene.set],
+      `${scene.id}: deliberate stage composition`,
+    );
+    assert.ok(stageDesign[scene.set].anchor.every(Number.isFinite));
+  }
+  assert.deepEqual(
+    sceneCast(scenes.find((s) => s.id === 'media-dialogue')!).map(
+      (s) => s.person,
+    ),
+    ['yoo', 'baek'],
+  );
+  assert.deepEqual(
+    sceneCast(scenes.find((s) => s.id === 'anniversary')!).map((s) => s.person),
+    ['ha', 'lim'],
+  );
+});
+void test('subtitle crossfades never blank or double the total text opacity', () => {
+  for (let i = 0; i <= 1000; i++) {
+    const weights = [0, 1, 2].map((index) => captionWeight(i / 1000, index));
+    assert.ok(weights.every((v) => v >= 0 && v <= 1));
+    assert.ok(Math.abs(weights.reduce((a, b) => a + b, 0) - 1) < 1e-10);
+  }
+  assert.ok(Math.abs(captionWeight(1 / 3, 0) - 0.5) < 1e-9);
+  assert.deepEqual(
+    [0, 1, 2].map((i) => captionWeight(1, i)),
+    [0, 0, 1],
+  );
+});
+void test('large stage actions progress then hold while two speakers take turns', () => {
+  let previous = 0;
+  for (let frame = 0; frame <= 1440; frame++) {
+    const seconds = frame / 60;
+    const current = activityTime(seconds);
+    assert.ok(current >= previous);
+    previous = current;
+    const primary = speakingGesture(seconds / 24, false, true);
+    const secondary = speakingGesture(seconds / 24, true, true);
+    assert.ok(primary < 1e-9 || secondary < 1e-9, 'gestures must take turns');
+  }
+  assert.equal(activityTime(0), 0);
+  assert.equal(activityTime(20), activityTime(24));
+  assert.equal(activityTime(24), 18);
 });

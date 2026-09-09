@@ -34,10 +34,15 @@
       "mode": "정책 설명",
       "source": "launch"
     },
-    "sources": [
-      "launch"
-    ],
-    "metric": "8"
+    "sources": ["launch"],
+    "metric": "8",
+    "secondarySpeaker": {
+      "person": "lim",
+      "role": "초대 상근부위원장",
+      "text": "8개 분과의 논의를 묶어 국가 AI 행동계획을 구체화하는 역할을 맡았다.",
+      "source": "launch",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "models",
@@ -74,9 +79,7 @@
       "mode": "발언 요지",
       "source": "models"
     },
-    "sources": [
-      "models"
-    ],
+    "sources": ["models"],
     "metric": "5"
   },
   {
@@ -114,11 +117,15 @@
       "mode": "정책 설명",
       "source": "week-news"
     },
-    "sources": [
-      "week",
-      "week-news"
-    ],
-    "metric": "MILA"
+    "sources": ["week", "week-news"],
+    "metric": "MILA",
+    "secondarySpeaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "벤지오와 만나 AI 협력 방향을 논의했다.",
+      "source": "week-news",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "caio",
@@ -155,9 +162,7 @@
       "mode": "발언 요지",
       "source": "caio"
     },
-    "sources": [
-      "caio"
-    ],
+    "sources": ["caio"],
     "metric": "48"
   },
   {
@@ -194,9 +199,7 @@
       "source": "taskforces",
       "mode": "정책 설명"
     },
-    "sources": [
-      "taskforces"
-    ]
+    "sources": ["taskforces"]
   },
   {
     "id": "fire-response",
@@ -232,10 +235,7 @@
       "mode": "정책 설명",
       "source": "plenary"
     },
-    "sources": [
-      "plenary",
-      "resilience"
-    ]
+    "sources": ["plenary", "resilience"]
   },
   {
     "id": "workshop",
@@ -272,9 +272,7 @@
       "mode": "정책 설명",
       "source": "workshop"
     },
-    "sources": [
-      "workshop"
-    ],
+    "sources": ["workshop"],
     "metric": "DRAFT",
     "endDate": "2025-10-24"
   },
@@ -313,9 +311,7 @@
       "mode": "정책 설명",
       "source": "gpu"
     },
-    "sources": [
-      "gpu"
-    ],
+    "sources": ["gpu"],
     "metric": "GPU"
   },
   {
@@ -352,10 +348,7 @@
       "source": "science-forum",
       "mode": "정책 설명"
     },
-    "sources": [
-      "science-forum",
-      "science-forum-report"
-    ]
+    "sources": ["science-forum", "science-forum-report"]
   },
   {
     "id": "amazon-meeting",
@@ -391,9 +384,14 @@
       "source": "amazon",
       "mode": "정책 설명"
     },
-    "sources": [
-      "amazon"
-    ]
+    "sources": ["amazon"],
+    "secondarySpeaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "박태웅 분과장과 함께 국내 AI 기반시설 투자와 협력을 논의했다.",
+      "source": "amazon",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "draft",
@@ -430,9 +428,7 @@
       "mode": "발언 요지",
       "source": "draft"
     },
-    "sources": [
-      "draft"
-    ],
+    "sources": ["draft"],
     "metric": "98"
   },
   {
@@ -470,9 +466,7 @@
       "mode": "발언 요지",
       "source": "allocation"
     },
-    "sources": [
-      "allocation"
-    ],
+    "sources": ["allocation"],
     "metric": "10K"
   },
   {
@@ -510,9 +504,7 @@
       "mode": "정책 설명",
       "source": "enterprise"
     },
-    "sources": [
-      "enterprise"
-    ]
+    "sources": ["enterprise"]
   },
   {
     "id": "consultation",
@@ -549,10 +541,7 @@
       "mode": "정책 설명",
       "source": "consult"
     },
-    "sources": [
-      "consult",
-      "action"
-    ],
+    "sources": ["consult", "action"],
     "metric": "330"
   },
   {
@@ -589,9 +578,7 @@
       "source": "civil-society",
       "mode": "발언 요지"
     },
-    "sources": [
-      "civil-society"
-    ]
+    "sources": ["civil-society"]
   },
   {
     "id": "copyright",
@@ -628,9 +615,7 @@
       "mode": "정책 설명",
       "source": "copyright"
     },
-    "sources": [
-      "copyright"
-    ]
+    "sources": ["copyright"]
   },
   {
     "id": "media-dialogue",
@@ -666,9 +651,14 @@
       "source": "broadcasters",
       "mode": "정책 설명"
     },
-    "sources": [
-      "broadcasters"
-    ]
+    "sources": ["broadcasters"],
+    "secondarySpeaker": {
+      "person": "yoo",
+      "role": "사회 분과장",
+      "text": "백은옥 분과장과 함께 방송계의 AI 활용과 협력 과제를 논의했다.",
+      "source": "broadcasters",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "legal-framework",
@@ -704,9 +694,7 @@
       "mode": "정책 설명",
       "source": "plenary"
     },
-    "sources": [
-      "plenary"
-    ],
+    "sources": ["plenary"],
     "metric": "ACT"
   },
   {
@@ -744,9 +732,7 @@
       "mode": "정책 설명",
       "source": "education"
     },
-    "sources": [
-      "education"
-    ]
+    "sources": ["education"]
   },
   {
     "id": "uae",
@@ -783,9 +769,7 @@
       "mode": "정책 설명",
       "source": "uae"
     },
-    "sources": [
-      "uae"
-    ],
+    "sources": ["uae"],
     "metric": "UAE"
   },
   {
@@ -823,9 +807,7 @@
       "mode": "발언 요지",
       "source": "cabinet"
     },
-    "sources": [
-      "cabinet"
-    ],
+    "sources": ["cabinet"],
     "metric": "REPORT"
   },
   {
@@ -863,10 +845,7 @@
       "mode": "발언 요지",
       "source": "plenary"
     },
-    "sources": [
-      "action",
-      "plenary"
-    ],
+    "sources": ["action", "plenary"],
     "metric": "99 / 326"
   },
   {
@@ -904,9 +883,7 @@
       "mode": "정책 설명",
       "source": "resilience"
     },
-    "sources": [
-      "resilience"
-    ]
+    "sources": ["resilience"]
   },
   {
     "id": "moonshot",
@@ -943,9 +920,7 @@
       "mode": "정책 설명",
       "source": "moon"
     },
-    "sources": [
-      "moon"
-    ],
+    "sources": ["moon"],
     "metric": "12"
   },
   {
@@ -982,10 +957,7 @@
       "source": "plenary",
       "mode": "정책 설명"
     },
-    "sources": [
-      "plenary",
-      "resilience"
-    ]
+    "sources": ["plenary", "resilience"]
   },
   {
     "id": "defense-visit",
@@ -1021,9 +993,14 @@
       "source": "defense-field",
       "mode": "정책 설명"
     },
-    "sources": [
-      "defense-field"
-    ]
+    "sources": ["defense-field"],
+    "secondarySpeaker": {
+      "person": "lim",
+      "role": "상근부위원장",
+      "text": "심승배 분과장과 방산 현장을 찾아 국방 AI 전환의 제약을 살폈다.",
+      "source": "defense-field",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "labor",
@@ -1060,9 +1037,7 @@
       "mode": "정책 설명",
       "source": "labor"
     },
-    "sources": [
-      "labor"
-    ],
+    "sources": ["labor"],
     "metric": "WORK"
   },
   {
@@ -1099,9 +1074,7 @@
       "source": "defense-interview",
       "mode": "발언 요지"
     },
-    "sources": [
-      "defense-interview"
-    ]
+    "sources": ["defense-interview"]
   },
   {
     "id": "expanded-organisation",
@@ -1137,9 +1110,7 @@
       "source": "organisation",
       "mode": "발언 요지"
     },
-    "sources": [
-      "organisation"
-    ]
+    "sources": ["organisation"]
   },
   {
     "id": "daegu",
@@ -1176,9 +1147,7 @@
       "mode": "정책 설명",
       "source": "daegu"
     },
-    "sources": [
-      "daegu"
-    ]
+    "sources": ["daegu"]
   },
   {
     "id": "gwangju",
@@ -1215,9 +1184,7 @@
       "mode": "정책 설명",
       "source": "gwangju"
     },
-    "sources": [
-      "gwangju"
-    ]
+    "sources": ["gwangju"]
   },
   {
     "id": "physical",
@@ -1254,9 +1221,7 @@
       "source": "physical",
       "mode": "정책 설명"
     },
-    "sources": [
-      "physical"
-    ]
+    "sources": ["physical"]
   },
   {
     "id": "public-catalogue",
@@ -1292,9 +1257,7 @@
       "source": "public-critique",
       "mode": "발언 요지"
     },
-    "sources": [
-      "public-critique"
-    ]
+    "sources": ["public-critique"]
   },
   {
     "id": "interim",
@@ -1330,9 +1293,7 @@
       "mode": "발언 요지",
       "source": "interim"
     },
-    "sources": [
-      "interim"
-    ],
+    "sources": ["interim"],
     "metric": "CONTINUE"
   },
   {
@@ -1369,9 +1330,7 @@
       "mode": "발언 요지",
       "source": "interim"
     },
-    "sources": [
-      "interim"
-    ],
+    "sources": ["interim"],
     "metric": "REVIEW"
   },
   {
@@ -1408,9 +1367,7 @@
       "source": "humanoids",
       "mode": "정책 설명"
     },
-    "sources": [
-      "humanoids"
-    ]
+    "sources": ["humanoids"]
   },
   {
     "id": "university-forum",
@@ -1446,9 +1403,7 @@
       "source": "university-forum",
       "mode": "정책 설명"
     },
-    "sources": [
-      "university-forum"
-    ]
+    "sources": ["university-forum"]
   },
   {
     "id": "global-agenda",
@@ -1484,9 +1439,7 @@
       "source": "global-interview",
       "mode": "발언 요지"
     },
-    "sources": [
-      "global-interview"
-    ]
+    "sources": ["global-interview"]
   },
   {
     "id": "manufacturing",
@@ -1523,9 +1476,7 @@
       "mode": "발언 요지",
       "source": "manufacturing"
     },
-    "sources": [
-      "manufacturing"
-    ],
+    "sources": ["manufacturing"],
     "metric": "M.AX"
   },
   {
@@ -1563,9 +1514,7 @@
       "mode": "정책 설명",
       "source": "mobility"
     },
-    "sources": [
-      "mobility"
-    ]
+    "sources": ["mobility"]
   },
   {
     "id": "data-value",
@@ -1602,9 +1551,7 @@
       "source": "data",
       "mode": "정책 설명"
     },
-    "sources": [
-      "data"
-    ]
+    "sources": ["data"]
   },
   {
     "id": "aidc-supply-chain",
@@ -1640,9 +1587,7 @@
       "source": "aidc-supply",
       "mode": "발언 요지"
     },
-    "sources": [
-      "aidc-supply"
-    ]
+    "sources": ["aidc-supply"]
   },
   {
     "id": "compute-allocation",
@@ -1678,9 +1623,14 @@
       "source": "compute-seminar",
       "mode": "발언 요지"
     },
-    "sources": [
-      "compute-seminar"
-    ]
+    "sources": ["compute-seminar"],
+    "secondarySpeaker": {
+      "person": "park",
+      "role": "공공AX 분과장",
+      "text": "AI 시스템 효율화를 다룬 세미나에 기술혁신·인프라 분과와 함께 참여했다.",
+      "source": "compute-seminar",
+      "mode": "정책 설명"
+    }
   },
   {
     "id": "chips",
@@ -1717,9 +1667,7 @@
       "mode": "정책 설명",
       "source": "chips"
     },
-    "sources": [
-      "chips"
-    ],
+    "sources": ["chips"],
     "metric": "22"
   },
   {
@@ -1756,9 +1704,7 @@
       "source": "post-training",
       "mode": "발언 요지"
     },
-    "sources": [
-      "post-training"
-    ]
+    "sources": ["post-training"]
   },
   {
     "id": "ha-inauguration",
@@ -1795,9 +1741,7 @@
       "mode": "발언 요지",
       "source": "ha"
     },
-    "sources": [
-      "ha"
-    ],
+    "sources": ["ha"],
     "metric": "NEXT"
   },
   {
@@ -1835,9 +1779,7 @@
       "mode": "발언 요지",
       "source": "europe"
     },
-    "sources": [
-      "europe"
-    ],
+    "sources": ["europe"],
     "metric": "EUROPE"
   },
   {
@@ -1875,9 +1817,7 @@
       "mode": "정책 설명",
       "source": "cloud"
     },
-    "sources": [
-      "cloud"
-    ]
+    "sources": ["cloud"]
   },
   {
     "id": "global-review",
@@ -1913,9 +1853,7 @@
       "source": "division-year",
       "mode": "정책 설명"
     },
-    "sources": [
-      "division-year"
-    ]
+    "sources": ["division-year"]
   },
   {
     "id": "education-review",
@@ -1951,10 +1889,7 @@
       "source": "division-year",
       "mode": "정책 설명"
     },
-    "sources": [
-      "division-year",
-      "organisation"
-    ]
+    "sources": ["division-year", "organisation"]
   },
   {
     "id": "democracy-review",
@@ -1990,10 +1925,7 @@
       "source": "democracy-year",
       "mode": "정책 설명"
     },
-    "sources": [
-      "democracy-year",
-      "division-year"
-    ]
+    "sources": ["democracy-year", "division-year"]
   },
   {
     "id": "public-documents-review",
@@ -2029,10 +1961,7 @@
       "source": "document-year",
       "mode": "정책 설명"
     },
-    "sources": [
-      "document-year",
-      "division-year"
-    ]
+    "sources": ["document-year", "division-year"]
   },
   {
     "id": "anniversary",
@@ -2069,10 +1998,14 @@
       "mode": "직접 인용",
       "source": "reflection"
     },
-    "sources": [
-      "anniversary",
-      "reflection"
-    ],
-    "metric": "YEAR ONE"
+    "sources": ["anniversary", "reflection"],
+    "metric": "YEAR ONE",
+    "secondarySpeaker": {
+      "person": "ha",
+      "role": "상근부위원장",
+      "text": "민관 협력을 강화하고 현장의 제약을 해소하는 방향을 강조했다.",
+      "source": "anniversary",
+      "mode": "정책 설명"
+    }
   }
 ]

@@ -45,6 +45,9 @@ import portraits from '@/data/committee/portraits.json';
 import type { Clock, Projection } from './CommitteeStage';
 import { SCENE_DURATION as DURATION, navigationStart } from './motion';
 import './committee.css';
+import SpeakerCard from './SpeakerCard';
+import { sceneCast } from './sceneDesign';
+import { captionWeight } from './motion';
 const Stage = dynamic(() => import('./CommitteeStage'), {
   ssr: false,
   loading: () => (
@@ -111,6 +114,7 @@ function CommitteeFilm({
   const visible = usePageVisibility();
   const scene = scenes[index],
     axis = AXES[scene.axis];
+  const cast = sceneCast(scene);
   const photo = portraits[scene.speaker.person as keyof typeof portraits];
   const go = useCallback(
     (next: SetStateAction<number>) => {
@@ -378,6 +382,12 @@ function CommitteeFilm({
                 </span>
               ))}
           </div>
+          {scene.secondarySpeaker && (
+            <p className="committee-prop-note">
+              <strong>{scene.object.title}</strong>
+              {scene.object.text}
+            </p>
+          )}
           <div className="committee-beat">
             <span>장면 속 이야기</span>
             <div className="committee-caption-stack">
@@ -385,8 +395,8 @@ function CommitteeFilm({
                 <p
                   key={text}
                   style={{
-                    opacity: i === beat ? 1 : 0,
-                    transform: `translateY(${i === beat ? 0 : i < beat ? -8 : 8}px)`,
+                    opacity: captionWeight(displayProgress, i),
+                    transform: `translateY(${(1 - captionWeight(displayProgress, i)) * (i < beat ? -6 : 6)}px)`,
                   }}
                   aria-hidden={i !== beat}
                 >
@@ -403,7 +413,9 @@ function CommitteeFilm({
             <MoveUpRight size={17} />
           </button>
         </aside>
-        <div className="committee-stage">
+        <div
+          className={`committee-stage${scene.secondarySpeaker ? ' committee-stage-duo' : ''}`}
+        >
           <div className="committee-stage-meta">
             <span>한 무대, 이어지는 기록</span>
             <span>
@@ -430,14 +442,24 @@ function CommitteeFilm({
             />
           </svg>
           <div
-            className="committee-object"
+            className={
+              scene.secondarySpeaker
+                ? 'committee-speaker committee-speaker-secondary'
+                : 'committee-object'
+            }
             ref={(el) => {
               projection.current.object = el;
             }}
           >
-            <span className="committee-dot" />
-            <strong>{scene.object.title}</strong>
-            <p>{scene.object.text}</p>
+            {scene.secondarySpeaker ? (
+              <SpeakerCard speaker={cast[0]} />
+            ) : (
+              <>
+                <span className="committee-dot" />
+                <strong>{scene.object.title}</strong>
+                <p>{scene.object.text}</p>
+              </>
+            )}
           </div>
           <div
             className="committee-speaker"
@@ -445,40 +467,7 @@ function CommitteeFilm({
               projection.current.speaker = el;
             }}
           >
-            <div className="committee-identity">
-              {photo && (
-                <span className="committee-face">
-                  <img
-                    key={photo.src}
-                    src={photo.src}
-                    alt={PEOPLE[scene.speaker.person].name}
-                    style={{
-                      objectPosition: photo.objectPosition,
-                      ...(scene.speaker.person === 'cha'
-                        ? {
-                            transform: 'scale(1.5)',
-                            transformOrigin: '50% 20%',
-                          }
-                        : {}),
-                    }}
-                  />
-                </span>
-              )}
-              <div>
-                <strong>{PEOPLE[scene.speaker.person].name}</strong>
-                <span>{scene.speaker.role}</span>
-              </div>
-            </div>
-            <p>
-              {scene.speaker.mode === '직접 인용'
-                ? `“${scene.speaker.text}”`
-                : scene.speaker.text}
-            </p>
-            <small>
-              {scene.speaker.mode === '정책 설명'
-                ? '인물 관련 정책 설명 · 실제 대사 아님'
-                : scene.speaker.mode}
-            </small>
+            <SpeakerCard speaker={scene.speaker} />
           </div>
         </div>
       </section>
@@ -739,6 +728,30 @@ function CommitteeFilm({
                 무대는 사건을 이해하기 위한 재구성이며 실제 현장의 복제가
                 아닙니다.
               </p>
+              {scene.secondarySpeaker && (
+                <a
+                  className="committee-source"
+                  href={
+                    portraits[
+                      scene.secondarySpeaker.person as keyof typeof portraits
+                    ].sourceUrl
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>
+                    {PEOPLE[scene.secondarySpeaker.person].name} 사진 출처 ↗
+                  </strong>
+                  <span>
+                    {
+                      portraits[
+                        scene.secondarySpeaker.person as keyof typeof portraits
+                      ].credit
+                    }{' '}
+                    · 관련 활동 설명은 직접 인용이 아닙니다.
+                  </span>
+                </a>
+              )}
               {photo && (
                 <>
                   <a

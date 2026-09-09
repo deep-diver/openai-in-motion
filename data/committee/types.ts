@@ -49,6 +49,14 @@ export type PersonId =
   | 'seok'
   | 'sim'
   | 'minseok';
+export type SceneSpeaker = {
+  person: PersonId;
+  role: string;
+  text: string;
+  source: string;
+  mode: '직접 인용' | '발언 요지' | '정책 설명';
+};
+
 export type Scene = {
   id: string;
   date: string;
@@ -76,13 +84,8 @@ export type Scene = {
   object: { title: string; text: string };
   label: string;
   metric?: string;
-  speaker: {
-    person: PersonId;
-    role: string;
-    text: string;
-    source: string;
-    mode: '직접 인용' | '발언 요지' | '정책 설명';
-  };
+  speaker: SceneSpeaker;
+  secondarySpeaker?: SceneSpeaker;
   sources: string[];
 };
 export const AXES = {
