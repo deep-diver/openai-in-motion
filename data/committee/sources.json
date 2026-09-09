@@ -1,0 +1,233 @@
+{
+  "launch": {
+    "title": "국가인공지능전략위원회 출범",
+    "url": "https://epts.kdi.re.kr/archive/frwdHist/view2?EPIC_NUM=270794",
+    "publisher": "국가AI전략위원회지원단 · KDI 수록",
+    "published": "2025-09-08",
+    "kind": "공식 자료"
+  },
+  "week": {
+    "title": "출범 일주일 만에 체계 정비, 요슈아 벤지오 면담",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=271176",
+    "publisher": "과학기술정보통신부 · KDI 수록",
+    "published": "2025-09-16",
+    "kind": "공식 자료"
+  },
+  "week-news": {
+    "title": "8개 분과 구성 완료…민간·학계·법조계 85명 합류",
+    "url": "https://v.daum.net/v/20250916185024874",
+    "publisher": "아이뉴스24",
+    "published": "2025-09-16",
+    "kind": "언론 보도"
+  },
+  "models": {
+    "title": "국가대표 AI 개발 경쟁 시작",
+    "url": "https://www.newsis.com/view/NISX20250909_0003321294",
+    "publisher": "뉴시스",
+    "published": "2025-09-09",
+    "kind": "언론 보도"
+  },
+  "caio": {
+    "title": "국가 인공지능책임관(CAIO) 협의회 공식 출범",
+    "url": "https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02509206642301760",
+    "publisher": "이데일리",
+    "published": "2025-09-19",
+    "kind": "언론 보도"
+  },
+  "workshop": {
+    "title": "국가AI전략위 첫 워크숍…AI 액션플랜 중간점검",
+    "url": "https://www.etnews.com/20251024000106",
+    "publisher": "전자신문",
+    "published": "2025-10-24",
+    "kind": "언론 보도"
+  },
+  "gpu": {
+    "title": "APEC 계기 GPU 26만 장 우선 공급 협력",
+    "url": "https://admin.korea.kr/news/policyNewsView.do?newsId=148953845&pWise=mSub&pWiseSub=I1",
+    "publisher": "대한민국 정책브리핑",
+    "published": "2025-11-03",
+    "kind": "공식 자료"
+  },
+  "draft": {
+    "title": "AI 행동계획 초안 공개와 20일간 의견수렴",
+    "url": "https://www.yna.co.kr/view/AKR20251215071600017",
+    "publisher": "연합뉴스",
+    "published": "2025-12-15",
+    "kind": "언론 보도"
+  },
+  "allocation": {
+    "title": "정부 확보 GPU 1만 장, 산·학·연에 배분 계획",
+    "url": "https://m.korea.kr/news/policyNewsView.do?newsId=148956711",
+    "publisher": "대한민국 정책브리핑",
+    "published": "2025-12-18",
+    "kind": "공식 자료"
+  },
+  "enterprise": {
+    "title": "초거대 AI 기업 간담회, 산업 AX 의견수렴",
+    "url": "https://v.daum.net/v/20251223113804969",
+    "publisher": "이데일리",
+    "published": "2025-12-23",
+    "kind": "언론 보도"
+  },
+  "action": {
+    "title": "대한민국 AI 행동계획 개요",
+    "url": "https://www.mofat.go.kr/www/wpge/m_29685/contents.do",
+    "publisher": "외교부",
+    "published": "2026-02-25",
+    "kind": "공식 자료"
+  },
+  "consult": {
+    "title": "AI 행동계획 수립 경과와 국무회의 보고",
+    "url": "https://www.aegisjournal.kr/news/view.php?idx=1986&mcode=m322ycu",
+    "publisher": "아이기스저널",
+    "published": "2026-02",
+    "kind": "언론 보도"
+  },
+  "copyright": {
+    "title": "문화계 16개 단체, AI 액션플랜 저작권 조항 재검토 요구",
+    "url": "https://news.nate.com/view/20260113n17445",
+    "publisher": "뉴시스 · 네이트 수록",
+    "published": "2026-01-13",
+    "kind": "언론 보도"
+  },
+  "plenary": {
+    "title": "국가인공지능전략위원회 제2차 전체회의 개최",
+    "url": "https://www.msit.go.kr/bbs/view.do?bbsSeqNo=94&mId=307&mPid=208&nttSeqNo=3186940&sCode=user",
+    "publisher": "국가AI전략위원회 · 과학기술정보통신부",
+    "published": "2026-02-25",
+    "kind": "공식 자료"
+  },
+  "resilience": {
+    "title": "제2차 전체회의: AI정부 인프라 거버넌스·혁신 추진방향",
+    "url": "https://research.uos.ac.kr/node/8541",
+    "publisher": "국가AI전략위원회 보도자료 · 서울시립대 수록",
+    "published": "2026-02-25",
+    "kind": "공식 자료"
+  },
+  "education": {
+    "title": "AI 전환 시대 교육정책 협력 포럼 개최",
+    "url": "https://www.ne.go.kr/user/bbs/BD_selectBbs.do?q_bbsDocNo=20260205141246967&q_bbsSn=1004",
+    "publisher": "국가교육위원회",
+    "published": "2026-02-05",
+    "kind": "공식 자료"
+  },
+  "uae": {
+    "title": "한·UAE AI·디지털 미래 동맹 가속화",
+    "url": "https://itskorea.kr/downloadFile.do?fileId=FILE_000000000108100&fileSn=1",
+    "publisher": "국가AI전략위원회 · ITS Korea 수록",
+    "published": "2026-02-08",
+    "kind": "공식 자료"
+  },
+  "cabinet": {
+    "title": "대한민국 AI행동계획 수립 추진현황 국무회의 보고",
+    "url": "https://news.tf.co.kr/read/economy/2291673.htm",
+    "publisher": "더팩트",
+    "published": "2026-02-10",
+    "kind": "언론 보도"
+  },
+  "moon": {
+    "title": "AI로 국가 난제 푼다…K문샷 프로젝트 시동",
+    "url": "https://www.donga.com/news/Economy/article/all/20260225/133420432/1",
+    "publisher": "동아일보",
+    "published": "2026-02-25",
+    "kind": "언론 보도"
+  },
+  "labor": {
+    "title": "노동 현장 AI 전환과 일자리의 미래 릴레이 간담회",
+    "url": "https://www.donga.com/news/It/article/all/20260305/133471053/1",
+    "publisher": "동아일보",
+    "published": "2026-03-05",
+    "kind": "언론 보도"
+  },
+  "daegu": {
+    "title": "AI 행동계획 이행 점검 등 지역 AX 현장 행보 본격화",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=282039",
+    "publisher": "국가AI전략위원회 · KDI 수록",
+    "published": "2026-04-06",
+    "kind": "공식 자료"
+  },
+  "gwangju": {
+    "title": "광주·전남 나주 자율주행·반도체·에너지 AX 현장 점검",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=282021",
+    "publisher": "국가AI전략위원회 · KDI 수록",
+    "published": "2026-04-16",
+    "kind": "공식 자료"
+  },
+  "physical": {
+    "title": "자율주행·휴머노이드 소분과 신설",
+    "url": "https://zdnet.co.kr/view/?no=20260421163749",
+    "publisher": "ZDNet Korea",
+    "published": "2026-04-21",
+    "kind": "언론 보도"
+  },
+  "interim": {
+    "title": "배경훈, 국가AI전략위 운영 겸직…정책 연속성 확보",
+    "url": "https://www.yna.co.kr/view/AKR20260513168000017",
+    "publisher": "연합뉴스",
+    "published": "2026-05-14",
+    "kind": "언론 보도"
+  },
+  "manufacturing": {
+    "title": "대한민국 제조업 대전환의 길: 제조AI 2030 전략",
+    "url": "https://itskorea.kr/boardDetail.do?idx=22332&searchText=&searchType=&type=8",
+    "publisher": "산업통상부 공동보도자료 · ITS Korea 수록",
+    "published": "2026-06-29",
+    "kind": "공식 자료"
+  },
+  "mobility": {
+    "title": "피지컬 AI가 이끄는 자율주행 혁신 간담회",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=283912",
+    "publisher": "국가AI전략위원회 · KDI 수록",
+    "published": "2026-07-07",
+    "kind": "공식 자료"
+  },
+  "data": {
+    "title": "AI 시대의 데이터 가치평가 세미나",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=283988",
+    "publisher": "국가AI전략위원회 · KDI 수록",
+    "published": "2026-07-08",
+    "kind": "공식 자료"
+  },
+  "chips": {
+    "title": "국산 AI 반도체 실증·확산 사업 합동 착수보고회",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=285147",
+    "publisher": "과학기술정보통신부 · KDI 수록",
+    "published": "2026-08-06",
+    "kind": "공식 자료"
+  },
+  "ha": {
+    "title": "하정우 신임 상근부위원장 취임",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=286027",
+    "publisher": "국가AI전략위원회 · KDI 수록",
+    "published": "2026-08-31",
+    "kind": "공식 자료"
+  },
+  "europe": {
+    "title": "AI 경쟁력, 국민 신뢰 뒷받침돼야…한·유럽 정책 대화",
+    "url": "https://www.yna.co.kr/amp/view/AKR20260901185400017",
+    "publisher": "연합뉴스",
+    "published": "2026-09-01",
+    "kind": "언론 보도"
+  },
+  "cloud": {
+    "title": "모든 행정·공공기관 대상 클라우드컴퓨팅 총조사",
+    "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=286128",
+    "publisher": "행정안전부 · KDI 수록",
+    "published": "2026-09-01",
+    "kind": "공식 자료"
+  },
+  "anniversary": {
+    "title": "출범 1년, AI 대전환의 기반과 실행 과제",
+    "url": "https://www.yna.co.kr/view/AKR20260908115251017",
+    "publisher": "연합뉴스",
+    "published": "2026-09-08",
+    "kind": "언론 보도"
+  },
+  "reflection": {
+    "title": "AI 현장 확산 강조한 임문영…하정우, 체감 성과로 잇는다",
+    "url": "https://zdnet.co.kr/view/?no=20260908160243",
+    "publisher": "ZDNet Korea",
+    "published": "2026-09-08",
+    "kind": "언론 보도"
+  }
+}

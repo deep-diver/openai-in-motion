@@ -10,6 +10,7 @@ import {
 } from 'react';
 import gsap from 'gsap';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
@@ -218,6 +219,9 @@ function Home({
           MODELS <span>·</span> MILESTONES <span>·</span> PEOPLE
         </div>
         <div className="header-actions">
+          <Link href="/korea" className="about-button">
+            {t('국가AI전략위 편', 'Korea AI Council')}
+          </Link>
           <nav
             className="language-switch"
             aria-label={t('언어 선택', 'Language')}

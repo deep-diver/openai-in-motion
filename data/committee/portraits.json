@@ -1,0 +1,58 @@
+{
+  "lee": {
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-main-profile.png",
+    "credit": "국가인공지능전략위원회",
+    "rights": "Committee website footer states all rights reserved; no asset-specific reuse license found.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/lee.png"
+  },
+  "ha": {
+    "sourceUrl": "https://www.aikorea.go.kr/web/content.do?menu_cd=000018",
+    "imageUrl": "https://www.aikorea.go.kr/static/images/sub/content_/historical/img-sub-main-profile.png",
+    "credit": "국가인공지능전략위원회",
+    "rights": "Committee website footer states all rights reserved; no asset-specific reuse license found.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/ha.png"
+  },
+  "bae": {
+    "sourceUrl": "https://www.msit.go.kr/user/mnstrSchdl/mnstr.do?mId=257&mPid=256&sCode=user",
+    "imageUrl": "https://www.msit.go.kr/images/user/sub/img_minister01_bae2.png",
+    "credit": "과학기술정보통신부",
+    "rights": "Official source. No asset-specific reuse license verified.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/bae.png"
+  },
+  "cha": {
+    "sourceUrl": "https://www.ne.go.kr/new/user/contents/BD_selectContents.do?q_userMenuEngNm=010204",
+    "imageUrl": "https://www.ne.go.kr/resources/nec/images/sub/img_intro_3_3_1.png",
+    "credit": "국가교육위원회",
+    "rights": "Official source. No asset-specific reuse license verified.",
+    "objectPosition": "50% 0%",
+    "src": "/committee/portraits/cha.png"
+  },
+  "bengio": {
+    "sourceUrl": "https://mila.quebec/en/directory/yoshua-bengio",
+    "imageUrl": "https://mila.quebec/sites/default/files/styles/member_full/public/member/5139/portrait-of-yoshua-bengio.jpeg.webp?itok=4omgeVl1",
+    "credit": "Mila",
+    "rights": "Mila official academic profile portrait; no asset-specific reuse license found.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/bengio.webp"
+  },
+  "lim": {
+    "sourceUrl": "https://www.korea.kr/news/policyNewsView.do?newsId=148945170",
+    "imageUrl": "https://www.korea.kr/newsWeb/resources/attaches/2025.06/30/112(0).jpg",
+    "credit": "대한민국 정책브리핑 / 임문영 미래전환 대표",
+    "rights": "Policy Briefing page permits text under KOGL Type 1 but explicitly excludes most photographs; image reuse permission not established.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/lim.jpg"
+  },
+  "kim": {
+    "sourceUrl": "https://www.motir.go.kr/kor/contents/70",
+    "imageUrl": "https://www.motir.go.kr/images/contents/sub/photo_person01.png",
+    "credit": "산업통상부",
+    "rights": "Official source. No asset-specific reuse license verified.",
+    "objectPosition": "50% 30%",
+    "src": "/committee/portraits/kim.png"
+  }
+}

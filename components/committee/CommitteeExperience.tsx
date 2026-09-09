@@ -1,0 +1,612 @@
+'use client';
+/* eslint-disable next/no-img-element -- Credited local profile photographs. */
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type SetStateAction,
+} from 'react';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import gsap from 'gsap';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  Pause,
+  Play,
+  RotateCcw,
+  List,
+  MoveUpRight,
+} from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Slider } from '@/components/ui/slider';
+import { usePageVisibility } from '@/components/timeline/usePageVisibility';
+import { useTimelineInput } from '@/components/timeline/useTimelineInput';
+import { scenes } from '@/data/committee/scenes';
+import { sources } from '@/data/committee/sources';
+import { AXES, PEOPLE, type Axis } from '@/data/committee/types';
+import portraits from '@/data/committee/portraits.json';
+import type { Clock, Projection } from './CommitteeStage';
+import { SCENE_DURATION as DURATION, navigationStart } from './motion';
+import './committee.css';
+const Stage = dynamic(() => import('./CommitteeStage'), {
+  ssr: false,
+  loading: () => (
+    <div className="committee-canvas-fallback">3D 무대를 불러오고 있어요…</div>
+  ),
+});
+const date = (v: string) => v.replaceAll('-', '.');
+export default function CommitteeExperience() {
+  const [index, setIndex] = useState(0),
+    [previous, setPrevious] = useState<number | null>(null),
+    [playing, setPlaying] = useState(true),
+    [speed, setSpeed] = useState(1),
+    [progress, setProgress] = useState(0),
+    [replay, setReplay] = useState(0),
+    [reduced, setReduced] = useState(false),
+    [dialog, setDialog] = useState<'sources' | 'archive' | null>(null),
+    [filter, setFilter] = useState<Axis | 'all'>('all'),
+    [ready, setReady] = useState(false);
+  const startTime = useRef(0);
+  const clock = useRef<Clock>({ time: 0, previousTime: 0, reduced: false });
+  const projection: Projection = useRef({
+    object: null,
+    speaker: null,
+    objectLine: null,
+    speakerLine: null,
+  });
+  const tween = useRef<gsap.core.Tween | null>(null),
+    state = useRef({ index, playing, speed, reduced }),
+    rail = useRef<HTMLDivElement>(null);
+  const onReady = useCallback(() => setReady(true), []);
+  const visible = usePageVisibility();
+  const scene = scenes[index],
+    axis = AXES[scene.axis];
+  const photo = portraits[scene.speaker.person as keyof typeof portraits];
+  const go = useCallback((next: SetStateAction<number>) => {
+    const before = state.current.index;
+    const requested = typeof next === 'function' ? next(before) : next;
+    const n = Math.max(0, Math.min(scenes.length - 1, requested));
+    if (n === before) return;
+    clock.current.previousTime = clock.current.time;
+    state.current.index = n;
+    startTime.current = navigationStart(
+      state.current.playing,
+      state.current.reduced,
+    );
+    setPrevious(before);
+    setIndex(n);
+    setProgress(startTime.current / DURATION);
+  }, []);
+  useTimelineInput(go, dialog !== null, scenes.length);
+  useLayoutEffect(() => {
+    state.current = { index, playing, speed, reduced };
+    clock.current.reduced = reduced;
+  }, [index, playing, speed, reduced]);
+  useLayoutEffect(() => {
+    clock.current.time = 0;
+    let last = -1;
+    const t = gsap.to(clock.current, {
+      time: DURATION,
+      duration: DURATION,
+      ease: 'none',
+      paused: true,
+      onUpdate: () => {
+        const tick = Math.floor(clock.current.time * 12);
+        if (tick !== last) {
+          last = tick;
+          setProgress(clock.current.time / DURATION);
+        }
+      },
+      onComplete: () => {
+        if (
+          state.current.index < scenes.length - 1 &&
+          state.current.playing &&
+          !state.current.reduced
+        )
+          go(state.current.index + 1);
+        else setPlaying(false);
+      },
+    });
+    t.time(startTime.current, true);
+    tween.current = t;
+    return () => {
+      t.kill();
+    };
+  }, [index, replay, go]);
+  useEffect(() => {
+    const t = tween.current;
+    if (!t) return;
+    t.timeScale(speed);
+    if (reduced) {
+      t.pause();
+      clock.current.time = DURATION;
+    } else t.paused(!ready || !playing || !visible || dialog !== null);
+  }, [index, replay, playing, speed, visible, dialog, reduced, ready]);
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const change = () => {
+      setReduced(media.matches);
+      if (media.matches) setPlaying(false);
+    };
+    change();
+    media.addEventListener('change', change);
+    return () => media.removeEventListener('change', change);
+  }, []);
+  const toggle = useCallback(() => {
+    if (state.current.reduced) return;
+    if (clock.current.time >= DURATION) {
+      if (state.current.index === scenes.length - 1) {
+        go(0);
+        startTime.current = 0;
+      } else {
+        startTime.current = 0;
+        setReplay((v) => v + 1);
+      }
+      setProgress(0);
+      setPlaying(true);
+    } else setPlaying((v) => !v);
+  }, [go]);
+  useEffect(() => {
+    const key = (e: KeyboardEvent) => {
+      if (
+        e.code !== 'Space' ||
+        e.repeat ||
+        e.altKey ||
+        e.ctrlKey ||
+        e.metaKey ||
+        e.shiftKey ||
+        dialog ||
+        (e.target instanceof Element &&
+          e.target.closest(
+            'button,a,input,select,textarea,[role="slider"],[role="dialog"]',
+          ))
+      )
+        return;
+      e.preventDefault();
+      toggle();
+    };
+    window.addEventListener('keydown', key);
+    return () => window.removeEventListener('keydown', key);
+  }, [dialog, toggle]);
+  useEffect(() => {
+    const el = rail.current?.querySelector<HTMLButtonElement>(
+      '[aria-current="step"]',
+    );
+    if (!el || !rail.current) return;
+    const target = el.offsetLeft - rail.current.clientWidth * 0.38;
+    rail.current.scrollTo({
+      left: Math.max(0, target),
+      behavior: reduced ? 'instant' : 'smooth',
+    });
+  }, [index, reduced]);
+  const displayProgress = reduced ? 1 : progress;
+  const beat = Math.min(2, Math.floor(displayProgress * 3));
+  const remaining = Math.ceil(
+    ((scenes.length - index - progress) * DURATION) / speed,
+  );
+  return (
+    <main
+      className="committee"
+      style={{ '--scene-accent': axis.color } as CSSProperties}
+    >
+      <header className="committee-header">
+        <Link href="/" className="committee-brand">
+          <span className="committee-brand-symbol">↗</span>
+          <span>
+            HISTORY IN MOTION<small>한국 AI 정책 아카이브</small>
+          </span>
+        </Link>
+        <nav>
+          <Link href="/en">
+            OpenAI 편 <ArrowUpRight size={15} />
+          </Link>
+          <button onClick={() => setDialog('archive')}>
+            <List size={17} /> 전체 기록
+          </button>
+        </nav>
+      </header>
+      <section className="committee-title">
+        <div>
+          <p className="committee-eyebrow">
+            2025.09.08 — 2026.09.08 <span>첫 1년의 기록</span>
+          </p>
+          <h1>
+            국가AI전략위원회의
+            <br />
+            <em>1년을 잇다.</em>
+          </h1>
+        </div>
+        <p>
+          전략이 결정되고, 기술이 연결되고,
+          <br />
+          사람의 일상으로 향하기까지.
+        </p>
+      </section>
+      <section className="committee-theater" aria-label="위원회 여정 재생">
+        <aside className="committee-story" key={scene.id}>
+          <div className="committee-story-top">
+            <span>{AXES[scene.axis].name}</span>
+            <small>
+              {String(index + 1).padStart(2, '0')} / {scenes.length}
+            </small>
+          </div>
+          <time dateTime={scene.date}>
+            {date(scene.date)}
+            {scene.endDate ? ` — ${date(scene.endDate)}` : ''}
+          </time>
+          <h2>{scene.title}</h2>
+          <div className="committee-tags">
+            <span>{scene.status}</span>
+            <span>{scene.scope}</span>
+          </div>
+          <p>{scene.summary}</p>
+          <div className="committee-beat">
+            <span>장면 속 이야기</span>
+            <div className="committee-caption-stack">
+              {scene.beats.map((text, i) => (
+                <p
+                  key={text}
+                  style={{
+                    opacity: i === beat ? 1 : 0,
+                    transform: `translateY(${i === beat ? 0 : i < beat ? -8 : 8}px)`,
+                  }}
+                  aria-hidden={i !== beat}
+                >
+                  {text}
+                </p>
+              ))}
+            </div>
+          </div>
+          <button
+            className="committee-details"
+            onClick={() => setDialog('sources')}
+          >
+            <BookOpen size={17} /> 사건 자세히 · 근거 자료{' '}
+            <MoveUpRight size={17} />
+          </button>
+        </aside>
+        <div className="committee-stage">
+          <div className="committee-stage-meta">
+            <span>한 무대, 이어지는 기록</span>
+            <span>
+              {scene.scope === '위원회 활동' ? 'COMMITTEE' : 'POLICY CONTEXT'}
+            </span>
+          </div>
+          <Stage
+            onReady={onReady}
+            scene={scene}
+            previous={previous === null ? null : scenes[previous]}
+            clock={clock}
+            projection={projection}
+          />
+          <svg className="committee-leaders" aria-hidden="true">
+            <path
+              ref={(el) => {
+                projection.current.objectLine = el;
+              }}
+            />
+            <path
+              ref={(el) => {
+                projection.current.speakerLine = el;
+              }}
+            />
+          </svg>
+          <div
+            className="committee-object"
+            ref={(el) => {
+              projection.current.object = el;
+            }}
+          >
+            <span className="committee-dot" />
+            <strong>{scene.object.title}</strong>
+            <p>{scene.object.text}</p>
+          </div>
+          <div
+            className="committee-speaker"
+            ref={(el) => {
+              projection.current.speaker = el;
+            }}
+          >
+            <div className="committee-identity">
+              {photo && (
+                <span className="committee-face">
+                  <img
+                    key={photo.src}
+                    src={photo.src}
+                    alt={PEOPLE[scene.speaker.person].name}
+                    style={{
+                      objectPosition: photo.objectPosition,
+                      ...(scene.speaker.person === 'cha'
+                        ? {
+                            transform: 'scale(1.5)',
+                            transformOrigin: '50% 20%',
+                          }
+                        : {}),
+                    }}
+                  />
+                </span>
+              )}
+              <div>
+                <strong>{PEOPLE[scene.speaker.person].name}</strong>
+                <span>{scene.speaker.role}</span>
+              </div>
+            </div>
+            <p>
+              {scene.speaker.mode === '직접 인용'
+                ? `“${scene.speaker.text}”`
+                : scene.speaker.text}
+            </p>
+            <small>
+              {scene.speaker.mode === '정책 설명'
+                ? '인물 관련 정책 설명 · 실제 대사 아님'
+                : scene.speaker.mode}
+            </small>
+          </div>
+        </div>
+      </section>
+      <section className="committee-player" aria-label="재생 조작">
+        <div className="committee-play-buttons">
+          <button
+            onClick={() => go(index - 1)}
+            disabled={index === 0}
+            aria-label="이전 장면"
+          >
+            <ArrowLeft size={19} />
+          </button>
+          <button
+            className="committee-play"
+            onClick={toggle}
+            disabled={reduced}
+            aria-label={playing ? '일시정지' : '재생'}
+          >
+            {playing ? <Pause size={18} /> : <Play size={18} />}
+            <span>
+              {index === scenes.length - 1 && progress >= 1
+                ? '처음부터'
+                : playing
+                  ? '일시정지'
+                  : '재생'}
+            </span>
+          </button>
+          <button
+            onClick={() => go(index + 1)}
+            disabled={index === scenes.length - 1}
+            aria-label="다음 장면"
+          >
+            <ArrowRight size={19} />
+          </button>
+          <button
+            onClick={() => {
+              startTime.current = navigationStart(playing, reduced);
+              setReplay((v) => v + 1);
+              setProgress(startTime.current / DURATION);
+            }}
+            disabled={reduced}
+            aria-label="현재 장면 다시 보기"
+          >
+            <RotateCcw size={17} />
+          </button>
+        </div>
+        <div className="committee-scrub">
+          <Slider
+            aria-label="현재 장면 재생 위치"
+            min={0}
+            max={24}
+            step={0.1}
+            value={[displayProgress * DURATION]}
+            disabled={reduced}
+            onValueChange={(v) => {
+              const t = Array.isArray(v) ? v[0] : v;
+              setPlaying(false);
+              tween.current?.time(t, true);
+              clock.current.time = t;
+              setProgress(t / DURATION);
+            }}
+          />
+          <span>{Math.round(displayProgress * 24)}초 / 24초</span>
+        </div>
+        <label className="committee-speed">
+          재생 속도
+          <select
+            value={speed}
+            onChange={(e) => setSpeed(Number(e.target.value))}
+          >
+            {[0.5, 1, 1.5, 2, 3, 5].map((v) => (
+              <option key={v} value={v}>
+                {v}×
+              </option>
+            ))}
+          </select>
+        </label>
+        <span className="committee-remaining">
+          {Math.floor(remaining / 60)}분 {remaining % 60}초 남음
+        </span>
+      </section>
+      {reduced && (
+        <p className="committee-motion-note">
+          기기의 동작 줄이기 설정에 따라 완성된 장면을 표시합니다. 이전·다음으로
+          기록을 읽을 수 있어요.
+        </p>
+      )}
+      <section
+        className="committee-timeline"
+        aria-label="세 축의 사건 타임라인"
+      >
+        <div className="committee-axis-labels">
+          {Object.values(AXES).map((a) => (
+            <span key={a.name}>
+              <i style={{ background: a.color }} />
+              {a.name}
+            </span>
+          ))}
+        </div>
+        <div className="committee-rail" ref={rail}>
+          <div
+            className="committee-track-grid"
+            style={{ width: scenes.length * 132 }}
+          >
+            <div
+              className="committee-playhead"
+              style={{ left: (index + progress) * 132 }}
+            />
+            {(Object.keys(AXES) as Axis[]).map((a) => (
+              <div className="committee-track" key={a}>
+                {scenes.map((s, i) => (
+                  <div className="committee-track-slot" key={s.id}>
+                    {s.axis === a && (
+                      <button
+                        style={
+                          { '--item-accent': AXES[a].color } as CSSProperties
+                        }
+                        onClick={() => go(i)}
+                        aria-current={i === index ? 'step' : undefined}
+                      >
+                        <small>{s.date.slice(2).replaceAll('-', '.')}</small>
+                        <span>{s.short}</span>
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <footer className="committee-footer">
+        <span>{scenes.length}개 장면 · 3개의 축 · 공개 자료 기반</span>
+        <span>사건 기준일 2026.09.08 · 비공식 해설 아카이브</span>
+        <button onClick={() => setDialog('sources')}>
+          출처와 해설 기준 <ArrowUpRight size={14} />
+        </button>
+      </footer>
+      <Dialog
+        open={dialog !== null}
+        onOpenChange={(open) => {
+          if (!open) setDialog(null);
+        }}
+      >
+        <DialogContent className="committee-dialog">
+          <DialogTitle>
+            {dialog === 'archive' ? '첫 1년, 전체 기록' : scene.title}
+          </DialogTitle>
+          <DialogDescription>
+            {dialog === 'archive'
+              ? '각 사건을 선택하면 해당 무대로 이동합니다.'
+              : '발표 당시의 사실과 이후의 계획을 구분해 읽습니다.'}
+          </DialogDescription>
+          {dialog === 'archive' ? (
+            <>
+              <div className="committee-filters">
+                {(['all', ...Object.keys(AXES)] as (Axis | 'all')[]).map(
+                  (a) => (
+                    <button
+                      key={a}
+                      aria-pressed={filter === a}
+                      onClick={() => setFilter(a)}
+                    >
+                      {a === 'all' ? '전체' : AXES[a].name}
+                    </button>
+                  ),
+                )}
+              </div>
+              <div className="committee-archive">
+                {scenes.map((s, i) =>
+                  filter !== 'all' && s.axis !== filter ? null : (
+                    <button
+                      key={s.id}
+                      onClick={() => {
+                        go(i);
+                        setDialog(null);
+                      }}
+                    >
+                      <time>{date(s.date)}</time>
+                      <div>
+                        <strong>{s.short}</strong>
+                        <p>{s.summary}</p>
+                      </div>
+                      <span>{s.status}</span>
+                    </button>
+                  ),
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="committee-evidence">
+              <p className="committee-evidence-date">
+                {date(scene.date)} · {scene.scope} · {scene.status}
+              </p>
+              <h3>무슨 일이 있었나</h3>
+              <ul>
+                {scene.facts.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <h3>이 여정에서의 의미</h3>
+              <p>{scene.meaning}</p>
+              <h3>어디까지 확인됐나</h3>
+              <p>{scene.boundary}</p>
+              <h3>다음 장면으로</h3>
+              <p>{scene.bridge}</p>
+              <h3>근거 자료</h3>
+              {scene.sources.map((id) => {
+                const s = sources[id];
+                return (
+                  <a
+                    className="committee-source"
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={id}
+                  >
+                    <strong>{s.title} ↗</strong>
+                    <span>
+                      {s.publisher} · {s.published} · {s.kind}
+                    </span>
+                  </a>
+                );
+              })}
+              <h3>인물과 표현</h3>
+              <p>
+                {scene.speaker.mode === '정책 설명'
+                  ? '인물의 역할과 관련 정책을 설명하는 편집 문장입니다. 실제 발언이나 직접 인용이 아닙니다.'
+                  : '발언은 연결된 자료에 근거합니다. 발언 요지는 뜻을 간추린 문장으로 직접 인용과 구분합니다.'}{' '}
+                무대는 사건을 이해하기 위한 재구성이며 실제 현장의 복제가
+                아닙니다.
+              </p>
+              {photo && (
+                <>
+                  <a
+                    className="committee-source"
+                    href={photo.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <strong>
+                      {PEOPLE[scene.speaker.person].name} 사진 출처 ↗
+                    </strong>
+                    <span>{photo.credit}</span>
+                  </a>
+                  <p className="committee-credit">
+                    사진의 권리는 원저작자에게 있습니다. 프로필 사진은 사건 당시
+                    촬영된 사진을 뜻하지 않습니다.
+                  </p>
+                </>
+              )}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </main>
+  );
+}
