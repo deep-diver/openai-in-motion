@@ -27,7 +27,6 @@ export default defineConfig({
       input: {
         home: file('./pages-static/index.html'),
         en: file('./pages-static/en/index.html'),
-        korea: file('./pages-static/korea/index.html'),
       },
     },
   },

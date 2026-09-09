@@ -24,15 +24,17 @@ npm run dev
 
 - 공개 주소: `https://deep-diver.github.io/openai-in-motion/`
 - 영어: `/openai-in-motion/en/`
-- 국가AI전략위원회: `/openai-in-motion/korea/`
 - `main`에 푸시하면 `.github/workflows/pages.yml`이 테스트, 빌드, 배포를 수행합니다.
 - 다른 저장소에서는 Actions의 `GITHUB_REPOSITORY`로 기본 경로를 자동 계산합니다.
   사용자 도메인을 쓰려면 `NEXT_PUBLIC_BASE_PATH`를 빈 문자열로 설정합니다.
 
-`pages-static/`은 세 페이지의 HTML 진입점과 정적 호스팅용 Link/지연 로딩 어댑터입니다.
+`pages-static/`은 한국어·영문 페이지의 HTML 진입점과 정적 호스팅용 Link/지연 로딩 어댑터입니다.
 장면, 재생기, 데이터, CSS는 기존 앱과 공유합니다. 각 페이지에 실제 `index.html`이
 있어 직접 접속과 새로고침에 서버의 경로 재작성 기능이 필요하지 않습니다.
 사진과 Geist 글꼴도 사이트에 포함됩니다. 영상 산출물(`outputs/`)은 배포에 포함하지 않습니다.
+
+국가AI전략위원회 아카이브는 독립 저장소 `deep-diver/korea-ai-in-motion`으로 이전했습니다.
+이 저장소에는 OpenAI 연대기만 포함하며, 예전 `/korea/` 주소는 새 사이트로 연결됩니다.
 
 ## 한국어 / English
 
